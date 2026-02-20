@@ -9,15 +9,11 @@ import {
   PieChart,
   Leaf,
   Network,
-  Search as SearchIcon,
-  Bell,
   Menu,
-  ChevronDown,
   BookOpen } from
 "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
-import { Input } from "@/components/ui/input";
 
 interface MenuItem {
   title: string;
@@ -52,29 +48,11 @@ export default function AppLayout() {
           </button>
         </div>
 
-        {/* Center: Search */}
-        <div className="ml-6 hidden flex-1 sm:block sm:max-w-sm">
-          <div className="relative">
-            <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              placeholder="Busque por produtos"
-              className="h-9 rounded-full border-border bg-background pl-9 text-sm" />
-
-          </div>
-        </div>
-
-        {/* Right: Produtos badge + bell + user */}
+        {/* Right: Documentação badge */}
         <div className="ml-auto flex items-center gap-4">
           <div className="flex items-center gap-1.5 text-sm font-medium text-foreground">
             <BookOpen className="h-4 w-4" />
             Documentação
-          </div>
-          <button className="relative rounded p-1.5 hover:bg-muted">
-            <Bell className="h-5 w-5 text-foreground" />
-          </button>
-          <div className="flex items-center gap-1 text-sm text-foreground">
-            <span className="hidden font-medium sm:inline">usuário</span>
-            <ChevronDown className="h-4 w-4 text-muted-foreground" />
           </div>
         </div>
       </header>
