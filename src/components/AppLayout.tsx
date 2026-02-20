@@ -67,7 +67,7 @@ export default function AppLayout() {
         <div className="ml-auto flex items-center gap-4">
           <div className="flex items-center gap-1.5 text-sm font-medium text-foreground">
             <BookOpen className="h-4 w-4" />
-            Produtos
+            Documentação
           </div>
           <button className="relative rounded p-1.5 hover:bg-muted">
             <Bell className="h-5 w-5 text-foreground" />
