@@ -9,15 +9,11 @@ import {
   PieChart,
   Leaf,
   Network,
-  Search as SearchIcon,
-  Bell,
   Menu,
-  ChevronDown,
   BookOpen } from
 "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
-import { Input } from "@/components/ui/input";
 
 interface MenuItem {
   title: string;
@@ -40,44 +36,26 @@ export default function AppLayout() {
   return (
     <div className="flex min-h-screen w-full flex-col">
       {/* Top Navbar */}
-      
+      <header className="sticky top-0 z-50 flex h-14 items-center border-b bg-card px-4 shadow-sm">
+        {/* Left: Logo + hamburger */}
+        <div className="flex items-center gap-3">
+          <img src={claroLogo} alt="Claro" className="h-8 w-auto" />
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="rounded p-1.5 hover:bg-muted">
 
+            <Menu className="h-5 w-5 text-foreground" />
+          </button>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        {/* Right: Documentação badge */}
+        <div className="ml-auto flex items-center gap-4">
+          <div className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+            <BookOpen className="h-4 w-4" />
+            Documentação
+          </div>
+        </div>
+      </header>
 
       <div className="flex flex-1">
         {/* Sidebar */}
