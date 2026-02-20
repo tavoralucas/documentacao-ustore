@@ -1,23 +1,41 @@
-import { Globe } from "lucide-react";
+import {
+  Globe,
+  LogIn,
+  Cloud,
+  LayoutDashboard,
+  Database,
+  RefreshCw,
+  PlusSquare,
+  UserPlus,
+  MessageCircle,
+  Bell,
+  Settings,
+  BellOff,
+  EyeOff,
+  Tag,
+  SlidersHorizontal,
+  ScrollText,
+  Download,
+} from "lucide-react";
 
 const docTopics = [
-  "Visão Geral",
-  "Acesso ao P360",
-  "Autenticando com o Google Cloud",
-  "Dashboards e Paineis",
-  "Conectando e configurando Datasource no PMC P360",
-  "Dados em tempo real: Refresh automático",
-  "Criando e gerenciando Dashboards",
-  "Adicionando um novo cliente na tela geral de monitoramento",
-  "Integração com Telegram para notificações de alertas",
-  "Como configurar Alertas",
-  "Procedimentos para configurar Alertas",
-  "Silenciando uma notificação de alerta",
-  "Visualizando e Removendo Silenciamentos",
-  "Adicionando uma nova tag de label em alertas",
-  "Configurando as consultas e condições de alertas",
-  "Explorando e analisando os Logs",
-  "Instalando e configurando o Agente",
+  { title: "Visão Geral", icon: Globe, description: "Documentação detalhada sobre visão geral do Panorama 360." },
+  { title: "Acesso ao P360", icon: LogIn, description: "Como acessar e entrar na plataforma Panorama 360." },
+  { title: "Autenticando com o Google Cloud", icon: Cloud, description: "Guia de autenticação e integração com o Google Cloud." },
+  { title: "Dashboards e Paineis", icon: LayoutDashboard, description: "Visão geral dos dashboards e painéis disponíveis." },
+  { title: "Conectando e configurando Datasource no PMC P360", icon: Database, description: "Como conectar e configurar fontes de dados no PMC P360." },
+  { title: "Dados em tempo real: Refresh automático", icon: RefreshCw, description: "Configuração de atualização automática de dados em tempo real." },
+  { title: "Criando e gerenciando Dashboards", icon: PlusSquare, description: "Passo a passo para criar e gerenciar seus dashboards." },
+  { title: "Adicionando um novo cliente na tela geral de monitoramento", icon: UserPlus, description: "Como adicionar clientes na tela de monitoramento." },
+  { title: "Integração com Telegram para notificações de alertas", icon: MessageCircle, description: "Configure alertas via Telegram para seu ambiente." },
+  { title: "Como configurar Alertas", icon: Bell, description: "Guia para configuração de alertas na plataforma." },
+  { title: "Procedimentos para configurar Alertas", icon: Settings, description: "Procedimentos detalhados para configuração de alertas." },
+  { title: "Silenciando uma notificação de alerta", icon: BellOff, description: "Como silenciar notificações de alerta temporariamente." },
+  { title: "Visualizando e Removendo Silenciamentos", icon: EyeOff, description: "Gerencie e remova silenciamentos ativos na plataforma." },
+  { title: "Adicionando uma nova tag de label em alertas", icon: Tag, description: "Como criar e aplicar tags de label nos alertas." },
+  { title: "Configurando as consultas e condições de alertas", icon: SlidersHorizontal, description: "Defina consultas e condições para disparo de alertas." },
+  { title: "Explorando e analisando os Logs", icon: ScrollText, description: "Como explorar e analisar logs da plataforma." },
+  { title: "Instalando e configurando o Agente", icon: Download, description: "Guia de instalação e configuração do agente de monitoramento." },
 ];
 
 export default function Panorama360() {
@@ -34,15 +52,18 @@ export default function Panorama360() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {docTopics.map((topic) => (
+        {docTopics.map(({ title, icon: Icon, description }) => (
           <div
-            key={topic}
+            key={title}
             className="rounded-lg border border-border bg-card p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
           >
-            <h3 className="font-semibold text-foreground">{topic}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Documentação detalhada sobre {topic.toLowerCase()}.
-            </p>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10">
+                <Icon className="h-4 w-4 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground">{title}</h3>
+            </div>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
         ))}
       </div>
