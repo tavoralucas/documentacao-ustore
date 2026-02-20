@@ -1,4 +1,20 @@
-import { PieChart } from "lucide-react";
+import {
+  PieChart,
+  LayoutDashboard,
+  Sliders,
+  GitCompare,
+  Cloud,
+  Lightbulb,
+} from "lucide-react";
+
+const docTopics = [
+  { title: "Visão Geral", icon: PieChart, description: "Introdução ao Finops 360 e visão consolidada das funcionalidades de economia e savings em nuvem." },
+  { title: "Dashboard", icon: LayoutDashboard, description: "Painel central com métricas de custos, economias realizadas e oportunidades de otimização." },
+  { title: "Rightsizing", icon: Sliders, description: "Recomendações inteligentes para ajuste de tamanho de instâncias, eliminando desperdício de recursos." },
+  { title: "Compare Cloud", icon: GitCompare, description: "Compare preços e configurações entre diferentes provedores de nuvem para tomar decisões mais econômicas." },
+  { title: "Imaginary Cloud", icon: Cloud, description: "Simulação e estimativa de custos em ambientes de nuvem hipotéticos para planejamento financeiro." },
+  { title: "Provider Hint", icon: Lightbulb, description: "Dicas e sugestões automáticas de provedores com melhor custo-benefício para cada workload." },
+];
 
 export default function Finops360() {
   return (
@@ -14,12 +30,18 @@ export default function Finops360() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {["Visão Geral", "Arquitetura", "Guia de Uso", "APIs", "Configurações", "FAQ"].map((section) => (
-          <div key={section} className="rounded-lg border border-border bg-card p-5 shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-foreground">{section}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Documentação detalhada sobre {section.toLowerCase()} do Finops 360.
-            </p>
+        {docTopics.map(({ title, icon: Icon, description }) => (
+          <div
+            key={title}
+            className="rounded-lg border border-border bg-card p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10">
+                <Icon className="h-4 w-4 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground">{title}</h3>
+            </div>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
         ))}
       </div>
