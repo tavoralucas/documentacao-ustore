@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./components/AppLayout";
 import Panorama360 from "./pages/Panorama360";
+import VisaoGeral from "./pages/panorama360/VisaoGeral";
 import CloudOrchestration from "./pages/CloudOrchestration";
 import CostManagement from "./pages/CostManagement";
 import Finops360 from "./pages/Finops360";
@@ -24,6 +25,7 @@ const App = () => (
           <Route element={<AppLayout />}>
             <Route path="/" element={<Panorama360 />} />
             <Route path="/panorama-360" element={<Panorama360 />} />
+            <Route path="/panorama-360/visao-geral" element={<VisaoGeral />} />
             <Route path="/cloud-orchestration" element={<CloudOrchestration />} />
             <Route path="/cost-management" element={<CostManagement />} />
             <Route path="/finops-360" element={<Finops360 />} />
