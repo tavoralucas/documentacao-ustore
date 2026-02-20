@@ -10,7 +10,6 @@ import {
   ScaleIcon,
   Database,
   Building2,
-  DollarSign,
   ClipboardList,
   Lightbulb,
   PlugZap,
@@ -36,7 +35,7 @@ const docTopics = [
   { title: "Scaling Groups", icon: ScaleIcon, description: "Configuração de grupos de escalonamento automático conforme demanda." },
   { title: "Banco de Dados", icon: Database, description: "Provisionamento e administração de instâncias de banco de dados gerenciados." },
   { title: "Virtual Datacenters", icon: Building2, description: "Criação e gerenciamento de datacenters virtuais isolados e seguros." },
-  { title: "Financeiro", icon: DollarSign, description: "Controle de custos, relatórios financeiros e gestão de orçamentos em nuvem." },
+  
   { title: "Ordem de Serviço", icon: ClipboardList, description: "Acompanhamento e gestão de ordens de serviço e tickets de suporte." },
   { title: "Recomendações", icon: Lightbulb, description: "Sugestões inteligentes para otimização de recursos, custos e performance." },
   { title: "Account Providers", icon: PlugZap, description: "Integração e gestão de provedores de conta e credenciais externas." },
@@ -64,7 +63,7 @@ export default function CloudOrchestration() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {docTopics.map(({ title, icon: Icon, description }) => (
           <div
             key={title}
