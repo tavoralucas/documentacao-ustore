@@ -9,7 +9,6 @@ import {
   PieChart,
   Leaf,
   Network,
-  Menu,
   BookOpen } from
 "lucide-react";
 import { NavLink } from "@/components/NavLink";
@@ -40,12 +39,6 @@ export default function AppLayout() {
         {/* Left: Logo + hamburger */}
         <div className="flex items-center gap-3">
           <img src={claroLogo} alt="Claro" className="h-8 w-auto" />
-          <button
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="rounded p-1.5 hover:bg-muted">
-
-            <Menu className="h-5 w-5 text-foreground" />
-          </button>
         </div>
 
         {/* Right: Documentação badge */}
