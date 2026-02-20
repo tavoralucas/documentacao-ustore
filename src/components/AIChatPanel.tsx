@@ -179,9 +179,9 @@ export function AIChatPanel() {
   };
 
   const quickSuggestions = [
-    "Quais são os principais alertas desta página?",
-    "Resuma os dados mais importantes",
-    "O que devo priorizar?",
+    "Do que se trata este produto?",
+    "Quais são as principais funcionalidades?",
+    "Quais são os benefícios deste produto?",
   ];
 
   return (
@@ -254,10 +254,10 @@ export function AIChatPanel() {
                   <Sparkles className="h-6 w-6 text-primary" />
                 </div>
                 <p className="text-sm font-semibold text-foreground">
-                  Olá! Sou seu assistente GPON.
+                  Olá! Sou seu assistente de documentação.
                 </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Analisando <span className="font-medium text-primary">{pageContext.title}</span>. Comece uma nova conversa ou continue uma anterior.
+                  Analisando a documentação de <span className="font-medium text-primary">{pageContext.title}</span>. Comece uma nova conversa ou continue uma anterior.
                 </p>
                 <div className="w-full space-y-2 mt-1">
                   {quickSuggestions.map((q) => (
@@ -363,7 +363,7 @@ export function AIChatPanel() {
                       <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary">
                         <Bot className="h-3 w-3 text-white" />
                       </div>
-                      <span className="text-[10px] font-medium text-muted-foreground">GPONZINHA</span>
+                      <span className="text-[10px] font-medium text-muted-foreground">Assistente</span>
                     </div>
                   )}
                   <div
