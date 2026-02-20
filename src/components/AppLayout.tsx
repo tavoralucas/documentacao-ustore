@@ -13,8 +13,8 @@ import {
   Bell,
   Menu,
   ChevronDown,
-  BookOpen,
-} from "lucide-react";
+  BookOpen } from
+"lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
@@ -26,13 +26,13 @@ interface MenuItem {
 }
 
 const menuItems: MenuItem[] = [
-  { title: "Panorama 360", url: "/panorama-360", icon: Globe },
-  { title: "Cloud Orchestration", url: "/cloud-orchestration", icon: Cloud },
-  { title: "Cost Management", url: "/cost-management", icon: TrendingDown },
-  { title: "Finops 360", url: "/finops-360", icon: PieChart },
-  { title: "Mangue", url: "/mangue", icon: Leaf },
-  { title: "DCI", url: "/dci", icon: Network },
-];
+{ title: "Panorama 360", url: "/panorama-360", icon: Globe },
+{ title: "Cloud Orchestration", url: "/cloud-orchestration", icon: Cloud },
+{ title: "Cost Management", url: "/cost-management", icon: TrendingDown },
+{ title: "Finops 360", url: "/finops-360", icon: PieChart },
+{ title: "Mangue", url: "/mangue", icon: Leaf },
+{ title: "DCI", url: "/dci", icon: Network }];
+
 
 export default function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -46,8 +46,8 @@ export default function AppLayout() {
           <img src={claroLogo} alt="Claro" className="h-8 w-auto" />
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="rounded p-1.5 hover:bg-muted"
-          >
+            className="rounded p-1.5 hover:bg-muted">
+
             <Menu className="h-5 w-5 text-foreground" />
           </button>
         </div>
@@ -58,8 +58,8 @@ export default function AppLayout() {
             <SearchIcon className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               placeholder="Busque por produtos"
-              className="h-9 rounded-full border-border bg-background pl-9 text-sm"
-            />
+              className="h-9 rounded-full border-border bg-background pl-9 text-sm" />
+
           </div>
         </div>
 
@@ -85,26 +85,26 @@ export default function AppLayout() {
           className={cn(
             "sticky top-14 h-[calc(100vh-3.5rem)] shrink-0 border-r bg-card transition-all duration-200 overflow-y-auto",
             sidebarOpen ? "w-56" : "w-0 overflow-hidden border-r-0"
-          )}
-        >
+          )}>
+
           <div className="px-3 pb-2 pt-4">
             <p className="mb-2 text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
-              Produtos
+              Documentação
             </p>
           </div>
 
           <nav className="flex flex-col gap-0.5 px-2">
-            {menuItems.map((item) => (
-              <NavLink
-                key={item.url}
-                to={item.url}
-                className="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-                activeClassName="bg-primary text-primary-foreground hover:bg-primary/90"
-              >
+            {menuItems.map((item) =>
+            <NavLink
+              key={item.url}
+              to={item.url}
+              className="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+              activeClassName="bg-primary text-primary-foreground hover:bg-primary/90">
+
                 <item.icon className="h-[18px] w-[18px] shrink-0" />
                 <span>{item.title}</span>
               </NavLink>
-            ))}
+            )}
           </nav>
         </aside>
 
@@ -116,6 +116,6 @@ export default function AppLayout() {
 
       {/* AI Chat Panel - available on all pages */}
       <AIChatPanel />
-    </div>
-  );
+    </div>);
+
 }
