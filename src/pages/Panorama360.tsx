@@ -17,28 +17,31 @@ import {
   ScrollText,
   Download,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const docTopics = [
-  { title: "Visão Geral", icon: Globe, description: "Documentação detalhada sobre visão geral do Panorama 360." },
-  { title: "Acesso ao P360", icon: LogIn, description: "Como acessar e entrar na plataforma Panorama 360." },
-  { title: "Autenticando com o Google Cloud", icon: Cloud, description: "Guia de autenticação e integração com o Google Cloud." },
-  { title: "Dashboards e Paineis", icon: LayoutDashboard, description: "Visão geral dos dashboards e painéis disponíveis." },
-  { title: "Conectando e configurando Datasource no PMC P360", icon: Database, description: "Como conectar e configurar fontes de dados no PMC P360." },
-  { title: "Dados em tempo real: Refresh automático", icon: RefreshCw, description: "Configuração de atualização automática de dados em tempo real." },
-  { title: "Criando e gerenciando Dashboards", icon: PlusSquare, description: "Passo a passo para criar e gerenciar seus dashboards." },
-  { title: "Adicionando um novo cliente na tela geral de monitoramento", icon: UserPlus, description: "Como adicionar clientes na tela de monitoramento." },
-  { title: "Integração com Telegram para notificações de alertas", icon: MessageCircle, description: "Configure alertas via Telegram para seu ambiente." },
-  { title: "Como configurar Alertas", icon: Bell, description: "Guia para configuração de alertas na plataforma." },
-  { title: "Procedimentos para configurar Alertas", icon: Settings, description: "Procedimentos detalhados para configuração de alertas." },
-  { title: "Silenciando uma notificação de alerta", icon: BellOff, description: "Como silenciar notificações de alerta temporariamente." },
-  { title: "Visualizando e Removendo Silenciamentos", icon: EyeOff, description: "Gerencie e remova silenciamentos ativos na plataforma." },
-  { title: "Adicionando uma nova tag de label em alertas", icon: Tag, description: "Como criar e aplicar tags de label nos alertas." },
-  { title: "Configurando as consultas e condições de alertas", icon: SlidersHorizontal, description: "Defina consultas e condições para disparo de alertas." },
-  { title: "Explorando e analisando os Logs", icon: ScrollText, description: "Como explorar e analisar logs da plataforma." },
-  { title: "Instalando e configurando o Agente", icon: Download, description: "Guia de instalação e configuração do agente de monitoramento." },
+  { title: "Visão Geral", icon: Globe, description: "Documentação detalhada sobre visão geral do Panorama 360.", route: "/panorama-360/visao-geral" },
+  { title: "Acesso ao P360", icon: LogIn, description: "Como acessar e entrar na plataforma Panorama 360.", route: null },
+  { title: "Autenticando com o Google Cloud", icon: Cloud, description: "Guia de autenticação e integração com o Google Cloud.", route: null },
+  { title: "Dashboards e Paineis", icon: LayoutDashboard, description: "Visão geral dos dashboards e painéis disponíveis.", route: null },
+  { title: "Conectando e configurando Datasource no PMC P360", icon: Database, description: "Como conectar e configurar fontes de dados no PMC P360.", route: null },
+  { title: "Dados em tempo real: Refresh automático", icon: RefreshCw, description: "Configuração de atualização automática de dados em tempo real.", route: null },
+  { title: "Criando e gerenciando Dashboards", icon: PlusSquare, description: "Passo a passo para criar e gerenciar seus dashboards.", route: null },
+  { title: "Adicionando um novo cliente na tela geral de monitoramento", icon: UserPlus, description: "Como adicionar clientes na tela de monitoramento.", route: null },
+  { title: "Integração com Telegram para notificações de alertas", icon: MessageCircle, description: "Configure alertas via Telegram para seu ambiente.", route: null },
+  { title: "Como configurar Alertas", icon: Bell, description: "Guia para configuração de alertas na plataforma.", route: null },
+  { title: "Procedimentos para configurar Alertas", icon: Settings, description: "Procedimentos detalhados para configuração de alertas.", route: null },
+  { title: "Silenciando uma notificação de alerta", icon: BellOff, description: "Como silenciar notificações de alerta temporariamente.", route: null },
+  { title: "Visualizando e Removendo Silenciamentos", icon: EyeOff, description: "Gerencie e remova silenciamentos ativos na plataforma.", route: null },
+  { title: "Adicionando uma nova tag de label em alertas", icon: Tag, description: "Como criar e aplicar tags de label nos alertas.", route: null },
+  { title: "Configurando as consultas e condições de alertas", icon: SlidersHorizontal, description: "Defina consultas e condições para disparo de alertas.", route: null },
+  { title: "Explorando e analisando os Logs", icon: ScrollText, description: "Como explorar e analisar logs da plataforma.", route: null },
+  { title: "Instalando e configurando o Agente", icon: Download, description: "Guia de instalação e configuração do agente de monitoramento.", route: null },
 ];
 
 export default function Panorama360() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col gap-6 p-6">
       <div className="flex items-center gap-3">
@@ -52,10 +55,15 @@ export default function Panorama360() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {docTopics.map(({ title, icon: Icon, description }) => (
+        {docTopics.map(({ title, icon: Icon, description, route }) => (
           <div
             key={title}
-            className="rounded-lg border border-border bg-card p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+            onClick={() => route && navigate(route)}
+            className={`rounded-lg border border-border bg-card p-5 shadow-sm transition-shadow ${
+              route
+                ? "cursor-pointer hover:shadow-md hover:border-primary/40"
+                : "cursor-default hover:shadow-sm opacity-80"
+            }`}
           >
             <div className="flex items-center gap-3 mb-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10">
@@ -64,6 +72,9 @@ export default function Panorama360() {
               <h3 className="font-semibold text-foreground">{title}</h3>
             </div>
             <p className="text-sm text-muted-foreground">{description}</p>
+            {route && (
+              <p className="mt-3 text-xs font-medium text-primary">Ver documentação →</p>
+            )}
           </div>
         ))}
       </div>
