@@ -11,119 +11,71 @@ export function usePageContext(): PageContext {
   const path = location.pathname;
 
   const contexts: Record<string, PageContext> = {
-    "/": {
-      title: "Página Inicial - GPON Dashboard",
-      description: "Visão geral do sistema de monitoramento GPON da Claro Brasil.",
-      data: "Página inicial do painel de gestão de rede GPON.",
+    "/panorama-360": {
+      title: "Panorama 360",
+      description: "Portal de documentação do produto Panorama 360 — plataforma de observabilidade e inteligência de dados para redes de telecomunicações.",
+      data: `O Panorama 360 é uma plataforma de documentação que reúne informações sobre: Visão Geral do produto, Portas, Circuitos, Excursionamentos e Tarefas. Cada tópico contém documentação técnica e informativa sobre o funcionamento do produto.`,
     },
-    "/saude-geral": {
-      title: "Saúde Geral da Rede GPON",
-      description: "Dashboard consolidado de qualidade e estabilidade da rede GPON com KPIs principais.",
-      data: `KPIs: QoS Geral: 7,8 | Disponibilidade: 99,2% | Velocidade Média: 94,3% | Sinal RX Médio: -21,4 dBm | Quedas D-1: 1.247 | % QoS Disponib. = 0: 2,3%.
-Distribuição RX: predominância entre -19 e -22 dBm.
-Distribuição QoS: maioria entre 80-100%.
-Top OLTs com quedas: OLT-SP-01, OLT-RJ-03, OLT-MG-02.
-OLTs críticas incluem nós com RX abaixo de -25 dBm e % críticos acima de 15%.`,
+    "/panorama-360/visao-geral": {
+      title: "Panorama 360 — Visão Geral",
+      description: "Documentação da Visão Geral do produto Panorama 360, abordando apresentação, características principais, funcionalidades, benefícios e tópicos abordados.",
+      data: `Apresentação: O Panorama 360 é uma plataforma avançada de observabilidade e inteligência de dados, projetada para fornecer uma visão abrangente e em tempo real do desempenho e da saúde das redes de telecomunicações.
+
+Principais Características:
+- Monitoramento em Tempo Real: acompanhamento contínuo de todos os elementos da rede
+- Análise Preditiva: algoritmos de machine learning para antecipar falhas e degradações
+- Visibilidade End-to-End: visão completa desde o núcleo da rede até o cliente final
+- Dashboards Personalizáveis: painéis configuráveis por perfil de usuário e necessidade operacional
+- Alertas Inteligentes: sistema de notificações baseado em thresholds e anomalias detectadas automaticamente
+- Integração com Sistemas Legados: compatível com OSS/BSS e demais ferramentas operacionais existentes
+
+Funcionalidades Adicionais:
+- Relatórios Automatizados: geração e distribuição automática de relatórios periódicos
+- API RESTful: integração com sistemas externos via API documentada
+- Controle de Acesso por Perfil: diferentes níveis de acesso e visualização por função
+- Histórico de Dados: armazenamento e consulta de histórico de métricas e eventos
+- Exportação de Dados: suporte a exportação em múltiplos formatos (CSV, PDF, Excel)
+
+Benefícios:
+- Redução do MTTR (Mean Time To Repair)
+- Aumento da disponibilidade e qualidade dos serviços
+- Tomada de decisão baseada em dados precisos e atualizados
+- Otimização de recursos humanos e técnicos
+- Melhoria contínua da experiência do cliente final
+
+Tópicos Abordados na documentação: Introdução e Objetivos do Produto, Arquitetura e Componentes Técnicos, Guia de Configuração e Instalação, Manual de Operação e Uso, Integrações e APIs Disponíveis, Boas Práticas e Casos de Uso, Suporte e Resolução de Problemas.`,
     },
-    "/performance-contratual": {
-      title: "Performance Contratual",
-      description: "Análise do percentual de velocidade entregue versus velocidade contratada.",
-      data: `KPIs de performance de download e upload por região.
-Média nacional de entrega: ~86% do contratado.
-Estados com menor performance: Norte e Nordeste.
-Gráfico de evolução mensal de performance.`,
+    "/cloud-orchestration": {
+      title: "Cloud Orchestration",
+      description: "Portal de documentação do produto Cloud Orchestration — solução para orquestração e automação de recursos em ambientes de nuvem.",
+      data: `O Cloud Orchestration é um produto de documentação focado em orquestração de recursos de nuvem. Contém documentação técnica sobre seus tópicos disponíveis para consulta dos usuários.`,
     },
-    "/estabilidade-quedas": {
-      title: "Estabilidade e Quedas",
-      description: "Monitoramento de quedas e instabilidade de conexão na rede GPON.",
-      data: `KPIs de quedas por OLT e por região.
-Taxa média de quedas D-1: 1.247 eventos.
-OLTs com maior taxa de quedas identificadas.
-Tendência de evolução de quedas nos últimos 30 dias.`,
+    "/cost-management": {
+      title: "Cost Management",
+      description: "Portal de documentação do produto Cost Management — gerenciamento e otimização de custos em infraestruturas de tecnologia.",
+      data: `O Cost Management é um produto de documentação voltado ao gerenciamento de custos de infraestrutura de TI. Contém documentação técnica sobre seus tópicos disponíveis para consulta dos usuários.`,
     },
-    "/experiencia-wifi": {
-      title: "Experiência Wi-Fi",
-      description: "Qualidade da experiência Wi-Fi dos clientes conectados via GPON.",
-      data: `KPIs de RSSI, qualidade de canal e QoS Wi-Fi.
-Distribuição de dispositivos por faixa de RSSI.
-Modelos de terminal mais comuns: ZTE F670L, Huawei HG8245Q2.
-Análise de qualidade por canal (2.4GHz vs 5GHz).`,
+    "/finops-360": {
+      title: "Finops 360",
+      description: "Portal de documentação do produto Finops 360 — plataforma de visibilidade financeira e estratégias de economia em ambientes de nuvem e telecom.",
+      data: `O Finops 360 é um produto de documentação focado em práticas de FinOps (Financial Operations), com ênfase em savings, otimização de gastos e governança financeira em infraestruturas de tecnologia.`,
     },
-    "/capacidade-olt": {
-      title: "Capacidade por OLT",
-      description: "Análise de capacidade e utilização das OLTs da rede GPON.",
-      data: `Capacidade disponível vs. utilizada por OLT.
-OLTs próximas do limite de capacidade identificadas.
-Ranking de OLTs por número de clientes conectados.
-Previsão de saturação por região.`,
+    "/mangue": {
+      title: "Mangue",
+      description: "Portal de documentação do produto Mangue — solução para gestão e automação de redes.",
+      data: `O Mangue é um produto de documentação para gestão e automação de redes de telecomunicações. Contém documentação técnica sobre seus tópicos disponíveis para consulta dos usuários.`,
     },
-    "/geo-estrategico": {
-      title: "Geoestratégia",
-      description: "Análise geográfica e estratégica da rede GPON por estado brasileiro.",
-      data: `KPIs: QoS Médio Nacional: 7,8 | Média - Quedas/Cliente: 1,9 | % Clientes Baixa Cobertura: 18,4% | Performance Média: 86,2%.
-Mapa interativo do Brasil com coloração por métrica selecionada.
-Rankings regionais por UF.
-Região Norte com maior concentração de problemas.`,
-    },
-    "/preditivo": {
-      title: "Preditivo",
-      description: "Análise preditiva de riscos e probabilidade de falhas na rede GPON.",
-      data: `KPIs Preditivos: Score Médio de Risco: 38,4 | Total Monitorados: 142.380 | OLT Maior Concentração: OLT-MA-SLS.
-Clientes com alto risco (score ≥ 71) monitorados.
-Probabilidade de queda nas próximas 48h calculada por cliente.
-Região Norte (MA, PA, AM, RR, AP) concentra 68% dos clientes de alto risco.`,
-    },
-    "/analitico": {
-      title: "Relatórios Analíticos",
-      description: "Download de relatórios analíticos diários da rede GPON.",
-      data: `Relatórios analíticos diários disponíveis para download.
-Tamanho médio dos arquivos: 130-150 MB.
-Período disponível: últimos 30 dias.
-Formato: CSV com dados completos de todos os clientes e OLTs.`,
-    },
-    "/clientes": {
-      title: "Clientes GPON",
-      description: "Base de clientes conectados à rede GPON com dados de terminal e conectividade.",
-      data: `Total de itens: 4.281.820 clientes.
-Campos disponíveis: Contrato, Operadora, MAC, Status, Modelo do Terminal, Download/Upload, Nó/OLT, CEP, Cidade, Estado.
-Modelos de terminal: TERMINAL GPON ONT WIFI6 F6600P, TCG2232, F689.
-Velocidades de download variam de 350 a 1000 Mbps.`,
-    },
-    "/dashboard": {
-      title: "Dashboard - Pesquisa de Clientes",
-      description: "Ferramenta de pesquisa rápida de clientes por MAC ou número de contrato.",
-      data: `Busca por Endereço MAC ou Número do Contrato.
-Campo obrigatório: Código da operadora.
-Resultado exibe o MAC address do terminal do cliente.`,
-    },
-    "/gestao-parametros": {
-      title: "Gestão de Parâmetros",
-      description: "Gerenciamento dos parâmetros de qualidade e limites da rede GPON.",
-      data: `Parâmetros disponíveis: QoS Wifi, Qualidade do Canal, QoS Disponibilidade, TX (Dados de Sinais Ópticos), Disponibilidade QoS Cálculo, Disponibilidade, QoS Geral, RSSI (Dados Wi-Fi), QoS Acesso, RX (Dados de Sinais Ópticos).
-Total: 20 parâmetros configuráveis divididos em 2 páginas.
-Cada parâmetro pode ter seus detalhes visualizados ou ser editado.`,
-    },
-    "/diagnostico": {
-      title: "Diagnóstico Acesso",
-      description: "Diagnóstico de acesso de clientes com análise de sinal RX e TX por estado.",
-      data: `Filtros por UF (estado) e cidade.
-Gráfico de Nível RX - Recepção (valores típicos entre -31 e -33 dBm).
-Gráfico de Nível TX - Transmissão (valores típicos entre -12 e -14 dBm).
-Período de análise: últimos 30 dias (jan-fev/2026).`,
-    },
-    "/audit-log": {
-      title: "Audit Log",
-      description: "Registro de auditoria de todas as operações realizadas no sistema GPON.",
-      data: `Campos: Usuário, Email, Operação, Data/Hora.
-Operações registradas: Conectar Cliente, Pesquisar por Mac, Pesquisar por Contrato, Ver Topologia de Rede, Ver Diagnóstico de Acesso, etc.
-Total de itens: 26.595 registros.
-Filtros: nome de usuário, email, operação, período/até, filtro por log mais recente.`,
+    "/dci": {
+      title: "DCI — Data Center Interconnect",
+      description: "Portal de documentação do produto DCI (Data Center Interconnect) — solução para interconexão de data centers com alta disponibilidade e performance.",
+      data: `O DCI (Data Center Interconnect) é um produto de documentação sobre interconexão de data centers. Os tópicos disponíveis são: Visão Geral, Portas, Circuitos, Excursionamentos e Tarefas. Cada tópico contém documentação técnica e informativa sobre o funcionamento do produto.`,
     },
   };
 
   return contexts[path] || {
-    title: "GPON Dashboard",
-    description: "Sistema de monitoramento de rede GPON da Claro Brasil.",
-    data: "Página não identificada. Use a navegação lateral para acessar os módulos disponíveis.",
+    title: "Portal de Documentação",
+    description: "Portal centralizado de documentação dos produtos de telecomunicações.",
+    data: "Selecione um produto na navegação lateral para acessar sua documentação técnica.",
   };
 }
+

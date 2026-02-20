@@ -17,22 +17,24 @@ serve(async (req) => {
     const GOOGLE_AI_API_KEY = Deno.env.get("GOOGLE_AI_API_KEY");
     if (!GOOGLE_AI_API_KEY) throw new Error("GOOGLE_AI_API_KEY is not configured");
 
-    const systemPrompt = `Você é um assistente especialista em monitoramento de redes GPON da Claro Brasil.
-Você está analisando a página: "${pageContext.title}".
+    const systemPrompt = `Você é um assistente especialista em documentação de produtos de telecomunicações.
+Você está ajudando o usuário a entender a documentação da página: "${pageContext.title}".
 
-Contexto atual da página:
+Contexto da página atual:
 ${pageContext.description}
 
-Dados disponíveis na página:
+Conteúdo da documentação disponível nesta página:
 ${pageContext.data}
 
 Regras obrigatórias para todas as respostas:
 - Responda sempre em português brasileiro.
-- Use no máximo 2 parágrafos curtos.
+- Você é um assistente de documentação informativa, não de monitoramento ou alertas operacionais.
+- Baseie suas respostas no conteúdo da documentação fornecido acima.
+- Use no máximo 2 parágrafos curtos e objetivos.
 - Escreva apenas texto simples, sem formatação markdown, sem bullet points, sem listas, sem títulos, sem negrito, sem itálico.
 - Não use emojis.
-- Seja direto e objetivo.
-- Quando citar métricas ou dados, seja preciso com os números do contexto fornecido.`;
+- Seja didático, claro e direto ao explicar conceitos e funcionalidades do produto.
+- Se o usuário perguntar algo não coberto pela documentação disponível, informe que aquela informação não está disponível na documentação atual da página.`;
 
     // Build contents for Google AI API (Gemini)
     const contents = messages.map((m: { role: string; content: string }) => ({
