@@ -1,4 +1,19 @@
-import { Network } from "lucide-react";
+import {
+  Network,
+  Globe,
+  PlugZap,
+  GitBranch,
+  ArrowLeftRight,
+  CheckSquare,
+} from "lucide-react";
+
+const docTopics = [
+  { title: "Visão Geral", icon: Globe, description: "Visão geral do Data Center Interconnect e seus recursos de interconexão de rede." },
+  { title: "Portas", icon: PlugZap, description: "Gerenciamento e configuração das portas físicas e lógicas de interconexão." },
+  { title: "Circuitos", icon: GitBranch, description: "Criação e administração de circuitos de interconexão entre data centers." },
+  { title: "Excursionamentos", icon: ArrowLeftRight, description: "Monitoramento e gestão de excursionamentos de tráfego entre os pontos de interconexão." },
+  { title: "Tarefas", icon: CheckSquare, description: "Acompanhamento e controle de tarefas agendadas e operações em execução no DCI." },
+];
 
 export default function DCI() {
   return (
@@ -13,13 +28,19 @@ export default function DCI() {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {["Visão Geral", "Arquitetura", "Guia de Uso", "APIs", "Configurações", "FAQ"].map((section) => (
-          <div key={section} className="rounded-lg border border-border bg-card p-5 shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-foreground">{section}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Documentação detalhada sobre {section.toLowerCase()} do DCI.
-            </p>
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {docTopics.map(({ title, icon: Icon, description }) => (
+          <div
+            key={title}
+            className="rounded-lg border border-border bg-card p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary/10">
+                <Icon className="h-4 w-4 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground">{title}</h3>
+            </div>
+            <p className="text-sm text-muted-foreground">{description}</p>
           </div>
         ))}
       </div>
