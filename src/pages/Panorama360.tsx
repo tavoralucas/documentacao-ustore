@@ -1,7 +1,7 @@
-import { Globe, Plus } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Globe } from "lucide-react";
 
 const docTopics = [
+  "Visão Geral",
   "Acesso ao P360",
   "Autenticando com o Google Cloud",
   "Dashboards e Paineis",
@@ -34,27 +34,16 @@ export default function Panorama360() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {/* Card Visão Geral - mantido */}
-        <Card className="shadow-sm hover:shadow-md transition-shadow">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base font-semibold">Visão Geral</CardTitle>
-            <CardDescription>
-              Documentação detalhada sobre visão geral do Panorama 360.
-            </CardDescription>
-          </CardHeader>
-        </Card>
-      </div>
-
-      {/* Lista de tópicos de documentação */}
-      <div className="flex flex-col gap-0">
-        {docTopics.map((topic, index) => (
-          <button
-            key={index}
-            className="flex items-center gap-3 rounded-md px-4 py-3 text-left text-sm font-semibold text-foreground transition-colors hover:bg-muted border-b border-border last:border-b-0"
+        {docTopics.map((topic) => (
+          <div
+            key={topic}
+            className="rounded-lg border border-border bg-card p-5 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
           >
-            <Plus className="h-4 w-4 shrink-0 text-muted-foreground" />
-            <span>{topic}</span>
-          </button>
+            <h3 className="font-semibold text-foreground">{topic}</h3>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Documentação detalhada sobre {topic.toLowerCase()}.
+            </p>
+          </div>
         ))}
       </div>
     </div>
