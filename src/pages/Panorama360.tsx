@@ -1,4 +1,24 @@
-import { Globe } from "lucide-react";
+import { Globe, Plus } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+const docTopics = [
+  "Acesso ao P360",
+  "Autenticando com o Google Cloud",
+  "Dashboards e Paineis",
+  "Conectando e configurando Datasource no PMC P360",
+  "Dados em tempo real: Refresh automático",
+  "Criando e gerenciando Dashboards",
+  "Adicionando um novo cliente na tela geral de monitoramento",
+  "Integração com Telegram para notificações de alertas",
+  "Como configurar Alertas",
+  "Procedimentos para configurar Alertas",
+  "Silenciando uma notificação de alerta",
+  "Visualizando e Removendo Silenciamentos",
+  "Adicionando uma nova tag de label em alertas",
+  "Configurando as consultas e condições de alertas",
+  "Explorando e analisando os Logs",
+  "Instalando e configurando o Agente",
+];
 
 export default function Panorama360() {
   return (
@@ -14,13 +34,27 @@ export default function Panorama360() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {["Visão Geral", "Arquitetura", "Guia de Uso", "APIs", "Configurações", "FAQ"].map((section) => (
-          <div key={section} className="rounded-lg border border-border bg-card p-5 shadow-sm hover:shadow-md transition-shadow">
-            <h3 className="font-semibold text-foreground">{section}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Documentação detalhada sobre {section.toLowerCase()} do Panorama 360.
-            </p>
-          </div>
+        {/* Card Visão Geral - mantido */}
+        <Card className="shadow-sm hover:shadow-md transition-shadow">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-base font-semibold">Visão Geral</CardTitle>
+            <CardDescription>
+              Documentação detalhada sobre visão geral do Panorama 360.
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      </div>
+
+      {/* Lista de tópicos de documentação */}
+      <div className="flex flex-col gap-0">
+        {docTopics.map((topic, index) => (
+          <button
+            key={index}
+            className="flex items-center gap-3 rounded-md px-4 py-3 text-left text-sm font-semibold text-foreground transition-colors hover:bg-muted border-b border-border last:border-b-0"
+          >
+            <Plus className="h-4 w-4 shrink-0 text-muted-foreground" />
+            <span>{topic}</span>
+          </button>
         ))}
       </div>
     </div>
