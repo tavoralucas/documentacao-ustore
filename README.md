@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
+# Documentacao - Ustore
 
-## Project info
+## Contexto do projeto
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Aplicacao web de documentacao para os produtos da Ustore (Panorama 360, Cloud Orchestration, Cost Management, Finops 360, Mangue e DCI). O foco e centralizar conteudo tecnico e manuais em uma interface unica, com navegacao lateral por produto e paginas detalhadas por topico.
 
-## How can I edit this code?
+Recursos principais:
 
-There are several ways of editing your application.
+- Navegacao por produto e por topico
+- Paginas de documentacao com layout unificado
+- Assistente de chat com contexto da pagina
 
-**Use Lovable**
+## Estrutura principal
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- src/App.tsx: rotas e composicao geral
+- src/components/AppLayout.tsx: layout base, sidebar e header
+- src/pages: paginas por produto e topicos
+- src/components/AIChatPanel.tsx: painel de chat com IA
+- src/hooks/usePageContext.ts: contexto por rota para o chat
 
-Changes made via Lovable will be committed automatically to this repo.
+## Estrutura de rotas e paginas principais
 
-**Use your preferred IDE**
+As rotas sao definidas em [src/App.tsx](src/App.tsx). O layout base (sidebar, header e area de conteudo) fica em [src/components/AppLayout.tsx](src/components/AppLayout.tsx).
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Rotas de nivel principal:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- /: panorama inicial e cards de topicos
+- /panorama-360
+- /cloud-orchestration
+- /cost-management
+- /finops-360
+- /mangue
+- /dci
 
-Follow these steps:
+Paginas principais por produto:
+
+- Panorama 360: [src/pages/Panorama360.tsx](src/pages/Panorama360.tsx) e paginas em [src/pages/panorama360](src/pages/panorama360)
+- Finops 360: [src/pages/Finops360.tsx](src/pages/Finops360.tsx) e paginas em [src/pages/finops360](src/pages/finops360)
+- Mangue: [src/pages/Mangue.tsx](src/pages/Mangue.tsx) e paginas em [src/pages/mangue](src/pages/mangue)
+- DCI: [src/pages/DCI.tsx](src/pages/DCI.tsx) e paginas em [src/pages/dci](src/pages/dci)
+- Cost Management: [src/pages/CostManagement.tsx](src/pages/CostManagement.tsx) e paginas em [src/pages/cost-management](src/pages/cost-management)
+
+## Requisitos
+
+- Node.js 18+ (recomendado via nvm)
+- npm
+
+## Como rodar localmente
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
 npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+O Vite exibira a URL local no terminal.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Variaveis de ambiente
 
-**Use GitHub Codespaces**
+Crie um arquivo .env com:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```sh
+VITE_SUPABASE_URL="https://<seu-projeto>.supabase.co"
+VITE_SUPABASE_PUBLISHABLE_KEY="<sua-chave-publica>"
+```
 
-## What technologies are used for this project?
+Essas variaveis sao usadas pelo chat e pela camada de persistencia no Supabase.
 
-This project is built with:
+## Tecnologias
 
 - Vite
-- TypeScript
 - React
-- shadcn-ui
+- TypeScript
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- shadcn-ui
+- Supabase
