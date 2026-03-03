@@ -1,5 +1,6 @@
 import { ArrowLeft, SlidersHorizontal, CheckCircle2, Database, Calculator, AlertTriangle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PanoramaPager from "@/components/PanoramaPager";
 
 const components = [
   {
@@ -220,6 +221,7 @@ export default function ConsultasCondicoes() {
           </div>
         </div>
       </section>
+      <PanoramaPager />
     </div>
   );
 }

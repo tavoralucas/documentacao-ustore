@@ -1,5 +1,6 @@
 import { ArrowLeft, BellOff, CheckCircle2, Calendar, Clock, Save } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PanoramaPager from "@/components/PanoramaPager";
 
 const steps = [
   {
@@ -142,6 +143,7 @@ export default function SilenciarNotificacao() {
           </div>
         </div>
       </section>
+      <PanoramaPager />
     </div>
   );
 }

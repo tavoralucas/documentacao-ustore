@@ -1,5 +1,6 @@
 import { ArrowLeft, ScrollText, CheckCircle2, Search, Filter, Download, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PanoramaPager from "@/components/PanoramaPager";
 
 const steps = [
   {
@@ -196,6 +197,7 @@ export default function ExplorandoLogs() {
           </div>
         </div>
       </section>
+      <PanoramaPager />
     </div>
   );
 }

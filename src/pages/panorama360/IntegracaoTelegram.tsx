@@ -1,5 +1,6 @@
 import { ArrowLeft, MessageCircle, CheckCircle2, Bot, Hash, Settings, Send } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PanoramaPager from "@/components/PanoramaPager";
 
 const steps = [
   {
@@ -246,6 +247,7 @@ export default function IntegracaoTelegram() {
           </div>
         </div>
       </section>
+      <PanoramaPager />
     </div>
   );
 }

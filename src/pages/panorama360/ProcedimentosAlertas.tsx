@@ -1,5 +1,6 @@
 import { ArrowLeft, Settings, CheckCircle2, AlertTriangle, Bell, Mail, Save } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PanoramaPager from "@/components/PanoramaPager";
 
 const steps = [
   {
@@ -188,6 +189,7 @@ export default function ProcedimentosAlertas() {
           </div>
         </div>
       </section>
+      <PanoramaPager />
     </div>
   );
 }

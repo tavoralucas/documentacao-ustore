@@ -1,5 +1,6 @@
 import { ArrowLeft, LayoutDashboard, CheckCircle2, Settings, Database, Code, RefreshCw } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PanoramaPager from "@/components/PanoramaPager";
 
 const prerequisites = [
   {
@@ -104,6 +105,7 @@ export default function DashboardsPaineis() {
           </div>
         </div>
       </section>
+      <PanoramaPager />
     </div>
   );
 }

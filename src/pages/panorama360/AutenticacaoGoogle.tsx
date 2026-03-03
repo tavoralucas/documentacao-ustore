@@ -1,5 +1,6 @@
 import { ArrowLeft, Cloud, Shield, CheckCircle2, AlertTriangle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import PanoramaPager from "@/components/PanoramaPager";
 
 const securityOptions = [
   {
@@ -226,6 +227,8 @@ export default function AutenticacaoGoogle() {
           </div>
         </div>
       </section>
+
+      <PanoramaPager />
     </div>
   );
 }
