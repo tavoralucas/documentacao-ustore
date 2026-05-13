@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import tendenciaFaturamentoFiltros from "@/assets/tendencia-faturamento-filtros.png";
 import tendenciaFaturamentoContrato from "@/assets/tendencia-faturamento-contrato.png";
 import tendenciaFaturamentoGrafico from "@/assets/tendencia-faturamento-grafico.png";
+import tendenciaFaturamentoProjecao from "@/assets/tendencia-faturamento-projecao.png";
 
 export default function TendenciaFaturamentoCostManagement() {
   const navigate = useNavigate();
@@ -161,6 +162,21 @@ export default function TendenciaFaturamentoCostManagement() {
             <li>A projeção só pode ser feita para meses futuros ao último mês do período</li>
             <li>A barra projetada não altera o valor total exibido no card, é estritamente visual/informativa</li>
           </ul>
+        </div>
+        <img
+          src={tendenciaFaturamentoProjecao}
+          alt="Projeção de Custos para 4 meses futuros"
+          className="w-full border border-border mt-6"
+          style={{ borderRadius: "8px" }}
+        />
+        <div className="mt-4 bg-green-50 dark:bg-green-950/30 p-4 rounded-lg border border-green-200 dark:border-green-800 text-sm">
+          <p className="text-green-800 dark:text-green-200">
+            <strong>Interpretação:</strong> No exemplo acima, a projeção foi estendida por 4 meses à frente
+            (06/2026 a 09/2026). As barras amareladas representam os valores projetados pela regressão linear,
+            que se mostram progressivamente menores que os meses reais (verdes). A linha vermelha (média móvel)
+            também segue em queda acentuada, indicando uma <strong>tendência clara de economia</strong> e
+            redução do faturamento no horizonte projetado — sinal positivo para o planejamento financeiro do contrato.
+          </p>
         </div>
       </section>
 
