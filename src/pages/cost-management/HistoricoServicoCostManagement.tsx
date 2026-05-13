@@ -39,8 +39,8 @@ export default function HistoricoServicoCostManagement() {
         </p>
         <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
           <p className="text-sm text-blue-800 dark:text-blue-200">
-            <strong>Tagline:</strong> "Acesse e gerencie suas faturas de forma eficiente, seja individualmente ou
-            dentro dos Grupos e Contratos sob sua responsabilidade."
+            Acesse e gerencie suas faturas de forma eficiente, seja individualmente ou
+            dentro dos grupos e contratos sob sua responsabilidade.
           </p>
         </div>
       </section>
