@@ -1,5 +1,6 @@
 import { ArrowLeft, History, DollarSign, AlertTriangle, Filter, BarChart3, Table } from "lucide-react";
 import historicoServicoFiltros from "@/assets/historico-servico-filtros.png";
+import historicoServicoIndicadores from "@/assets/historico-servico-indicadores.png";
 import { useNavigate } from "react-router-dom";
 
 export default function HistoricoServicoCostManagement() {
