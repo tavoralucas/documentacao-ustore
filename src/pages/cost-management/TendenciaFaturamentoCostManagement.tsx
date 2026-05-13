@@ -1,6 +1,7 @@
 import { ArrowLeft, TrendingUp, AlertTriangle, BarChart3, Filter } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import tendenciaFaturamentoFiltros from "@/assets/tendencia-faturamento-filtros.png";
+import tendenciaFaturamentoContrato from "@/assets/tendencia-faturamento-contrato.png";
 
 export default function TendenciaFaturamentoCostManagement() {
   const navigate = useNavigate();
@@ -100,6 +101,12 @@ export default function TendenciaFaturamentoCostManagement() {
             <li>Status de anomalias: <span className="text-green-700 dark:text-green-400">Não existem anomalias de gastos</span> (verde) ou alerta vermelho</li>
           </ul>
         </div>
+        <img
+          src={tendenciaFaturamentoContrato}
+          alt="Visão por Contrato"
+          className="w-full border border-border mt-6"
+          style={{ borderRadius: "8px" }}
+        />
       </section>
 
       {/* Gráfico Principal */}
