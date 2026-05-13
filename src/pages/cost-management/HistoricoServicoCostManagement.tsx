@@ -1,5 +1,6 @@
 import { ArrowLeft, History, DollarSign, AlertTriangle, Filter, BarChart3, Table } from "lucide-react";
 import historicoServicoFiltros from "@/assets/historico-servico-filtros.png";
+import historicoServicoIndicadores from "@/assets/historico-servico-indicadores.png";
 import { useNavigate } from "react-router-dom";
 
 export default function HistoricoServicoCostManagement() {
@@ -174,6 +175,12 @@ export default function HistoricoServicoCostManagement() {
             <code className="bg-muted px-1 rounded text-xs">/billing/budget</code>. Com budget definido, exibe valor e % de consumo vs. planejado.
           </p>
         </div>
+        <img
+          src={historicoServicoIndicadores}
+          alt="Exemplo dos cards de Indicadores do Histórico de Serviço"
+          className="w-full border border-border mt-4"
+          style={{ borderRadius: "8px" }}
+        />
       </section>
 
       {/* Gráfico */}
