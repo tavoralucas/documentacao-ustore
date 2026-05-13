@@ -198,6 +198,12 @@ export default function HistoricoServicoCostManagement() {
             <li>O eixo Y pode apresentar valores negativos (descontos/créditos)</li>
             <li>Número de barras = número de períodos no range selecionado</li>
           </ul>
+          <img
+            src={historicoServicoGrafico}
+            alt="Exemplo do gráfico Histórico de Consumo por Categoria"
+            className="w-full border border-border"
+            style={{ borderRadius: "8px" }}
+          />
         </div>
       </section>
 
