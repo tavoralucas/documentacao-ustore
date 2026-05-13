@@ -278,20 +278,6 @@ export default function HistoricoServicoCostManagement() {
           </table>
         </div>
       </section>
-
-      {/* Critérios de Aceitação */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Critérios de Aceitação</h2>
-        <ul className="space-y-2 text-sm text-muted-foreground">
-          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-01</span> Dropdown de contrato exibe exatamente os contratos disponíveis para o usuário autenticado.</li>
-          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-02</span> Ao filtrar, todos os 4 KPI cards são atualizados com valores do contrato selecionado.</li>
-          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-03</span> O gráfico exibe exatamente M barras, onde M é o número de períodos no range com o intervalo configurado.</li>
-          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-04</span> Cobranças Diretas + Cobranças Indiretas (incluindo descontos) = Valor Total do KPI.</li>
-          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-05</span> Ao trocar para agrupamento por "Tag", o aviso de performance é exibido.</li>
-          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-07</span> O botão "Exportar" gera arquivo com os mesmos dados filtrados na visualização atual.</li>
-          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-10</span> Sem budget configurado, o card Budget exibe CTA funcional para <code className="bg-muted px-1 rounded">/billing/budget</code>.</li>
-        </ul>
-      </section>
     </div>
   );
 }
