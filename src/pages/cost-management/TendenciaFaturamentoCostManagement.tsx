@@ -80,6 +80,12 @@ export default function TendenciaFaturamentoCostManagement() {
             </p>
           </div>
         </div>
+        <img
+          src={tendenciaFaturamentoFiltros}
+          alt="Filtros da Tendência de Faturamento"
+          className="w-full border border-border mt-6"
+          style={{ borderRadius: "8px" }}
+        />
       </section>
 
       {/* Card Principal */}
