@@ -2,33 +2,24 @@ import { Link } from "react-router-dom";
 import {
   TrendingDown,
   Globe,
-  Receipt,
   History,
-  CalendarClock,
-  GitCompare,
-  Wallet,
-  ShieldAlert,
-  FileText,
-  Package,
   TrendingUp,
-  Landmark,
+  Download,
   BarChart2,
-  Layers,
-  Tags,
-  ClipboardList,
-  CreditCard,
+  Wallet,
   Building2,
+  DollarSign,
 } from "lucide-react";
 
 const docTopics = [
   { title: "Visão Geral", icon: Globe, route: "/cost-management/visao-geral", description: "Visão geral consolidada de custos e economia na plataforma Cost Management." },
-  { title: "Regras de Financeiro", icon: Receipt, route: "/cost-management/regras-financeiro", description: "Configuração e gestão de regras financeiras aplicadas aos recursos em nuvem." },
-  { title: "Relatórios de Consumo", icon: History, route: "/cost-management/relatorios-consumo", description: "Acompanhamento do histórico de uso e custos por serviço ao longo do tempo." },
-  { title: "Relatórios de Fatura", icon: FileText, route: "/cost-management/relatorios-fatura", description: "Relatórios baseados em fatura com visão consolidada de faturamento." },
-  { title: "Utilitários", icon: Layers, route: "/cost-management/utilitarios", description: "Ferramentas utilitárias: Dimensão, Tags Virtuais, Centro de Custo e Levantamento de Contas." },
-  { title: "Budgets", icon: Wallet, route: "/cost-management/budgets", description: "Definição e acompanhamento de orçamentos por projeto, time ou serviço." },
-  { title: "Relatórios Especiais", icon: TrendingUp, route: "/cost-management/relatorios-especiais", description: "Relatórios especiais: RCF, Tendência de Faturamento, Margem e Monitoramento de Consumo." },
-  { title: "Franquia", icon: Package, route: "/cost-management/franquia", description: "Gerenciamento de franquias de uso e créditos pré-contratados (exclusivo para clientes GOV)." },
+  { title: "Histórico de Serviço", icon: History, route: "/cost-management/historico-servico", description: "Histórico detalhado de consumo por serviço ao longo do tempo." },
+  { title: "Tendência de Faturamento", icon: TrendingUp, route: "/cost-management/tendencia-faturamento", description: "Análise de tendências e projeções de faturamento por período." },
+  { title: "Exportar Relatórios", icon: Download, route: "/cost-management/exportar-relatorios", description: "Exportação de relatórios financeiros em diferentes formatos." },
+  { title: "Consolidado de Faturamento", icon: BarChart2, route: "/cost-management/consolidado-faturamento", description: "Visão consolidada do faturamento agrupado por contrato ou provedor." },
+  { title: "Custo de Budget", icon: Wallet, route: "/cost-management/custo-budget", description: "Acompanhamento e controle de orçamentos definidos por projeto ou serviço." },
+  { title: "Conta Master", icon: Building2, route: "/cost-management/conta-master", description: "Gerenciamento e visualização de custos da conta master e suas sub-contas." },
+  { title: "Financeiro", icon: DollarSign, route: "/cost-management/financeiro", description: "Painel financeiro completo com governança e controle de custos em nuvem." },
 ];
 
 export default function CostManagement() {

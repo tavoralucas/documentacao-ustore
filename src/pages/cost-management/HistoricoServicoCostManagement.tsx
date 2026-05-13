@@ -1,0 +1,269 @@
+import { ArrowLeft, History, DollarSign, AlertTriangle, Filter, BarChart3, Table } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+export default function HistoricoServicoCostManagement() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
+      <button
+        onClick={() => navigate("/cost-management")}
+        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Voltar para Cost Management
+      </button>
+
+      <div className="flex items-start gap-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 shrink-0">
+          <History className="h-6 w-6 text-primary" />
+        </div>
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
+            Cost Management · Documentação
+          </p>
+          <h1 className="text-3xl font-bold text-foreground">Histórico de Serviço</h1>
+          <p className="mt-1 text-muted-foreground">
+            Hub central de visibilidade de custos em nuvem — filtre, analise e exporte o consumo por serviço
+          </p>
+        </div>
+      </div>
+
+      {/* Visão Geral */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral do Produto</h2>
+        <p className="text-muted-foreground mb-3">
+          O Histórico de Serviço é o hub central de visibilidade de custos em nuvem do PMC. Ele permite que gestores
+          de conta e administradores acompanhem, filtrem e analisem o consumo de serviços cloud (AWS, Azure, etc.)
+          em diferentes granularidades temporais e dimensões de custo, dentro de um ou mais contratos sob sua responsabilidade.
+        </p>
+        <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+          <p className="text-sm text-blue-800 dark:text-blue-200">
+            <strong>Tagline:</strong> "Acesse e gerencie suas faturas de forma eficiente, seja individualmente ou
+            dentro dos Grupos e Contratos sob sua responsabilidade."
+          </p>
+        </div>
+      </section>
+
+      {/* Objetivos de Negócio */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <h2 className="text-xl font-semibold text-foreground mb-4">Objetivos de Negócio</h2>
+        <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
+          <li>Dar visibilidade consolidada do gasto cloud por contrato, produto, tag e linked account</li>
+          <li>Facilitar a identificação de anomalias de custo e tendências de crescimento</li>
+          <li>Suportar gestores FinOps e administradores na tomada de decisão sobre otimização de gastos</li>
+          <li>Alertar sobre recursos sem tagging, impactando diretamente a alocação de custos</li>
+          <li>Servir como ponto de entrada para exportação de dados de faturamento</li>
+          <li>Integrar com o módulo de Budget para validar se o consumo está dentro do planejado</li>
+        </ul>
+      </section>
+
+      {/* Personas */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <h2 className="text-xl font-semibold text-foreground mb-4">Personas e Casos de Uso</h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-2">Gestor de Conta / Account Manager</h3>
+            <p className="text-sm text-muted-foreground">
+              Responsável por contratos de clientes. Precisa visualizar o custo consolidado por contrato e
+              comparar meses para apresentar relatórios.
+            </p>
+          </div>
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-2">Administrador Técnico / FinOps Analyst</h3>
+            <p className="text-sm text-muted-foreground">
+              Analisa o consumo detalhado por serviço, linked account e tag para otimização de custos.
+            </p>
+          </div>
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-2">Executivo / C-Level</h3>
+            <p className="text-sm text-muted-foreground">
+              Visualiza indicadores de alto nível (valor total, variação percentual) sem necessidade de drill-down profundo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Seletor de Contrato */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <Filter className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Seletor de Contrato</h2>
+        </div>
+        <div className="space-y-3 text-muted-foreground">
+          <p>O seletor de contrato é obrigatório. Toda a visualização é escopada a um único contrato por vez. Formato: <code className="bg-muted px-1 rounded text-xs">[A]XXXXXXX-NOMECLIENTE-PROVEDOR</code></p>
+          <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
+            <p className="text-sm text-amber-800 dark:text-amber-200">
+              <strong>RN-006:</strong> Ao trocar o contrato selecionado, os filtros de "Linked Accounts" e "Filtrar por serviços"
+              são resetados para "Todas selecionadas", pois essas dimensões são dependentes do contrato.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Painel de Filtros */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <h2 className="text-xl font-semibold text-foreground mb-4">Painel de Filtros</h2>
+        <div className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="p-4 rounded-lg border border-border bg-muted/50">
+              <h3 className="font-semibold text-foreground mb-2">Agrupar por</h3>
+              <p className="text-sm text-muted-foreground">Opções: <strong>Nome de produto</strong> (padrão) ou <strong>Tag</strong>.</p>
+              <p className="text-sm text-muted-foreground mt-1">Ao agrupar por Tag, exibe aviso de performance para períodos maiores que 3 meses.</p>
+            </div>
+            <div className="p-4 rounded-lg border border-border bg-muted/50">
+              <h3 className="font-semibold text-foreground mb-2">Intervalo</h3>
+              <p className="text-sm text-muted-foreground">Opções: <strong>Mensal</strong> (padrão), <strong>Semanal</strong>, <strong>Diário</strong>. Define a granularidade das colunas da tabela.</p>
+            </div>
+            <div className="p-4 rounded-lg border border-border bg-muted/50">
+              <h3 className="font-semibold text-foreground mb-2">Período</h3>
+              <p className="text-sm text-muted-foreground">Date range picker mensal. Formato: <code className="bg-muted px-1 rounded text-xs">Mês YYYY até Mês YYYY</code>. Padrão: últimos 3–4 meses.</p>
+            </div>
+            <div className="p-4 rounded-lg border border-border bg-muted/50">
+              <h3 className="font-semibold text-foreground mb-2">Filtrar por serviços / Linked Accounts</h3>
+              <p className="text-sm text-muted-foreground">Multi-select com busca. Default: "Todas selecionadas". A lista de Linked Accounts é dinâmica por contrato.</p>
+            </div>
+          </div>
+          <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
+            <p className="text-sm text-blue-800 dark:text-blue-200">
+              <strong>RN-019 — Botão Filtrar:</strong> Dispara nova consulta com todos os parâmetros combinados e atualiza todos os
+              componentes visuais da página (KPI cards, gráfico e tabela) simultaneamente.
+              <br /><strong>RN-020 — Botão Exportar:</strong> Gera arquivo com os dados atualmente filtrados. A exportação respeita todos os filtros ativos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Cards de KPI */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <DollarSign className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Cards de KPI</h2>
+        </div>
+        <p className="text-muted-foreground mb-4">Quatro cards são exibidos no topo do conteúdo, atualizados conforme os filtros:</p>
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-1">Valor Total</h3>
+            <p className="text-sm text-muted-foreground">Soma de todos os custos no período. Indica tendência percentual comparada ao primeiro mês do range.</p>
+            <p className="text-xs text-muted-foreground mt-1 font-mono">Valor Total = Cobranças Diretas + Cobranças Indiretas</p>
+          </div>
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-1">Cobranças Diretas</h3>
+            <p className="text-sm text-muted-foreground">Custos cobrados diretamente à conta, sem intermediação de repasse de parceiro.</p>
+          </div>
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-1">Cobranças Indiretas</h3>
+            <p className="text-sm text-muted-foreground">Custos faturados via parceiro/reseller. Modelo predominante no PMC — pode representar 100% do total.</p>
+          </div>
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-1">Recursos Não Tagueados</h3>
+            <p className="text-sm text-muted-foreground">Percentual do custo total gerado por recursos sem tags. 100% indica ausência de política de tagging.</p>
+          </div>
+        </div>
+        <div className="mt-4 p-4 rounded-lg border border-border bg-muted/50">
+          <h3 className="font-semibold text-foreground mb-1">Card Budget</h3>
+          <p className="text-sm text-muted-foreground">
+            Contextual: sem budget definido exibe CTA <em>"Clique e defina um budget para a sua conta"</em> com link para
+            <code className="bg-muted px-1 rounded text-xs">/billing/budget</code>. Com budget definido, exibe valor e % de consumo vs. planejado.
+          </p>
+        </div>
+      </section>
+
+      {/* Gráfico */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <BarChart3 className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Gráfico — Histórico de Consumo por Categoria</h2>
+        </div>
+        <div className="space-y-3 text-muted-foreground">
+          <p>Gráfico de barras empilhadas. Eixo X: períodos conforme filtro de intervalo. Eixo Y: custo em R$.</p>
+          <ul className="list-disc list-inside space-y-1 ml-2 text-sm">
+            <li>Cada barra representa o total de custo empilhado por categoria de serviço</li>
+            <li>Sufixo "(Indireto)" nas categorias indica o tipo de cobrança</li>
+            <li>O eixo Y pode apresentar valores negativos (descontos/créditos)</li>
+            <li>Número de barras = número de períodos no range selecionado</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Tabela */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <Table className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Tabela — Visualização de Dados por Consumo</h2>
+        </div>
+        <div className="space-y-4 text-muted-foreground">
+          <p>A tabela é dividida em duas seções independentes com cabeçalhos próprios:</p>
+          <div className="grid gap-3 md:grid-cols-2">
+            <div className="p-3 rounded-lg border border-border bg-muted/50">
+              <h3 className="font-semibold text-foreground mb-1">Cobranças Diretas</h3>
+              <p className="text-sm">Colunas: Nome | [Período 1] | [Período 2] ... Linha de total como cabeçalho de seção.</p>
+            </div>
+            <div className="p-3 rounded-lg border border-border bg-muted/50">
+              <h3 className="font-semibold text-foreground mb-1">Cobranças Indiretas</h3>
+              <p className="text-sm">Mesma estrutura. Linhas de detalhe são expansíveis por ícone add_circle/remove_circle.</p>
+            </div>
+          </div>
+          <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800 text-sm">
+            <p className="text-amber-800 dark:text-amber-200">
+              <strong>RN-042:</strong> Valores monetários exibidos no formato <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">R$ X.XXX,XXXX</code> (4 casas decimais).
+              A precisão de 4 casas é intencional para evitar arredondamentos em billing cloud.
+            </p>
+            <p className="text-amber-800 dark:text-amber-200 mt-2">
+              <strong>RN-044:</strong> Descontos são exibidos com sinal negativo e prefixo <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">(Desconto)</code> no nome da linha.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Regras de Cálculo */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <h2 className="text-xl font-semibold text-foreground mb-4">Regras de Cálculo</h2>
+        <div className="space-y-3 font-mono text-sm bg-muted/50 rounded-lg p-4">
+          <p><strong>Valor Total:</strong></p>
+          <p className="text-xs text-muted-foreground ml-4">Soma(Cobranças Diretas) + Soma(Cobranças Indiretas) + Soma(Descontos negativos)</p>
+          <p className="mt-3"><strong>Variação %:</strong></p>
+          <p className="text-xs text-muted-foreground ml-4">((Valor atual - Valor referência) / Valor referência) × 100</p>
+          <p className="mt-3"><strong>Recursos Não Tagueados:</strong></p>
+          <p className="text-xs text-muted-foreground ml-4">(Custo de recursos sem tags / Custo total) × 100</p>
+        </div>
+      </section>
+
+      {/* Estados da Interface */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <h2 className="text-xl font-semibold text-foreground mb-4">Estados da Interface</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-border">
+                <th className="text-left py-2 pr-4 font-semibold text-foreground">Estado</th>
+                <th className="text-left py-2 font-semibold text-foreground">Comportamento</th>
+              </tr>
+            </thead>
+            <tbody className="text-muted-foreground">
+              <tr className="border-b border-border/50"><td className="py-2 pr-4 font-medium">Budget não definido</td><td className="py-2">Card "Budget" exibe CTA de configuração</td></tr>
+              <tr className="border-b border-border/50"><td className="py-2 pr-4 font-medium">Budget definido</td><td className="py-2">Card "Budget" exibe valor e % consumido vs. planejado</td></tr>
+              <tr className="border-b border-border/50"><td className="py-2 pr-4 font-medium">Cobranças Diretas = R$ 0</td><td className="py-2">Seção visível na tabela com todas as linhas zeradas</td></tr>
+              <tr className="border-b border-border/50"><td className="py-2 pr-4 font-medium">100% sem tag</td><td className="py-2">Card "Recursos não tagueados" exibe 100% e trend flat</td></tr>
+              <tr><td className="py-2 pr-4 font-medium">Linha expandida</td><td className="py-2">Serviços individuais aparecem abaixo do grupo</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Critérios de Aceitação */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <h2 className="text-xl font-semibold text-foreground mb-4">Critérios de Aceitação</h2>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-01</span> Dropdown de contrato exibe exatamente os contratos disponíveis para o usuário autenticado.</li>
+          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-02</span> Ao filtrar, todos os 4 KPI cards são atualizados com valores do contrato selecionado.</li>
+          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-03</span> O gráfico exibe exatamente M barras, onde M é o número de períodos no range com o intervalo configurado.</li>
+          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-04</span> Cobranças Diretas + Cobranças Indiretas (incluindo descontos) = Valor Total do KPI.</li>
+          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-05</span> Ao trocar para agrupamento por "Tag", o aviso de performance é exibido.</li>
+          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-07</span> O botão "Exportar" gera arquivo com os mesmos dados filtrados na visualização atual.</li>
+          <li className="flex gap-2"><span className="font-mono text-primary shrink-0">AC-10</span> Sem budget configurado, o card Budget exibe CTA funcional para <code className="bg-muted px-1 rounded">/billing/budget</code>.</li>
+        </ul>
+      </section>
+    </div>
+  );
+}
