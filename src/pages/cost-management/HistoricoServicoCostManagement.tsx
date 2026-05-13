@@ -39,17 +39,17 @@ export default function HistoricoServicoCostManagement() {
         </p>
         <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
           <p className="text-sm text-blue-800 dark:text-blue-200">
-            <strong>Tagline:</strong> "Acesse e gerencie suas faturas de forma eficiente, seja individualmente ou
-            dentro dos Grupos e Contratos sob sua responsabilidade."
+            Acesse e gerencie suas faturas de forma eficiente, seja individualmente ou
+            dentro dos grupos e contratos sob sua responsabilidade.
           </p>
         </div>
       </section>
 
-      {/* Objetivos de Negócio */}
+      {/* Objetivo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Objetivos de Negócio</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Objetivo</h2>
         <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
-          <li>Dar visibilidade consolidada do gasto cloud por contrato, produto, tag e linked account</li>
+          <li>Dar visibilidade consolidada do gasto cloud por produto, tag e linked account</li>
           <li>Facilitar a identificação de anomalias de custo e tendências de crescimento</li>
           <li>Suportar gestores FinOps e administradores na tomada de decisão sobre otimização de gastos</li>
           <li>Alertar sobre recursos sem tagging, impactando diretamente a alocação de custos</li>
@@ -60,17 +60,17 @@ export default function HistoricoServicoCostManagement() {
 
       {/* Personas */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Personas e Casos de Uso</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Ideal para profissionais com os seguintes perfis</h2>
         <div className="grid gap-4 md:grid-cols-3">
           <div className="p-4 rounded-lg border border-border bg-muted/50">
-            <h3 className="font-semibold text-foreground mb-2">Gestor de Conta / Account Manager</h3>
+            <h3 className="font-semibold text-foreground mb-2">Account Manager</h3>
             <p className="text-sm text-muted-foreground">
               Responsável por contratos de clientes. Precisa visualizar o custo consolidado por contrato e
               comparar meses para apresentar relatórios.
             </p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
-            <h3 className="font-semibold text-foreground mb-2">Administrador Técnico / FinOps Analyst</h3>
+            <h3 className="font-semibold text-foreground mb-2">FinOps Analyst</h3>
             <p className="text-sm text-muted-foreground">
               Analisa o consumo detalhado por serviço, linked account e tag para otimização de custos.
             </p>
@@ -84,17 +84,17 @@ export default function HistoricoServicoCostManagement() {
         </div>
       </section>
 
-      {/* Seletor de Contrato */}
+      {/* Inicie usando o Seletor de Contrato */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Filter className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Seletor de Contrato</h2>
+          <h2 className="text-xl font-semibold text-foreground">Inicie usando o Seletor de Contrato</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>O seletor de contrato é obrigatório. Toda a visualização é escopada a um único contrato por vez. Formato: <code className="bg-muted px-1 rounded text-xs">[A]XXXXXXX-NOMECLIENTE-PROVEDOR</code></p>
+          <p>O seletor de contrato é obrigatório. Toda a visualização é escopada a um único contrato por vez. Escolhendo-se o contrato a ser visualizado, por exemplo: <code className="bg-muted px-1 rounded text-xs">[A]XXXXXXX-NOMECLIENTE-PROVEDOR</code></p>
           <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
             <p className="text-sm text-amber-800 dark:text-amber-200">
-              <strong>RN-006:</strong> Ao trocar o contrato selecionado, os filtros de "Linked Accounts" e "Filtrar por serviços"
+              <strong>Observação:</strong> Ao trocar o contrato selecionado, os filtros de "Linked Accounts" e "Filtrar por serviços"
               são resetados para "Todas selecionadas", pois essas dimensões são dependentes do contrato.
             </p>
           </div>
@@ -126,19 +126,19 @@ export default function HistoricoServicoCostManagement() {
           </div>
           <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
             <p className="text-sm text-blue-800 dark:text-blue-200">
-              <strong>RN-019 — Botão Filtrar:</strong> Dispara nova consulta com todos os parâmetros combinados e atualiza todos os
+              <strong>Botão Filtrar:</strong> Dispara nova consulta com todos os parâmetros combinados e atualiza todos os
               componentes visuais da página (KPI cards, gráfico e tabela) simultaneamente.
-              <br /><strong>RN-020 — Botão Exportar:</strong> Gera arquivo com os dados atualmente filtrados. A exportação respeita todos os filtros ativos.
+              <br /><strong>Botão Exportar:</strong> Gera arquivo com os dados atualmente filtrados. A exportação respeita todos os filtros ativos.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Cards de KPI */}
+      {/* Indicadores */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <DollarSign className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Cards de KPI</h2>
+          <h2 className="text-xl font-semibold text-foreground">Indicadores</h2>
         </div>
         <p className="text-muted-foreground mb-4">Quatro cards são exibidos no topo do conteúdo, atualizados conforme os filtros:</p>
         <div className="grid gap-4 md:grid-cols-2">
@@ -163,7 +163,7 @@ export default function HistoricoServicoCostManagement() {
         <div className="mt-4 p-4 rounded-lg border border-border bg-muted/50">
           <h3 className="font-semibold text-foreground mb-1">Card Budget</h3>
           <p className="text-sm text-muted-foreground">
-            Contextual: sem budget definido exibe CTA <em>"Clique e defina um budget para a sua conta"</em> com link para
+            Contextual: sem budget definido exibe CTA <em>"Clique e favorite um budget para a sua conta"</em> com link para
             <code className="bg-muted px-1 rounded text-xs">/billing/budget</code>. Com budget definido, exibe valor e % de consumo vs. planejado.
           </p>
         </div>
@@ -173,7 +173,7 @@ export default function HistoricoServicoCostManagement() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <BarChart3 className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Gráfico — Histórico de Consumo por Categoria</h2>
+          <h2 className="text-xl font-semibold text-foreground">Gráfico: Histórico de Consumo por Categoria</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>Gráfico de barras empilhadas. Eixo X: períodos conforme filtro de intervalo. Eixo Y: custo em R$.</p>
@@ -190,7 +190,7 @@ export default function HistoricoServicoCostManagement() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Table className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Tabela — Visualização de Dados por Consumo</h2>
+          <h2 className="text-xl font-semibold text-foreground">Tabela: Visualização de Dados por Consumo</h2>
         </div>
         <div className="space-y-4 text-muted-foreground">
           <p>A tabela é dividida em duas seções independentes com cabeçalhos próprios:</p>
@@ -201,16 +201,16 @@ export default function HistoricoServicoCostManagement() {
             </div>
             <div className="p-3 rounded-lg border border-border bg-muted/50">
               <h3 className="font-semibold text-foreground mb-1">Cobranças Indiretas</h3>
-              <p className="text-sm">Mesma estrutura. Linhas de detalhe são expansíveis por ícone add_circle/remove_circle.</p>
+              <p className="text-sm">Mesma estrutura. Linhas de detalhe são expansíveis por ícone.</p>
             </div>
           </div>
           <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800 text-sm">
             <p className="text-amber-800 dark:text-amber-200">
-              <strong>RN-042:</strong> Valores monetários exibidos no formato <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">R$ X.XXX,XXXX</code> (4 casas decimais).
+              <strong>Note:</strong> Valores monetários exibidos no formato <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">R$ X.XXX,XXXX</code> (4 casas decimais).
               A precisão de 4 casas é intencional para evitar arredondamentos em billing cloud.
             </p>
             <p className="text-amber-800 dark:text-amber-200 mt-2">
-              <strong>RN-044:</strong> Descontos são exibidos com sinal negativo e prefixo <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">(Desconto)</code> no nome da linha.
+              <strong>Note:</strong> Descontos são exibidos com sinal negativo e prefixo <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">(Desconto)</code> no nome da linha.
             </p>
           </div>
         </div>
