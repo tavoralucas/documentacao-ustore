@@ -34,13 +34,13 @@ export default function TendenciaFaturamentoCostManagement() {
         <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral</h2>
         <p className="text-muted-foreground mb-3">
           A Tendência de Faturamento permite que gestores financeiros e responsáveis técnicos visualizem o comportamento
-          histórico de gastos de contratos de nuvem (AWS), identifiquem anomalias, entendam tendências e projetem
-          custos futuros com base em modelos estatísticos. Os dados são apresentados em dois níveis: consolidado por
-          contrato e detalhado por recurso/serviço.
+          histórico de gastos de contratos de nuvem, identifiquem anomalias, entendam tendências e projetem
+          custos futuros com base em modelos estatísticos estabelecidos. Os dados são apresentados em dois níveis,
+          sendo tanto o consolidado por contrato, quanto detalhado por recurso/serviço.
         </p>
         <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
           <p className="text-sm text-blue-800 dark:text-blue-200">
-            <strong>Objetivo:</strong> Proporcionar visibilidade preditiva e analítica sobre gastos de nuvem, habilitando
+            Proporcionar visibilidade preditiva e analítica sobre gastos de nuvem, habilitando
             decisões proativas, identificação de desvios anômalos e planejamento financeiro baseado em dados.
           </p>
         </div>
