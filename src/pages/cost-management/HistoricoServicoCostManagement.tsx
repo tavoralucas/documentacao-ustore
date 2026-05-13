@@ -126,19 +126,19 @@ export default function HistoricoServicoCostManagement() {
           </div>
           <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
             <p className="text-sm text-blue-800 dark:text-blue-200">
-              <strong>RN-019 — Botão Filtrar:</strong> Dispara nova consulta com todos os parâmetros combinados e atualiza todos os
+              <strong>Botão Filtrar:</strong> Dispara nova consulta com todos os parâmetros combinados e atualiza todos os
               componentes visuais da página (KPI cards, gráfico e tabela) simultaneamente.
-              <br /><strong>RN-020 — Botão Exportar:</strong> Gera arquivo com os dados atualmente filtrados. A exportação respeita todos os filtros ativos.
+              <br /><strong>Botão Exportar:</strong> Gera arquivo com os dados atualmente filtrados. A exportação respeita todos os filtros ativos.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Cards de KPI */}
+      {/* Indicadores */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <DollarSign className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Cards de KPI</h2>
+          <h2 className="text-xl font-semibold text-foreground">Indicadores</h2>
         </div>
         <p className="text-muted-foreground mb-4">Quatro cards são exibidos no topo do conteúdo, atualizados conforme os filtros:</p>
         <div className="grid gap-4 md:grid-cols-2">
@@ -163,7 +163,7 @@ export default function HistoricoServicoCostManagement() {
         <div className="mt-4 p-4 rounded-lg border border-border bg-muted/50">
           <h3 className="font-semibold text-foreground mb-1">Card Budget</h3>
           <p className="text-sm text-muted-foreground">
-            Contextual: sem budget definido exibe CTA <em>"Clique e defina um budget para a sua conta"</em> com link para
+            Contextual: sem budget definido exibe CTA <em>"Clique e favorite um budget para a sua conta"</em> com link para
             <code className="bg-muted px-1 rounded text-xs">/billing/budget</code>. Com budget definido, exibe valor e % de consumo vs. planejado.
           </p>
         </div>
