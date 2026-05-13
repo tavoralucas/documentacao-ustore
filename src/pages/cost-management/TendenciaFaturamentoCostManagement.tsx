@@ -4,6 +4,8 @@ import tendenciaFaturamentoFiltros from "@/assets/tendencia-faturamento-filtros.
 import tendenciaFaturamentoContrato from "@/assets/tendencia-faturamento-contrato.png";
 import tendenciaFaturamentoGrafico from "@/assets/tendencia-faturamento-grafico.png";
 import tendenciaFaturamentoProjecao from "@/assets/tendencia-faturamento-projecao.png";
+import tendenciaFaturamentoRecursoGrade from "@/assets/tendencia-faturamento-recurso-grade.png";
+import tendenciaFaturamentoRecursoLista from "@/assets/tendencia-faturamento-recurso-lista.png";
 
 export default function TendenciaFaturamentoCostManagement() {
   const navigate = useNavigate();
@@ -185,14 +187,26 @@ export default function TendenciaFaturamentoCostManagement() {
         <h2 className="text-xl font-semibold text-foreground mb-4">Relatório por Recurso</h2>
         <div className="space-y-3 text-muted-foreground">
           <p>Seção <strong>"Relatório por recurso: N"</strong> (N = total de serviços identificados no período). Dois modos de visualização:</p>
-          <div className="grid gap-3 md:grid-cols-2">
-            <div className="p-3 rounded-lg border border-border bg-muted/50">
-              <h3 className="font-semibold text-foreground mb-1">Grade (padrão)</h3>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="p-3 rounded-lg border border-border bg-muted/50 space-y-3">
+              <h3 className="font-semibold text-foreground">Grade (padrão)</h3>
               <p className="text-sm">Cards em duas colunas, cada um representando um produto/serviço.</p>
+              <img
+                src={tendenciaFaturamentoRecursoGrade}
+                alt="Visualização em Grade"
+                className="w-full border border-border"
+                style={{ borderRadius: "8px" }}
+              />
             </div>
-            <div className="p-3 rounded-lg border border-border bg-muted/50">
-              <h3 className="font-semibold text-foreground mb-1">Lista</h3>
+            <div className="p-3 rounded-lg border border-border bg-muted/50 space-y-3">
+              <h3 className="font-semibold text-foreground">Lista</h3>
               <p className="text-sm">Visualização tabular compacta para comparação rápida entre recursos.</p>
+              <img
+                src={tendenciaFaturamentoRecursoLista}
+                alt="Visualização em Lista"
+                className="w-full border border-border"
+                style={{ borderRadius: "8px" }}
+              />
             </div>
           </div>
           <p className="text-sm">Cada card de recurso exibe: <strong>maior média</strong>, <strong>menor média</strong>, <strong>média geral</strong>, <strong>valor total</strong> e gráfico individual com as mesmas séries do gráfico principal.</p>
