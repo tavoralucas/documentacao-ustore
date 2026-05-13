@@ -63,7 +63,7 @@ export default function TendenciaFaturamentoCostManagement() {
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-2">Período de Análise</h3>
             <p className="text-sm text-muted-foreground">
-              Seleção por mês/ano. Padrão: <strong>últimos 3 meses</strong>. Disponível para todos os meses desde o início do contrato.
+              Seleção por mês/ano. Padrão: <strong>últimos 3 meses</strong>. Disponível para todos os meses desde o início do contrato, desde que tenha-se no mínimo 3 meses de dados no bilhetados no portal.
             </p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
