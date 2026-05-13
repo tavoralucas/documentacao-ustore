@@ -83,7 +83,7 @@ export default function TendenciaFaturamentoCostManagement() {
 
       {/* Card Principal */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Resumo do Contrato</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Visão por Contrato</h2>
         <div className="space-y-3 text-muted-foreground">
           <p>Após aplicar os filtros, o card exibe:</p>
           <ul className="list-disc list-inside space-y-1 ml-2 text-sm">
