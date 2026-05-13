@@ -101,7 +101,7 @@ export default function TendenciaFaturamentoCostManagement() {
           <BarChart3 className="h-5 w-5 text-primary" />
           <h2 className="text-xl font-semibold text-foreground">Gráfico Principal do Contrato</h2>
         </div>
-        <p className="text-muted-foreground mb-4">Gráfico de barras com 4 séries sobrepostas:</p>
+        <p className="text-muted-foreground mb-4">Gráfico de barras com séries sobrepostas:</p>
         <div className="grid gap-3 md:grid-cols-2">
           <div className="p-3 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/30 dark:border-green-800">
             <p className="font-semibold text-green-800 dark:text-green-200">Custo (barra verde)</p>
