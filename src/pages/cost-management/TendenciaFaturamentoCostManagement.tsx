@@ -187,8 +187,8 @@ export default function TendenciaFaturamentoCostManagement() {
         <h2 className="text-xl font-semibold text-foreground mb-4">Relatório por Recurso</h2>
         <div className="space-y-3 text-muted-foreground">
           <p>Seção <strong>"Relatório por recurso: N"</strong> (N = total de serviços identificados no período). Dois modos de visualização:</p>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="p-3 rounded-lg border border-border bg-muted/50 space-y-3">
+          <div className="space-y-4">
+            <div className="p-4 rounded-lg border border-border bg-muted/50 space-y-3">
               <h3 className="font-semibold text-foreground">Grade (padrão)</h3>
               <p className="text-sm">Cards em duas colunas, cada um representando um produto/serviço.</p>
               <img
@@ -198,7 +198,7 @@ export default function TendenciaFaturamentoCostManagement() {
                 style={{ borderRadius: "8px" }}
               />
             </div>
-            <div className="p-3 rounded-lg border border-border bg-muted/50 space-y-3">
+            <div className="p-4 rounded-lg border border-border bg-muted/50 space-y-3">
               <h3 className="font-semibold text-foreground">Lista</h3>
               <p className="text-sm">Visualização tabular compacta para comparação rápida entre recursos.</p>
               <img
