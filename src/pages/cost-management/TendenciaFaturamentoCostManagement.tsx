@@ -34,13 +34,13 @@ export default function TendenciaFaturamentoCostManagement() {
         <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral</h2>
         <p className="text-muted-foreground mb-3">
           A Tendência de Faturamento permite que gestores financeiros e responsáveis técnicos visualizem o comportamento
-          histórico de gastos de contratos de nuvem (AWS), identifiquem anomalias, entendam tendências e projetem
-          custos futuros com base em modelos estatísticos. Os dados são apresentados em dois níveis: consolidado por
-          contrato e detalhado por recurso/serviço.
+          histórico de gastos de contratos de nuvem, identifiquem anomalias, entendam tendências e projetem
+          custos futuros com base em modelos estatísticos estabelecidos. Os dados são apresentados em dois níveis,
+          sendo tanto o consolidado por contrato, quanto detalhado por recurso/serviço.
         </p>
         <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
           <p className="text-sm text-blue-800 dark:text-blue-200">
-            <strong>Objetivo:</strong> Proporcionar visibilidade preditiva e analítica sobre gastos de nuvem, habilitando
+            Proporcionar visibilidade preditiva e analítica sobre gastos de nuvem, habilitando
             decisões proativas, identificação de desvios anômalos e planejamento financeiro baseado em dados.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function TendenciaFaturamentoCostManagement() {
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-2">Período de Análise</h3>
             <p className="text-sm text-muted-foreground">
-              Seleção por mês/ano. Padrão: <strong>últimos 3 meses</strong>. Disponível para todos os meses desde o início do contrato.
+              Seleção por mês/ano. Padrão: <strong>últimos 3 meses</strong>. Disponível para todos os meses desde o início do contrato, desde que tenha-se no mínimo 3 meses de dados no bilhetados no portal.
             </p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
@@ -83,7 +83,7 @@ export default function TendenciaFaturamentoCostManagement() {
 
       {/* Card Principal */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Resumo do Contrato</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Visão por Contrato</h2>
         <div className="space-y-3 text-muted-foreground">
           <p>Após aplicar os filtros, o card exibe:</p>
           <ul className="list-disc list-inside space-y-1 ml-2 text-sm">
@@ -101,7 +101,7 @@ export default function TendenciaFaturamentoCostManagement() {
           <BarChart3 className="h-5 w-5 text-primary" />
           <h2 className="text-xl font-semibold text-foreground">Gráfico Principal do Contrato</h2>
         </div>
-        <p className="text-muted-foreground mb-4">Gráfico de barras com 4 séries sobrepostas:</p>
+        <p className="text-muted-foreground mb-4">Gráfico de barras com séries sobrepostas:</p>
         <div className="grid gap-3 md:grid-cols-2">
           <div className="p-3 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/30 dark:border-green-800">
             <p className="font-semibold text-green-800 dark:text-green-200">Custo (barra verde)</p>
@@ -138,7 +138,7 @@ export default function TendenciaFaturamentoCostManagement() {
             <li>Botão <strong>"Projetar custos"</strong>: calcula via regressão linear <code className="bg-muted px-1 rounded">y = a × x + b</code> e adiciona barra amarela/dourada ao gráfico</li>
             <li>Botão <strong>"Limpar projeção"</strong>: remove a barra projetada e restaura o estado original</li>
             <li>A projeção só pode ser feita para meses futuros ao último mês do período</li>
-            <li>A barra projetada não altera o valor total exibido no card — é estritamente visual/informativa</li>
+            <li>A barra projetada não altera o valor total exibido no card, é estritamente visual/informativa</li>
           </ul>
         </div>
       </section>
@@ -161,8 +161,8 @@ export default function TendenciaFaturamentoCostManagement() {
           <p className="text-sm">Cada card de recurso exibe: <strong>maior média</strong>, <strong>menor média</strong>, <strong>média geral</strong>, <strong>valor total</strong> e gráfico individual com as mesmas séries do gráfico principal.</p>
           <div className="bg-amber-50 dark:bg-amber-950/30 p-3 rounded-lg border border-amber-200 dark:border-amber-800 text-sm">
             <p className="text-amber-800 dark:text-amber-200">
-              Recursos são ordenados por <strong>Valor total decrescente</strong>. Recursos com valor zero são exibidos normalmente.
-              Valores negativos (estornos/créditos) aparecem no recurso <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">unknown</code>.
+              Recursos são ordenados por <strong>valor total decrescente</strong>. Recursos com valor zero são exibidos normalmente.
+              Valores negativos (estornos/créditos) aparecem no recurso <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">crédito/desconto</code>.
             </p>
           </div>
         </div>
@@ -186,9 +186,9 @@ export default function TendenciaFaturamentoCostManagement() {
 
       {/* Fluxo de Uso */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Fluxo de Uso Principal</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Fluxo de Uso Ideal</h2>
         <ol className="space-y-2 text-sm text-muted-foreground list-decimal list-inside ml-2">
-          <li>Acesso à Tendência de Faturamento pelo menu lateral de Gestão de Custos.</li>
+          <li>Acesso à Tendência de Faturamento pelo menu lateral.</li>
           <li>Sistema carrega automaticamente dados do contrato global com período padrão (últimos 3 meses).</li>
           <li>Usuário visualiza card consolidado com total, status de anomalias e gráfico principal.</li>
           <li>Usuário pode ajustar filtros (período, agrupamento, linked accounts, anomalias) e acionar "Filtrar".</li>
@@ -204,8 +204,8 @@ export default function TendenciaFaturamentoCostManagement() {
         <div className="grid gap-3 md:grid-cols-2">
           {[
             { label: "Sem anomalias", desc: 'Indicador verde: "Não existem anomalias de gastos"' },
-            { label: "Recursos sem custo", desc: "Exibidos normalmente com valores zerados — não ocultados" },
-            { label: "Valores negativos", desc: "Tratados como estornos/créditos no recurso unknown" },
+            { label: "Recursos sem custo", desc: "Exibidos normalmente com valores zerados, não ocultados" },
+            { label: "Valores negativos", desc: "Exibidos normalmente com valores zerados, não ocultados" },
             { label: "Mês corrente", desc: "Diferenciado com label azul no eixo X para indicar dados parciais" },
             { label: "Projeção ativa", desc: 'Barra amarela adicionada; "Limpar projeção" a remove' },
             { label: "Tag com período longo", desc: "Aviso de desempenho exibido ao usuário" },
