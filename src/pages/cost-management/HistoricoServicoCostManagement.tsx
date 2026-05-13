@@ -235,6 +235,12 @@ export default function HistoricoServicoCostManagement() {
               <strong>Note:</strong> Descontos são exibidos com sinal negativo e prefixo <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">(Desconto)</code> no nome da linha.
             </p>
           </div>
+          <img
+            src={historicoServicoTabela}
+            alt="Exemplo da Tabela de Visualização de Dados por Consumo"
+            className="w-full border border-border"
+            style={{ borderRadius: "8px" }}
+          />
         </div>
       </section>
 
