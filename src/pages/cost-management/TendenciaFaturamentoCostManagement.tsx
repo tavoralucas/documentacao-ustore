@@ -2,6 +2,7 @@ import { ArrowLeft, TrendingUp, AlertTriangle, BarChart3, Filter } from "lucide-
 import { useNavigate } from "react-router-dom";
 import tendenciaFaturamentoFiltros from "@/assets/tendencia-faturamento-filtros.png";
 import tendenciaFaturamentoContrato from "@/assets/tendencia-faturamento-contrato.png";
+import tendenciaFaturamentoGrafico from "@/assets/tendencia-faturamento-grafico.png";
 
 export default function TendenciaFaturamentoCostManagement() {
   const navigate = useNavigate();
@@ -140,6 +141,12 @@ export default function TendenciaFaturamentoCostManagement() {
             Botão <strong>"Expandir gráfico"</strong> abre modal em tela cheia com legenda completa.
           </p>
         </div>
+        <img
+          src={tendenciaFaturamentoGrafico}
+          alt="Gráfico Principal do Contrato"
+          className="w-full border border-border mt-6"
+          style={{ borderRadius: "8px" }}
+        />
       </section>
 
       {/* Projeção de Custos */}
