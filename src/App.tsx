@@ -51,13 +51,13 @@ import CircuitosDCI from "./pages/dci/CircuitosDCI";
 import ExcursionamentosDCI from "./pages/dci/ExcursionamentosDCI";
 import TarefasDCI from "./pages/dci/TarefasDCI";
 import VisaoGeralCostManagement from "./pages/cost-management/VisaoGeralCostManagement";
-import RegrasFinanceiroCostManagement from "./pages/cost-management/RegrasFinanceiroCostManagement";
-import RelatoriosConsumoCostManagement from "./pages/cost-management/RelatoriosConsumoCostManagement";
-import RelatoriosFaturaCostManagement from "./pages/cost-management/RelatoriosFaturaCostManagement";
-import UtilitariosCostManagement from "./pages/cost-management/UtilitariosCostManagement";
-import BudgetsCostManagement from "./pages/cost-management/BudgetsCostManagement";
-import RelatoriosEspeciaisCostManagement from "./pages/cost-management/RelatoriosEspeciaisCostManagement";
-import FranquiaCostManagement from "./pages/cost-management/FranquiaCostManagement";
+import HistoricoServicoCostManagement from "./pages/cost-management/HistoricoServicoCostManagement";
+import TendenciaFaturamentoCostManagement from "./pages/cost-management/TendenciaFaturamentoCostManagement";
+import ExportarRelatoriosCostManagement from "./pages/cost-management/ExportarRelatoriosCostManagement";
+import ConsolidadoFaturamentoCostManagement from "./pages/cost-management/ConsolidadoFaturamentoCostManagement";
+import CustoBudgetCostManagement from "./pages/cost-management/CustoBudgetCostManagement";
+import ContaMasterCostManagement from "./pages/cost-management/ContaMasterCostManagement";
+import FinanceiroCostManagement from "./pages/cost-management/FinanceiroCostManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -118,13 +118,13 @@ const App = () => (
             <Route path="/dci/excursionamentos" element={<ExcursionamentosDCI />} />
             <Route path="/dci/tarefas" element={<TarefasDCI />} />
             <Route path="/cost-management/visao-geral" element={<VisaoGeralCostManagement />} />
-            <Route path="/cost-management/regras-financeiro" element={<RegrasFinanceiroCostManagement />} />
-            <Route path="/cost-management/relatorios-consumo" element={<RelatoriosConsumoCostManagement />} />
-            <Route path="/cost-management/relatorios-fatura" element={<RelatoriosFaturaCostManagement />} />
-            <Route path="/cost-management/utilitarios" element={<UtilitariosCostManagement />} />
-            <Route path="/cost-management/budgets" element={<BudgetsCostManagement />} />
-            <Route path="/cost-management/relatorios-especiais" element={<RelatoriosEspeciaisCostManagement />} />
-            <Route path="/cost-management/franquia" element={<FranquiaCostManagement />} />
+            <Route path="/cost-management/historico-servico" element={<HistoricoServicoCostManagement />} />
+            <Route path="/cost-management/tendencia-faturamento" element={<TendenciaFaturamentoCostManagement />} />
+            <Route path="/cost-management/exportar-relatorios" element={<ExportarRelatoriosCostManagement />} />
+            <Route path="/cost-management/consolidado-faturamento" element={<ConsolidadoFaturamentoCostManagement />} />
+            <Route path="/cost-management/custo-budget" element={<CustoBudgetCostManagement />} />
+            <Route path="/cost-management/conta-master" element={<ContaMasterCostManagement />} />
+            <Route path="/cost-management/financeiro" element={<FinanceiroCostManagement />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
