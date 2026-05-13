@@ -84,17 +84,17 @@ export default function HistoricoServicoCostManagement() {
         </div>
       </section>
 
-      {/* Seletor de Contrato */}
+      {/* Inicie usando o Seletor de Contrato */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Filter className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Seletor de Contrato</h2>
+          <h2 className="text-xl font-semibold text-foreground">Inicie usando o Seletor de Contrato</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>O seletor de contrato é obrigatório. Toda a visualização é escopada a um único contrato por vez. Formato: <code className="bg-muted px-1 rounded text-xs">[A]XXXXXXX-NOMECLIENTE-PROVEDOR</code></p>
+          <p>O seletor de contrato é obrigatório. Toda a visualização é escopada a um único contrato por vez. Escolhendo-se o contrato a ser visualizado, por exemplo: <code className="bg-muted px-1 rounded text-xs">[A]XXXXXXX-NOMECLIENTE-PROVEDOR</code></p>
           <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
             <p className="text-sm text-amber-800 dark:text-amber-200">
-              <strong>RN-006:</strong> Ao trocar o contrato selecionado, os filtros de "Linked Accounts" e "Filtrar por serviços"
+              <strong>Observação:</strong> Ao trocar o contrato selecionado, os filtros de "Linked Accounts" e "Filtrar por serviços"
               são resetados para "Todas selecionadas", pois essas dimensões são dependentes do contrato.
             </p>
           </div>
