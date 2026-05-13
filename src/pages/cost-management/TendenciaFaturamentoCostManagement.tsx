@@ -203,11 +203,11 @@ export default function TendenciaFaturamentoCostManagement() {
         <h2 className="text-xl font-semibold text-foreground mb-4">Casos de Borda</h2>
         <div className="grid gap-3 md:grid-cols-2">
           {[
-            { label: "Sem anomalias", desc: "Indicador verde: "Não existem anomalias de gastos"" },
+            { label: "Sem anomalias", desc: 'Indicador verde: "Não existem anomalias de gastos"' },
             { label: "Recursos sem custo", desc: "Exibidos normalmente com valores zerados — não ocultados" },
             { label: "Valores negativos", desc: "Tratados como estornos/créditos no recurso unknown" },
             { label: "Mês corrente", desc: "Diferenciado com label azul no eixo X para indicar dados parciais" },
-            { label: "Projeção ativa", desc: "Barra amarela adicionada; "Limpar projeção" a remove" },
+            { label: "Projeção ativa", desc: 'Barra amarela adicionada; "Limpar projeção" a remove' },
             { label: "Tag com período longo", desc: "Aviso de desempenho exibido ao usuário" },
           ].map(({ label, desc }) => (
             <div key={label} className="p-3 rounded-lg border border-border bg-muted/50">
