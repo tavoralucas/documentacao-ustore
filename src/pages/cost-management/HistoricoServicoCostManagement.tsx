@@ -34,7 +34,7 @@ export default function HistoricoServicoCostManagement() {
         <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral do Produto</h2>
         <p className="text-muted-foreground mb-3">
           O Histórico de Serviço é o hub central de visibilidade de custos em nuvem do PMC. Ele permite que gestores
-          de conta e administradores acompanhem, filtrem e analisem o consumo de serviços cloud (AWS, Azure, etc.)
+          de conta e administradores acompanhem, filtrem e analisem o consumo de serviços cloud
           em diferentes granularidades temporais e dimensões de custo, dentro de um ou mais contratos sob sua responsabilidade.
         </p>
         <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
