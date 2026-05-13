@@ -1,6 +1,5 @@
 import { ArrowLeft, Globe, CheckCircle2, Zap, Eye, Bell, BarChart3, Lock, FileText, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import PanoramaPager from "@/components/PanoramaPager";
 
 const features = [
   {

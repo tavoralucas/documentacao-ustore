@@ -2,6 +2,7 @@ import { useState } from "react";
 import claroLogo from "@/assets/claro-logo.png";
 import { Outlet, useLocation } from "react-router-dom";
 import { AIChatPanel } from "@/components/AIChatPanel";
+import DocPager from "@/components/DocPager";
 import {
   Globe,
   Cloud,
@@ -82,6 +83,7 @@ export default function AppLayout() {
         {/* Main content */}
         <main className="flex-1 overflow-auto bg-background">
           <Outlet />
+          <DocPager />
         </main>
       </div>
 

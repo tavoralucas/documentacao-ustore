@@ -1,6 +1,5 @@
 import { ArrowLeft, PlusSquare, CheckCircle2, Save, Share2, Settings, LayoutGrid } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import PanoramaPager from "@/components/PanoramaPager";
 
 const useCases = [
   {
@@ -200,7 +199,6 @@ export default function CriandoDashboards() {
           </div>
         </div>
       </section>
-      <PanoramaPager />
     </div>
   );
 }

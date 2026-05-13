@@ -1,6 +1,5 @@
 import { ArrowLeft, LogIn, Globe, Key, CheckCircle2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import PanoramaPager from "@/components/PanoramaPager";
 
 export default function AcessoP360() {
   const navigate = useNavigate();
@@ -111,7 +110,6 @@ export default function AcessoP360() {
         </div>
       </section>
 
-      <PanoramaPager />
     </div>
   );
 }
