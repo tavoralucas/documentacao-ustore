@@ -1,5 +1,6 @@
 import { ArrowLeft, TrendingUp, AlertTriangle, BarChart3, Filter } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import tendenciaFaturamentoFiltros from "@/assets/tendencia-faturamento-filtros.png";
 
 export default function TendenciaFaturamentoCostManagement() {
   const navigate = useNavigate();
