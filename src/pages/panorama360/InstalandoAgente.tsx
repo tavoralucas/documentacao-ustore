@@ -1,6 +1,5 @@
 import { ArrowLeft, Download, CheckCircle2, Terminal, Server, Settings, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import PanoramaPager from "@/components/PanoramaPager";
 
 const systemRequirements = [
   { os: "Linux", requirement: "Kernel 2.6.32 ou posterior", architectures: "AMD64, ARM64" },
@@ -257,7 +256,6 @@ export default function InstalandoAgente() {
           </div>
         </div>
       </section>
-      <PanoramaPager />
     </div>
   );
 }

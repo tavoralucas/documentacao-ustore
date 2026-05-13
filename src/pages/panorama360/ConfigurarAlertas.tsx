@@ -1,6 +1,5 @@
 import { ArrowLeft, Bell, CheckCircle2, AlertTriangle, Server, BarChart3 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import PanoramaPager from "@/components/PanoramaPager";
 
 const useCases = [
   {
@@ -143,7 +142,6 @@ export default function ConfigurarAlertas() {
           </div>
         </div>
       </section>
-      <PanoramaPager />
     </div>
   );
 }

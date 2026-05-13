@@ -1,6 +1,5 @@
 import { ArrowLeft, Database, CheckCircle2, Server, Key, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import PanoramaPager from "@/components/PanoramaPager";
 
 const prerequisites = [
   {
@@ -226,7 +225,6 @@ export default function DatasourcePMC() {
             4
           </div>
           <h2 className="text-xl font-semibold text-foreground">Passo 4: Testar a conexão</h2>
-      <PanoramaPager />
         </div>
         <ul className="space-y-3 ml-11">
           <li className="flex items-start gap-2">

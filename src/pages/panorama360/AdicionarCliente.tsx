@@ -1,6 +1,5 @@
 import { ArrowLeft, UserPlus, CheckCircle2, Copy, Edit, Save } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import PanoramaPager from "@/components/PanoramaPager";
 
 export default function AdicionarCliente() {
   const navigate = useNavigate();
@@ -181,7 +180,6 @@ export default function AdicionarCliente() {
           </div>
         </div>
       </section>
-      <PanoramaPager />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import { ArrowLeft, RefreshCw, Zap, Radio, Settings, Server, CheckCircle2, AlertTriangle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import PanoramaPager from "@/components/PanoramaPager";
 
 const features = [
   {
@@ -234,7 +233,6 @@ export default function RefreshAutomatico() {
           </div>
         </div>
       </section>
-      <PanoramaPager />
     </div>
   );
 }

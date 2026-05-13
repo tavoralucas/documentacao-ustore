@@ -1,6 +1,5 @@
 import { ArrowLeft, EyeOff, CheckCircle2, Eye, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import PanoramaPager from "@/components/PanoramaPager";
 
 const steps = [
   {
@@ -156,7 +155,6 @@ export default function RemoverSilenciamentos() {
           </div>
         </div>
       </section>
-      <PanoramaPager />
     </div>
   );
 }
