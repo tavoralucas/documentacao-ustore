@@ -173,7 +173,7 @@ export default function HistoricoServicoCostManagement() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <BarChart3 className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Gráfico — Histórico de Consumo por Categoria</h2>
+          <h2 className="text-xl font-semibold text-foreground">Gráfico: Histórico de Consumo por Categoria</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>Gráfico de barras empilhadas. Eixo X: períodos conforme filtro de intervalo. Eixo Y: custo em R$.</p>
@@ -190,7 +190,7 @@ export default function HistoricoServicoCostManagement() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Table className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Tabela — Visualização de Dados por Consumo</h2>
+          <h2 className="text-xl font-semibold text-foreground">Tabela: Visualização de Dados por Consumo</h2>
         </div>
         <div className="space-y-4 text-muted-foreground">
           <p>A tabela é dividida em duas seções independentes com cabeçalhos próprios:</p>
@@ -201,16 +201,16 @@ export default function HistoricoServicoCostManagement() {
             </div>
             <div className="p-3 rounded-lg border border-border bg-muted/50">
               <h3 className="font-semibold text-foreground mb-1">Cobranças Indiretas</h3>
-              <p className="text-sm">Mesma estrutura. Linhas de detalhe são expansíveis por ícone add_circle/remove_circle.</p>
+              <p className="text-sm">Mesma estrutura. Linhas de detalhe são expansíveis por ícone.</p>
             </div>
           </div>
           <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800 text-sm">
             <p className="text-amber-800 dark:text-amber-200">
-              <strong>RN-042:</strong> Valores monetários exibidos no formato <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">R$ X.XXX,XXXX</code> (4 casas decimais).
+              <strong>Note:</strong> Valores monetários exibidos no formato <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">R$ X.XXX,XXXX</code> (4 casas decimais).
               A precisão de 4 casas é intencional para evitar arredondamentos em billing cloud.
             </p>
             <p className="text-amber-800 dark:text-amber-200 mt-2">
-              <strong>RN-044:</strong> Descontos são exibidos com sinal negativo e prefixo <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">(Desconto)</code> no nome da linha.
+              <strong>Note:</strong> Descontos são exibidos com sinal negativo e prefixo <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">(Desconto)</code> no nome da linha.
             </p>
           </div>
         </div>
