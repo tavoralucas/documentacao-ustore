@@ -1,6 +1,7 @@
 import { ArrowLeft, History, DollarSign, AlertTriangle, Filter, BarChart3, Table } from "lucide-react";
 import historicoServicoFiltros from "@/assets/historico-servico-filtros.png";
 import historicoServicoIndicadores from "@/assets/historico-servico-indicadores.png";
+import historicoServicoGrafico from "@/assets/historico-servico-grafico.png";
 import { useNavigate } from "react-router-dom";
 
 export default function HistoricoServicoCostManagement() {
@@ -197,6 +198,12 @@ export default function HistoricoServicoCostManagement() {
             <li>O eixo Y pode apresentar valores negativos (descontos/créditos)</li>
             <li>Número de barras = número de períodos no range selecionado</li>
           </ul>
+          <img
+            src={historicoServicoGrafico}
+            alt="Exemplo do gráfico Histórico de Consumo por Categoria"
+            className="w-full border border-border"
+            style={{ borderRadius: "8px" }}
+          />
         </div>
       </section>
 
