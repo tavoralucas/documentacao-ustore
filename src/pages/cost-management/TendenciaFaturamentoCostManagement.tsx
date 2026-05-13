@@ -186,9 +186,9 @@ export default function TendenciaFaturamentoCostManagement() {
 
       {/* Fluxo de Uso */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Fluxo de Uso Principal</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Fluxo de Uso Ideal</h2>
         <ol className="space-y-2 text-sm text-muted-foreground list-decimal list-inside ml-2">
-          <li>Acesso à Tendência de Faturamento pelo menu lateral de Gestão de Custos.</li>
+          <li>Acesso à Tendência de Faturamento pelo menu lateral.</li>
           <li>Sistema carrega automaticamente dados do contrato global com período padrão (últimos 3 meses).</li>
           <li>Usuário visualiza card consolidado com total, status de anomalias e gráfico principal.</li>
           <li>Usuário pode ajustar filtros (período, agrupamento, linked accounts, anomalias) e acionar "Filtrar".</li>
