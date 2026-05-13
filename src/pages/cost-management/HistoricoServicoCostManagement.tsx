@@ -45,11 +45,11 @@ export default function HistoricoServicoCostManagement() {
         </div>
       </section>
 
-      {/* Objetivos de Negócio */}
+      {/* Objetivo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Objetivos de Negócio</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Objetivo</h2>
         <ul className="list-disc list-inside space-y-2 text-muted-foreground ml-2">
-          <li>Dar visibilidade consolidada do gasto cloud por contrato, produto, tag e linked account</li>
+          <li>Dar visibilidade consolidada do gasto cloud por produto, tag e linked account</li>
           <li>Facilitar a identificação de anomalias de custo e tendências de crescimento</li>
           <li>Suportar gestores FinOps e administradores na tomada de decisão sobre otimização de gastos</li>
           <li>Alertar sobre recursos sem tagging, impactando diretamente a alocação de custos</li>
@@ -60,17 +60,17 @@ export default function HistoricoServicoCostManagement() {
 
       {/* Personas */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Personas e Casos de Uso</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Ideal para profissionais com os seguintes perfis</h2>
         <div className="grid gap-4 md:grid-cols-3">
           <div className="p-4 rounded-lg border border-border bg-muted/50">
-            <h3 className="font-semibold text-foreground mb-2">Gestor de Conta / Account Manager</h3>
+            <h3 className="font-semibold text-foreground mb-2">Account Manager</h3>
             <p className="text-sm text-muted-foreground">
               Responsável por contratos de clientes. Precisa visualizar o custo consolidado por contrato e
               comparar meses para apresentar relatórios.
             </p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
-            <h3 className="font-semibold text-foreground mb-2">Administrador Técnico / FinOps Analyst</h3>
+            <h3 className="font-semibold text-foreground mb-2">FinOps Analyst</h3>
             <p className="text-sm text-muted-foreground">
               Analisa o consumo detalhado por serviço, linked account e tag para otimização de custos.
             </p>
