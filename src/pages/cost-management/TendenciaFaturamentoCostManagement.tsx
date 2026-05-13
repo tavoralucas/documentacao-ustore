@@ -161,8 +161,8 @@ export default function TendenciaFaturamentoCostManagement() {
           <p className="text-sm">Cada card de recurso exibe: <strong>maior média</strong>, <strong>menor média</strong>, <strong>média geral</strong>, <strong>valor total</strong> e gráfico individual com as mesmas séries do gráfico principal.</p>
           <div className="bg-amber-50 dark:bg-amber-950/30 p-3 rounded-lg border border-amber-200 dark:border-amber-800 text-sm">
             <p className="text-amber-800 dark:text-amber-200">
-              Recursos são ordenados por <strong>Valor total decrescente</strong>. Recursos com valor zero são exibidos normalmente.
-              Valores negativos (estornos/créditos) aparecem no recurso <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">unknown</code>.
+              Recursos são ordenados por <strong>valor total decrescente</strong>. Recursos com valor zero são exibidos normalmente.
+              Valores negativos (estornos/créditos) aparecem no recurso <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">crédito/desconto</code>.
             </p>
           </div>
         </div>
