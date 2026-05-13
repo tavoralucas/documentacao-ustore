@@ -1,4 +1,5 @@
 import { ArrowLeft, History, DollarSign, AlertTriangle, Filter, BarChart3, Table } from "lucide-react";
+import historicoServicoFiltros from "@/assets/historico-servico-filtros.png";
 import { useNavigate } from "react-router-dom";
 
 export default function HistoricoServicoCostManagement() {
@@ -98,6 +99,12 @@ export default function HistoricoServicoCostManagement() {
               são resetados para "Todas selecionadas", pois essas dimensões são dependentes do contrato.
             </p>
           </div>
+          <img
+            src={historicoServicoFiltros}
+            alt="Exemplo do Seletor de Contrato e Filtros do Histórico de Serviço"
+            className="w-full border border-border"
+            style={{ borderRadius: "8px" }}
+          />
         </div>
       </section>
 
