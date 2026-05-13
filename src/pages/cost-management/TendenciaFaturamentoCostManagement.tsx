@@ -138,7 +138,7 @@ export default function TendenciaFaturamentoCostManagement() {
             <li>Botão <strong>"Projetar custos"</strong>: calcula via regressão linear <code className="bg-muted px-1 rounded">y = a × x + b</code> e adiciona barra amarela/dourada ao gráfico</li>
             <li>Botão <strong>"Limpar projeção"</strong>: remove a barra projetada e restaura o estado original</li>
             <li>A projeção só pode ser feita para meses futuros ao último mês do período</li>
-            <li>A barra projetada não altera o valor total exibido no card — é estritamente visual/informativa</li>
+            <li>A barra projetada não altera o valor total exibido no card, é estritamente visual/informativa</li>
           </ul>
         </div>
       </section>
