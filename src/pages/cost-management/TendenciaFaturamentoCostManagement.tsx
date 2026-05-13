@@ -175,7 +175,7 @@ export default function TendenciaFaturamentoCostManagement() {
             (06/2026 a 09/2026). As barras amareladas representam os valores projetados pela regressão linear,
             que se mostram progressivamente menores que os meses reais (verdes). A linha vermelha (média móvel)
             também segue em queda acentuada, indicando uma <strong>tendência clara de economia</strong> e
-            redução do faturamento no horizonte projetado — sinal positivo para o planejamento financeiro do contrato.
+            redução do faturamento no horizonte projetado, sinal positivo para o planejamento financeiro do contrato.
           </p>
         </div>
       </section>
