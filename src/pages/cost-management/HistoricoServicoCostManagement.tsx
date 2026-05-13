@@ -2,6 +2,7 @@ import { ArrowLeft, History, DollarSign, AlertTriangle, Filter, BarChart3, Table
 import historicoServicoFiltros from "@/assets/historico-servico-filtros.png";
 import historicoServicoIndicadores from "@/assets/historico-servico-indicadores.png";
 import historicoServicoGrafico from "@/assets/historico-servico-grafico.png";
+import historicoServicoTabela from "@/assets/historico-servico-tabela.png";
 import { useNavigate } from "react-router-dom";
 
 export default function HistoricoServicoCostManagement() {
@@ -234,6 +235,12 @@ export default function HistoricoServicoCostManagement() {
               <strong>Note:</strong> Descontos são exibidos com sinal negativo e prefixo <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">(Desconto)</code> no nome da linha.
             </p>
           </div>
+          <img
+            src={historicoServicoTabela}
+            alt="Exemplo da Tabela de Visualização de Dados por Consumo"
+            className="w-full border border-border"
+            style={{ borderRadius: "8px" }}
+          />
         </div>
       </section>
 
