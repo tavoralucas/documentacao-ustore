@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 const docTopics = [
-  { title: "Visão Geral", icon: Globe, route: "/cost-management/visao-geral", description: "Visão geral consolidada de custos e economia na plataforma Cost Management." },
+  // { title: "Visão Geral", icon: Globe, route: "/cost-management/visao-geral", description: "Visão geral consolidada de custos e economia na plataforma Cost Management." },
   { title: "Histórico de Serviço", icon: History, route: "/cost-management/historico-servico", description: "Histórico detalhado de consumo por serviço ao longo do tempo." },
   { title: "Tendência de Faturamento", icon: TrendingUp, route: "/cost-management/tendencia-faturamento", description: "Análise de tendências e projeções de faturamento por período." },
   { title: "Exportar Relatórios", icon: Download, route: "/cost-management/exportar-relatorios", description: "Exportação de relatórios financeiros em diferentes formatos." },
