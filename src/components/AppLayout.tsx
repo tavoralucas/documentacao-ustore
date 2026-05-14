@@ -22,12 +22,13 @@ interface MenuItem {
 }
 
 const menuItems: MenuItem[] = [
-{ title: "Panorama 360", url: "/panorama-360", icon: Globe },
-{ title: "Cloud Orchestration", url: "/cloud-orchestration", icon: Cloud },
+// { title: "Panorama 360", url: "/panorama-360", icon: Globe },
+// { title: "Cloud Orchestration", url: "/cloud-orchestration", icon: Cloud },
 { title: "Cost Management", url: "/cost-management", icon: TrendingDown },
-{ title: "Finops 360", url: "/finops-360", icon: PieChart },
-{ title: "Mangue", url: "/mangue", icon: Leaf },
-{ title: "DCI", url: "/dci", icon: Network }];
+// { title: "Finops 360", url: "/finops-360", icon: PieChart },
+// { title: "Mangue", url: "/mangue", icon: Leaf },
+// { title: "DCI", url: "/dci", icon: Network },
+];
 
 
 export default function AppLayout() {
