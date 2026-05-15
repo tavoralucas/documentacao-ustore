@@ -1,5 +1,6 @@
 import { ArrowLeft, BarChart2, RefreshCw, X, Info, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import consolidadoFaturamentoTela from "@/assets/consolidado-faturamento-tela.png";
 
 export default function ConsolidadoFaturamentoCostManagement() {
   const navigate = useNavigate();
@@ -44,6 +45,13 @@ export default function ConsolidadoFaturamentoCostManagement() {
           </p>
         </div>
       </section>
+
+      <img
+        src={consolidadoFaturamentoTela}
+        alt="Tela do Consolidado de Faturamento mostrando seleção de contrato, período e tabela de faturas"
+        className="w-full h-auto"
+        style={{ borderRadius: "8px" }}
+      />
 
       {/* Filtros */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
