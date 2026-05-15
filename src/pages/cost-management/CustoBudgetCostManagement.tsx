@@ -4,6 +4,7 @@ import custoBudgetTela from "@/assets/custo-budget-tela.png";
 import criarNovoBudgetTela from "@/assets/criar-novo-budget-tela.png";
 import editarBudgetTela from "@/assets/editar-budget-tela.png";
 import excluirBudgetModal from "@/assets/excluir-budget-modal.png";
+import painelResumoBudget from "@/assets/painel-resumo-budget.png";
 
 export default function CustoBudgetCostManagement() {
   const navigate = useNavigate();
@@ -237,19 +238,31 @@ export default function CustoBudgetCostManagement() {
       {/* Painel Resumo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">Painel de Resumo (em tempo real)</h2>
-        <div className="grid gap-3 md:grid-cols-3 text-sm">
-          {[
-            { label: "Contrato", desc: "Campo Lista de contratos" },
-            { label: "Nome", desc: "Exibe --- quando vazio" },
-            { label: "Valor Total", desc: "Atualizado ao digitar" },
-            { label: "Valor Alocado", desc: "Soma das alocações adicionadas" },
-            { label: "Saldo", desc: "Verde quando positivo. Deve ser R$ 0,00 para salvar." },
-          ].map(({ label, desc }) => (
-            <div key={label} className="p-3 rounded-lg border border-border bg-muted/50">
-              <p className="font-semibold text-foreground">{label}</p>
-              <p className="text-xs text-muted-foreground mt-1">{desc}</p>
-            </div>
-          ))}
+        <div className="grid gap-6 md:grid-cols-2 items-start">
+          <div className="space-y-3 text-sm">
+            {[
+              { label: "Contrato", desc: "Campo Lista de contratos" },
+              { label: "Nome", desc: "Exibe --- quando vazio" },
+              { label: "Valor Total", desc: "Atualizado ao digitar" },
+              { label: "Valor Alocado", desc: "Soma das alocações adicionadas" },
+              { label: "Saldo", desc: "Verde quando positivo. Deve ser R$ 0,00 para salvar." },
+            ].map(({ label, desc }) => (
+              <div key={label} className="p-3 rounded-lg border border-border bg-muted/50">
+                <p className="font-semibold text-foreground">{label}</p>
+                <p className="text-xs text-muted-foreground mt-1">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <figure>
+            <img
+              src={painelResumoBudget}
+              alt="Painel de Resumo do Budget"
+              className="w-full rounded-lg border border-border"
+            />
+            <figcaption className="text-xs text-muted-foreground mt-2 text-center">
+              Painel de Resumo exibido durante a criação/edição do Budget
+            </figcaption>
+          </figure>
         </div>
       </section>
 
