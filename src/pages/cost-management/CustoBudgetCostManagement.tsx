@@ -1,5 +1,6 @@
 import { ArrowLeft, Wallet, PlusCircle, Edit, Trash2, Star, Bell } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import custoBudgetTela from "@/assets/custo-budget-tela.png";
 
 export default function CustoBudgetCostManagement() {
   const navigate = useNavigate();
@@ -50,6 +51,17 @@ export default function CustoBudgetCostManagement() {
           ))}
         </div>
       </section>
+
+      <figure className="rounded-xl border border-border bg-card p-3 shadow-sm">
+        <img
+          src={custoBudgetTela}
+          alt="Tela de Custo de Budget"
+          className="w-full rounded-lg border border-border"
+        />
+        <figcaption className="text-xs text-muted-foreground mt-2 text-center">
+          Tela de Custo de Budget — seleção de contrato e listagem de budgets
+        </figcaption>
+      </figure>
 
       {/* Sistema de Semáforo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
