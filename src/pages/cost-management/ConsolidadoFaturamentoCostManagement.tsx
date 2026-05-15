@@ -136,8 +136,7 @@ export default function ConsolidadoFaturamentoCostManagement() {
               <h3 className="font-semibold text-foreground">Ver Detalhes</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              Navega para <code className="bg-muted px-1 rounded text-xs">/billing/financial</code> com parâmetros da fatura pré-carregados
-              (companyUUID, month, year, name). Disponível para todas as faturas.
+              Abre módulo de 'Financeiro' com parâmetros da fatura pré-carregados (mês, ano). Disponível para todas as faturas.
             </p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
@@ -145,7 +144,7 @@ export default function ConsolidadoFaturamentoCostManagement() {
               <Eye className="h-4 w-4 text-primary" />
               <h3 className="font-semibold text-foreground">Em Tela</h3>
             </div>
-            <p className="text-sm text-muted-foreground">Abre modal <strong>"Detalhes Financeiros"</strong> inline sem sair da tela atual. Disponível para todas as faturas.</p>
+            <p className="text-sm text-muted-foreground">Abre modal <strong>"Detalhes Financeiros"</strong> em linha sem sair da tela atual. Disponível para todas as faturas.</p>
           </div>
         </div>
       </section>
