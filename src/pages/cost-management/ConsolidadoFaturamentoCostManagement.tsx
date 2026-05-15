@@ -87,7 +87,7 @@ export default function ConsolidadoFaturamentoCostManagement() {
             </thead>
             <tbody className="text-muted-foreground">
               {[
-                ["Contrato", "Identificador do contrato (ex: [A]1004608-JEVA-AWS)"],
+                ["Contrato", "Valor total em R$ (Moeda do Provedor) com 2 casas decimais"],
                 ["Período", "Intervalo de datas de consumo — DD/MM/YYYY HH:MM:SS - DD/MM/YYYY HH:MM:SS"],
                 ["Faturamento", "Competência/mês de faturamento — MM/YYYY"],
                 ["Fechamento", "Data e hora do fechamento. Vazio + tooltip se fatura em aberto"],
