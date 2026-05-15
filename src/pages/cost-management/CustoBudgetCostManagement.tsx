@@ -39,7 +39,7 @@ export default function CustoBudgetCostManagement() {
         </p>
         <div className="grid gap-3 md:grid-cols-3">
           {[
-            { label: "Controller / Gestor Financeiro", desc: "Define orçamentos mensais/trimestrais e monitora aderência." },
+            { label: "Gestor Financeiro", desc: "Define orçamentos mensais/trimestrais e monitora aderência." },
             { label: "Cloud Manager / Gestor de TI", desc: "Acompanha consumo por Account Provider e budget aprovado." },
             { label: "Operador de Faturamento", desc: "Configura os budgets e recebe alertas por e-mail." },
           ].map(({ label, desc }) => (
@@ -53,7 +53,7 @@ export default function CustoBudgetCostManagement() {
 
       {/* Sistema de Semáforo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Sistema de Semáforo — Níveis de Consumo</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Sistema de Semáforo: Níveis de Consumo</h2>
         <div className="grid gap-3 md:grid-cols-3">
           <div className="p-4 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/30 dark:border-green-800">
             <p className="font-semibold text-green-800 dark:text-green-200">Nível Seguro 🟢</p>
@@ -94,7 +94,7 @@ export default function CustoBudgetCostManagement() {
               {[
                 ["Fav.", "Ícone de estrela — vazia = não favoritado; dourada preenchida = favoritado"],
                 ["Nome", "Nome do budget definido pelo usuário"],
-                ["Alertas", "Ícones notifications_off (inativo) e repeat (não recorrente)"],
+                ["Alertas", "Ícones notifications (inativo) e repeat (não recorrente)"],
                 ["Intervalo", "Mensal, Trimestral, Semestral, Anual ou --- (sem recorrência)"],
                 ["Início", "Mês/Ano de início no formato MM/AAAA"],
                 ["Valor Total", "Valor orçado total em R$"],
@@ -117,16 +117,16 @@ export default function CustoBudgetCostManagement() {
 
       {/* CRUD */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">CRUD de Budgets</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Como definir novos Budgets?</h2>
 
         <div className="space-y-4">
           {/* CREATE */}
           <div className="rounded-lg border border-border p-4">
             <div className="flex items-center gap-2 mb-3">
               <PlusCircle className="h-4 w-4 text-green-600" />
-              <h3 className="font-semibold text-foreground">Criar Novo Budget</h3>
+              <h3 className="font-semibold text-foreground">Criando um novo Budget</h3>
             </div>
-            <p className="text-sm text-muted-foreground mb-3">Rota: <code className="bg-muted px-1 rounded">/billing/budget/new</code>. Formulário dividido em 3 seções + painel lateral de Resumo.</p>
+            <p className="text-sm text-muted-foreground mb-3">Formulário dividido em 3 seções + painel lateral de Resumo.</p>
             <div className="grid gap-3 md:grid-cols-3 text-sm">
               <div className="p-3 rounded-lg bg-muted/50">
                 <p className="font-semibold text-foreground mb-1">Informações Gerais</p>
@@ -156,7 +156,7 @@ export default function CustoBudgetCostManagement() {
             </div>
             <div className="mt-3 bg-red-50 dark:bg-red-950/30 p-3 rounded-lg border border-red-200 dark:border-red-800 text-sm">
               <p className="text-red-800 dark:text-red-200">
-                <strong>Regra Crítica:</strong> O botão "Salvar Budget" só fica habilitado quando o
+                <strong>Regra Obrigatória:</strong> O botão "Salvar Budget" só fica habilitado quando o
                 <strong> Saldo = R$ 0,00</strong> (Valor Total = Valor Alocado). O usuário deve distribuir todo o
                 valor antes de salvar. A <strong>Forma de cobrança é bloqueada</strong> após a primeira alocação.
               </p>
@@ -167,7 +167,7 @@ export default function CustoBudgetCostManagement() {
           <div className="rounded-lg border border-border p-4">
             <div className="flex items-center gap-2 mb-2">
               <Edit className="h-4 w-4 text-blue-600" />
-              <h3 className="font-semibold text-foreground">Editar Budget</h3>
+              <h3 className="font-semibold text-foreground">Editando um Budget</h3>
             </div>
             <p className="text-sm text-muted-foreground">
               Mesmo formulário de criação com dados pré-carregados. Botão "Editar Budget" em vez de "Salvar Budget".
@@ -179,7 +179,7 @@ export default function CustoBudgetCostManagement() {
           <div className="rounded-lg border border-border p-4">
             <div className="flex items-center gap-2 mb-2">
               <Trash2 className="h-4 w-4 text-red-600" />
-              <h3 className="font-semibold text-foreground">Excluir Budget</h3>
+              <h3 className="font-semibold text-foreground">Excluindo um Budget</h3>
             </div>
             <p className="text-sm text-muted-foreground">
               Modal de confirmação com mensagem: <em>"Esta ação não poderá ser desfeita. Tem certeza que deseja excluir este budget?"</em>
@@ -191,7 +191,7 @@ export default function CustoBudgetCostManagement() {
 
       {/* Painel Resumo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Painel Lateral de Resumo (em tempo real)</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Painel de Resumo (em tempo real)</h2>
         <div className="grid gap-3 md:grid-cols-3 text-sm">
           {[
             { label: "Contrato", desc: "Campo Lista de contratos" },
@@ -219,7 +219,7 @@ export default function CustoBudgetCostManagement() {
             </div>
             <p className="text-sm text-muted-foreground">
               Ao ativar <strong>"Alerta de rotina"</strong>, uma rotina automática monitora o budget e envia alertas
-              por e-mail. O ícone <code className="bg-muted px-1 rounded text-xs">notifications_off</code> na tabela
+              por e-mail. O ícone <code className="bg-muted px-1 rounded text-xs">notifications</code> na tabela
               indica que o alerta está inativo para aquele budget.
             </p>
           </div>
@@ -241,7 +241,7 @@ export default function CustoBudgetCostManagement() {
         <h2 className="text-xl font-semibold text-foreground mb-4">Fluxo Completo — Criação de Budget</h2>
         <ol className="space-y-1 text-sm text-muted-foreground list-decimal list-inside ml-2">
           <li>Selecionar contrato e período → clicar "Buscar"</li>
-          <li>Clicar em "Novo Budget" → navegação para <code className="bg-muted px-1 rounded">/billing/budget/new</code></li>
+          <li>Clicar em "Novo Budget" → navegação para o formulário de criação</li>
           <li>Preencher Nome do Budget → Resumo atualiza em tempo real</li>
           <li>Selecionar Período (Mensal/Trimestral/Semestral/Anual) e Data de Início</li>
           <li>Selecionar Forma de cobrança e preencher Valor Total</li>
