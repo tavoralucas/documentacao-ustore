@@ -1,6 +1,7 @@
 import { ArrowLeft, Wallet, PlusCircle, Edit, Trash2, Star, Bell } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import custoBudgetTela from "@/assets/custo-budget-tela.png";
+import criarNovoBudgetTela from "@/assets/criar-novo-budget-tela.png";
 
 export default function CustoBudgetCostManagement() {
   const navigate = useNavigate();
@@ -173,6 +174,16 @@ export default function CustoBudgetCostManagement() {
                 valor antes de salvar. A <strong>Forma de cobrança é bloqueada</strong> após a primeira alocação.
               </p>
             </div>
+            <figure className="mt-4">
+              <img
+                src={criarNovoBudgetTela}
+                alt="Tela de criação de novo Budget"
+                className="w-full rounded-lg border border-border"
+              />
+              <figcaption className="text-xs text-muted-foreground mt-2 text-center">
+                Tela "Criar novo Budget" — informações gerais, alocação e painel de resumo
+              </figcaption>
+            </figure>
           </div>
 
           {/* UPDATE */}
