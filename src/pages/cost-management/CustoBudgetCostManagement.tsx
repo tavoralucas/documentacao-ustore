@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import custoBudgetTela from "@/assets/custo-budget-tela.png";
 import criarNovoBudgetTela from "@/assets/criar-novo-budget-tela.png";
 import editarBudgetTela from "@/assets/editar-budget-tela.png";
+import excluirBudgetModal from "@/assets/excluir-budget-modal.png";
 
 export default function CustoBudgetCostManagement() {
   const navigate = useNavigate();
@@ -219,6 +220,16 @@ export default function CustoBudgetCostManagement() {
               Modal de confirmação com mensagem: <em>"Esta ação não poderá ser desfeita. Tem certeza que deseja excluir este budget?"</em>
               A exclusão é <strong>permanente e imediata</strong> — não há arquivamento.
             </p>
+            <figure className="mt-4 max-w-2xl mx-auto">
+              <img
+                src={excluirBudgetModal}
+                alt="Modal de exclusão de Budget"
+                className="w-full rounded-lg border border-border"
+              />
+              <figcaption className="text-xs text-muted-foreground mt-2 text-center">
+                Modal de confirmação ao excluir um Budget
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
