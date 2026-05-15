@@ -98,7 +98,7 @@ export default function CustoBudgetCostManagement() {
 
       {/* Tabela de Budgets */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Tabela de Budgets — Colunas</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Tabela de Budgets</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -309,7 +309,7 @@ export default function CustoBudgetCostManagement() {
 
       {/* Fluxo Completo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Fluxo Completo — Criação de Budget</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Fluxo Completo: Criação de Budget</h2>
         <ol className="space-y-1 text-sm text-muted-foreground list-decimal list-inside ml-2">
           <li>Selecionar contrato e período → clicar "Buscar"</li>
           <li>Clicar em "Novo Budget" → navegação para o formulário de criação</li>
