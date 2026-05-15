@@ -2,6 +2,7 @@ import { ArrowLeft, Wallet, PlusCircle, Edit, Trash2, Star, Bell } from "lucide-
 import { useNavigate } from "react-router-dom";
 import custoBudgetTela from "@/assets/custo-budget-tela.png";
 import criarNovoBudgetTela from "@/assets/criar-novo-budget-tela.png";
+import editarBudgetTela from "@/assets/editar-budget-tela.png";
 
 export default function CustoBudgetCostManagement() {
   const navigate = useNavigate();
@@ -196,6 +197,16 @@ export default function CustoBudgetCostManagement() {
               Mesmo formulário de criação com dados pré-carregados. Botão "Editar Budget" em vez de "Salvar Budget".
               A mesma regra Saldo = R$ 0,00 se aplica. Toast de sucesso: <em>"Budget editado com sucesso!"</em>
             </p>
+            <figure className="mt-4">
+              <img
+                src={editarBudgetTela}
+                alt="Tela de edição de Budget"
+                className="w-full rounded-lg border border-border"
+              />
+              <figcaption className="text-xs text-muted-foreground mt-2 text-center">
+                Tela "Editar Budget" — dados pré-carregados com alocações existentes
+              </figcaption>
+            </figure>
           </div>
 
           {/* DELETE */}
