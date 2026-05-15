@@ -33,10 +33,9 @@ export default function ExportarRelatoriosCostManagement() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral</h2>
         <p className="text-muted-foreground mb-3">
-          A Exportar Relatórios permite que usuários gerem, de forma assíncrona, arquivos de dados financeiros e de
-          consumo de nuvem em diferentes formatos (CSV, Excel, PDF, ZIP), com base em parâmetros configuráveis por
-          tipo de relatório. Após a geração, os arquivos ficam disponíveis para download por um período determinado
-          e um histórico de exportações é mantido para reaproveitamento.
+          O módulo de 'Exportar Relatórios' permite que usuários gerem, de forma assíncrona, arquivos de dados financeiros
+          e de consumo de nuvem em diferentes formatos, com base em parâmetros configuráveis por tipo de relatório. Após
+          a geração, os arquivos ficam disponíveis para download e um histórico de exportações é mantido para reaproveitamento.
         </p>
         <div className="grid gap-3 md:grid-cols-2">
           <div className="p-4 rounded-lg border border-border bg-muted/50">
