@@ -46,6 +46,13 @@ export default function ConsolidadoFaturamentoCostManagement() {
         </div>
       </section>
 
+      <img
+        src={consolidadoFaturamentoTela}
+        alt="Tela do Consolidado de Faturamento mostrando seleção de contrato, período e tabela de faturas"
+        className="w-full h-auto"
+        style={{ borderRadius: "8px" }}
+      />
+
       {/* Filtros */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">Filtros</h2>
