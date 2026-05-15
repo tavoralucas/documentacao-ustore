@@ -5,6 +5,7 @@ import criarNovoBudgetTela from "@/assets/criar-novo-budget-tela.png";
 import editarBudgetTela from "@/assets/editar-budget-tela.png";
 import excluirBudgetModal from "@/assets/excluir-budget-modal.png";
 import painelResumoBudget from "@/assets/painel-resumo-budget.png";
+import recorrenciaAlertasBudget from "@/assets/recorrencia-alertas-budget.png";
 
 export default function CustoBudgetCostManagement() {
   const navigate = useNavigate();
@@ -269,28 +270,40 @@ export default function CustoBudgetCostManagement() {
       {/* Alertas e Favoritos */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">Alertas e Favoritos</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="p-4 rounded-lg border border-border bg-muted/50">
-            <div className="flex items-center gap-2 mb-2">
-              <Bell className="h-4 w-4 text-primary" />
-              <h3 className="font-semibold text-foreground">Sistema de Alertas</h3>
+        <div className="grid gap-6 md:grid-cols-2 items-start">
+          <div className="space-y-4">
+            <div className="p-4 rounded-lg border border-border bg-muted/50">
+              <div className="flex items-center gap-2 mb-2">
+                <Bell className="h-4 w-4 text-primary" />
+                <h3 className="font-semibold text-foreground">Sistema de Alertas</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Ao ativar <strong>"Alerta de rotina"</strong>, uma rotina automática monitora o budget e envia alertas
+                por e-mail. O ícone <code className="bg-muted px-1 rounded text-xs">notifications</code> na tabela
+                indica que o alerta está inativo para aquele budget.
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Ao ativar <strong>"Alerta de rotina"</strong>, uma rotina automática monitora o budget e envia alertas
-              por e-mail. O ícone <code className="bg-muted px-1 rounded text-xs">notifications</code> na tabela
-              indica que o alerta está inativo para aquele budget.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border border-border bg-muted/50">
-            <div className="flex items-center gap-2 mb-2">
-              <Star className="h-4 w-4 text-primary" />
-              <h3 className="font-semibold text-foreground">Favoritos</h3>
+            <div className="p-4 rounded-lg border border-border bg-muted/50">
+              <div className="flex items-center gap-2 mb-2">
+                <Star className="h-4 w-4 text-primary" />
+                <h3 className="font-semibold text-foreground">Favoritos</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Cada budget possui estrela clicável: <strong>vazia</strong> = não favoritado;
+                <strong> dourada preenchida</strong> = favoritado. A ação é instantânea, sem confirmação.
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Cada budget possui estrela clicável: <strong>vazia</strong> = não favoritado;
-              <strong> dourada preenchida</strong> = favoritado. A ação é instantânea, sem confirmação.
-            </p>
           </div>
+          <figure>
+            <img
+              src={recorrenciaAlertasBudget}
+              alt="Painel de Recorrência e Alertas"
+              className="w-full rounded-lg border border-border"
+            />
+            <figcaption className="text-xs text-muted-foreground mt-2 text-center">
+              Configuração de alertas por e-mail e recorrência do Budget
+            </figcaption>
+          </figure>
         </div>
       </section>
 
