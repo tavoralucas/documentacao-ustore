@@ -160,6 +160,64 @@ export default function ExportarRelatoriosCostManagement() {
             </div>
             <p className="text-xs text-muted-foreground mt-2">Único tipo que oferece exportação em Excel (XLSX).</p>
           </div>
+
+          {/* Centro de Custo */}
+          <div className="rounded-lg border border-border p-4">
+            <h3 className="font-semibold text-foreground mb-3">Centro de Custo</h3>
+            <div className="grid gap-2 md:grid-cols-1 text-sm">
+              <div className="p-2 rounded bg-muted/50">
+                <p className="font-medium">Período / Mês</p>
+                <p className="text-muted-foreground text-xs mt-1">Seletor mês/ano obrigatório — único campo específico do tipo.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Histórico de Serviço */}
+          <div className="rounded-lg border border-border p-4">
+            <h3 className="font-semibold text-foreground mb-3">Histórico de Serviço</h3>
+            <div className="grid gap-2 md:grid-cols-4 text-sm">
+              <div className="p-2 rounded bg-muted/50">
+                <p className="font-medium">Período</p>
+                <p className="text-muted-foreground text-xs mt-1">Seletor mês/ano obrigatório</p>
+              </div>
+              <div className="p-2 rounded bg-muted/50">
+                <p className="font-medium">Provedores de Conta</p>
+                <p className="text-muted-foreground text-xs mt-1">Seleção do account provider (obrigatório)</p>
+              </div>
+              <div className="p-2 rounded bg-muted/50">
+                <p className="font-medium">Linked Account</p>
+                <p className="text-muted-foreground text-xs mt-1">Seletor de linkeds da conta selecionada</p>
+              </div>
+              <div className="p-2 rounded bg-muted/50">
+                <p className="font-medium">Granularidade</p>
+                <p className="text-muted-foreground text-xs mt-1">Mensal / Diário</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Custo Cadenciado */}
+          <div className="rounded-lg border border-border p-4">
+            <h3 className="font-semibold text-foreground mb-3">Custo Cadenciado</h3>
+            <div className="grid gap-2 md:grid-cols-4 text-sm">
+              <div className="p-2 rounded bg-muted/50">
+                <p className="font-medium">Período</p>
+                <p className="text-muted-foreground text-xs mt-1">Seletor mês/ano obrigatório</p>
+              </div>
+              <div className="p-2 rounded bg-muted/50">
+                <p className="font-medium">Provedores de Conta</p>
+                <p className="text-muted-foreground text-xs mt-1">Seleção do account provider (obrigatório)</p>
+              </div>
+              <div className="p-2 rounded bg-muted/50">
+                <p className="font-medium">Linked Account</p>
+                <p className="text-muted-foreground text-xs mt-1">Seletor de linkeds da conta selecionada</p>
+              </div>
+              <div className="p-2 rounded bg-muted/50">
+                <p className="font-medium">Granularidade</p>
+                <p className="text-muted-foreground text-xs mt-1">Mensal / Diário</p>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground mt-2">Mesma estrutura de filtros do Histórico de Serviço.</p>
+          </div>
         </div>
       </section>
 
