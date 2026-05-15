@@ -36,12 +36,11 @@ export default function ConsolidadoFaturamentoCostManagement() {
         <p className="text-muted-foreground mb-3">
           O Consolidado de Faturamento centraliza o histórico de faturas de todos os contratos de um usuário,
           permitindo consulta, visualização detalhada, controle de ciclo de vida (abertura e fechamento) e acesso
-          rápido aos detalhes financeiros por fatura. Suporta múltiplos provedores: AWS, Azure, Huawei e OCI.
+          rápido aos detalhes financeiros por fatura.
         </p>
         <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
           <p className="text-sm text-blue-800 dark:text-blue-200">
-            <strong>Problema resolvido:</strong> Clientes com múltiplos contratos e provedores precisam de um ponto único
-            para consultar e monitorar todas as faturas consolidadas por período.
+            Clientes com múltiplos contratos e provedores podem, a partir de um ponto único, consultar e monitorar todas as faturas consolidadas por período.
           </p>
         </div>
       </section>
@@ -60,15 +59,15 @@ export default function ConsolidadoFaturamentoCostManagement() {
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-2">Lista de Contratos</h3>
             <p className="text-sm text-muted-foreground">
-              Dropdown multiselect com checkbox e campo de busca. Suporta até 648+ contratos.
-              Inclui opção <strong>"Selecionar todos"</strong> como primeiro item.
+              Dropdown multiselect com checkbox e campo de busca.
+              Inclui opção <strong>"Selecionar todos"</strong> como primeiro item, para cenários em que tem mais de um disponível.
               O contrato global da sessão é pré-selecionado por padrão.
             </p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-2">Período</h3>
             <p className="text-sm text-muted-foreground">
-              Seletor de intervalo de meses. Formato exibido: <code className="bg-muted px-1 rounded text-xs">Mmm YYYY até Mmm YYYY</code>.
+              Seletor de intervalo de meses. Formato exibido: <code className="bg-muted px-1 rounded text-xs">MM/YYYY até MM/YYYY</code>.
               O botão "Buscar" fica <strong>desabilitado</strong> enquanto o período não estiver selecionado.
             </p>
           </div>
@@ -88,7 +87,7 @@ export default function ConsolidadoFaturamentoCostManagement() {
             </thead>
             <tbody className="text-muted-foreground">
               {[
-                ["Contrato", "Identificador do contrato (ex: [A]1004608-JEVA-AWS)"],
+                ["Contrato", "Valor total em R$ (Moeda do Provedor) com 2 casas decimais"],
                 ["Período", "Intervalo de datas de consumo — DD/MM/YYYY HH:MM:SS - DD/MM/YYYY HH:MM:SS"],
                 ["Faturamento", "Competência/mês de faturamento — MM/YYYY"],
                 ["Fechamento", "Data e hora do fechamento. Vazio + tooltip se fatura em aberto"],
@@ -137,8 +136,7 @@ export default function ConsolidadoFaturamentoCostManagement() {
               <h3 className="font-semibold text-foreground">Ver Detalhes</h3>
             </div>
             <p className="text-sm text-muted-foreground">
-              Navega para <code className="bg-muted px-1 rounded text-xs">/billing/financial</code> com parâmetros da fatura pré-carregados
-              (companyUUID, month, year, name). Disponível para todas as faturas.
+              Abre módulo de 'Financeiro' com parâmetros da fatura pré-carregados (mês, ano). Disponível para todas as faturas.
             </p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
@@ -146,7 +144,7 @@ export default function ConsolidadoFaturamentoCostManagement() {
               <Eye className="h-4 w-4 text-primary" />
               <h3 className="font-semibold text-foreground">Em Tela</h3>
             </div>
-            <p className="text-sm text-muted-foreground">Abre modal <strong>"Detalhes Financeiros"</strong> inline sem sair da tela atual. Disponível para todas as faturas.</p>
+            <p className="text-sm text-muted-foreground">Abre modal <strong>"Detalhes Financeiros"</strong> em linha sem sair da tela atual. Disponível para todas as faturas.</p>
           </div>
         </div>
       </section>
