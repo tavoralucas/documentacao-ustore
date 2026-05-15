@@ -36,12 +36,11 @@ export default function ConsolidadoFaturamentoCostManagement() {
         <p className="text-muted-foreground mb-3">
           O Consolidado de Faturamento centraliza o histórico de faturas de todos os contratos de um usuário,
           permitindo consulta, visualização detalhada, controle de ciclo de vida (abertura e fechamento) e acesso
-          rápido aos detalhes financeiros por fatura. Suporta múltiplos provedores: AWS, Azure, Huawei e OCI.
+          rápido aos detalhes financeiros por fatura.
         </p>
         <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800">
           <p className="text-sm text-blue-800 dark:text-blue-200">
-            <strong>Problema resolvido:</strong> Clientes com múltiplos contratos e provedores precisam de um ponto único
-            para consultar e monitorar todas as faturas consolidadas por período.
+            Clientes com múltiplos contratos e provedores podem, a partir de um ponto único, consultar e monitorar todas as faturas consolidadas por período.
           </p>
         </div>
       </section>
