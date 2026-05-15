@@ -59,15 +59,15 @@ export default function ConsolidadoFaturamentoCostManagement() {
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-2">Lista de Contratos</h3>
             <p className="text-sm text-muted-foreground">
-              Dropdown multiselect com checkbox e campo de busca. Suporta até 648+ contratos.
-              Inclui opção <strong>"Selecionar todos"</strong> como primeiro item.
+              Dropdown multiselect com checkbox e campo de busca.
+              Inclui opção <strong>"Selecionar todos"</strong> como primeiro item, para cenários em que tem mais de um disponível.
               O contrato global da sessão é pré-selecionado por padrão.
             </p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-2">Período</h3>
             <p className="text-sm text-muted-foreground">
-              Seletor de intervalo de meses. Formato exibido: <code className="bg-muted px-1 rounded text-xs">Mmm YYYY até Mmm YYYY</code>.
+              Seletor de intervalo de meses. Formato exibido: <code className="bg-muted px-1 rounded text-xs">MM/YYYY até MM/YYYY</code>.
               O botão "Buscar" fica <strong>desabilitado</strong> enquanto o período não estiver selecionado.
             </p>
           </div>
