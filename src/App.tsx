@@ -70,7 +70,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route path="/" element={<Panorama360 />} />
+            <Route path="/" element={<CostManagement />} />
             <Route path="/panorama-360" element={<Panorama360 />} />
             <Route path="/panorama-360/visao-geral" element={<VisaoGeral />} />
             <Route path="/panorama-360/acesso" element={<AcessoP360 />} />
