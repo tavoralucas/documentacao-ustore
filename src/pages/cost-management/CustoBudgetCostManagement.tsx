@@ -39,94 +39,28 @@ export default function CustoBudgetCostManagement() {
         </p>
         <div className="grid gap-3 md:grid-cols-3">
           {[
-            { label: "Controller / Gestor Financeiro", desc: "Define orçamentos mensais/trimestrais e monitora aderência." },
-            { label: "Cloud Manager / Gestor de TI", desc: "Acompanha consumo por Account Provider e budget aprovado." },
-            { label: "Operador de Faturamento", desc: "Configura os budgets e recebe alertas por e-mail." },
-          ].map(({ label, desc }) => (
-            <div key={label} className="p-3 rounded-lg border border-border bg-muted/50">
-              <p className="font-semibold text-foreground text-sm">{label}</p>
-              <p className="text-xs text-muted-foreground mt-1">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
+            { label: "Gestor Financeiro", desc: "Define orçamentos mensais/trimestrais e monitora aderência." },
+...
       {/* Sistema de Semáforo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Sistema de Semáforo — Níveis de Consumo</h2>
-        <div className="grid gap-3 md:grid-cols-3">
-          <div className="p-4 rounded-lg border border-green-200 bg-green-50 dark:bg-green-950/30 dark:border-green-800">
-            <p className="font-semibold text-green-800 dark:text-green-200">Nível Seguro 🟢</p>
-            <p className="text-sm text-green-700 dark:text-green-300 mt-1">% Consumido ≤ 49%</p>
-            <p className="text-xs text-green-600 dark:text-green-400 mt-1">Consumo dentro do esperado</p>
-          </div>
-          <div className="p-4 rounded-lg border border-orange-200 bg-orange-50 dark:bg-orange-950/30 dark:border-orange-800">
-            <p className="font-semibold text-orange-800 dark:text-orange-200">Nível de Atenção 🟠</p>
-            <p className="text-sm text-orange-700 dark:text-orange-300 mt-1">% Consumido entre 50% e 89%</p>
-            <p className="text-xs text-orange-600 dark:text-orange-400 mt-1">Consumo se aproximando do limite</p>
-          </div>
-          <div className="p-4 rounded-lg border border-red-200 bg-red-50 dark:bg-red-950/30 dark:border-red-800">
-            <p className="font-semibold text-red-800 dark:text-red-200">Nível Crítico 🔴</p>
-            <p className="text-sm text-red-700 dark:text-red-300 mt-1">% Consumido ≥ 90% (pode ultrapassar 100%)</p>
-            <p className="text-xs text-red-600 dark:text-red-400 mt-1">Risco de estouro do orçamento</p>
-          </div>
-        </div>
-        <div className="mt-3 bg-amber-50 dark:bg-amber-950/30 p-3 rounded-lg border border-amber-200 dark:border-amber-800 text-sm">
-          <p className="text-amber-800 dark:text-amber-200">
-            O sistema <strong>não impede</strong> que o consumo ultrapasse o valor total — apenas sinaliza visualmente.
-            O % pode ultrapassar 100% (ex: 3.843.887,22% observado em produção).
-          </p>
-        </div>
-      </section>
-
-      {/* Tabela de Budgets */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Tabela de Budgets — Colunas</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="text-left py-2 pr-3 font-semibold text-foreground">Coluna</th>
-                <th className="text-left py-2 font-semibold text-foreground">Descrição</th>
-              </tr>
-            </thead>
-            <tbody className="text-muted-foreground">
-              {[
-                ["Fav.", "Ícone de estrela — vazia = não favoritado; dourada preenchida = favoritado"],
+        <h2 className="text-xl font-semibold text-foreground mb-4">Sistema de Semáforo: Níveis de Consumo</h2>
+...
                 ["Nome", "Nome do budget definido pelo usuário"],
-                ["Alertas", "Ícones notifications_off (inativo) e repeat (não recorrente)"],
+                ["Alertas", "Ícones notifications (inativo) e repeat (não recorrente)"],
                 ["Intervalo", "Mensal, Trimestral, Semestral, Anual ou --- (sem recorrência)"],
-                ["Início", "Mês/Ano de início no formato MM/AAAA"],
-                ["Valor Total", "Valor orçado total em R$"],
-                ["Consumido", "Valor efetivamente consumido em R$"],
-                ["% Consumido", "Percentual do valor total já consumido (com cor do semáforo)"],
-                ["Ações", "Ícones de editar (lápis) e excluir (lixeira)"],
-              ].map(([col, desc]) => (
-                <tr key={col} className="border-b border-border/50">
-                  <td className="py-2 pr-3 font-medium whitespace-nowrap">{col}</td>
-                  <td className="py-2">{desc}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="text-xs text-muted-foreground mt-2">
-          Fórmula: <code className="bg-muted px-1 rounded">% Consumido = (Valor Consumido / Valor Total) × 100</code>. Paginação: 5, 10 (padrão), 20, 50, 100 itens.
-        </p>
-      </section>
-
+...
       {/* CRUD */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">CRUD de Budgets</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Como definir novos Budgets?</h2>
 
         <div className="space-y-4">
           {/* CREATE */}
           <div className="rounded-lg border border-border p-4">
             <div className="flex items-center gap-2 mb-3">
               <PlusCircle className="h-4 w-4 text-green-600" />
-              <h3 className="font-semibold text-foreground">Criar Novo Budget</h3>
+              <h3 className="font-semibold text-foreground">Criando um novo Budget</h3>
             </div>
-            <p className="text-sm text-muted-foreground mb-3">Rota: <code className="bg-muted px-1 rounded">/billing/budget/new</code>. Formulário dividido em 3 seções + painel lateral de Resumo.</p>
+            <p className="text-sm text-muted-foreground mb-3">Formulário dividido em 3 seções + painel lateral de Resumo.</p>
             <div className="grid gap-3 md:grid-cols-3 text-sm">
               <div className="p-3 rounded-lg bg-muted/50">
                 <p className="font-semibold text-foreground mb-1">Informações Gerais</p>
