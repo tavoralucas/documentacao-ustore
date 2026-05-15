@@ -1,5 +1,6 @@
 import { ArrowLeft, Download, FileText, Clock, CheckCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import exportarRelatoriosTela from "@/assets/exportar-relatorios-tela.png";
 
 export default function ExportarRelatoriosCostManagement() {
   const navigate = useNavigate();
@@ -46,6 +47,13 @@ export default function ExportarRelatoriosCostManagement() {
             <h3 className="font-semibold text-foreground mb-2">Seção 2 — Histórico de exportações</h3>
             <p className="text-sm text-muted-foreground">Tabela com relatórios já exportados, disponíveis para redownload.</p>
           </div>
+        </div>
+        <div className="mt-6 rounded-lg border border-border overflow-hidden">
+          <img
+            src={exportarRelatoriosTela}
+            alt="Tela de Exportar Relatórios mostrando o formulário Gerar novo relatório e o Histórico de exportações"
+            className="w-full h-auto"
+          />
         </div>
       </section>
 
