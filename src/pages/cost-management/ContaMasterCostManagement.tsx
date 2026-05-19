@@ -57,14 +57,13 @@ export default function ContaMasterCostManagement() {
             </p>
             <p className="text-xs text-muted-foreground mt-2">
               Formato: <code className="bg-muted px-1 rounded">[A]XXXXXXXX-NOMECLIENTE-PROVEDOR (AccountID)</code>
-              <br />Ex: <code className="bg-muted px-1 rounded">[A]1004608-JEVA-AWS (605212350047)</code>
+              <br />
             </p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-2">Período</h3>
             <p className="text-sm text-muted-foreground">
-              Granularidade mensal (MM/YYYY). Padrão: mês atual. A consulta não é automática —
-              o usuário deve clicar em <strong>"Filtrar"</strong> após selecionar contrato e período.
+              Granularidade mensal (MM/YYYY). Padrão: mês atual. A consulta não é automática, ou seja, o usuário deve clicar em <strong>"Filtrar"</strong> após selecionar contrato e período.
             </p>
             <p className="text-xs text-muted-foreground mt-2">
               Formato enviado à API: <code className="bg-muted px-1 rounded">YYYY-MM-01T00:00:00</code>
@@ -77,13 +76,13 @@ export default function ContaMasterCostManagement() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <DollarSign className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Card Resumo da Conta Master</h2>
+          <h2 className="text-xl font-semibold text-foreground">Card: Resumo da Conta Master</h2>
         </div>
         <p className="text-muted-foreground mb-3">Após aplicar o filtro, o card exibe:</p>
         <div className="grid gap-3 md:grid-cols-2 text-sm">
           {[
             { label: "Título", desc: "Nome do contrato + Account ID do provedor" },
-            { label: "Total (BRL)", desc: "Valor total convertido para Real com 4 casas decimais" },
+            { label: "Total (moeda do contrato)", desc: "Valor original na moeda do provedor (geralmente é USD para AWS, EUR para Azure, vai depender do cliente)" },
             { label: "Moeda do Provedor", desc: "Valor original na moeda do provedor (USD para AWS, EUR para Azure)" },
             { label: "Cotação do Dólar", desc: "Taxa de câmbio usada para conversão, em vermelho (ex: $4.99). Obtida por API para a data efetiva do período." },
           ].map(({ label, desc }) => (
@@ -95,8 +94,7 @@ export default function ContaMasterCostManagement() {
         </div>
         <div className="mt-3 bg-amber-50 dark:bg-amber-950/30 p-3 rounded-lg border border-amber-200 dark:border-amber-800 text-sm">
           <p className="text-amber-800 dark:text-amber-200">
-            <strong>RN-11:</strong> Todos os valores são exibidos com <strong>4 casas decimais</strong>
-            (ex: R$ 2.835,7941 / $521.5183), garantindo precisão de custos fracionais.
+            <strong>Nota:</strong> Todos os valores são exibidos com <strong>4 casas decimais</strong> (ex: R$ 2.835,7941 / $521.5183), garantindo precisão de custos fracionais. Para isso acontecer é necessária a configuração via card Regras de Financeiro no menu Administração > Contratos > Escolha do contrato.
           </p>
         </div>
       </section>
