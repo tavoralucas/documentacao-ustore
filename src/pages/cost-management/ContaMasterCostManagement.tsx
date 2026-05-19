@@ -190,22 +190,6 @@ export default function ContaMasterCostManagement() {
         </div>
       </section>
 
-      {/* Autenticação */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Autenticação e Multi-tenant</h2>
-        <div className="space-y-3 text-sm text-muted-foreground">
-          <div className="grid gap-3 md:grid-cols-2">
-            <div className="p-3 rounded-lg border border-border bg-muted/50">
-              <p className="font-semibold text-foreground mb-1">SSO Keycloak (OIDC)</p>
-              <p className="text-xs">Token renovado silenciosamente via <code className="bg-muted px-1 rounded">silent-check-sso.html</code>. JWT armazenado em <code className="bg-muted px-1 rounded">localStorage['token-billing']</code></p>
-            </div>
-            <div className="p-3 rounded-lg border border-border bg-muted/50">
-              <p className="font-semibold text-foreground mb-1">Multi-tenant</p>
-              <p className="text-xs">API busca com <code className="bg-muted px-1 rounded">size=999999</code> — retorna todos os contratos sem paginação. Observado até 865 contratos para um único usuário.</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
