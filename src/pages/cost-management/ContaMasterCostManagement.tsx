@@ -33,15 +33,11 @@ export default function ContaMasterCostManagement() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral</h2>
         <p className="text-muted-foreground mb-3">
-          A Conta Master é um módulo de visibilidade financeira dentro da Gestão de Custos. Consolida e apresenta
-          os gastos de uma Conta Master de provedor cloud (AWS, Azure, OCI, Huawei) junto com todas as Contas Linked
-          (subcontas) associadas, permitindo navegar pela hierarquia de custos do mais agregado ao mais granular.
+          A Conta Master é um módulo de visibilidade financeira dentro do produto Cost Management. Ele consolida e apresenta os gastos de uma conta principal de provedor cloud junto com todas as subcontas associadas, permitindo navegar pela hierarquia de custos do mais agregado ao mais granular.
         </p>
         <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800 text-sm">
           <p className="text-blue-800 dark:text-blue-200">
-            <strong>Rota:</strong> <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">/billing/control-tower</code>
-            · <strong>Stack:</strong> Angular 19.2.0 · <strong>Auth:</strong> SSO Keycloak/OIDC (JWT em localStorage)
-            · <strong>Moeda padrão:</strong> BRL com 4 casas decimais
+            <strong>Objetivo:</strong> Realizar toda análise do drill down financeiro da conta analisando custos de maneira mais detalhada.
           </p>
         </div>
       </section>
