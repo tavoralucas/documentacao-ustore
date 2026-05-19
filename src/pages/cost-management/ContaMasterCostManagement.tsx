@@ -94,7 +94,7 @@ export default function ContaMasterCostManagement() {
         </div>
         <div className="mt-3 bg-amber-50 dark:bg-amber-950/30 p-3 rounded-lg border border-amber-200 dark:border-amber-800 text-sm">
           <p className="text-amber-800 dark:text-amber-200">
-            <strong>Nota:</strong> Todos os valores são exibidos com <strong>4 casas decimais</strong> (ex: R$ 2.835,7941 / $521.5183), garantindo precisão de custos fracionais. Para isso acontecer é necessária a configuração via card Regras de Financeiro no menu Administração > Contratos > Escolha do contrato.
+            <strong>Nota:</strong> Todos os valores são exibidos com <strong>4 casas decimais</strong> (ex: R$ 2.835,7941 / $521.5183), garantindo precisão de custos fracionais. Para isso acontecer é necessária a configuração via card Regras de Financeiro no menu Administração {" > "} Contratos {" > "} Escolha do contrato.
           </p>
         </div>
       </section>
