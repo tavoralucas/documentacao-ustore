@@ -108,7 +108,7 @@ export default function ContaMasterCostManagement() {
         <p className="text-muted-foreground text-sm mb-4">A tabela é organizada em hierarquia expansível com 5 níveis:</p>
         <div className="space-y-2">
           {[
-            { nivel: "1", entidade: "Subconta (Linked Account)", exemplo: "jeva (108361471849)", desc: "Nome + Account ID" },
+            { nivel: "1", entidade: "Subconta (Linked Account)", exemplo: "Exemplo: BoxUsage:r5.large", desc: "Nome + Account ID" },
             { nivel: "2", entidade: "Serviço Cloud", exemplo: "Amazon Elastic Compute Cloud", desc: "Nome oficial do serviço" },
             { nivel: "3", entidade: "Região", exemplo: "US East (N. Virginia) / Sem Região", desc: "Nome da região ou 'Sem Região' para serviços globais" },
             { nivel: "4", entidade: "Categoria de Uso", exemplo: "Compute Instance, Storage, Data Transfer", desc: "Categoria funcional" },
@@ -130,7 +130,7 @@ export default function ContaMasterCostManagement() {
           <p className="font-semibold text-foreground mb-1">Colunas da tabela:</p>
           <p className="text-muted-foreground text-xs">
             <strong>SUBCONTAS</strong> (com indentação visual por nível) ·
-            <strong> TOTAL (BRL)</strong> com 4 casas decimais ·
+            <strong> TOTAL (MOEDA DO CONTRATO)</strong> com 4 casas decimais ·
             <strong> MOEDA DO PROVEDOR (USD)</strong> com 4 casas decimais
           </p>
         </div>
@@ -139,7 +139,7 @@ export default function ContaMasterCostManagement() {
       {/* Serviços AWS */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">Serviços AWS Identificados (exemplo)</h2>
-        <p className="text-muted-foreground text-sm mb-3">Subconta <code className="bg-muted px-1 rounded">jeva (108361471849)</code> para 05/2026:</p>
+        <p className="text-muted-foreground text-sm mb-3">Subconta <code className="bg-muted px-1 rounded">XPTO (000000000000)</code> para 05/2026:</p>
         <div className="grid gap-2 md:grid-cols-2 text-sm">
           {[
             ["Amazon Elastic Compute Cloud", "R$ 2.671,1165 (maior custo)"],
@@ -158,7 +158,7 @@ export default function ContaMasterCostManagement() {
           ))}
         </div>
         <p className="text-xs text-muted-foreground mt-2">
-          Serviços com custo zero são exibidos normalmente — permitem confirmar que o serviço existe mas não gerou custo no período.
+          Serviços com custo zero são exibidos normalmente, permitem confirmar que o serviço existe mas não gerou custo no período.
         </p>
       </section>
 
