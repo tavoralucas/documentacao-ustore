@@ -1,6 +1,7 @@
 import { ArrowLeft, Building2, Filter, ChevronRight, DollarSign } from "lucide-react";
 import contaMasterTabela from "@/assets/conta-master-tabela.png";
 import contaMasterResumo from "@/assets/conta-master-resumo.png";
+import contaMasterFiltros from "@/assets/conta-master-filtros.png";
 import { useNavigate } from "react-router-dom";
 
 export default function ContaMasterCostManagement() {
@@ -70,7 +71,10 @@ export default function ContaMasterCostManagement() {
             <p className="text-xs text-muted-foreground mt-2">
               Formato enviado à API: <code className="bg-muted px-1 rounded">YYYY-MM-01T00:00:00</code>
             </p>
-          </div>
+        </div>
+        <div className="mt-4 overflow-hidden rounded-lg border border-border">
+          <img src={contaMasterFiltros} alt="Exemplo dos filtros de Conta Master" className="w-full h-auto" />
+        </div>
         </div>
       </section>
 
