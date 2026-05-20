@@ -135,6 +135,9 @@ export default function ContaMasterCostManagement() {
             <strong> MOEDA DO PROVEDOR (USD)</strong> com 4 casas decimais
           </p>
         </div>
+        <div className="mt-4 overflow-hidden rounded-lg border border-border">
+          <img src={contaMasterTabela} alt="Exemplo da tabela hierárquica de Informações de custos" className="w-full h-auto" />
+        </div>
       </section>
 
       {/* Serviços AWS */}
