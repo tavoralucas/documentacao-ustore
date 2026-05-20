@@ -1,4 +1,5 @@
 import { ArrowLeft, Building2, Filter, ChevronRight, DollarSign } from "lucide-react";
+import contaMasterTabela from "@/assets/conta-master-tabela.png";
 import { useNavigate } from "react-router-dom";
 
 export default function ContaMasterCostManagement() {
@@ -133,6 +134,9 @@ export default function ContaMasterCostManagement() {
             <strong> TOTAL (MOEDA DO CONTRATO)</strong> com 4 casas decimais ·
             <strong> MOEDA DO PROVEDOR (USD)</strong> com 4 casas decimais
           </p>
+        </div>
+        <div className="mt-4 overflow-hidden rounded-lg border border-border">
+          <img src={contaMasterTabela} alt="Exemplo da tabela hierárquica de Informações de custos" className="w-full h-auto" />
         </div>
       </section>
 
