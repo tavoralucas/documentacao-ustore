@@ -71,7 +71,10 @@ export default function ContaMasterCostManagement() {
             <p className="text-xs text-muted-foreground mt-2">
               Formato enviado à API: <code className="bg-muted px-1 rounded">YYYY-MM-01T00:00:00</code>
             </p>
-          </div>
+        </div>
+        <div className="mt-4 overflow-hidden rounded-lg border border-border">
+          <img src={contaMasterFiltros} alt="Exemplo dos filtros de Conta Master" className="w-full h-auto" />
+        </div>
         </div>
       </section>
 
