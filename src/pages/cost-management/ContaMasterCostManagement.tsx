@@ -72,6 +72,7 @@ export default function ContaMasterCostManagement() {
               Formato enviado à API: <code className="bg-muted px-1 rounded">YYYY-MM-01T00:00:00</code>
             </p>
         </div>
+        </div>
       </section>
 
       {/* Card Resumo */}
