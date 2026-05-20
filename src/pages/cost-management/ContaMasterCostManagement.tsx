@@ -1,5 +1,6 @@
 import { ArrowLeft, Building2, Filter, ChevronRight, DollarSign } from "lucide-react";
 import contaMasterTabela from "@/assets/conta-master-tabela.png";
+import contaMasterResumo from "@/assets/conta-master-resumo.png";
 import { useNavigate } from "react-router-dom";
 
 export default function ContaMasterCostManagement() {
@@ -97,6 +98,9 @@ export default function ContaMasterCostManagement() {
           <p className="text-amber-800 dark:text-amber-200">
             <strong>Nota:</strong> Todos os valores são exibidos com <strong>4 casas decimais</strong> (ex: R$ 2.835,7941 / $521.5183), garantindo precisão de custos fracionais. Para isso acontecer é necessária a configuração via card Regras de Financeiro no menu Administração {" > "} Contratos {" > "} Escolha do contrato.
           </p>
+        </div>
+        <div className="mt-4 overflow-hidden rounded-lg border border-border">
+          <img src={contaMasterResumo} alt="Exemplo do card Resumo da Conta Master" className="w-full h-auto" />
         </div>
       </section>
 
