@@ -73,6 +73,9 @@ export default function ContaMasterCostManagement() {
             </p>
         </div>
         </div>
+        <div className="mt-4 overflow-hidden rounded-lg border border-border">
+          <img src={contaMasterFiltros} alt="Exemplo dos filtros de Conta Master" className="block w-full h-auto" />
+        </div>
       </section>
 
       {/* Card Resumo */}
