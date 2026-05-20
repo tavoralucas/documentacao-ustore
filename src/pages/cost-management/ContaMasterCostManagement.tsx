@@ -1,4 +1,5 @@
 import { ArrowLeft, Building2, Filter, ChevronRight, DollarSign } from "lucide-react";
+import contaMasterTabela from "@/assets/conta-master-tabela.png";
 import { useNavigate } from "react-router-dom";
 
 export default function ContaMasterCostManagement() {
