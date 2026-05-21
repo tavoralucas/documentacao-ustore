@@ -19,7 +19,7 @@ const docTopics = [
   { title: "Consolidado de Faturamento", icon: BarChart2, route: "/cost-management/consolidado-faturamento", description: "Visão consolidada do faturamento agrupado por contrato ou provedor." },
   { title: "Custo de Budget", icon: Wallet, route: "/cost-management/custo-budget", description: "Acompanhamento e controle de orçamentos definidos por projeto ou serviço." },
   { title: "Conta Master", icon: Building2, route: "/cost-management/conta-master", description: "Gerenciamento e visualização de custos da conta master e suas sub-contas." },
-  { title: "Financeiro", icon: DollarSign, route: "/cost-management/financeiro", description: "Painel financeiro completo com governança e controle de custos em nuvem." },
+  // { title: "Financeiro", icon: DollarSign, route: "/cost-management/financeiro", description: "Painel financeiro completo com governança e controle de custos em nuvem." },
 ];
 
 export default function CostManagement() {
