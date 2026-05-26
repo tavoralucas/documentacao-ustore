@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { supabase } from "@/integrations/supabase/client";
 
 export interface Conversation {
   id: string;
@@ -17,6 +16,9 @@ export interface ChatMessage {
   created_at?: string;
 }
 
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+
 function getSessionId(): string {
   let id = localStorage.getItem("gpon_session_id");
   if (!id) {
@@ -26,6 +28,18 @@ function getSessionId(): string {
   return id;
 }
 
+async function callChatStore(payload: Record<string, unknown>) {
+  const resp = await fetch(`${SUPABASE_URL}/functions/v1/chat-store`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${ANON_KEY}`,
+    },
+    body: JSON.stringify(payload),
+  });
+  return resp.json();
+}
+
 export function useChatSessions(pageKey: string) {
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [currentConversationId, setCurrentConversationId] = useState<string | null>(null);
@@ -33,40 +47,24 @@ export function useChatSessions(pageKey: string) {
   const [loading, setLoading] = useState(false);
   const sessionId = getSessionId();
 
-  // Load conversations for this page
   const loadConversations = useCallback(async () => {
-    const { data } = await supabase
-      .from("chat_conversations")
-      .select("*")
-      .eq("session_id", sessionId)
-      .eq("page_key", pageKey)
-      .order("updated_at", { ascending: false });
+    const { data } = await callChatStore({ action: "listConversations", sessionId, pageKey });
     if (data) setConversations(data as Conversation[]);
   }, [pageKey, sessionId]);
 
-  // Load messages for a conversation
   const loadMessages = useCallback(async (conversationId: string) => {
-    const { data } = await supabase
-      .from("chat_messages")
-      .select("*")
-      .eq("conversation_id", conversationId)
-      .order("created_at", { ascending: true });
+    const { data } = await callChatStore({ action: "listMessages", sessionId, conversationId });
     if (data) setMessages(data as ChatMessage[]);
-  }, []);
+  }, [sessionId]);
 
   useEffect(() => {
     loadConversations();
   }, [loadConversations]);
 
-  // Create new conversation
   const createConversation = useCallback(async (firstMessage: string): Promise<string | null> => {
     const title = firstMessage.length > 50 ? firstMessage.slice(0, 47) + "..." : firstMessage;
-    const { data, error } = await supabase
-      .from("chat_conversations")
-      .insert({ session_id: sessionId, page_key: pageKey, title })
-      .select()
-      .single();
-    if (error || !data) return null;
+    const { data } = await callChatStore({ action: "createConversation", sessionId, pageKey, title });
+    if (!data) return null;
     const conv = data as Conversation;
     setConversations((prev) => [conv, ...prev]);
     setCurrentConversationId(conv.id);
@@ -74,30 +72,22 @@ export function useChatSessions(pageKey: string) {
     return conv.id;
   }, [sessionId, pageKey]);
 
-  // Open an existing conversation
   const openConversation = useCallback(async (conversationId: string) => {
     setCurrentConversationId(conversationId);
     await loadMessages(conversationId);
   }, [loadMessages]);
 
-  // Go back to conversation list
   const closeConversation = useCallback(() => {
     setCurrentConversationId(null);
     setMessages([]);
     loadConversations();
   }, [loadConversations]);
 
-  // Save a message to DB
   const saveMessage = useCallback(async (conversationId: string, role: "user" | "assistant", content: string) => {
-    const { data } = await supabase
-      .from("chat_messages")
-      .insert({ conversation_id: conversationId, role, content })
-      .select()
-      .single();
+    const { data } = await callChatStore({ action: "saveMessage", sessionId, conversationId, role, content });
     return data as ChatMessage | null;
-  }, []);
+  }, [sessionId]);
 
-  // Update assistant message content (for streaming)
   const updateLastAssistantMessage = useCallback((content: string) => {
     setMessages((prev) => {
       const last = prev[prev.length - 1];
@@ -108,15 +98,14 @@ export function useChatSessions(pageKey: string) {
     });
   }, []);
 
-  // Delete a conversation
   const deleteConversation = useCallback(async (conversationId: string) => {
-    await supabase.from("chat_conversations").delete().eq("id", conversationId);
+    await callChatStore({ action: "deleteConversation", sessionId, conversationId });
     setConversations((prev) => prev.filter((c) => c.id !== conversationId));
     if (currentConversationId === conversationId) {
       setCurrentConversationId(null);
       setMessages([]);
     }
-  }, [currentConversationId]);
+  }, [currentConversationId, sessionId]);
 
   return {
     conversations,
