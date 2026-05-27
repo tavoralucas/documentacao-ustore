@@ -14,11 +14,11 @@ export function usePageContext(): PageContext {
     "/panorama-360": {
       title: "Panorama 360",
       description: "Portal de documentação do produto Panorama 360 — plataforma de observabilidade e inteligência de dados para redes de telecomunicações.",
-      data: `O Panorama 360 é uma plataforma de documentação que reúne informações sobre: Visão Geral do produto, Portas, Circuitos, Excursionamentos e Tarefas. Cada tópico contém documentação técnica e informativa sobre o funcionamento do produto.`,
+      data: `O Panorama 360 é uma plataforma de documentação que reúne informações sobre: Visão Geral, Portas, Circuitos, Excursionamentos e Tarefas. Cada tópico contém documentação técnica e informativa sobre o funcionamento do produto.`,
     },
     "/panorama-360/visao-geral": {
       title: "Panorama 360 — Visão Geral",
-      description: "Documentação da Visão Geral do produto Panorama 360, abordando apresentação, características principais, funcionalidades, benefícios e tópicos abordados.",
+      description: "Documentação da Visão Geral do Panorama 360, abordando apresentação, características principais, funcionalidades, benefícios e tópicos abordados.",
       data: `Apresentação: O Panorama 360 é uma plataforma avançada de observabilidade e inteligência de dados, projetada para fornecer uma visão abrangente e em tempo real do desempenho e da saúde das redes de telecomunicações.
 
 Principais Características:
