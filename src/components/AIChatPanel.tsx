@@ -186,7 +186,8 @@ export function AIChatPanel() {
 
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating Button — hidden temporarily */}
+      {false && (
       <button
         onClick={() => setOpen(true)}
         className={cn(
@@ -197,6 +198,7 @@ export function AIChatPanel() {
       >
         <Sparkles className="h-7 w-7 text-white" />
       </button>
+      )}
 
       {/* Sidebar */}
       <div
