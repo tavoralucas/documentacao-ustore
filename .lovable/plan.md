@@ -1,46 +1,32 @@
+## Contexto
 
+Uma busca no projeto (`rg "Visão Geral do Produto"`) confirma que **não há mais nenhuma ocorrência** do texto em componentes, páginas, breadcrumbs, menus ou arquivos de tradução. Todas as menções anteriores já foram substituídas por "Visão Geral" em interações passadas.
 
-## Relatório de Saúde Geral da Rede
+Resta apenas garantir que o texto não retorne ao projeto no futuro.
 
-Nova tela de dashboard executivo para monitoramento da saúde da rede GPON, seguindo rigorosamente a identidade visual existente (fundo claro, cards brancos, botões vermelhos, tabelas com cabeçalho vermelho).
+## Plano
 
-> **Nota:** Como não há backend conectado, os dados serão mockados com valores realistas. A estrutura estará pronta para integração futura com API.
+### 1. Criar teste de regressão automatizado
 
-### 1. Cabeçalho e Filtros
-- Título "Saúde Geral da Rede" + subtítulo explicativo
-- Card de filtros com: Período (data inicial/final), UF (select), Cidade (autocomplete), Node/OLT (select)
-- Botões "Buscar" (vermelho preenchido) e "Limpar" (borda vermelha) — mesmo padrão das telas existentes
+Criar `src/test/no-visao-geral-do-produto.test.ts` que:
 
-### 2. KPIs Executivos (6 cards)
-Linha de cards com indicadores principais:
-- Total de Clientes Monitorados
-- % Clientes com QoS Geral < 7
-- % Clientes com QoS Disponibilidade = 0
-- % Clientes abaixo de 80% da velocidade contratada
-- Média RX (Down) da rede
-- Média de Quedas D-1 por cliente
+- Varre recursivamente os diretórios de código-fonte relevantes (`src/`, `index.html`, `public/` quando aplicável a texto, excluindo `node_modules`, `dist`, `.git` e o próprio arquivo de teste).
+- Lê o conteúdo de cada arquivo `.ts`, `.tsx`, `.js`, `.jsx`, `.html`, `.json`, `.md` (cobrindo também eventuais arquivos de tradução/i18n).
+- Falha o teste se encontrar a string literal `"Visão Geral do Produto"` (case-insensitive, normalizando acentuação para evitar falsos negativos por composição Unicode).
+- Reporta o caminho e a linha de cada ocorrência encontrada para facilitar o debug.
 
-Cada card com número grande, subtítulo descritivo e indicador visual de status (verde/amarelo/vermelho) usando tons compatíveis com a identidade.
+O teste roda via Vitest (já configurado em `vitest.config.ts`).
 
-### 3. Gráficos Analíticos (4 gráficos)
-- **Distribuição de RX (Down) por faixa** — gráfico de barras
-- **Distribuição de QoS Geral** — gráfico de barras/histograma
-- **Top 10 OLTs com maior taxa de quedas** — gráfico de barras horizontal
-- **Performance média (% download entregue)** — gráfico de linha
+### 2. Verificação
 
-Estilo minimalista com fundo branco, linhas discretas e cores consistentes (usando Recharts).
+Após criar o teste, executar a suíte para confirmar que passa no estado atual (sem ocorrências).
 
-### 4. Tabela de OLTs Críticas
-- Cabeçalho vermelho (mesmo padrão da tela de Relatórios)
-- Colunas: Node/OLT, Total Clientes, RX Médio, QoS Médio, Média Quedas D-1, % Clientes Críticos
-- Ordenação por coluna clicável
-- Paginação no padrão existente
+## Detalhes técnicos
 
-### 5. Insights Automáticos
-- Card branco com lista de até 5 insights gerados dinamicamente com base nos dados
-- Exemplos: "OLT X apresenta RX médio abaixo de -23 dBm", "UF Y concentra 32% dos clientes com QoS Disponibilidade = 0"
+- Usar `fs/promises` + recursão simples (sem dependências novas).
+- Self-exclusion: o arquivo de teste contém a string como literal de busca; excluir o próprio arquivo da varredura pelo caminho absoluto.
+- Normalização: `text.normalize("NFC")` antes de comparar, para cobrir variações de codificação do "ã".
 
-### 6. Rota e Navegação
-- Nova rota `/saude-geral` no router
-- Página responsiva: KPIs empilham verticalmente em telas menores, gráficos em grid 2x2 no desktop
+## Fora de escopo
 
+- Nenhuma mudança de UI/navegação/breadcrumbs é necessária — a substituição já está completa no código.
