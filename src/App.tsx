@@ -58,6 +58,7 @@ import ConsolidadoFaturamentoCostManagement from "./pages/cost-management/Consol
 import CustoBudgetCostManagement from "./pages/cost-management/CustoBudgetCostManagement";
 import ContaMasterCostManagement from "./pages/cost-management/ContaMasterCostManagement";
 import FinanceiroCostManagement from "./pages/cost-management/FinanceiroCostManagement";
+import CustoRelacionalProdutoCostManagement from "./pages/cost-management/CustoRelacionalProdutoCostManagement";
 import Novidades from "./pages/Novidades";
 import NovidadesMes from "./pages/novidades/NovidadesMes";
 import NotFound from "./pages/NotFound";
@@ -127,6 +128,7 @@ const App = () => (
             <Route path="/cost-management/custo-budget" element={<CustoBudgetCostManagement />} />
             <Route path="/cost-management/conta-master" element={<ContaMasterCostManagement />} />
             <Route path="/cost-management/financeiro" element={<FinanceiroCostManagement />} />
+            <Route path="/cost-management/custo-relacional-produto" element={<CustoRelacionalProdutoCostManagement />} />
             <Route path="/novidades" element={<Novidades />} />
             <Route path="/novidades/:slug" element={<NovidadesMes />} />
           </Route>
