@@ -219,7 +219,7 @@ export default function FinanceiroCostManagement() {
 
         <div className="bg-blue-50 dark:bg-blue-950/30 p-3 rounded-lg border border-blue-200 dark:border-blue-800 text-sm mb-4">
           <p className="text-blue-800 dark:text-blue-200">
-            <strong>Dica:</strong> o ícone de filtro (⚙️ tune) no canto superior direito da página serve para
+            <strong>Dica:</strong> o ícone de filtro no canto superior direito da página serve para
             carregar/atualizar os dados financeiros do usuário selecionado. Clique nele se os valores
             aparecerem como "Não disponível".
           </p>
