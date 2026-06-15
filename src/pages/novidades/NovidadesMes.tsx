@@ -74,12 +74,34 @@ export default function NovidadesMes() {
                 <div className="mb-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
                   {formatarData(item.data)}
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-foreground">
+                <h3 className="mb-3 text-lg font-semibold text-foreground">
                   {item.titulo}
                 </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {item.descricao}
-                </p>
+                <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+                  {item.descricao.split("\n\n").map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+                {item.beneficios && item.beneficios.length > 0 && (
+                  <div className="mt-4">
+                    <h4 className="mb-2 text-sm font-semibold text-foreground">
+                      Principais benefícios
+                    </h4>
+                    <ul className="list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+                      {item.beneficios.map((b, i) => (
+                        <li key={i}>{b}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {item.imagem && (
+                  <img
+                    src={item.imagem}
+                    alt={item.imagemAlt ?? item.titulo}
+                    loading="lazy"
+                    className="mt-4 h-auto w-full rounded-md border"
+                  />
+                )}
                 {item.tags && item.tags.length > 0 && (
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {item.tags.map((t) => (
