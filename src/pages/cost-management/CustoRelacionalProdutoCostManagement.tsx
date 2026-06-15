@@ -1,5 +1,6 @@
 import { ArrowLeft, Network, Filter, Search, Lightbulb, ListChecks } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import custoRelacionalImg from "@/assets/custo-relacional-produto.png.asset.json";
 
 export default function CustoRelacionalProdutoCostManagement() {
   const navigate = useNavigate();
@@ -46,6 +47,12 @@ export default function CustoRelacionalProdutoCostManagement() {
             de consumo por serviço, sub-serviço e período.
           </p>
         </div>
+        <img
+          src={custoRelacionalImg.url}
+          alt="Tela do Custo Relacional de Produto com os passos 1 e 2"
+          loading="lazy"
+          className="mt-6 w-full rounded-md border border-border"
+        />
       </section>
 
       {/* Como funciona */}
