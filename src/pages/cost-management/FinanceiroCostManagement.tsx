@@ -1,6 +1,7 @@
 import { ArrowLeft, DollarSign, Filter, FileText, BarChart3, Users, User, Layers } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import financeiroPasso1 from "@/assets/financeiro-passo1.png.asset.json";
+import financeiroPasso2 from "@/assets/financeiro-passo2.png.asset.json";
 
 export default function FinanceiroCostManagement() {
   const navigate = useNavigate();
@@ -130,6 +131,12 @@ export default function FinanceiroCostManagement() {
             </p>
           </div>
         </div>
+        <img
+          src={financeiroPasso2.url}
+          alt="Painel da Fatura do contrato com Grupos e gráfico de Consumo por grupo"
+          loading="lazy"
+          className="mt-6 w-full rounded-md border border-border"
+        />
       </section>
 
       {/* Passo 3 */}
