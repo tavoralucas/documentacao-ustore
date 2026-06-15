@@ -1,4 +1,4 @@
-import { ArrowLeft, DollarSign, BarChart3, PieChart, Package, Users } from "lucide-react";
+import { ArrowLeft, DollarSign, Filter, FileText, BarChart3, Users, User, Layers } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function FinanceiroCostManagement() {
@@ -24,261 +24,227 @@ export default function FinanceiroCostManagement() {
           </p>
           <h1 className="text-3xl font-bold text-foreground">Financeiro</h1>
           <p className="mt-1 text-muted-foreground">
-            Visão consolidada e detalhada de faturamento por contrato, grupo e produto
+            Visão consolidada e detalhada de faturamento por contrato, grupo e usuário
           </p>
         </div>
       </div>
 
       {/* Visão Geral */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral</h2>
-        <p className="text-muted-foreground mb-3">
-          O módulo Financeiro é o hub central de faturamento do PMC. Permite que gestores de conta, administradores
-          e clientes visualizem, compreendam e naveguem pelos valores de suas faturas multicloud organizadas por
-          contrato, grupo e produto. Último item do menu lateral de Gestão de Custos.
+        <h2 className="text-xl font-semibold text-foreground mb-3">Visão Geral</h2>
+        <p className="text-muted-foreground">
+          O módulo <strong>Financeiro</strong> está localizado no menu lateral esquerdo, dentro da seção
+          <strong> Gestão de Custos</strong>. Ele centraliza todas as informações de faturamento do contrato
+          selecionado, permitindo que o usuário visualize o consumo total, os grupos associados, os usuários
+          responsáveis e o detalhamento de cada item cobrado — incluindo créditos, impostos e tags.
         </p>
-        <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800 text-sm">
-          <p className="text-blue-800 dark:text-blue-200">
-            <strong>Rota:</strong> <code className="bg-blue-100 dark:bg-blue-900 px-1 rounded">/billing/financial</code>
-            · <strong>Suporta parâmetros de URL</strong> para deep linking por contrato, mês, ano e moeda.
-          </p>
-        </div>
       </section>
 
-      {/* Estrutura de Tela */}
+      {/* Como acessar */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Estrutura de Tela</h2>
-        <div className="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg font-mono text-xs">
-          <p>┌─────────────────────────────────────────────────────────┐</p>
-          <p>│  [1] FILTRO — Seleção de Contrato + Período + Buscar    │</p>
-          <p>├────────────────┬───────────────┬────────────────────────┤</p>
-          <p>│ [2] FATURA     │ [3] GRUPOS    │ [4] CONSUMO POR GRUPO  │</p>
-          <p>│  do Contrato   │               │     (Gráfico Donut)    │</p>
-          <p>├────────────────┴───────────────┴────────────────────────┤</p>
-          <p>│              [5] CONSUMO DE RECURSOS DURANTE O MÊS      │</p>
-          <p>│                    (Gráfico de Barras Histórico)         │</p>
-          <p>├─────────────────────────────────────────────────────────┤</p>
-          <p>│              [6] PRODUTOS (Tabela expansível)            │</p>
-          <p>└─────────────────────────────────────────────────────────┘</p>
-        </div>
+        <h2 className="text-xl font-semibold text-foreground mb-3">Como acessar</h2>
+        <p className="text-muted-foreground">
+          No menu lateral esquerdo, clique em <strong>Financeiro</strong> (identificado pelo ícone de cifrão).
+          A página principal será carregada com o título <em>"Financeiro – Aqui você verá as informações de
+          faturamento do contrato selecionado"</em>.
+        </p>
       </section>
 
-      {/* Bloco 1 — Filtro */}
+      {/* Passo 1 */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Bloco [1] — Filtro Principal</h2>
-        <div className="space-y-3 text-muted-foreground">
-          <div className="grid gap-3 md:grid-cols-2">
-            <div className="p-3 rounded-lg border border-border bg-muted/50 text-sm">
-              <h3 className="font-semibold text-foreground mb-1">Seleção de Contrato</h3>
-              <p>Dropdown com busca. Suporta múltiplos tipos de contrato: <code className="bg-muted px-1 rounded text-xs">[A]</code> ativo,
-                <code className="bg-muted px-1 rounded text-xs">[M]</code> master,
-                <code className="bg-muted px-1 rounded text-xs">[P]</code> partner,
-                <code className="bg-muted px-1 rounded text-xs">[X]</code> inativo,
-                <code className="bg-muted px-1 rounded text-xs">GOV-</code>,
-                <code className="bg-muted px-1 rounded text-xs">EBT-</code></p>
-              <p className="mt-1">Plataformas: AWS, AZURE, AZURE-EA, GCP, OCI, HUAWEI, AZION, IBM</p>
-            </div>
-            <div className="p-3 rounded-lg border border-border bg-muted/50 text-sm">
-              <h3 className="font-semibold text-foreground mb-1">Seletor de Período</h3>
-              <p>Formato: <code className="bg-muted px-1 rounded text-xs">MM/AAAA</code>. Picker mensal com mês destacado em vermelho.
-                Seleção fecha o picker automaticamente.</p>
-              <p className="mt-1 text-amber-700 dark:text-amber-400"><strong>A busca NÃO é automática</strong> — clicar em "Buscar" é obrigatório após alterar o período.</p>
-            </div>
+        <div className="flex items-center gap-3 mb-4">
+          <Filter className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Passo 1 — Selecionando o contrato e o período</h2>
+        </div>
+        <p className="text-muted-foreground mb-4">
+          Ao entrar no módulo, você verá o painel <strong>"Selecione um contrato para iniciar"</strong>. Ele
+          possui dois campos obrigatórios:
+        </p>
+        <div className="grid gap-3 md:grid-cols-2 text-sm">
+          <div className="p-3 rounded-lg border border-border bg-muted/50">
+            <p className="font-semibold text-foreground mb-1">Selecione um contrato</p>
+            <p className="text-muted-foreground">Use o menu suspenso para escolher o contrato desejado. Os contratos disponíveis são listados pelo identificador.</p>
           </div>
-          <div className="bg-blue-50 dark:bg-blue-950/30 p-3 rounded-lg border border-blue-200 dark:border-blue-800 text-sm">
-            <p className="text-blue-800 dark:text-blue-200">
-              <strong>URL resultante após Buscar:</strong>
-              <code className="block mt-1 bg-blue-100 dark:bg-blue-900 px-2 py-1 rounded text-xs">
-                /billing/financial?ucloudIdentifier=&#123;uuid&#125;&companyUUID=&#123;uuid&#125;&selectedMonth=5&selectedYear=2026&selectedDecimalPlace=4&selectedCurrency=BRL
-              </code>
+          <div className="p-3 rounded-lg border border-border bg-muted/50">
+            <p className="font-semibold text-foreground mb-1">Período</p>
+            <p className="text-muted-foreground">Selecione o mês/ano de referência no formato <code className="bg-muted px-1 rounded text-xs">MM/AAAA</code> (ex.: <code className="bg-muted px-1 rounded text-xs">05/2026</code>). Você pode digitar ou usar o ícone de calendário.</p>
+          </div>
+        </div>
+        <p className="text-muted-foreground mt-4 text-sm">
+          Após preencher os dois campos, clique no botão <strong>Buscar</strong> (vermelho). O sistema carregará
+          as informações de faturamento referentes ao contrato e período informados.
+        </p>
+      </section>
+
+      {/* Passo 2 */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <FileText className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Passo 2 — Visualizando a Fatura do Contrato</h2>
+        </div>
+        <p className="text-muted-foreground mb-4">
+          Após a busca, o módulo exibe um painel dividido em três blocos principais:
+        </p>
+
+        <div className="space-y-4">
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-2">Fatura do contrato</h3>
+            <p className="text-sm text-muted-foreground mb-3">Resumo financeiro consolidado do contrato, com os seguintes valores:</p>
+            <ul className="grid gap-2 md:grid-cols-2 text-sm text-muted-foreground">
+              {[
+                ["Consumo total", "valor total faturado no período"],
+                ["Consumo", "custo de uso dos serviços em nuvem"],
+                ["Custo de produto", "custo referente a produtos específicos contratados"],
+                ["Custo de marketplace", "custo de serviços adquiridos via marketplace"],
+                ["Custo de suporte", "custo do plano de suporte contratado"],
+                ["Cotação do dólar", "taxa de câmbio utilizada para conversão em BRL"],
+                ["Cotação do marketplace", "taxa de câmbio aplicada aos itens de marketplace"],
+                ["Período", "intervalo de datas (início ao fim do mês) coberto pela fatura"],
+              ].map(([c, d]) => (
+                <li key={c}><strong className="text-foreground">{c}</strong> — {d}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-2">Grupos</h3>
+            <p className="text-sm text-muted-foreground">
+              Lista os grupos vinculados ao contrato com o valor de consumo de cada um. Cada grupo é um link
+              clicável para acesso ao nível de detalhe. Use os botões <strong>Anterior</strong> e <strong>Próximo</strong> para
+              navegar entre grupos quando houver mais de um.
+            </p>
+          </div>
+
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-2">Consumo por grupo</h3>
+            <p className="text-sm text-muted-foreground">
+              Gráfico de rosca (donut) que representa visualmente a distribuição percentual do consumo entre os
+              grupos do contrato. A legenda ao lado identifica cada grupo pela cor correspondente.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Bloco 2 — Fatura */}
+      {/* Passo 3 */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
-          <DollarSign className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Bloco [2] — Fatura do Contrato</h2>
+          <BarChart3 className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Passo 3 — Consumo de Recursos durante o Mês</h2>
         </div>
-        <div className="bg-amber-50 dark:bg-amber-950/30 p-3 rounded-lg border border-amber-200 dark:border-amber-800 text-sm mb-4">
-          <p className="text-amber-800 dark:text-amber-200">
-            <strong>Regra de período:</strong> O sistema exibe dados do <strong>mês de fechamento imediatamente anterior</strong>
-            ao mês selecionado no filtro. Ao selecionar 05/2026, o período exibido será 01/04/2026 até 30/04/2026.
+        <p className="text-muted-foreground">
+          Logo abaixo do painel de fatura, o módulo exibe um <strong>gráfico de barras</strong> intitulado
+          <em> "Consumo de recursos durante o mês"</em>. Esse gráfico apresenta a evolução mensal do consumo na
+          moeda do contrato ao longo dos últimos meses, com cada barra representando um período e cada cor
+          representando um grupo diferente. Permite identificar tendências de crescimento ou redução no consumo
+          ao longo do tempo.
+        </p>
+      </section>
+
+      {/* Passo 4 */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <Users className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Passo 4 — Acessando os Detalhes por Grupo</h2>
+        </div>
+        <p className="text-muted-foreground mb-4">
+          Ao clicar no nome de um grupo (link sublinhado na seção "Grupos"), o sistema navega para a página de
+          detalhes daquele grupo. Essa página apresenta:
+        </p>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li><strong className="text-foreground">Fatura do contrato (nível do grupo):</strong> consumo total, cotações e período referentes apenas àquele grupo.</li>
+          <li><strong className="text-foreground">Grupos (sub-grupos):</strong> lista os grupos ou sub-contas vinculados, com navegação por paginação.</li>
+          <li><strong className="text-foreground">Consumo por grupo:</strong> gráfico de rosca com a distribuição visual por sub-grupo.</li>
+          <li><strong className="text-foreground">Consumo de recursos durante o mês:</strong> gráfico de barras com a evolução histórica do consumo daquele grupo.</li>
+          <li><strong className="text-foreground">Distribuição de recursos durante o mês:</strong> gráfico de barras segmentado em três colunas — <em>Consumo</em>, <em>Imposto</em> e <em>Crédito</em> — permitindo entender a composição do custo total.</li>
+          <li><strong className="text-foreground">Tabela de Logins/Usuários:</strong> exibida na parte inferior, com as colunas <em>Login</em> (identificador do usuário ou conta conectora) e <em>Valor</em> (custo associado no período). Cada login é clicável e a tabela possui paginação (ex.: "Mostrando 1 - 4 de 4 resultados").</li>
+        </ul>
+      </section>
+
+      {/* Passo 5 */}
+      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <User className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Passo 5 — Detalhes por Usuário/Login</h2>
+        </div>
+        <p className="text-muted-foreground mb-4">
+          Ao clicar em um login na tabela, o sistema navega para a página de fatura do usuário. Essa página
+          apresenta:
+        </p>
+
+        <div className="p-4 rounded-lg border border-border bg-muted/50 mb-4">
+          <h3 className="font-semibold text-foreground mb-2">Fatura do usuário</h3>
+          <p className="text-sm text-muted-foreground mb-3">Resumo financeiro do usuário/conta no período:</p>
+          <ul className="grid gap-2 md:grid-cols-2 text-sm text-muted-foreground">
+            {[
+              ["Consumo total", "valor faturado para o usuário"],
+              ["Créditos", "descontos ou créditos aplicados (valor negativo)"],
+              ["Impostos", "tributos aplicados sobre o consumo"],
+              ["Consumo", "custo direto de uso"],
+              ["Custo de produto", "custo de produtos específicos"],
+              ["Cotação do dólar / marketplace / Período", "informações de referência"],
+            ].map(([c, d]) => (
+              <li key={c}><strong className="text-foreground">{c}</strong> — {d}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="p-4 rounded-lg border border-border bg-muted/50 mb-4">
+          <h3 className="font-semibold text-foreground mb-2">Recursos consumidos</h3>
+          <p className="text-sm text-muted-foreground">
+            Gráfico de barras com a evolução histórica de consumo daquele usuário nos últimos meses.
           </p>
         </div>
+
+        <div className="bg-blue-50 dark:bg-blue-950/30 p-3 rounded-lg border border-blue-200 dark:border-blue-800 text-sm mb-4">
+          <p className="text-blue-800 dark:text-blue-200">
+            <strong>Dica:</strong> o ícone de filtro (⚙️ tune) no canto superior direito da página serve para
+            carregar/atualizar os dados financeiros do usuário selecionado. Clique nele se os valores
+            aparecerem como "Não disponível".
+          </p>
+        </div>
+
+        <p className="text-muted-foreground mb-3 text-sm">
+          Abaixo do painel principal, há quatro cartões de detalhamento:
+        </p>
         <div className="grid gap-3 md:grid-cols-2 text-sm">
           {[
-            ["Consumo total", "Valor agregado em BRL (4 casas decimais)"],
-            ["Consumo", "Subtotal de consumo de recursos cloud"],
-            ["Custo de produto", "Custo adicional de produtos marketplace/SVA — pode ser R$ 0,0000"],
-            ["Cotação do dólar", "Taxa de câmbio USD/BRL para conversão"],
-            ["Cotação do marketplace", "Taxa USD/BRL específica do marketplace (com data de referência)"],
-            ["Período", "Data de início e fim da competência (ex: 01-04-2026 até 30-04-2026)"],
-          ].map(([campo, desc]) => (
-            <div key={campo} className="p-3 rounded-lg border border-border bg-muted/50">
-              <p className="font-semibold text-foreground">{campo}</p>
-              <p className="text-xs text-muted-foreground mt-1">{desc}</p>
+            ["Itens bilhetados", "Valor total de itens cobrados. O botão + Detalhes abre a listagem com: Nome do Produto, Detalhe, Quantidade, Data Início/Fim e Custo."],
+            ["Créditos", "Valor total de créditos aplicados. O botão + Detalhes abre a listagem com: Nome do Produto, Data Início/Fim e Custo."],
+            ["Impostos", "Valor total de tributos. O botão + Detalhes abre a listagem com: Nome do Produto, Data Início/Fim e Custo."],
+            ["Tags", "Visualiza o custo distribuído por tags atribuídas aos recursos. O botão + Detalhes abre a página 'Itens por Tag' com: Tag, Custo e Ações."],
+          ].map(([c, d]) => (
+            <div key={c} className="p-3 rounded-lg border border-border bg-muted/50">
+              <p className="font-semibold text-foreground mb-1">{c}</p>
+              <p className="text-muted-foreground text-xs">{d}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Bloco 3 — Grupos */}
+      {/* Navegação e Ações Gerais */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <div className="flex items-center gap-3 mb-4">
-          <Users className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Bloco [3] — Grupos</h2>
-        </div>
-        <div className="space-y-3 text-muted-foreground text-sm">
-          <p>Lista paginada dos grupos vinculados ao contrato. Cada linha: <strong>Nome do grupo</strong> (link clicável) + <strong>Valor em BRL</strong> (4 casas decimais).</p>
-          <p>Navegação paginada via botões <code className="bg-muted px-1 rounded">&lt;Anterior</code> e <code className="bg-muted px-1 rounded">Próximo&gt;</code> com indicador de página (bullet points). Um grupo por vez.</p>
-          <div className="p-3 rounded-lg border border-border bg-muted/50">
-            <p className="font-semibold text-foreground mb-1">Drill-down de Grupo (ao clicar no nome)</p>
-            <p className="text-xs">Navega para <code className="bg-muted px-1 rounded">/billing/financial/groups?{"{params}"}</code>. Todos os blocos são filtrados para aquele grupo.
-            Botão de voltar {"<"} no header retorna à view do contrato completo.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Blocos 4 e 5 — Gráficos */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <div className="flex items-center gap-3 mb-4">
-          <BarChart3 className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Blocos [4] e [5] — Gráficos</h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 text-sm">
-          <div className="p-4 rounded-lg border border-border bg-muted/50">
-            <div className="flex items-center gap-2 mb-2">
-              <PieChart className="h-4 w-4 text-primary" />
-              <h3 className="font-semibold text-foreground">Consumo por Grupo (Donut)</h3>
-            </div>
-            <p className="text-muted-foreground text-xs">
-              Gráfico de rosca em tons rosa/vermelho (cores Claro). Representa a proporção de consumo de cada grupo
-              em relação ao total do contrato. Com apenas um grupo, exibe como arco de ~270°.
-            </p>
-          </div>
-          <div className="p-4 rounded-lg border border-border bg-muted/50">
-            <div className="flex items-center gap-2 mb-2">
-              <BarChart3 className="h-4 w-4 text-primary" />
-              <h3 className="font-semibold text-foreground">Consumo de Recursos (Barras)</h3>
-            </div>
-            <p className="text-muted-foreground text-xs">
-              Exibe os <strong>últimos 4 meses</strong> a partir do mês selecionado. Eixo X: MM/AAAA.
-              Tooltip: mês, nome do grupo, valor BRL e <strong>status da fatura</strong> (ex: Fatura fechada).
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Bloco 6 — Produtos */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <div className="flex items-center gap-3 mb-4">
-          <Package className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Bloco [6] — Produtos</h2>
-        </div>
-        <div className="space-y-3 text-muted-foreground text-sm">
-          <p>Painel expansível (acordeão). Header: ícone + label <strong>"Produtos (N)"</strong>. Por padrão, inicia <strong>recolhido</strong>.</p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-2 pr-3 font-semibold text-foreground">Coluna</th>
-                  <th className="text-left py-2 font-semibold text-foreground">Descrição</th>
-                </tr>
-              </thead>
-              <tbody className="text-muted-foreground">
-                {[["Nome", "Nome do produto/serviço"], ["Quantidade", "Quantidade consumida"], ["Valor", "Valor em BRL"]].map(([col, desc]) => (
-                  <tr key={col} className="border-b border-border/50">
-                    <td className="py-2 pr-3 font-medium">{col}</td>
-                    <td className="py-2">{desc}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-xs">Quando N = 0, a tabela é exibida vazia — indica ausência de produtos além do consumo cloud padrão.</p>
-        </div>
-      </section>
-
-      {/* Parâmetros de URL */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Parâmetros de URL</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="text-left py-2 pr-3 font-semibold text-foreground">Parâmetro</th>
-                <th className="text-left py-2 pr-3 font-semibold text-foreground">Tipo</th>
-                <th className="text-left py-2 font-semibold text-foreground">Descrição</th>
-              </tr>
-            </thead>
-            <tbody className="text-muted-foreground text-xs">
-              {[
-                ["ucloudIdentifier", "UUID", "Identificador único do contrato"],
-                ["companyUUID", "UUID", "UUID da empresa/grupo vinculada"],
-                ["selectedMonth", "int (1–12)", "Mês selecionado no filtro"],
-                ["selectedYear", "int", "Ano selecionado no filtro"],
-                ["selectedDecimalPlace", "int", "Precisão decimal (padrão: 4)"],
-                ["selectedCurrency", "string", "Moeda de exibição (padrão: BRL)"],
-              ].map(([param, tipo, desc]) => (
-                <tr key={param} className="border-b border-border/50">
-                  <td className="py-2 pr-3 font-mono">{param}</td>
-                  <td className="py-2 pr-3">{tipo}</td>
-                  <td className="py-2">{desc}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Regras de Interface */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Regras de Interface</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">Navegação e Ações Gerais</h2>
         <ul className="space-y-2 text-sm text-muted-foreground">
-          <li>• <strong>Sem auto-refresh:</strong> alterações no período exigem clique explícito em "Buscar"</li>
-          <li>• <strong>Contrato independente:</strong> o filtro da tela pode ser diferente do contrato global do header</li>
-          <li>• <strong>Cotação do marketplace:</strong> usa o último dia útil do mês de referência</li>
-          <li>• <strong>Período de competência:</strong> sempre exibe o mês imediatamente anterior ao selecionado</li>
-          <li>• <strong>Precisão:</strong> todos os valores com 4 casas decimais (configurável via <code className="bg-muted px-1 rounded">selectedDecimalPlace</code>)</li>
-          <li>• <strong>Estado inicial:</strong> ao acessar sem parâmetros, carrega o contrato do usuário atual com mês corrente</li>
-          <li>• <strong>Discrepância:</strong> pode haver diferença mínima de centavos entre Fatura e Grupos por arredondamento de cotação</li>
+          <li><strong className="text-foreground">Voltar:</strong> em qualquer nível, o ícone de seta (←) no topo retorna ao nível anterior da hierarquia (contrato → grupo → usuário → detalhe).</li>
+          <li><strong className="text-foreground">Ordenação de tabelas:</strong> as colunas permitem ordenação clicando no cabeçalho. O ícone ⬆⬇ indica coluna ordenável; ⬇ indica ordenação ativa.</li>
+          <li><strong className="text-foreground">Paginação:</strong> todas as tabelas possuem controles de primeira página («), página anterior (‹), página seguinte (›) e última página (»).</li>
+          <li><strong className="text-foreground">Seção Produtos:</strong> na tela principal do contrato, há uma seção expansível <em>Produtos</em>. O ícone <strong>+</strong> ao lado do título expande a seção para visualizar os produtos associados ao contrato.</li>
         </ul>
       </section>
 
-      {/* Segmentos de Contrato */}
+      {/* Hierarquia */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Segmentos de Contrato Suportados</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-border">
-                <th className="text-left py-2 pr-3 font-semibold text-foreground">Segmento</th>
-                <th className="text-left py-2 pr-3 font-semibold text-foreground">Prefixo</th>
-                <th className="text-left py-2 font-semibold text-foreground">Exemplos</th>
-              </tr>
-            </thead>
-            <tbody className="text-muted-foreground text-xs">
-              {[
-                ["Clientes B2B Ativos", "[A]", "LYRA, RCHLO, AZUL, LEROY MERLIN"],
-                ["Clientes B2B Master", "[M]", "RODOBENS, RD_SAUDE, EINSTEIN"],
-                ["Clientes B2B Partner", "[P]", "INBURSA, CSN, LYRA-AZURE"],
-                ["Governo", "GOV-", "TCU, CGU, CNJ, CEMIG, TJRJ"],
-                ["Embratel/EBT", "EBT-", "PRODESP, RESOLD, BRADESCO"],
-                ["Claro Insights", "[Claro Insights]", "Banco Itaú, Nubank, Serasa, Magalu"],
-                ["Claro Interno", "Sem prefixo", "CLARO_TI-AWS, CLARO_ECOMMERCE-AWS"],
-              ].map(([seg, pref, ex]) => (
-                <tr key={seg} className="border-b border-border/50">
-                  <td className="py-2 pr-3 font-medium">{seg}</td>
-                  <td className="py-2 pr-3 font-mono">{pref}</td>
-                  <td className="py-2">{ex}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="flex items-center gap-3 mb-4">
+          <Layers className="h-5 w-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Hierarquia de Navegação</h2>
         </div>
+        <p className="text-muted-foreground mb-3 text-sm">A estrutura do módulo Financeiro segue a seguinte hierarquia:</p>
+        <ol className="space-y-2 text-sm text-muted-foreground list-decimal list-inside">
+          <li><strong className="text-foreground">Financeiro (contrato)</strong> → selecione contrato + período → visualiza fatura consolidada, grupos e gráficos.</li>
+          <li><strong className="text-foreground">Grupo</strong> → clique no grupo → visualiza consumo, distribuição por categorias e lista de logins.</li>
+          <li><strong className="text-foreground">Usuário/Login</strong> → clique no login → visualiza fatura do usuário e os quatro cartões de detalhe.</li>
+          <li><strong className="text-foreground">Itens detalhados</strong> → clique em "+ Detalhes" de qualquer cartão → abre listagem específica de itens bilhetados, créditos, impostos ou tags.</li>
+        </ol>
       </section>
     </div>
   );
