@@ -21,7 +21,7 @@ const docTopics = [
   { title: "Custo de Budget", icon: Wallet, route: "/cost-management/custo-budget", description: "Acompanhamento e controle de orçamentos definidos por projeto ou serviço." },
   { title: "Conta Master", icon: Building2, route: "/cost-management/conta-master", description: "Gerenciamento e visualização de custos da conta master e suas sub-contas." },
   { title: "Custo Relacional de Produto", icon: Network, route: "/cost-management/custo-relacional-produto", description: "Relatório detalhado de custos por produto, família e contas vinculadas." },
-  // { title: "Financeiro", icon: DollarSign, route: "/cost-management/financeiro", description: "Painel financeiro completo com governança e controle de custos em nuvem." },
+  { title: "Financeiro", icon: DollarSign, route: "/cost-management/financeiro", description: "Painel financeiro completo com governança e controle de custos em nuvem." },
 ];
 
 export default function CostManagement() {
