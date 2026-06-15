@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import financeiroPasso1 from "@/assets/financeiro-passo1.png.asset.json";
 import financeiroPasso2 from "@/assets/financeiro-passo2.png.asset.json";
 import financeiroPasso4 from "@/assets/financeiro-passo4.png.asset.json";
+import financeiroPasso5 from "@/assets/financeiro-passo5.png.asset.json";
 
 export default function FinanceiroCostManagement() {
   const navigate = useNavigate();
@@ -240,6 +241,12 @@ export default function FinanceiroCostManagement() {
             </div>
           ))}
         </div>
+        <img
+          src={financeiroPasso5.url}
+          alt="Tela de Fatura do usuário com gráfico de Recursos consumidos e cartões Itens bilhetados, Créditos, Impostos e Tags"
+          loading="lazy"
+          className="mt-6 w-full rounded-md border border-border"
+        />
       </section>
 
       {/* Navegação e Ações Gerais */}
