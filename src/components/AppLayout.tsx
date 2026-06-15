@@ -1,5 +1,5 @@
 import { useState } from "react";
-import claroLogo from "@/assets/claro-logo.png";
+import claroLogo from "@/assets/claro-cloud-logo.png.asset.json";
 import { Outlet, useLocation } from "react-router-dom";
 import { AIChatPanel } from "@/components/AIChatPanel";
 import DocPager from "@/components/DocPager";
