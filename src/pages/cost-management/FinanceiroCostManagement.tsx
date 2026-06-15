@@ -1,5 +1,6 @@
 import { ArrowLeft, DollarSign, Filter, FileText, BarChart3, Users, User, Layers } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import financeiroPasso1 from "@/assets/financeiro-passo1.png.asset.json";
 
 export default function FinanceiroCostManagement() {
   const navigate = useNavigate();
@@ -74,6 +75,12 @@ export default function FinanceiroCostManagement() {
           Após preencher os dois campos, clique no botão <strong>Buscar</strong> (vermelho). O sistema carregará
           as informações de faturamento referentes ao contrato e período informados.
         </p>
+        <img
+          src={financeiroPasso1.url}
+          alt="Tela inicial do módulo Financeiro com seleção de contrato e período"
+          loading="lazy"
+          className="mt-6 w-full rounded-md border border-border"
+        />
       </section>
 
       {/* Passo 2 */}
