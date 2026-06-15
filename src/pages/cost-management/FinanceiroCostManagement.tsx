@@ -1,5 +1,6 @@
 import { ArrowLeft, DollarSign, Filter, FileText, BarChart3, Users, User, Layers } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import financeiroPasso1 from "@/assets/financeiro-passo1.png.asset.json";
 
 export default function FinanceiroCostManagement() {
   const navigate = useNavigate();
