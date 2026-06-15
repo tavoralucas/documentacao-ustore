@@ -2,6 +2,7 @@ import { ArrowLeft, DollarSign, Filter, FileText, BarChart3, Users, User, Layers
 import { useNavigate } from "react-router-dom";
 import financeiroPasso1 from "@/assets/financeiro-passo1.png.asset.json";
 import financeiroPasso2 from "@/assets/financeiro-passo2.png.asset.json";
+import financeiroPasso4 from "@/assets/financeiro-passo4.png.asset.json";
 
 export default function FinanceiroCostManagement() {
   const navigate = useNavigate();
@@ -172,6 +173,12 @@ export default function FinanceiroCostManagement() {
           <li><strong className="text-foreground">Distribuição de recursos durante o mês:</strong> gráfico de barras segmentado em três colunas — <em>Consumo</em>, <em>Imposto</em> e <em>Crédito</em> — permitindo entender a composição do custo total.</li>
           <li><strong className="text-foreground">Tabela de Logins/Usuários:</strong> exibida na parte inferior, com as colunas <em>Login</em> (identificador do usuário ou conta conectora) e <em>Valor</em> (custo associado no período). Cada login é clicável e a tabela possui paginação (ex.: "Mostrando 1 - 4 de 4 resultados").</li>
         </ul>
+        <img
+          src={financeiroPasso4.url}
+          alt="Gráficos de consumo e distribuição do mês e tabela de logins/usuários do grupo"
+          loading="lazy"
+          className="mt-6 w-full rounded-md border border-border"
+        />
       </section>
 
       {/* Passo 5 */}
