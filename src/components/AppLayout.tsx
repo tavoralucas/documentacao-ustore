@@ -10,7 +10,8 @@ import {
   PieChart,
   Leaf,
   Network,
-  BookOpen } from
+  BookOpen,
+  Sparkles } from
 "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
@@ -28,6 +29,7 @@ const menuItems: MenuItem[] = [
 // { title: "Finops 360", url: "/finops-360", icon: PieChart },
 // { title: "Mangue", url: "/mangue", icon: Leaf },
 // { title: "DCI", url: "/dci", icon: Network },
+{ title: "Novidades", url: "/novidades", icon: Sparkles },
 ];
 
 

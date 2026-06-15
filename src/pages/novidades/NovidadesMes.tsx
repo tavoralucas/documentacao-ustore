@@ -1,0 +1,99 @@
+import { Link, useParams } from "react-router-dom";
+import { ArrowLeft, Sparkles, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { getNovidadesPorSlug } from "@/data/novidades";
+
+export default function NovidadesMes() {
+  const { slug = "" } = useParams();
+  const mes = getNovidadesPorSlug(slug);
+
+  if (!mes) {
+    return (
+      <div className="mx-auto max-w-4xl px-6 py-8">
+        <Button variant="ghost" asChild className="mb-6">
+          <Link to="/novidades">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Voltar
+          </Link>
+        </Button>
+        <h1 className="text-2xl font-bold text-foreground">Mês não encontrado</h1>
+      </div>
+    );
+  }
+
+  const formatarData = (iso: string) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    return new Date(y, m - 1, d).toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
+  };
+
+  return (
+    <div className="mx-auto max-w-4xl px-6 py-8">
+      <Button variant="ghost" asChild className="mb-6">
+        <Link to="/novidades">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Voltar para Novidades
+        </Link>
+      </Button>
+
+      <header className="mb-10">
+        <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
+          <Sparkles className="h-4 w-4" />
+          <span>Linha do tempo</span>
+        </div>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">
+          {mes.mes} de {mes.ano}
+        </h1>
+        <p className="mt-2 text-muted-foreground">
+          Novas implementações realizadas neste mês.
+        </p>
+      </header>
+
+      {mes.itens.length === 0 ? (
+        <div className="flex flex-col items-center justify-center rounded-lg border border-dashed bg-card py-16 text-center">
+          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-muted">
+            <Calendar className="h-6 w-6 text-muted-foreground" />
+          </div>
+          <h3 className="mb-1 text-lg font-semibold text-foreground">
+            Em breve
+          </h3>
+          <p className="max-w-sm text-sm text-muted-foreground">
+            Nenhuma novidade registrada ainda neste mês. Aguarde os próximos lançamentos.
+          </p>
+        </div>
+      ) : (
+        <ol className="relative space-y-8 border-l-2 border-border pl-8">
+          {mes.itens.map((item) => (
+            <li key={item.id} className="relative">
+              <span className="absolute -left-[37px] flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-background" />
+              <div className="rounded-lg border bg-card p-5 shadow-sm">
+                <div className="mb-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  {formatarData(item.data)}
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-foreground">
+                  {item.titulo}
+                </h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {item.descricao}
+                </p>
+                {item.tags && item.tags.length > 0 && (
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {item.tags.map((t) => (
+                      <Badge key={t} variant="secondary">
+                        {t}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  );
+}

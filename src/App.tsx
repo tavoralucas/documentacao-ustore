@@ -58,6 +58,8 @@ import ConsolidadoFaturamentoCostManagement from "./pages/cost-management/Consol
 import CustoBudgetCostManagement from "./pages/cost-management/CustoBudgetCostManagement";
 import ContaMasterCostManagement from "./pages/cost-management/ContaMasterCostManagement";
 import FinanceiroCostManagement from "./pages/cost-management/FinanceiroCostManagement";
+import Novidades from "./pages/Novidades";
+import NovidadesMes from "./pages/novidades/NovidadesMes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -125,6 +127,8 @@ const App = () => (
             <Route path="/cost-management/custo-budget" element={<CustoBudgetCostManagement />} />
             <Route path="/cost-management/conta-master" element={<ContaMasterCostManagement />} />
             <Route path="/cost-management/financeiro" element={<FinanceiroCostManagement />} />
+            <Route path="/novidades" element={<Novidades />} />
+            <Route path="/novidades/:slug" element={<NovidadesMes />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
