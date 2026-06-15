@@ -1,32 +1,28 @@
 ## Objetivo
-Adicionar a primeira novidade de Junho/2026 (15/06): "Melhorias no módulo financeiro", incluindo a imagem anexa, e suportar imagens nos itens da timeline.
+
+Adicionar uma segunda novidade em 15/06/2026: "Custo Relacional de Produto".
 
 ## Mudanças
 
-### 1. Asset da imagem
-- Subir a imagem anexa como Lovable Asset:
-  - `src/assets/novidade-financeiro-2026-06-15.png.asset.json` (via `lovable-assets create` a partir de `/mnt/user-uploads/image-27.png`).
+### `src/data/novidades.ts`
 
-### 2. Tipos e dados (`src/data/novidades.ts`)
-- Estender `Novidade` com campos opcionais:
-  - `imagem?: string` (URL do asset)
-  - `imagemAlt?: string`
-  - `beneficios?: string[]`
-- Adicionar o primeiro item em `2026-06`:
-  - `id: "melhorias-modulo-financeiro"`
-  - `data: "2026-06-15"`
-  - `titulo: "Melhorias no módulo financeiro"`
-  - `descricao`: texto completo enviado (intro + contexto anterior + melhoria atual).
-  - `beneficios`: lista de 5 bullets enviada.
-  - `tags: ["Financeiro", "Performance", "UX"]`
-  - `imagem`: URL do asset; `imagemAlt: "Nova tela do módulo Financeiro"`.
+Adicionar novo item ao array `itens` de `2026-06` (após o item existente):
 
-### 3. Timeline (`src/pages/novidades/NovidadesMes.tsx`)
-- Renderizar, quando presentes:
-  - `descricao` em parágrafos (split por linha em branco) preservando quebras.
-  - Bloco "Principais benefícios" com lista `ul` quando `beneficios` existir.
-  - `imagem` em `<img>` responsivo (`rounded-md border`, `w-full h-auto`), com `loading="lazy"` e `alt` apropriado, posicionado abaixo do texto.
-- Manter design tokens existentes (sem cores hardcoded).
+- `id: "custo-relacional-produto"`
+- `data: "2026-06-15"`
+- `titulo: "Custo Relacional de Produto"`
+- `descricao`: 
+  > "Agora é possível configurar e visualizar o Custo Relacional de Produto, permitindo associar custos específicos às relações entre produtos e suas operações. Com isso, a composição dos valores passa a refletir de forma mais precisa as particularidades de cada contexto de utilização.\n\nEssa funcionalidade traz mais flexibilidade para a gestão financeira e reduz a necessidade de configurações manuais ou tratamentos externos, tornando a administração dos custos mais simples e confiável."
+- `tags: ["Cost Management", "Financeiro", "Configuração"]`
+- Sem `imagem` / `beneficios` (não foram enviados).
 
-## Resultado esperado
-Card de Junho/2026 mostra "1 novidade". Página `/novidades/2026-06` exibe um item de timeline em 15/06/2026 com título, descrição em parágrafos, lista de benefícios, tags e a screenshot do módulo Financeiro.
+## Resultado
+
+A página `/novidades/2026-06` passa a listar 2 itens em 15/06/2026, e o card do mês passa a indicar "2 novidades". Nenhuma alteração visual ou de componentes — apenas dados.
+
+## Observação
+
+Confirme se deseja incluir alguma imagem (ex.: `custo-relacional-produto.png` ou `custo-relacional-resultado.png` já presentes em `src/assets/`) junto a esta novidade. Caso sim, posso anexar uma ou ambas como ilustração.   
+  
+Inclua a imagem.   
+Adicione um hiperlink que ao ser clicado entao leva para a pagina da funcionalidade
