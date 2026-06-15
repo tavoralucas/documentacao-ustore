@@ -1,6 +1,7 @@
 import { ArrowLeft, Network, Filter, Search, Lightbulb, ListChecks } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import custoRelacionalImg from "@/assets/custo-relacional-produto.png.asset.json";
+import custoRelacionalResultadoImg from "@/assets/custo-relacional-resultado.png.asset.json";
 
 export default function CustoRelacionalProdutoCostManagement() {
   const navigate = useNavigate();
@@ -142,6 +143,13 @@ export default function CustoRelacionalProdutoCostManagement() {
             <strong>Limpar</strong> redefine os filtros desta etapa sem alterar os parâmetros do Passo 1.
           </div>
         </div>
+
+        <img
+          src={custoRelacionalResultadoImg.url}
+          alt="Resultado do relatório com gráfico de custo por linked e tabela de produtos"
+          loading="lazy"
+          className="mt-6 w-full rounded-md border border-border"
+        />
       </section>
 
       {/* Fluxo resumido */}
