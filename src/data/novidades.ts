@@ -1,4 +1,5 @@
 import financeiroImg from "@/assets/novidade-financeiro-2026-06-15.png.asset.json";
+import custoRelacionalImg from "@/assets/custo-relacional-produto.png.asset.json";
 
 export type Novidade = {
   id: string;
@@ -9,6 +10,7 @@ export type Novidade = {
   imagem?: string;
   imagemAlt?: string;
   tags?: string[];
+  link?: { href: string; label: string };
 };
 
 export type NovidadesMes = {
@@ -40,6 +42,18 @@ export const novidadesPorMes: NovidadesMes[] = [
         imagem: financeiroImg.url,
         imagemAlt: "Nova tela do módulo Financeiro",
         tags: ["Financeiro", "Performance", "UX"],
+        link: { href: "/cost-management/financeiro", label: "Ver documentação do Financeiro" },
+      },
+      {
+        id: "custo-relacional-produto",
+        data: "2026-06-15",
+        titulo: "Custo Relacional de Produto",
+        descricao:
+          "Agora é possível configurar e visualizar o Custo Relacional de Produto, permitindo associar custos específicos às relações entre produtos e suas operações. Com isso, a composição dos valores passa a refletir de forma mais precisa as particularidades de cada contexto de utilização.\n\nEssa funcionalidade traz mais flexibilidade para a gestão financeira e reduz a necessidade de configurações manuais ou tratamentos externos, tornando a administração dos custos mais simples e confiável.",
+        imagem: custoRelacionalImg.url,
+        imagemAlt: "Tela de configuração do Custo Relacional de Produto",
+        tags: ["Cost Management", "Financeiro", "Configuração"],
+        link: { href: "/cost-management/custo-relacional-produto", label: "Ver documentação de Custo Relacional de Produto" },
       },
     ],
   },
