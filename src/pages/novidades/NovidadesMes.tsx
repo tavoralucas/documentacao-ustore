@@ -102,6 +102,16 @@ export default function NovidadesMes() {
                     className="mt-4 h-auto w-full rounded-md border"
                   />
                 )}
+                {item.link && (
+                  <div className="mt-4">
+                    <Link
+                      to={item.link.href}
+                      className="text-sm font-medium text-primary hover:underline"
+                    >
+                      {item.link.label} →
+                    </Link>
+                  </div>
+                )}
                 {item.tags && item.tags.length > 0 && (
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {item.tags.map((t) => (
