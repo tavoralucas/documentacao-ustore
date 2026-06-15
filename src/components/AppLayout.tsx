@@ -1,5 +1,5 @@
 import { useState } from "react";
-import claroLogo from "@/assets/claro-logo.png";
+import claroLogo from "@/assets/claro-cloud-logo.png.asset.json";
 import { Outlet, useLocation } from "react-router-dom";
 import { AIChatPanel } from "@/components/AIChatPanel";
 import DocPager from "@/components/DocPager";
@@ -42,7 +42,7 @@ export default function AppLayout() {
       <header className="sticky top-0 z-50 flex h-14 items-center border-b bg-card px-4 shadow-sm">
         {/* Left: Logo + hamburger */}
         <div className="flex items-center gap-3">
-          <img src={claroLogo} alt="Claro" className="h-[72px] w-auto" />
+          <img src={claroLogo.url} alt="Claro Cloud" className="h-[72px] w-auto" />
         </div>
 
         {/* Right: Documentação badge */}
