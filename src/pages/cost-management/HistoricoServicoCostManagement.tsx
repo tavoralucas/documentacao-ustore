@@ -159,11 +159,11 @@ export default function HistoricoServicoCostManagement() {
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-1">Cobranças Diretas</h3>
-            <p className="text-sm text-muted-foreground">Custos cobrados diretamente à conta, sem intermediação de repasse de parceiro.</p>
+            <p className="text-sm text-muted-foreground">Cobranças que estão mapeadas em alguma Tag.</p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-1">Cobranças Indiretas</h3>
-            <p className="text-sm text-muted-foreground">Custos faturados via parceiro/reseller. Modelo predominante no PMC — pode representar 100% do total.</p>
+            <p className="text-sm text-muted-foreground">Cobranças que não estão mapeadas em nenhuma Tag.</p>
           </div>
           <div className="p-4 rounded-lg border border-border bg-muted/50">
             <h3 className="font-semibold text-foreground mb-1">Recursos Não Tagueados</h3>
@@ -195,7 +195,7 @@ export default function HistoricoServicoCostManagement() {
           <p>Gráfico de barras empilhadas. Eixo X: períodos conforme filtro de intervalo. Eixo Y: custo em R$.</p>
           <ul className="list-disc list-inside space-y-1 ml-2 text-sm">
             <li>Cada barra representa o total de custo empilhado por categoria de serviço</li>
-            <li>Sufixo "(Indireto)" nas categorias indica o tipo de cobrança</li>
+            <li>Sufixo "(Indireto)" nas categorias indica cobranças não mapeadas em nenhuma Tag</li>
             <li>O eixo Y pode apresentar valores negativos (descontos/créditos)</li>
             <li>Número de barras = número de períodos no range selecionado</li>
           </ul>
@@ -219,11 +219,11 @@ export default function HistoricoServicoCostManagement() {
           <div className="grid gap-3 md:grid-cols-2">
             <div className="p-3 rounded-lg border border-border bg-muted/50">
               <h3 className="font-semibold text-foreground mb-1">Cobranças Diretas</h3>
-              <p className="text-sm">Colunas: Nome | [Período 1] | [Período 2] ... Linha de total como cabeçalho de seção.</p>
+              <p className="text-sm">Cobranças que estão mapeadas em alguma Tag. Colunas: Nome | [Período 1] | [Período 2] ... Linha de total como cabeçalho de seção.</p>
             </div>
             <div className="p-3 rounded-lg border border-border bg-muted/50">
               <h3 className="font-semibold text-foreground mb-1">Cobranças Indiretas</h3>
-              <p className="text-sm">Mesma estrutura. Linhas de detalhe são expansíveis por ícone.</p>
+              <p className="text-sm">Cobranças que não estão mapeadas em nenhuma Tag. Mesma estrutura. Linhas de detalhe são expansíveis por ícone.</p>
             </div>
           </div>
           <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800 text-sm">
