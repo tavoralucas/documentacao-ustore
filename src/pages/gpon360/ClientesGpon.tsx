@@ -1,4 +1,5 @@
 import { Users, Search, Table, Monitor, Circle } from "lucide-react";
+import clientesFiltros from "@/assets/clientes-filtros.png.asset.json";
 import GponDocPage from "./GponDocPage";
 
 export default function ClientesGpon() {
@@ -43,6 +44,12 @@ export default function ClientesGpon() {
             Os botões <strong>Buscar</strong> e <strong>Limpar</strong> completam esse bloco, permitindo aplicar o filtro
             ou resetar todos os campos de uma vez.
           </p>
+          <img
+            src={clientesFiltros.url}
+            alt="Bloco de filtros da tela de Clientes"
+            className="w-full border border-border mt-3"
+            style={{ borderRadius: "8px" }}
+          />
         </div>
       </section>
 
