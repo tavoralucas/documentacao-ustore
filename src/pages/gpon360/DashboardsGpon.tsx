@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import dashboardPesquisarCliente from "@/assets/dashboard-pesquisar-cliente.png.asset.json";
 import dashboardInfoModem from "@/assets/dashboard-info-modem.png.asset.json";
+import dashboardQos from "@/assets/dashboard-qos.png.asset.json";
 import GponDocPage from "./GponDocPage";
 
 export default function DashboardsGpon() {
@@ -122,6 +123,16 @@ export default function DashboardsGpon() {
             qualidade da conexão do cliente está piorando ou melhorando com o tempo.
           </p>
         </div>
+        <figure className="mt-6 rounded-lg border border-border overflow-hidden">
+          <img
+            src={dashboardQos.url}
+            alt="Cartões de indicadores de qualidade (QoS) do cliente"
+            className="w-full"
+          />
+          <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
+            Cartões de indicadores de qualidade (QoS) do cliente
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
