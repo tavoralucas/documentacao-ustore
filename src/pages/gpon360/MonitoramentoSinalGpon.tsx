@@ -9,6 +9,8 @@ import {
   Route,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import monitoramentoSinalObjetivo from "@/assets/monitoramento-sinal-objetivo.png.asset.json";
+
 
 const kpis = [
   { label: "Total Clientes", desc: "Quantidade total de clientes GPON considerados no filtro atual." },
@@ -78,6 +80,16 @@ export default function MonitoramentoSinalGpon() {
           sinal GPON de todos os clientes da base. Com ela você enxerga rapidamente onde estão os problemas de sinal —
           seja olhando o Brasil todo, um estado específico, uma cidade, uma rua ou até um cliente individual.
         </p>
+        <figure className="mt-6">
+          <img
+            src={monitoramentoSinalObjetivo.url}
+            alt="Tela de Monitoramento de Sinal com KPIs, tabela de cidades e rankings"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            Visão geral da tela de Monitoramento de Sinal.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
