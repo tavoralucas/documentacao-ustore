@@ -1,4 +1,4 @@
-import { Users, Search, Table, Monitor, Circle } from "lucide-react";
+import { Users, Search, Table } from "lucide-react";
 import clientesFiltros from "@/assets/clientes-filtros.png.asset.json";
 import clientesTabelaResultados from "@/assets/clientes-tabela-resultados.png.asset.json";
 import GponDocPage from "./GponDocPage";
@@ -80,58 +80,6 @@ export default function ClientesGpon() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <div className="flex items-center gap-3 mb-4">
-          <Monitor className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Acessando o detalhe do cliente</h2>
-        </div>
-        <div className="space-y-3 text-muted-foreground">
-          <p>
-            Cada linha da tabela conta com um botão de ação chamado <strong>Conectar</strong>. Ao clicar nele, o
-            sistema direciona o usuário para a Visão Geral do Cliente, uma espécie de painel de diagnóstico individual
-            do modem selecionado.
-          </p>
-          <p>Nesse painel é possível visualizar, entre outras informações:</p>
-          <ul className="grid gap-3 sm:grid-cols-2">
-            <li className="flex items-start gap-2">
-              <Circle className="h-4 w-4 mt-1 text-primary shrink-0" />
-              <span>Estado da conexão (online/offline)</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Circle className="h-4 w-4 mt-1 text-primary shrink-0" />
-              <span>Níveis de sinal de transmissão e recepção (com histórico)</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Circle className="h-4 w-4 mt-1 text-primary shrink-0" />
-              <span>Tecnologia utilizada</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Circle className="h-4 w-4 mt-1 text-primary shrink-0" />
-              <span>Último evento registrado e sua causa</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Circle className="h-4 w-4 mt-1 text-primary shrink-0" />
-              <span>Dados do equipamento (Nó/OLT, MAC, número de série, modelo, versão de software, uso de CPU e memória)</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Circle className="h-4 w-4 mt-1 text-primary shrink-0" />
-              <span>Tempo em que o equipamento está ativo</span>
-            </li>
-          </ul>
-          <p>
-            Mais abaixo, o painel também apresenta indicadores de qualidade de serviço (QoS geral, de Wi-Fi, de acesso e
-            de disponibilidade, cada um com histórico próprio), a possibilidade de realizar um teste de velocidade sob
-            demanda e consultar o histórico de testes já feitos, além da comparação entre a velocidade contratada e a
-            velocidade efetivamente medida.
-          </p>
-          <p>
-            Por fim, há um bloco dedicado às redes Wi-Fi de 2.4 GHz e 5.0 GHz, mostrando nome da rede, canal, tipo de
-            segurança, largura de banda e protocolo, com opção de edição, e uma seção de equipamentos conectados, que
-            informa a quantidade de dispositivos encontrados, permite acessar a topologia de rede do cliente e sinaliza
-            equipamentos que estejam "distantes" (fora do padrão esperado de conexão).
-          </p>
-        </div>
-      </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">Resumo do fluxo de uso</h2>
