@@ -1,5 +1,6 @@
 import { Users, Search, Table, Monitor, Circle } from "lucide-react";
 import clientesFiltros from "@/assets/clientes-filtros.png.asset.json";
+import clientesTabelaResultados from "@/assets/clientes-tabela-resultados.png.asset.json";
 import GponDocPage from "./GponDocPage";
 
 export default function ClientesGpon() {
