@@ -1,5 +1,4 @@
 import {
-  LayoutDashboard,
   SignalHigh,
   Siren,
   Activity,
@@ -10,12 +9,9 @@ import {
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
 import ClientesGpon from "./ClientesGpon";
+import DashboardsGpon from "./DashboardsGpon";
 
-export { ClientesGpon };
-
-export const DashboardsGpon = () => (
-  <GponDocPage title="Dashboards" subtitle="Painéis consolidados com os principais indicadores da rede." icon={LayoutDashboard} />
-);
+export { ClientesGpon, DashboardsGpon };
 
 export const MonitoramentoSinalGpon = () => (
   <GponDocPage title="Monitoramento de Sinal" subtitle="Acompanhamento de níveis de sinal óptico (RX/TX) dos terminais." icon={SignalHigh} />
