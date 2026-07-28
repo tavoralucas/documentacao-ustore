@@ -71,6 +71,12 @@ export default function ClientesGpon() {
             página e indicação clara de "página atual de total de páginas", o que ajuda o usuário a não se perder ao
             percorrer grandes volumes de dados.
           </p>
+          <img
+            src={clientesTabelaResultados.url}
+            alt="Tabela de resultados da tela de Clientes"
+            className="w-full border border-border mt-3"
+            style={{ borderRadius: "8px" }}
+          />
         </div>
       </section>
 
