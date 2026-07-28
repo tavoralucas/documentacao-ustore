@@ -10,6 +10,7 @@ import {
 import dashboardPesquisarCliente from "@/assets/dashboard-pesquisar-cliente.png.asset.json";
 import dashboardInfoModem from "@/assets/dashboard-info-modem.png.asset.json";
 import dashboardQos from "@/assets/dashboard-qos.png.asset.json";
+import dashboardTesteVelocidade from "@/assets/dashboard-teste-velocidade.png.asset.json";
 import GponDocPage from "./GponDocPage";
 
 export default function DashboardsGpon() {
@@ -159,6 +160,16 @@ export default function DashboardsGpon() {
             </p>
           </div>
         </div>
+        <figure className="mt-6 rounded-lg border border-border overflow-hidden">
+          <img
+            src={dashboardTesteVelocidade.url}
+            alt="Tela de teste de velocidade com cartões de ação, velocímetros e histórico de medições"
+            className="w-full"
+          />
+          <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
+            Tela de teste de velocidade com velocímetros e histórico de medições
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
