@@ -12,6 +12,7 @@ import dashboardInfoModem from "@/assets/dashboard-info-modem.png.asset.json";
 import dashboardQos from "@/assets/dashboard-qos.png.asset.json";
 import dashboardTesteVelocidade from "@/assets/dashboard-teste-velocidade.png.asset.json";
 import dashboardWifi from "@/assets/dashboard-wifi.png.asset.json";
+import dashboardEquipamentosTopologia from "@/assets/dashboard-equipamentos-topologia.png.asset.json";
 import GponDocPage from "./GponDocPage";
 
 export default function DashboardsGpon() {
@@ -242,6 +243,16 @@ export default function DashboardsGpon() {
             ))}
           </div>
         </div>
+        <figure className="mt-6 rounded-lg border border-border overflow-hidden">
+          <img
+            src={dashboardEquipamentosTopologia.url}
+            alt="Seção Equipamentos com dispositivos conectados e topologia de rede"
+            className="w-full"
+          />
+          <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
+            Seção Equipamentos com tabela de dispositivos e diagrama de topologia
+          </figcaption>
+        </figure>
       </section>
     </GponDocPage>
   );
