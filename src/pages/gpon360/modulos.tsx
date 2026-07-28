@@ -1,5 +1,4 @@
 import {
-  Users,
   LayoutDashboard,
   SignalHigh,
   Siren,
@@ -10,10 +9,9 @@ import {
   ScrollText,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import ClientesGpon from "./ClientesGpon";
 
-export const ClientesGpon = () => (
-  <GponDocPage title="Clientes" subtitle="Consulta e gestão da base de clientes conectados à rede GPON." icon={Users} />
-);
+export { ClientesGpon };
 
 export const DashboardsGpon = () => (
   <GponDocPage title="Dashboards" subtitle="Painéis consolidados com os principais indicadores da rede." icon={LayoutDashboard} />
