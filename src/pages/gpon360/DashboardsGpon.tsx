@@ -8,6 +8,7 @@ import {
   Network,
 } from "lucide-react";
 import dashboardPesquisarCliente from "@/assets/dashboard-pesquisar-cliente.png.asset.json";
+import dashboardInfoModem from "@/assets/dashboard-info-modem.png.asset.json";
 import GponDocPage from "./GponDocPage";
 
 export default function DashboardsGpon() {
@@ -80,6 +81,16 @@ export default function DashboardsGpon() {
             gráfico e uma legenda de cores que indica a gravidade de cada queda.
           </p>
         </div>
+        <figure className="mt-6 rounded-lg border border-border overflow-hidden">
+          <img
+            src={dashboardInfoModem.url}
+            alt="Painel de informações gerais do modem do cliente"
+            className="w-full"
+          />
+          <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
+            Painel de informações gerais do modem do cliente
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
