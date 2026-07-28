@@ -1,4 +1,4 @@
-import { Users, Search, Table, Monitor, ArrowRight, ArrowLeft, CircleHelp, Circle } from "lucide-react";
+import { Users, Search, Table, Monitor, Circle } from "lucide-react";
 import GponDocPage from "./GponDocPage";
 
 export default function ClientesGpon() {
