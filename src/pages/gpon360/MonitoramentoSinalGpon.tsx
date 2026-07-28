@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
 import monitoramentoSinalObjetivo from "@/assets/monitoramento-sinal-objetivo.png.asset.json";
+import monitoramentoSinalCidadesGpon from "@/assets/monitoramento-sinal-cidades-gpon.png.asset.json";
 
 
 const kpis = [
@@ -169,6 +170,16 @@ export default function MonitoramentoSinalGpon() {
             </p>
           </div>
         </div>
+        <figure className="mt-6">
+          <img
+            src={monitoramentoSinalCidadesGpon.url}
+            alt="Tabela de Cidades GPON com filtros de estado e cidade, ranking e gráficos de níveis RX/TX"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            Tela de Cidades GPON exibindo filtros, tabela e rankings.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
