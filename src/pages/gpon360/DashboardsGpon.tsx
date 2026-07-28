@@ -7,6 +7,7 @@ import {
   Wifi,
   Network,
 } from "lucide-react";
+import dashboardPesquisarCliente from "@/assets/dashboard-pesquisar-cliente.png.asset.json";
 import GponDocPage from "./GponDocPage";
 
 export default function DashboardsGpon() {
@@ -34,6 +35,16 @@ export default function DashboardsGpon() {
             <strong> Buscar novo</strong> no topo da tela para reiniciar a busca sem precisar sair da página.
           </p>
         </div>
+        <figure className="mt-6 rounded-lg border border-border overflow-hidden">
+          <img
+            src={dashboardPesquisarCliente.url}
+            alt="Tela de pesquisa do cliente por Endereço MAC ou Número do contrato"
+            className="w-full"
+          />
+          <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
+            Tela de pesquisa do cliente por Endereço MAC ou Número do contrato
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
