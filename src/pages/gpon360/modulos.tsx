@@ -1,5 +1,4 @@
 import {
-  SignalHigh,
   Siren,
   Activity,
   Gauge,
@@ -10,12 +9,10 @@ import {
 import GponDocPage from "./GponDocPage";
 import ClientesGpon from "./ClientesGpon";
 import DashboardsGpon from "./DashboardsGpon";
+import MonitoramentoSinalGpon from "./MonitoramentoSinalGpon";
 
-export { ClientesGpon, DashboardsGpon };
+export { ClientesGpon, DashboardsGpon, MonitoramentoSinalGpon };
 
-export const MonitoramentoSinalGpon = () => (
-  <GponDocPage title="Monitoramento de Sinal" subtitle="Acompanhamento de níveis de sinal óptico (RX/TX) dos terminais." icon={SignalHigh} />
-);
 
 export const TrapMassivoGpon = () => (
   <GponDocPage title="Trap Massivo" subtitle="Detecção e tratamento de eventos massivos recebidos via trap SNMP." icon={Siren} />
