@@ -77,6 +77,20 @@ const hubs: Record<string, { hubPath: string; routes: Route[] }> = {
       { path: "/dci/tarefas", title: "Tarefas" },
     ],
   },
+  "/gpon-360": {
+    hubPath: "/gpon-360",
+    routes: [
+      { path: "/gpon-360/clientes", title: "Clientes" },
+      { path: "/gpon-360/dashboards", title: "Dashboards" },
+      { path: "/gpon-360/monitoramento-sinal", title: "Monitoramento de Sinal" },
+      { path: "/gpon-360/trap-massivo", title: "Trap Massivo" },
+      { path: "/gpon-360/monitoramento-quedas", title: "Monitoramento de Quedas" },
+      { path: "/gpon-360/performance", title: "Performance" },
+      { path: "/gpon-360/relatorios", title: "Relatórios" },
+      { path: "/gpon-360/gestao-parametros", title: "Gestão de Parâmetros" },
+      { path: "/gpon-360/auditoria", title: "Auditoria" },
+    ],
+  },
 };
 
 export default function DocPager() {

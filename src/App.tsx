@@ -59,6 +59,18 @@ import CustoBudgetCostManagement from "./pages/cost-management/CustoBudgetCostMa
 import ContaMasterCostManagement from "./pages/cost-management/ContaMasterCostManagement";
 import FinanceiroCostManagement from "./pages/cost-management/FinanceiroCostManagement";
 import CustoRelacionalProdutoCostManagement from "./pages/cost-management/CustoRelacionalProdutoCostManagement";
+import Gpon360 from "./pages/Gpon360";
+import {
+  ClientesGpon,
+  DashboardsGpon,
+  MonitoramentoSinalGpon,
+  TrapMassivoGpon,
+  MonitoramentoQuedasGpon,
+  PerformanceGpon,
+  RelatoriosGpon,
+  GestaoParametrosGpon,
+  AuditoriaGpon,
+} from "./pages/gpon360/modulos";
 import Novidades from "./pages/Novidades";
 import NovidadesMes from "./pages/novidades/NovidadesMes";
 import NotFound from "./pages/NotFound";
@@ -129,6 +141,16 @@ const App = () => (
             <Route path="/cost-management/conta-master" element={<ContaMasterCostManagement />} />
             <Route path="/cost-management/financeiro" element={<FinanceiroCostManagement />} />
             <Route path="/cost-management/custo-relacional-produto" element={<CustoRelacionalProdutoCostManagement />} />
+            <Route path="/gpon-360" element={<Gpon360 />} />
+            <Route path="/gpon-360/clientes" element={<ClientesGpon />} />
+            <Route path="/gpon-360/dashboards" element={<DashboardsGpon />} />
+            <Route path="/gpon-360/monitoramento-sinal" element={<MonitoramentoSinalGpon />} />
+            <Route path="/gpon-360/trap-massivo" element={<TrapMassivoGpon />} />
+            <Route path="/gpon-360/monitoramento-quedas" element={<MonitoramentoQuedasGpon />} />
+            <Route path="/gpon-360/performance" element={<PerformanceGpon />} />
+            <Route path="/gpon-360/relatorios" element={<RelatoriosGpon />} />
+            <Route path="/gpon-360/gestao-parametros" element={<GestaoParametrosGpon />} />
+            <Route path="/gpon-360/auditoria" element={<AuditoriaGpon />} />
             <Route path="/novidades" element={<Novidades />} />
             <Route path="/novidades/:slug" element={<NovidadesMes />} />
           </Route>
