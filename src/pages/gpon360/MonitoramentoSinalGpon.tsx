@@ -11,6 +11,7 @@ import {
 import GponDocPage from "./GponDocPage";
 import monitoramentoSinalObjetivo from "@/assets/monitoramento-sinal-objetivo.png.asset.json";
 import monitoramentoSinalCidadesGpon from "@/assets/monitoramento-sinal-cidades-gpon.png.asset.json";
+import monitoramentoSinalRanking from "@/assets/monitoramento-sinal-ranking.png.asset.json";
 
 
 const kpis = [
@@ -203,6 +204,16 @@ export default function MonitoramentoSinalGpon() {
           reordenar os resultados. Clicando no nome de uma cidade nesse ranking você também consegue "entrar" nela,
           assim como pelo botão Ver da tabela da esquerda.
         </p>
+        <figure className="mt-6">
+          <img
+            src={monitoramentoSinalRanking.url}
+            alt="Tela de Clientes GPON com filtros ativos de cidade e rua, tabela de clientes e botão Conectar"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground">
+            Visão detalhada de clientes após navegar por cidade e rua.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
