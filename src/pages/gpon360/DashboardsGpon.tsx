@@ -11,6 +11,7 @@ import dashboardPesquisarCliente from "@/assets/dashboard-pesquisar-cliente.png.
 import dashboardInfoModem from "@/assets/dashboard-info-modem.png.asset.json";
 import dashboardQos from "@/assets/dashboard-qos.png.asset.json";
 import dashboardTesteVelocidade from "@/assets/dashboard-teste-velocidade.png.asset.json";
+import dashboardWifi from "@/assets/dashboard-wifi.png.asset.json";
 import GponDocPage from "./GponDocPage";
 
 export default function DashboardsGpon() {
@@ -189,6 +190,16 @@ export default function DashboardsGpon() {
             cartão, que abre uma pequena janela para definir um novo nome e uma nova senha para aquela rede específica.
           </p>
         </div>
+        <figure className="mt-6 rounded-lg border border-border overflow-hidden">
+          <img
+            src={dashboardWifi.url}
+            alt="Cartões de configuração das redes Wi-Fi 2.4 GHz e 5.0 GHz"
+            className="w-full"
+          />
+          <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
+            Cartões de configuração das redes Wi-Fi 2.4 GHz e 5.0 GHz
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
