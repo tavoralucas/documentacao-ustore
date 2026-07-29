@@ -259,6 +259,16 @@ export default function PerformanceGpon() {
           Também é ordenável e possui seu próprio botão <strong>Exportar CSV</strong>, permitindo comparar o desempenho
           entre diferentes regiões atendidas.
         </p>
+        <figure className="mt-6">
+          <img
+            src={performanceTabelaRegional.url}
+            alt="Tabela Performance Regional da Performance Contratual com colunas UF, Cidade, Total de Clientes, Download (%), % abaixo de 80% e % abaixo de 70%"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Tabela Performance Regional.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
