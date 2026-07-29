@@ -191,6 +191,16 @@ export default function PerformanceGpon() {
             </div>
           ))}
         </div>
+        <figure className="mt-6">
+          <img
+            src={performanceGraficosAnalise.url}
+            alt="Gráficos de análise visual da Performance Contratual: distribuição de performance, por modelo, versão de software e por UF"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Gráficos de análise visual da Performance Contratual.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
