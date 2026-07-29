@@ -11,8 +11,7 @@ import {
   Leaf,
   Network,
   BookOpen,
-  Radar,
-  Sparkles } from
+  Radar } from
 "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
