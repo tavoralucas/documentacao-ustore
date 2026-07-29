@@ -2,6 +2,7 @@ import {
   SlidersHorizontal,
   ScrollText,
 } from "lucide-react";
+import GponDocPage from "./GponDocPage";
 import ClientesGpon from "./ClientesGpon";
 import DashboardsGpon from "./DashboardsGpon";
 import MonitoramentoSinalGpon from "./MonitoramentoSinalGpon";
