@@ -10,6 +10,8 @@ import {
   Building2,
   DollarSign,
   Network,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 
 const docTopics = [
@@ -36,6 +38,27 @@ export default function CostManagement() {
           <p className="text-sm text-muted-foreground">Documentação do produto</p>
         </div>
       </div>
+
+      <Link
+        to="/novidades"
+        className="group flex items-center gap-4 rounded-xl border-2 border-dashed border-primary/40 bg-primary/5 p-5 transition-colors hover:bg-primary/10"
+      >
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <Sparkles className="h-5 w-5" />
+        </div>
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <h3 className="font-semibold text-foreground">Novidades</h3>
+            <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+              Novo
+            </span>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Acompanhe as últimas atualizações e melhorias da plataforma.
+          </p>
+        </div>
+        <ArrowRight className="h-5 w-5 text-primary transition-transform group-hover:translate-x-1" />
+      </Link>
 
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {docTopics.map(({ title, icon: Icon, route, description }) => (
