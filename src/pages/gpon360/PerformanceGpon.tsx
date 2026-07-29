@@ -13,6 +13,7 @@ import performanceFiltrosKpis from "@/assets/performance-filtros-kpis.png.asset.
 import performanceKpisCards from "@/assets/performance-kpis-cards.png.asset.json";
 import performanceGraficosAnalise from "@/assets/performance-graficos-analise.png.asset.json";
 import performanceTabelaEquipamentosFirmware from "@/assets/performance-tabela-equipamentos-firmware.png.asset.json";
+import performanceTabelaRegional from "@/assets/performance-tabela-regional.png.asset.json";
 
 const filtros = [
   { n: 1, title: "UF", desc: "Sigla do estado (ex: SP)." },
@@ -258,6 +259,16 @@ export default function PerformanceGpon() {
           Também é ordenável e possui seu próprio botão <strong>Exportar CSV</strong>, permitindo comparar o desempenho
           entre diferentes regiões atendidas.
         </p>
+        <figure className="mt-6">
+          <img
+            src={performanceTabelaRegional.url}
+            alt="Tabela Performance Regional da Performance Contratual com colunas UF, Cidade, Total de Clientes, Download (%), % abaixo de 80% e % abaixo de 70%"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Tabela Performance Regional.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
