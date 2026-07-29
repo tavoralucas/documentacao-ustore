@@ -11,6 +11,7 @@ import {
 import GponDocPage from "./GponDocPage";
 import trapPeriodoAsset from "@/assets/trap-massivo-periodo-analise.png.asset.json";
 import trapDrillDownAsset from "@/assets/trap-massivo-drill-down.png.asset.json";
+import trapRankingAsset from "@/assets/trap-massivo-ranking.png.asset.json";
 
 const kpis = [
   { label: "Total de Registros", desc: "Quantidade total de traps recebidos no período selecionado." },
@@ -184,6 +185,13 @@ export default function TrapMassivoGpon() {
           total de registros associado — uma forma rápida de identificar tanto os "piores da fila" quanto os "melhores
           da fila" sem precisar reordenar a tabela manualmente.
         </p>
+        <figure className="mt-6 rounded-lg border border-border overflow-hidden bg-muted/30">
+          <img
+            src={trapRankingAsset.url}
+            alt="Painel de ranking do Trap Massivo com Rank Drop Events e Rank QoS Disponibilidade"
+            className="w-full h-auto"
+          />
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
