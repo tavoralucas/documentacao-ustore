@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
 import trapPeriodoAsset from "@/assets/trap-massivo-periodo-analise.png.asset.json";
+import trapDrillDownAsset from "@/assets/trap-massivo-drill-down.png.asset.json";
 
 const kpis = [
   { label: "Total de Registros", desc: "Quantidade total de traps recebidos no período selecionado." },
@@ -152,6 +153,13 @@ export default function TrapMassivoGpon() {
           para aquela cidade, e a tabela da esquerda passa a listar as ruas dentro dela. Nesse nível de rua não há mais
           um botão de detalhe adicional — ali termina o drill-down.
         </p>
+        <figure className="mt-6 rounded-lg border border-border overflow-hidden bg-muted/30">
+          <img
+            src={trapDrillDownAsset.url}
+            alt="Drill-down de Trap Massivo mostrando ruas de São Paulo e ranking de drop events"
+            className="w-full h-auto"
+          />
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
