@@ -11,6 +11,7 @@ import {
 import GponDocPage from "./GponDocPage";
 import monitoramentoQuedasFiltros from "@/assets/monitoramento-quedas-filtros.png.asset.json";
 import monitoramentoQuedasKpis from "@/assets/monitoramento-quedas-kpis.png.asset.json";
+import monitoramentoQuedasGraficos from "@/assets/monitoramento-quedas-graficos.png.asset.json";
 
 const filtros = [
   { n: 1, title: "UF", desc: "Seleção múltipla de estados, com campo de busca interna e opção \"Selecionar todos\"." },
@@ -187,6 +188,16 @@ export default function MonitoramentoQuedasGpon() {
             </div>
           ))}
         </div>
+        <figure className="mt-6">
+          <img
+            src={monitoramentoQuedasGraficos.url}
+            alt="Gráficos de Quedas por Estado e Linha do Tempo do Monitoramento de Quedas"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Comparativo por estado e evolução temporal das quedas.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
