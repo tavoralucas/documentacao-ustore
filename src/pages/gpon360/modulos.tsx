@@ -1,5 +1,4 @@
 import {
-  Siren,
   Gauge,
   FileBarChart,
   SlidersHorizontal,
@@ -10,13 +9,11 @@ import ClientesGpon from "./ClientesGpon";
 import DashboardsGpon from "./DashboardsGpon";
 import MonitoramentoSinalGpon from "./MonitoramentoSinalGpon";
 import MonitoramentoQuedasGpon from "./MonitoramentoQuedasGpon";
+import TrapMassivoGpon from "./TrapMassivoGpon";
 
-export { ClientesGpon, DashboardsGpon, MonitoramentoSinalGpon, MonitoramentoQuedasGpon };
+export { ClientesGpon, DashboardsGpon, MonitoramentoSinalGpon, MonitoramentoQuedasGpon, TrapMassivoGpon };
 
 
-export const TrapMassivoGpon = () => (
-  <GponDocPage title="Trap Massivo" subtitle="Detecção e tratamento de eventos massivos recebidos via trap SNMP." icon={Siren} />
-);
 
 
 
