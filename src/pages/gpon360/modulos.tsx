@@ -1,5 +1,4 @@
 import {
-  SlidersHorizontal,
   ScrollText,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
