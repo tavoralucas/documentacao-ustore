@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
 import auditoriaFiltrosImg from "@/assets/auditoria-filtros.png.asset.json";
+import auditoriaTabelaResultadosImg from "@/assets/auditoria-tabela-resultados.png.asset.json";
+
 
 
 const operacoesExemplo = [
@@ -177,6 +179,19 @@ export default function AuditoriaGpon() {
             Por padrão, a tela carrega os registros das últimas 24 horas, mas o volume total de dados é grande (o sistema já
             acumula milhares de registros), então os filtros são fundamentais para encontrar rapidamente o que você procura.
           </p>
+
+          <figure className="mt-6 overflow-hidden rounded-lg border border-border">
+            <img
+              src={auditoriaTabelaResultadosImg.url}
+              alt="Tabela de resultados do Audit Log com botão Exportar CSV, colunas Usuário, Email, Operação e Data, e paginação"
+              className="w-full"
+              loading="lazy"
+            />
+            <figcaption className="border-t border-border bg-background px-4 py-2 text-center text-sm text-muted-foreground">
+              Tabela de resultados do Audit Log com exportação e paginação
+            </figcaption>
+          </figure>
+
         </div>
       </section>
 
