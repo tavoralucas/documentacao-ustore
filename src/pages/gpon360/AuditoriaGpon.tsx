@@ -144,6 +144,19 @@ export default function AuditoriaGpon() {
                 </div>
               ))}
             </div>
+
+            <figure className="mt-6 overflow-hidden rounded-lg border border-border">
+              <img
+                src={auditoriaFiltrosImg.url}
+                alt="Cartão de filtros da tela Audit Log com campos de nome do usuário, e-mail, operação e intervalo de datas"
+                className="w-full"
+                loading="lazy"
+              />
+              <figcaption className="border-t border-border bg-background px-4 py-2 text-center text-sm text-muted-foreground">
+                Cartão de filtros da tela Audit Log
+              </figcaption>
+            </figure>
+
           </div>
         </div>
       </section>
