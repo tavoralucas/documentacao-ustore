@@ -31,7 +31,7 @@ const menuItems: MenuItem[] = [
 // { title: "Mangue", url: "/mangue", icon: Leaf },
 // { title: "DCI", url: "/dci", icon: Network },
 { title: "Icognito", url: "/gpon-360", icon: Radar },
-{ title: "Novidades", url: "/novidades", icon: Sparkles },
+
 ];
 
 
