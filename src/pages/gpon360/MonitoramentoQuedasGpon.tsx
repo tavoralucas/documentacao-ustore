@@ -13,6 +13,7 @@ import monitoramentoQuedasFiltros from "@/assets/monitoramento-quedas-filtros.pn
 import monitoramentoQuedasKpis from "@/assets/monitoramento-quedas-kpis.png.asset.json";
 import monitoramentoQuedasGraficos from "@/assets/monitoramento-quedas-graficos.png.asset.json";
 import monitoramentoQuedasTabela from "@/assets/monitoramento-quedas-tabela.png.asset.json";
+import monitoramentoQuedasVer from "@/assets/monitoramento-quedas-ver.png.asset.json";
 
 const filtros = [
   { n: 1, title: "UF", desc: "Seleção múltipla de estados, com campo de busca interna e opção \"Selecionar todos\"." },
@@ -257,6 +258,16 @@ export default function MonitoramentoQuedasGpon() {
             monitoramento macro e o atendimento individual.
           </p>
         </div>
+        <figure className="mt-6">
+          <img
+            src={monitoramentoQuedasVer.url}
+            alt="Tela de detalhe da ação Ver com resumo e clientes afetados"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Visualização detalhada após clicar em Ver em um evento de queda.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
