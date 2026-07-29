@@ -12,6 +12,7 @@ import GponDocPage from "./GponDocPage";
 import performanceFiltrosKpis from "@/assets/performance-filtros-kpis.png.asset.json";
 import performanceKpisCards from "@/assets/performance-kpis-cards.png.asset.json";
 import performanceGraficosAnalise from "@/assets/performance-graficos-analise.png.asset.json";
+import performanceTabelaEquipamentosFirmware from "@/assets/performance-tabela-equipamentos-firmware.png.asset.json";
 
 const filtros = [
   { n: 1, title: "UF", desc: "Sigla do estado (ex: SP)." },
@@ -225,6 +226,16 @@ export default function PerformanceGpon() {
           Essa tabela é excelente para identificar rapidamente combinações específicas de equipamento + firmware que
           estejam performando mal.
         </p>
+        <figure className="mt-6">
+          <img
+            src={performanceTabelaEquipamentosFirmware.url}
+            alt="Tabela Equipamentos & Firmware da Performance Contratual com colunas Modelo, Versão SW, Total de Clientes, Download (%), % abaixo de 80% e % abaixo de 70%"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Tabela detalhada de Equipamentos &amp; Firmware.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
