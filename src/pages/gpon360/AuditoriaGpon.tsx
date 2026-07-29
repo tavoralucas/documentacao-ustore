@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
 import auditoriaFiltrosImg from "@/assets/auditoria-filtros.png.asset.json";
+import auditoriaTabelaResultadosImg from "@/assets/auditoria-tabela-resultados.png.asset.json";
+
 
 
 const operacoesExemplo = [
