@@ -11,6 +11,7 @@ import {
 import GponDocPage from "./GponDocPage";
 import performanceFiltrosKpis from "@/assets/performance-filtros-kpis.png.asset.json";
 import performanceKpisCards from "@/assets/performance-kpis-cards.png.asset.json";
+import performanceGraficosAnalise from "@/assets/performance-graficos-analise.png.asset.json";
 
 const filtros = [
   { n: 1, title: "UF", desc: "Sigla do estado (ex: SP)." },
@@ -190,6 +191,16 @@ export default function PerformanceGpon() {
             </div>
           ))}
         </div>
+        <figure className="mt-6">
+          <img
+            src={performanceGraficosAnalise.url}
+            alt="Gráficos de análise visual da Performance Contratual: distribuição de performance, por modelo, versão de software e por UF"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Gráficos de análise visual da Performance Contratual.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
