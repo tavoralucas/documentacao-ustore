@@ -11,6 +11,8 @@ import {
   Lightbulb,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import auditoriaFiltrosImg from "@/assets/auditoria-filtros.png.asset.json";
+
 
 const operacoesExemplo = [
   "Buscar por Clientes",
