@@ -11,6 +11,7 @@ import {
 import GponDocPage from "./GponDocPage";
 import monitoramentoQuedasFiltros from "@/assets/monitoramento-quedas-filtros.png.asset.json";
 import monitoramentoQuedasKpis from "@/assets/monitoramento-quedas-kpis.png.asset.json";
+import monitoramentoQuedasGraficos from "@/assets/monitoramento-quedas-graficos.png.asset.json";
 
 const filtros = [
   { n: 1, title: "UF", desc: "Seleção múltipla de estados, com campo de busca interna e opção \"Selecionar todos\"." },
