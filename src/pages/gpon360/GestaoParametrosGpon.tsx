@@ -4,7 +4,6 @@ import {
   BookOpen,
   Eye,
   Pencil,
-  Save,
   AlertCircle,
   Wifi,
   Radio,
@@ -13,6 +12,7 @@ import {
   Network,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import gestaoParametrosDisponiveis from "@/assets/gestao-parametros-disponiveis.png.asset.json";
 
 const categorias = [
   {
