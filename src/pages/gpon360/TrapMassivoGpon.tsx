@@ -93,6 +93,7 @@ export default function TrapMassivoGpon() {
             className="w-full h-auto"
           />
         </figure>
+      </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
