@@ -9,6 +9,7 @@ import {
   Route,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import trapPeriodoAsset from "@/assets/trap-massivo-periodo-analise.png.asset.json";
 
 const kpis = [
   { label: "Total de Registros", desc: "Quantidade total de traps recebidos no período selecionado." },
@@ -85,7 +86,13 @@ export default function TrapMassivoGpon() {
           <strong>30d</strong> definem a janela de tempo analisada (por padrão, os últimos 3 dias). Assim como na tela
           de quedas, mudar o período recalcula tudo automaticamente.
         </p>
-      </section>
+        <figure className="mt-6 rounded-lg border border-border overflow-hidden bg-muted/30">
+          <img
+            src={trapPeriodoAsset.url}
+            alt="Período de análise do Trap Massivo com atalhos de 3, 7, 15 e 30 dias e KPIs"
+            className="w-full h-auto"
+          />
+        </figure>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
