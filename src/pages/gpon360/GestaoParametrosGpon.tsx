@@ -12,6 +12,7 @@ import {
   Network,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import gestaoParametrosDisponiveis from "@/assets/gestao-parametros-disponiveis.png.asset.json";
 import gestaoParametrosEditar from "@/assets/gestao-parametros-editar-qos-wifi.png.asset.json";
 
 const categorias = [
