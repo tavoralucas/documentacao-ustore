@@ -10,13 +10,9 @@ import MonitoramentoSinalGpon from "./MonitoramentoSinalGpon";
 import MonitoramentoQuedasGpon from "./MonitoramentoQuedasGpon";
 import TrapMassivoGpon from "./TrapMassivoGpon";
 import PerformanceGpon from "./PerformanceGpon";
+import RelatoriosGpon from "./RelatoriosGpon";
 
-export { ClientesGpon, DashboardsGpon, MonitoramentoSinalGpon, MonitoramentoQuedasGpon, TrapMassivoGpon, PerformanceGpon };
-
-
-export const RelatoriosGpon = () => (
-  <GponDocPage title="Relatórios" subtitle="Geração e exportação de relatórios operacionais e gerenciais." icon={FileBarChart} />
-);
+export { ClientesGpon, DashboardsGpon, MonitoramentoSinalGpon, MonitoramentoQuedasGpon, TrapMassivoGpon, PerformanceGpon, RelatoriosGpon };
 
 export const GestaoParametrosGpon = () => (
   <GponDocPage title="Gestão de Parâmetros" subtitle="Configuração dos parâmetros e limiares utilizados nas análises." icon={SlidersHorizontal} />
