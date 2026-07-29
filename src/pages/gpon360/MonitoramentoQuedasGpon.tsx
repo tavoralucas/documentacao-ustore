@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
 import monitoramentoQuedasFiltros from "@/assets/monitoramento-quedas-filtros.png.asset.json";
+import monitoramentoQuedasKpis from "@/assets/monitoramento-quedas-kpis.png.asset.json";
 
 const filtros = [
   { n: 1, title: "UF", desc: "Seleção múltipla de estados, com campo de busca interna e opção \"Selecionar todos\"." },
@@ -161,6 +162,16 @@ export default function MonitoramentoQuedasGpon() {
             o incidente mais crítico.
           </p>
         </div>
+        <figure className="mt-6">
+          <img
+            src={monitoramentoQuedasKpis.url}
+            alt="Cards de indicadores do Monitoramento de Quedas com clientes afetados, total de quedas, quedas por sinal, energia, cidades e ruas afetadas"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Indicadores principais e destaque do pico do período.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
