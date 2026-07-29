@@ -188,6 +188,16 @@ export default function MonitoramentoQuedasGpon() {
             </div>
           ))}
         </div>
+        <figure className="mt-6">
+          <img
+            src={monitoramentoQuedasGraficos.url}
+            alt="Gráficos de Quedas por Estado e Linha do Tempo do Monitoramento de Quedas"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Comparativo por estado e evolução temporal das quedas.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
