@@ -8,6 +8,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import relatoriosTela from "@/assets/relatorios-analiticos-tela.png.asset.json";
 
 const relatorioColunas = [
   {
@@ -59,6 +60,16 @@ export default function RelatoriosGpon() {
             Você a encontra no menu lateral esquerdo, na opção <strong>Relatórios</strong> (ícone de documento/recibo).
           </p>
         </div>
+        <figure className="mt-6">
+          <img
+            src={relatoriosTela.url}
+            alt="Tela de Relatórios Analíticos com filtro de período, tabela de relatórios diários e colunas de download"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Tela principal de Relatórios Analíticos, com filtro de datas e lista de relatórios disponíveis para download.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
