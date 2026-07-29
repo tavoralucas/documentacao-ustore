@@ -9,6 +9,7 @@ import {
   Route,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import monitoramentoQuedasFiltros from "@/assets/monitoramento-quedas-filtros.png.asset.json";
 
 const filtros = [
   { n: 1, title: "UF", desc: "Seleção múltipla de estados, com campo de busca interna e opção \"Selecionar todos\"." },
