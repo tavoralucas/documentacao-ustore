@@ -1,5 +1,4 @@
 import {
-  Gauge,
   FileBarChart,
   SlidersHorizontal,
   ScrollText,
@@ -10,16 +9,10 @@ import DashboardsGpon from "./DashboardsGpon";
 import MonitoramentoSinalGpon from "./MonitoramentoSinalGpon";
 import MonitoramentoQuedasGpon from "./MonitoramentoQuedasGpon";
 import TrapMassivoGpon from "./TrapMassivoGpon";
+import PerformanceGpon from "./PerformanceGpon";
 
-export { ClientesGpon, DashboardsGpon, MonitoramentoSinalGpon, MonitoramentoQuedasGpon, TrapMassivoGpon };
+export { ClientesGpon, DashboardsGpon, MonitoramentoSinalGpon, MonitoramentoQuedasGpon, TrapMassivoGpon, PerformanceGpon };
 
-
-
-
-
-export const PerformanceGpon = () => (
-  <GponDocPage title="Performance" subtitle="Métricas de desempenho como latência, jitter, perda e throughput." icon={Gauge} />
-);
 
 export const RelatoriosGpon = () => (
   <GponDocPage title="Relatórios" subtitle="Geração e exportação de relatórios operacionais e gerenciais." icon={FileBarChart} />
