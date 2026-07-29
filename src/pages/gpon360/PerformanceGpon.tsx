@@ -226,6 +226,16 @@ export default function PerformanceGpon() {
           Essa tabela é excelente para identificar rapidamente combinações específicas de equipamento + firmware que
           estejam performando mal.
         </p>
+        <figure className="mt-6">
+          <img
+            src={performanceTabelaEquipamentosFirmware.url}
+            alt="Tabela Equipamentos & Firmware da Performance Contratual com colunas Modelo, Versão SW, Total de Clientes, Download (%), % abaixo de 80% e % abaixo de 70%"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Tabela detalhada de Equipamentos &amp; Firmware.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
