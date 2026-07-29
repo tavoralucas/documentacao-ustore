@@ -97,6 +97,16 @@ export default function GestaoParametrosGpon() {
           é nesta tela que o time configura manualmente esses limites, garantindo que os alertas e classificações
           mostrados em outras áreas do sistema reflitam os critérios definidos pela operação.
         </p>
+        <figure className="mt-6">
+          <img
+            src={gestaoParametrosDisponiveis.url}
+            alt="Tabela de Parâmetros disponíveis com colunas Nome do Parâmetro e Ações, mostrando botões Ver detalhes e Editar"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Cartão Parâmetros disponíveis com a lista paginada de indicadores configuráveis.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
