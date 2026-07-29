@@ -12,7 +12,7 @@ import {
   Network,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
-import gestaoParametrosDisponiveis from "@/assets/gestao-parametros-disponiveis.png.asset.json";
+import gestaoParametrosEditar from "@/assets/gestao-parametros-editar-qos-wifi.png.asset.json";
 
 const categorias = [
   {
@@ -211,6 +211,16 @@ export default function GestaoParametrosGpon() {
             </li>
           ))}
         </ol>
+        <figure className="mt-6">
+          <img
+            src={gestaoParametrosEditar.url}
+            alt="Modal de edição do parâmetro QoS Wifi com campos De e Até para classificações Bom, Ruim e Regular"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Modal de edição do parâmetro QoS Wifi, permitindo ajustar as faixas de valores por classificação.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
