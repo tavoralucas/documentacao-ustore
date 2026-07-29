@@ -47,8 +47,7 @@ export default function CostManagement() {
           <Sparkles className="h-5 w-5" />
         </div>
         <div className="flex-1">
-            <h3 className="font-semibold text-foreground">Novidades</h3>
-          </div>
+          <h3 className="font-semibold text-foreground">Novidades</h3>
           <p className="text-sm text-muted-foreground">
             Acompanhe as últimas atualizações e melhorias da plataforma.
           </p>
