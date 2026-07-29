@@ -165,6 +165,16 @@ export default function PerformanceGpon() {
             </div>
           ))}
         </div>
+        <figure className="mt-6">
+          <img
+            src={performanceKpisCards.url}
+            alt="Cards de indicadores principais da Performance Contratual: velocidade média entregue e percentuais de clientes abaixo dos limiares"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Cards de indicadores principais da Performance Contratual.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
