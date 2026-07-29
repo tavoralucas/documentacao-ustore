@@ -12,6 +12,7 @@ import GponDocPage from "./GponDocPage";
 import performanceFiltrosKpis from "@/assets/performance-filtros-kpis.png.asset.json";
 import performanceKpisCards from "@/assets/performance-kpis-cards.png.asset.json";
 import performanceGraficosAnalise from "@/assets/performance-graficos-analise.png.asset.json";
+import performanceTabelaEquipamentosFirmware from "@/assets/performance-tabela-equipamentos-firmware.png.asset.json";
 
 const filtros = [
   { n: 1, title: "UF", desc: "Sigla do estado (ex: SP)." },
