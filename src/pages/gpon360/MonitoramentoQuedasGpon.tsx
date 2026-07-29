@@ -162,6 +162,16 @@ export default function MonitoramentoQuedasGpon() {
             o incidente mais crítico.
           </p>
         </div>
+        <figure className="mt-6">
+          <img
+            src={monitoramentoQuedasKpis.url}
+            alt="Cards de indicadores do Monitoramento de Quedas com clientes afetados, total de quedas, quedas por sinal, energia, cidades e ruas afetadas"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Indicadores principais e destaque do pico do período.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
