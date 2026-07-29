@@ -47,11 +47,7 @@ export default function CostManagement() {
           <Sparkles className="h-5 w-5" />
         </div>
         <div className="flex-1">
-          <div className="flex items-center gap-2">
             <h3 className="font-semibold text-foreground">Novidades</h3>
-            <span className="rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
-              Novo
-            </span>
           </div>
           <p className="text-sm text-muted-foreground">
             Acompanhe as últimas atualizações e melhorias da plataforma.
