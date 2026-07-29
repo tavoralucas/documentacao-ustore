@@ -11,8 +11,7 @@ import {
   Leaf,
   Network,
   BookOpen,
-  Radar,
-  Sparkles } from
+  Radar } from
 "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
@@ -31,7 +30,7 @@ const menuItems: MenuItem[] = [
 // { title: "Mangue", url: "/mangue", icon: Leaf },
 // { title: "DCI", url: "/dci", icon: Network },
 { title: "Icognito", url: "/gpon-360", icon: Radar },
-{ title: "Novidades", url: "/novidades", icon: Sparkles },
+
 ];
 
 
