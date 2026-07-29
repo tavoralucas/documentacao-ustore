@@ -138,6 +138,16 @@ export default function PerformanceGpon() {
             dados — o ideal é sempre refinar por cidade, OLT ou um período mais curto.
           </p>
         </div>
+        <figure className="mt-6">
+          <img
+            src={performanceFiltrosKpis.url}
+            alt="Interface de filtros e KPIs da Performance Contratual mostrando UF, Cidade, Node/OLT, Modelo, Versão SW, Período e cards de velocidade média entregue"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Bloco de filtros e cards iniciais da Performance Contratual.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
