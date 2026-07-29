@@ -126,6 +126,16 @@ export default function MonitoramentoQuedasGpon() {
             são recalculados automaticamente. Isso pode levar alguns segundos, já que envolve uma base grande de dados.
           </p>
         </div>
+        <figure className="mt-6">
+          <img
+            src={monitoramentoQuedasFiltros.url}
+            alt="Interface de filtros do Monitoramento de Quedas mostrando UF, Cidade, Tipo de Queda, OLT e período"
+            className="w-full rounded-lg border border-border"
+          />
+          <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+            Filtros disponíveis no topo da tela de Monitoramento de Quedas.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
