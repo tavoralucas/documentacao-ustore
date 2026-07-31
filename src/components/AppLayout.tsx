@@ -29,7 +29,7 @@ const menuItems: MenuItem[] = [
 // { title: "Finops 360", url: "/finops-360", icon: PieChart },
 // { title: "Mangue", url: "/mangue", icon: Leaf },
 // { title: "DCI", url: "/dci", icon: Network },
-{ title: "Icognito", url: "/gpon-360", icon: Radar },
+{ title: "Incognito - GPON 360", url: "/gpon-360", icon: Radar },
 
 ];
 
