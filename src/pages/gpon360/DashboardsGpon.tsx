@@ -30,26 +30,17 @@ export default function DashboardsGpon() {
           <h2 className="text-xl font-semibold text-foreground">{t('gpon360.howSearchWorks')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            Tudo começa no menu lateral, na opção <strong>Dashboard</strong>. Ao acessar, o sistema pede que você
-            escolha um tipo de busca: por <strong>Endereço MAC</strong> ou por <strong>Número do contrato</strong>.
-            Depois de selecionar a opção desejada, você digita o código da operadora (o "city code" da cidade do
-            cliente) e o dado de busca correspondente, e clica em <strong>Pesquisar</strong>.
-          </p>
-          <p>
-            O sistema então retorna o resultado encontrado, e basta clicar em <strong>Selecionar</strong> para abrir a
-            visão completa daquele cliente. Se precisar pesquisar outro cliente depois, há sempre um botão
-            <strong> Buscar novo</strong> no topo da tela para reiniciar a busca sem precisar sair da página.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.searchDashboardDesc1') }} />
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.searchDashboardDesc2') }} />
         </div>
         <figure className="mt-6 rounded-lg border border-border overflow-hidden">
           <img
             src={dashboardPesquisarCliente.url}
-            alt="Tela de pesquisa do cliente por Endereço MAC ou Número do contrato"
+            alt={t('gpon360.searchDashboardImageAlt')}
             className="w-full"
           />
           <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
-            Tela de pesquisa do cliente por Endereço MAC ou Número do contrato
+            {t('gpon360.searchDashboardImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -60,41 +51,20 @@ export default function DashboardsGpon() {
           <h2 className="text-xl font-semibold text-foreground">{t('gpon360.modemInfo')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            Assim que o dashboard carrega, a primeira área que aparece é um painel com os dados essenciais do
-            equipamento do cliente. Nele você encontra o status da conexão (Online ou Offline), os níveis de sinal de
-            transmissão (TX) e recepção (RX) — que ajudam a diagnosticar problemas de qualidade de sinal —, a
-            tecnologia utilizada (no caso, GPON), o horário do último evento registrado no equipamento e a causa desse
-            evento (por exemplo, uma queda de energia).
-          </p>
-          <p>
-            Também ficam visíveis dados de identificação como o Nó/OLT, o nome da OLT, o endereço MAC, o número do
-            contrato, o tempo ligado (Up Time), a cidade vinculada ao contrato, o modelo do equipamento, o número de
-            série, além de indicadores de desempenho do próprio modem como uso de CPU, uso de memória e a versão do
-            software instalada.
-          </p>
+          <p>{t('gpon360.modemInfoDesc')}</p>
           <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
-            <p className="text-sm text-amber-800 dark:text-amber-200">
-              <strong>Dica:</strong> ao lado dos campos de Nível TX, Nível RX e Último Evento existe um botão
-              <strong> Histórico</strong>. Ele abre uma janela com gráficos mostrando a evolução desses valores ao
-              longo do tempo, com períodos de 3, 7, 15 ou 30 dias — ou um período personalizado.
-            </p>
+            <p className="text-sm text-amber-800 dark:text-amber-200" dangerouslySetInnerHTML={{ __html: t('gpon360.dashboardTip') }} />
           </div>
-          <p>
-            No caso específico do histórico do "Último Evento", a janela é ainda mais completa: mostra o
-            <strong> Histórico de Quedas de Conexão</strong>, trazendo quantas quedas aconteceram, o tempo total que o
-            cliente ficou offline, a duração da maior queda e o percentual de disponibilidade (QoS), tudo isso com um
-            gráfico e uma legenda de cores que indica a gravidade de cada queda.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.dashboardEventHistory') }} />
         </div>
         <figure className="mt-6 rounded-lg border border-border overflow-hidden">
           <img
             src={dashboardInfoModem.url}
-            alt="Painel de informações gerais do modem do cliente"
+            alt={t('gpon360.modemInfoImageAlt')}
             className="w-full"
           />
           <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
-            Painel de informações gerais do modem do cliente
+            {t('gpon360.modemInfoImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -106,15 +76,14 @@ export default function DashboardsGpon() {
         </div>
         <div className="space-y-4 text-muted-foreground">
           <p>
-            Logo abaixo, há quatro cartões que resumem a qualidade do serviço prestado ao cliente, cada um exibido
-            como uma nota:
+            {t('gpon360.qosHistoryNote')}
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: "QoS geral", desc: "Nota consolidada da experiência do cliente." },
-              { label: "QoS de Wi-Fi", desc: "Qualidade percebida nas redes sem fio." },
-              { label: "QoS de acesso", desc: "Qualidade do acesso à rede GPON." },
-              { label: "QoS de disponibilidade", desc: "Percentual de tempo com serviço disponível." },
+              { label: t('gpon360.qosGeneral'), desc: t('gpon360.qosGeneralDesc') },
+              { label: t('gpon360.qosWifi'), desc: t('gpon360.qosWifiDesc') },
+              { label: t('gpon360.qosAccess'), desc: t('gpon360.qosAccessDesc') },
+              { label: t('gpon360.qosAvailability'), desc: t('gpon360.qosAvailabilityDesc') },
             ].map((item) => (
               <div key={item.label} className="p-4 rounded-lg border border-border bg-muted/50">
                 <h3 className="font-semibold text-foreground text-sm mb-1">{item.label}</h3>
@@ -122,20 +91,15 @@ export default function DashboardsGpon() {
               </div>
             ))}
           </div>
-          <p>
-            Assim como nos indicadores de sinal, cada cartão tem seu próprio botão <strong>Histórico</strong>, que
-            abre uma janela mostrando a evolução dessas notas no período escolhido — muito útil para identificar se a
-            qualidade da conexão do cliente está piorando ou melhorando com o tempo.
-          </p>
         </div>
         <figure className="mt-6 rounded-lg border border-border overflow-hidden">
           <img
             src={dashboardQos.url}
-            alt="Cartões de indicadores de qualidade (QoS) do cliente"
+            alt={t('gpon360.qosImageAlt')}
             className="w-full"
           />
           <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
-            Cartões de indicadores de qualidade (QoS) do cliente
+            {t('gpon360.qosImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -146,32 +110,20 @@ export default function DashboardsGpon() {
           <h2 className="text-xl font-semibold text-foreground">{t('gpon360.speedTest')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            Nessa mesma área você encontra dois cartões em destaque: <strong>Realizar teste de velocidade</strong>, que
-            permite disparar um novo teste diretamente no equipamento do cliente, e <strong>Histórico de teste</strong>,
-            que abre uma janela com o resumo das medições já realizadas, incluindo gráficos de download e upload
-            comparados ao valor contratado.
-          </p>
-          <p>
-            Logo abaixo desses cartões, a seção <strong>Velocidades contratuais e medidas</strong> mostra dois
-            velocímetros visuais, um para download e outro para upload, comparando a velocidade medida com a
-            velocidade contratada pelo cliente.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.speedTestIntro') }} />
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.speedTestSpeeds') }} />
           <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
-            <p className="text-sm text-amber-800 dark:text-amber-200">
-              <strong>Atenção:</strong> se algum desses valores aparecer zerado, é sinal de que vale a pena rodar um
-              novo teste de velocidade para atualizar a informação.
-            </p>
+            <p className="text-sm text-amber-800 dark:text-amber-200" dangerouslySetInnerHTML={{ __html: t('gpon360.speedTestWarning') }} />
           </div>
         </div>
         <figure className="mt-6 rounded-lg border border-border overflow-hidden">
           <img
             src={dashboardTesteVelocidade.url}
-            alt="Tela de teste de velocidade com cartões de ação, velocímetros e histórico de medições"
+            alt={t('gpon360.speedTestImageAlt')}
             className="w-full"
           />
           <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
-            Tela de teste de velocidade com velocímetros e histórico de medições
+            {t('gpon360.speedTestImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -182,25 +134,17 @@ export default function DashboardsGpon() {
           <h2 className="text-xl font-semibold text-foreground">{t('gpon360.wifiNetworks')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            O dashboard também exibe dois cartões lado a lado com as configurações das redes sem fio do cliente, uma
-            para a frequência de 2.4 GHz e outra para 5.0 GHz. Em cada cartão você visualiza se a rede está ativa, o
-            nome da rede (SSID), o canal em uso, o tipo de segurança configurado (como WPA2-Personal), a largura de
-            canal e os protocolos suportados.
-          </p>
-          <p>
-            Caso seja necessário alterar o nome ou a senha da rede, existe um link <strong>Editar</strong> em cada
-            cartão, que abre uma pequena janela para definir um novo nome e uma nova senha para aquela rede específica.
-          </p>
+          <p>{t('gpon360.wifiNetworksDesc')}</p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.wifiEditDesc') }} />
         </div>
         <figure className="mt-6 rounded-lg border border-border overflow-hidden">
           <img
             src={dashboardWifi.url}
-            alt="Cartões de configuração das redes Wi-Fi 2.4 GHz e 5.0 GHz"
+            alt={t('gpon360.wifiImageAlt')}
             className="w-full"
           />
           <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
-            Cartões de configuração das redes Wi-Fi 2.4 GHz e 5.0 GHz
+            {t('gpon360.wifiImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -211,26 +155,23 @@ export default function DashboardsGpon() {
           <h2 className="text-xl font-semibold text-foreground">{t('gpon360.connectedDevices')}</h2>
         </div>
         <div className="space-y-4 text-muted-foreground">
-          <p>
-            Por fim, na parte inferior da tela, fica a seção <strong>Equipamentos</strong>, que reúne três
-            funcionalidades bem úteis para diagnóstico.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.connectedDevicesIntro') }} />
           <div className="grid gap-4 md:grid-cols-3">
             {[
               {
                 n: 1,
-                title: "Dispositivos Conectados",
-                desc: "Mostra a quantidade de equipamentos encontrados na rede e, ao clicar em Acessar, abre uma tabela com nome, tipo (roteador, celular, desconhecido etc.), MAC, IP, tipo de conexão (2.4 GHz, 5.0 GHz ou Ethernet) e intensidade do sinal sinalizada por cores.",
+                title: t('gpon360.connectedDevices1Title'),
+                desc: t('gpon360.connectedDevices1Desc'),
               },
               {
                 n: 2,
-                title: "Topologia da rede",
-                desc: "Exibe um diagrama visual com o roteador no centro e os dispositivos conectados ao redor, com legenda de cores indicando se a conexão está boa, regular ou ruim, além do tipo de conexão utilizado.",
+                title: t('gpon360.connectedDevices2Title'),
+                desc: t('gpon360.connectedDevices2Desc'),
               },
               {
                 n: 3,
-                title: "Equipamentos distantes",
-                desc: "Foca nos aparelhos com sinal fraco ou distantes do roteador, ajudando a identificar rapidamente possíveis pontos de melhoria na cobertura Wi-Fi do cliente.",
+                title: t('gpon360.connectedDevices3Title'),
+                desc: t('gpon360.connectedDevices3Desc'),
               },
             ].map((item) => (
               <div key={item.n} className="p-4 rounded-lg border border-border bg-muted/50">
@@ -248,11 +189,11 @@ export default function DashboardsGpon() {
         <figure className="mt-6 rounded-lg border border-border overflow-hidden">
           <img
             src={dashboardEquipamentosTopologia.url}
-            alt="Seção Equipamentos com dispositivos conectados e topologia de rede"
+            alt={t('gpon360.equipamentosImageAlt')}
             className="w-full"
           />
           <figcaption className="text-xs text-muted-foreground px-4 py-2 bg-muted/50">
-            Seção Equipamentos com tabela de dispositivos e diagrama de topologia
+            {t('gpon360.equipamentosImageCaption')}
           </figcaption>
         </figure>
       </section>
