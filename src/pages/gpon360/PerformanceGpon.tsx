@@ -9,6 +9,7 @@ import {
   Route,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import { useTranslation } from "@/hooks/useTranslation";
 import performanceFiltrosKpis from "@/assets/performance-filtros-kpis.png.asset.json";
 import performanceKpisCards from "@/assets/performance-kpis-cards.png.asset.json";
 import performanceGraficosAnalise from "@/assets/performance-graficos-analise.png.asset.json";
@@ -86,16 +87,17 @@ const fluxo = [
 ];
 
 export default function PerformanceGpon() {
+  const { t } = useTranslation();
   return (
     <GponDocPage
-      title="Performance"
-      subtitle="Performance Contratual — comparação entre a velocidade entregue e a velocidade contratada."
+      title={t("gpon360.performance")}
+      subtitle={t("gpon360.performanceDescription")}
       icon={Gauge}
     >
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Target className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">O que é essa tela?</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t("common.whatIs")}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>

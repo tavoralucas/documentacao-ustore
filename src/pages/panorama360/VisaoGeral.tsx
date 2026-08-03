@@ -1,5 +1,6 @@
 import { ArrowLeft, Globe, CheckCircle2, Zap, Eye, Bell, BarChart3, Lock, FileText, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const features = [
   {
@@ -83,6 +84,7 @@ const topics = [
 
 export default function VisaoGeral() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -92,7 +94,7 @@ export default function VisaoGeral() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para Panorama 360
+        {t('common.backTo', { module: t('panorama360.title') })}
       </button>
 
       {/* Header */}
@@ -102,18 +104,18 @@ export default function VisaoGeral() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            Panorama 360 · Documentação
+            {t('common.productDoc', { module: t('panorama360.title') })}
           </p>
-          <h1 className="text-3xl font-bold text-foreground">Visão Geral</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('panorama360.overviewTitle')}</h1>
           <p className="mt-1 text-muted-foreground">
-            Documentação detalhada sobre visão geral do Panorama 360.
+            {t('panorama360.overviewSubtitle')}
           </p>
         </div>
       </div>
 
       {/* Apresentação */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-3">Apresentação</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-3">{t('panorama360.presentation')}</h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
           Bem-vindo ao módulo <strong className="text-foreground">Panorama 360</strong> — uma poderosa ferramenta de monitoramento desenvolvida pela Ustore.
         </p>
@@ -124,7 +126,7 @@ export default function VisaoGeral() {
 
       {/* Principais características */}
       <section>
-        <h2 className="text-xl font-semibold text-foreground mb-4">Principais Características</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t('panorama360.mainFeatures')}</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {features.map(({ icon: Icon, title, description }) => (
             <div
@@ -145,7 +147,7 @@ export default function VisaoGeral() {
 
       {/* Funcionalidades adicionais */}
       <section>
-        <h2 className="text-xl font-semibold text-foreground mb-4">Funcionalidades Adicionais</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t('panorama360.additionalFeatures')}</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {additionalFeatures.map(({ icon: Icon, title, description }) => (
             <div
@@ -166,7 +168,7 @@ export default function VisaoGeral() {
 
       {/* O Panorama 360 */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-3">O Panorama 360</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-3">{t('panorama360.aboutTitle')}</h2>
         <div className="space-y-3 text-muted-foreground leading-relaxed">
           <p>
             O Panorama 360 é a solução ideal para os clientes que buscam uma ferramenta de monitoramento e observabilidade que ofereça uma visão abrangente e em tempo real do desempenho, saúde e disponibilidade das suas aplicações e infraestrutura.
@@ -185,7 +187,7 @@ export default function VisaoGeral() {
 
       {/* Benefícios */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Benefícios</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t('common.benefits')}</h2>
         <ul className="space-y-3">
           {benefits.map((benefit, i) => (
             <li key={i} className="flex items-start gap-3">
@@ -198,7 +200,7 @@ export default function VisaoGeral() {
 
       {/* Tópicos abordados */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Tópicos Abordados neste Documento</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t('panorama360.docTopics')}</h2>
         <ul className="space-y-2">
           {topics.map((topic, i) => (
             <li key={i} className="flex items-center gap-3">
@@ -213,7 +215,7 @@ export default function VisaoGeral() {
 
       {/* Transforme Seus Dados */}
       <section className="rounded-xl border border-primary/20 bg-primary/5 p-6">
-        <h2 className="text-xl font-semibold text-foreground mb-3">Transforme Seus Dados em Ações</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-3">{t('panorama360.transformTitle')}</h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
           Este guia fornece uma visão abrangente que auxilia a maximizar o potencial desta plataforma em suas operações diárias. Descubra o poder do uMonitor, a solução de monitoramento e visualização de dados que revolucionará a forma como sua equipe trabalha.
         </p>

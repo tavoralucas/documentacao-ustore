@@ -3,8 +3,10 @@ import { ArrowLeft, Sparkles, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getNovidadesPorSlug } from "@/data/novidades";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function NovidadesMes() {
+  const { t } = useTranslation();
   const { slug = "" } = useParams();
   const mes = getNovidadesPorSlug(slug);
 
@@ -14,7 +16,7 @@ export default function NovidadesMes() {
         <Button variant="ghost" asChild className="mb-6">
           <Link to="/novidades">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Voltar
+            {t('common.previous')}
           </Link>
         </Button>
         <h1 className="text-2xl font-bold text-foreground">Mês não encontrado</h1>
@@ -24,7 +26,7 @@ export default function NovidadesMes() {
 
   const formatarData = (iso: string) => {
     const [y, m, d] = iso.split("-").map(Number);
-    return new Date(y, m - 1, d).toLocaleDateString("pt-BR", {
+    return new Date(y, m - 1, d).toLocaleDateString(t('common.language') === 'en-US' ? 'en-US' : t('common.language') === 'es-ES' ? 'es-ES' : 'pt-BR', {
       day: "2-digit",
       month: "long",
       year: "numeric",
@@ -36,20 +38,20 @@ export default function NovidadesMes() {
       <Button variant="ghost" asChild className="mb-6">
         <Link to="/novidades">
           <ArrowLeft className="mr-2 h-4 w-4" />
-          Voltar para Novidades
+          {t('novidades.readMore')}
         </Link>
       </Button>
 
       <header className="mb-10">
         <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
           <Sparkles className="h-4 w-4" />
-          <span>Linha do tempo</span>
+          <span>{t('novidades.title')}</span>
         </div>
         <h1 className="text-3xl font-bold tracking-tight text-foreground">
           {mes.mes} de {mes.ano}
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Novas implementações realizadas neste mês.
+          {t('novidades.description')}
         </p>
       </header>
 
@@ -59,7 +61,7 @@ export default function NovidadesMes() {
             <Calendar className="h-6 w-6 text-muted-foreground" />
           </div>
           <h3 className="mb-1 text-lg font-semibold text-foreground">
-            Em breve
+            {t('common.loading')}
           </h3>
           <p className="max-w-sm text-sm text-muted-foreground">
             Nenhuma novidade registrada ainda neste mês. Aguarde os próximos lançamentos.
@@ -85,7 +87,7 @@ export default function NovidadesMes() {
                 {item.beneficios && item.beneficios.length > 0 && (
                   <div className="mt-4">
                     <h4 className="mb-2 text-sm font-semibold text-foreground">
-                      Principais benefícios
+                      {t('novidades.benefits')}
                     </h4>
                     <ul className="list-disc space-y-1 pl-5 text-sm text-muted-foreground">
                       {item.beneficios.map((b, i) => (

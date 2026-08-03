@@ -1,3 +1,4 @@
+import { useTranslation } from "@/hooks/useTranslation";
 import { ArrowLeft, Package, CheckCircle2, Plus, FileCode, Settings, Code, Info, Layers, Server, Globe } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +13,7 @@ const deploySteps = [
 
 export default function CatalogoMangue() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -21,7 +23,7 @@ export default function CatalogoMangue() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para Mangue
+        {t('common.backTo', { module: t('mangue.title') })}
       </button>
 
       {/* Header */}
@@ -31,7 +33,7 @@ export default function CatalogoMangue() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            Mangue · Documentação
+            {t('common.productDoc', { module: t('mangue.title') })}
           </p>
           <h1 className="text-3xl font-bold text-foreground">Catálogo</h1>
           <p className="mt-1 text-muted-foreground">
@@ -42,7 +44,7 @@ export default function CatalogoMangue() {
 
       {/* Introdução */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral do Catálogo</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t('common.overview')}</h2>
         <p className="text-muted-foreground leading-relaxed mb-4">
           O menu <strong>Catálogo</strong> permite implantar novas aplicações no cluster Kubernetes 
           de forma simples e intuitiva, sem necessidade de conhecimento avançado em YAML ou kubectl.
@@ -363,3 +365,4 @@ export default function CatalogoMangue() {
     </div>
   );
 }
+

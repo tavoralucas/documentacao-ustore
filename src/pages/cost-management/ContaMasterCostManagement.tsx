@@ -3,9 +3,11 @@ import contaMasterTabela from "@/assets/conta-master-tabela.png";
 import contaMasterResumo from "@/assets/conta-master-resumo.png";
 import contaMasterFiltros from "@/assets/conta-master-filtros.png";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function ContaMasterCostManagement() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -14,7 +16,7 @@ export default function ContaMasterCostManagement() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para Cost Management
+        {t('common.backTo', { module: t('costManagement.title') })}
       </button>
 
       <div className="flex items-start gap-4">
@@ -23,7 +25,7 @@ export default function ContaMasterCostManagement() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            Cost Management · Documentação
+            {t('common.productDoc', { module: t('costManagement.title') })}
           </p>
           <h1 className="text-3xl font-bold text-foreground">Conta Master</h1>
           <p className="mt-1 text-muted-foreground">
@@ -34,7 +36,7 @@ export default function ContaMasterCostManagement() {
 
       {/* Visão Geral */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t('common.overview')}</h2>
         <p className="text-muted-foreground mb-3">
           A Conta Master é um módulo de visibilidade financeira dentro do produto Cost Management. Ele consolida e apresenta os gastos de uma conta principal de provedor cloud junto com todas as subcontas associadas, permitindo navegar pela hierarquia de custos do mais agregado ao mais granular.
         </p>

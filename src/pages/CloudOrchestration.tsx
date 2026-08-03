@@ -23,6 +23,7 @@ import {
   BarChart3,
   Palette,
 } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const docTopics = [
   { title: "Dashboard", icon: LayoutDashboard, description: "Visão geral centralizada do ambiente com métricas e status em tempo real." },
@@ -51,6 +52,8 @@ const docTopics = [
 ];
 
 export default function CloudOrchestration() {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col gap-6 p-6">
       <div className="flex items-center gap-3">
@@ -58,8 +61,8 @@ export default function CloudOrchestration() {
           <Cloud className="h-5 w-5 text-primary" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Cloud Orchestration</h1>
-          <p className="text-sm text-muted-foreground">Documentação do produto</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("cloudOrchestration.title")}</h1>
+          <p className="text-sm text-muted-foreground">{t("cloudOrchestration.subtitle")}</p>
         </div>
       </div>
 

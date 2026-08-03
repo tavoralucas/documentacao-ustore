@@ -11,6 +11,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import { useTranslation } from "@/hooks/useTranslation";
 import auditoriaFiltrosImg from "@/assets/auditoria-filtros.png.asset.json";
 import auditoriaTabelaResultadosImg from "@/assets/auditoria-tabela-resultados.png.asset.json";
 
@@ -51,16 +52,17 @@ const passoAPasso = [
 ];
 
 export default function AuditoriaGpon() {
+  const { t } = useTranslation();
   return (
     <GponDocPage
-      title="Auditoria"
-      subtitle="Registro e rastreabilidade das ações realizadas na plataforma GPON."
+      title={t("gpon360.audit")}
+      subtitle={t("gpon360.auditDescription")}
       icon={ScrollText}
     >
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Target className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">O que é essa tela?</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t("common.whatIs")}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>
@@ -215,7 +217,7 @@ export default function AuditoriaGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <AlertCircle className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">O que é possível inferir sobre essa tela</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('common.whatIs')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>

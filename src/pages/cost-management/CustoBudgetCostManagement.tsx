@@ -1,5 +1,6 @@
 import { ArrowLeft, Wallet, PlusCircle, Edit, Trash2, Star, Bell } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 import custoBudgetTela from "@/assets/custo-budget-tela.png";
 import criarNovoBudgetTela from "@/assets/criar-novo-budget-tela.png";
 import editarBudgetTela from "@/assets/editar-budget-tela.png";
@@ -8,6 +9,7 @@ import painelResumoBudget from "@/assets/painel-resumo-budget.png";
 import recorrenciaAlertasBudget from "@/assets/recorrencia-alertas-budget.png";
 
 export default function CustoBudgetCostManagement() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
@@ -17,7 +19,7 @@ export default function CustoBudgetCostManagement() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para Cost Management
+        {t('common.backTo', { module: t('costManagement.title') })}
       </button>
 
       <div className="flex items-start gap-4">
@@ -26,7 +28,7 @@ export default function CustoBudgetCostManagement() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            Cost Management · Documentação
+            {t('common.productDoc', { module: t('costManagement.title') })}
           </p>
           <h1 className="text-3xl font-bold text-foreground">Custo de Budget</h1>
           <p className="mt-1 text-muted-foreground">
@@ -37,7 +39,7 @@ export default function CustoBudgetCostManagement() {
 
       {/* Visão Geral */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Visão Geral</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t("common.overview")}</h2>
         <p className="text-muted-foreground mb-3">
           O Custo de Budget permite que gestores financeiros e de tecnologia definam orçamentos para contratos
           de cloud e acompanhem o consumo em tempo real comparado com o valor planejado. O sistema emite sinais

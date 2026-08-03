@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Copy, RotateCcw, Gauge, Wifi, Monitor, Network, AlertCircle } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const clienteData = {
   status: "Online",
@@ -63,7 +64,7 @@ const QoSValue = ({ value, label }: { value: string; label: string }) => {
       <span className="text-sm text-muted-foreground">{label}</span>
       <span className={`text-4xl font-bold ${color}`}>{value}</span>
       <button className="text-left text-xs text-[hsl(0,72%,51%)] underline underline-offset-2 hover:opacity-80">
-        Mais informações
+        {t('clienteDetalhe.moreInfo')}
       </button>
     </div>
   );
@@ -78,11 +79,11 @@ const SpeedGauge = ({ value, label, contratual, color }: { value: string; label:
       <div style={{ transform: "rotate(45deg)" }} className="flex flex-col items-center leading-tight">
         <span className="text-[9px] text-muted-foreground">{label}</span>
         <span className="text-lg font-bold text-foreground">{value}</span>
-        <span className="text-[9px] text-muted-foreground">mbps</span>
+        <span className="text-[9px] text-muted-foreground">{t('clienteDetalhe.mbps')}</span>
       </div>
     </div>
     <div className="mt-1 text-center">
-      <p className="text-sm font-medium text-foreground">{label === "Download" ? "Download contratual" : "Upload contratual"}</p>
+      <p className="text-sm font-medium text-foreground">{label === "Download" ? t('clienteDetalhe.downloadContractual') : t('clienteDetalhe.uploadContractual')}</p>
       <p className="text-sm font-semibold" style={{ color }}>{contratual}</p>
     </div>
   </div>
@@ -177,28 +178,28 @@ const TopologyView = () => (
     {/* Legend */}
     <div className="flex flex-wrap items-start gap-8 border-t border-border pt-4 text-xs">
       <div>
-        <p className="mb-1 font-bold text-foreground">Legenda</p>
+        <p className="mb-1 font-bold text-foreground">{t('clienteDetalhe.legend')}</p>
         <div className="flex items-center gap-4">
-          <span className="flex items-center gap-1"><span className="h-3 w-3 rounded-full bg-[hsl(0,72%,51%)]" /> Ruim</span>
-          <span className="flex items-center gap-1"><span className="h-3 w-3 rounded-full bg-[hsl(25,95%,53%)]" /> Regular</span>
-          <span className="flex items-center gap-1"><span className="h-3 w-3 rounded-full bg-[hsl(142,71%,45%)]" /> Bom</span>
-          <span className="flex items-center gap-1"><span className="h-3 w-3 rounded-full bg-[hsl(217,91%,60%)]" /> Ethernet</span>
+          <span className="flex items-center gap-1"><span className="h-3 w-3 rounded-full bg-[hsl(0,72%,51%)]" /> {t('clienteDetalhe.bad')}</span>
+          <span className="flex items-center gap-1"><span className="h-3 w-3 rounded-full bg-[hsl(25,95%,53%)]" /> {t('clienteDetalhe.regular')}</span>
+          <span className="flex items-center gap-1"><span className="h-3 w-3 rounded-full bg-[hsl(142,71%,45%)]" /> {t('clienteDetalhe.good')}</span>
+          <span className="flex items-center gap-1"><span className="h-3 w-3 rounded-full bg-[hsl(217,91%,60%)]" /> {t('clienteDetalhe.ethernet')}</span>
         </div>
       </div>
       <div>
-        <p className="mb-1 font-bold text-foreground">Conexão</p>
+        <p className="mb-1 font-bold text-foreground">{t('clienteDetalhe.connection')}</p>
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">
             <svg width="28" height="8"><line x1="0" y1="4" x2="28" y2="4" stroke="#374151" strokeWidth="1.5" strokeDasharray="3,3" /></svg>
-            Conexão 2.4 Ghz
+            {t('clienteDetalhe.conn24')}
           </span>
           <span className="flex items-center gap-1.5">
             <svg width="28" height="8"><line x1="0" y1="4" x2="28" y2="4" stroke="#374151" strokeWidth="1.5" strokeDasharray="6,3" /></svg>
-            Conexão 5.0 Ghz / Wifi
+            {t('clienteDetalhe.conn50')}
           </span>
           <span className="flex items-center gap-1.5">
             <svg width="28" height="8"><line x1="0" y1="4" x2="28" y2="4" stroke="#374151" strokeWidth="1.5" /></svg>
-            Conexão Ethernet
+            {t('clienteDetalhe.connEthernet')}
           </span>
         </div>
       </div>
@@ -208,6 +209,7 @@ const TopologyView = () => (
 
 const ClienteDetalhe = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalView, setModalView] = useState<ModalView>("table");
 
@@ -215,28 +217,28 @@ const ClienteDetalhe = () => {
     <div className="min-h-[calc(100vh-3.5rem)] bg-background p-6">
       {/* Header */}
       <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-foreground">Visão geral do cliente</h1>
+        <h1 className="text-2xl font-bold text-foreground">{t('pages.clienteDetalhe')}</h1>
         <Button
           onClick={() => navigate("/dashboard")}
           className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90"
         >
-          Buscar novo
+          {t('clienteDetalhe.searchNew')}
         </Button>
       </div>
 
       {/* Informações sobre o modem */}
       <Card className="mb-4 rounded-xl shadow-sm">
         <CardContent className="p-6">
-          <h2 className="mb-4 text-base font-bold text-foreground">Informações sobre o modem</h2>
+          <h2 className="mb-4 text-base font-bold text-foreground">{t('clienteDetalhe.modemInfo')}</h2>
           <div className="grid grid-cols-2 gap-y-5 sm:grid-cols-4 lg:grid-cols-8">
             <div>
-              <p className="text-xs text-muted-foreground">Status</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.status')}</p>
               <span className="mt-1 inline-block rounded-full bg-[hsl(142,60%,35%)] px-3 py-0.5 text-xs font-semibold text-white">
-                Online
+                {t('clienteDetalhe.online')}
               </span>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Nível TX (Transmissão)</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.txLevel')}</p>
               <div className="mt-1 flex items-center gap-1">
                 <span className="inline-block rounded-full bg-[hsl(142,60%,35%)] px-2 py-0.5 text-xs font-semibold text-white">
                   {clienteData.nivelTX}
@@ -245,7 +247,7 @@ const ClienteDetalhe = () => {
               </div>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Nível RX (Recepção)</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.rxLevel')}</p>
               <div className="mt-1 flex items-center gap-1">
                 <span className="inline-block rounded-full bg-[hsl(142,60%,35%)] px-2 py-0.5 text-xs font-semibold text-white">
                   {clienteData.nivelRX}
@@ -254,67 +256,67 @@ const ClienteDetalhe = () => {
               </div>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Tecnologia</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.technology')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.tecnologia}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Último Evento</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.lastEvent')}</p>
               <div className="mt-1 flex items-center gap-1">
                 <p className="text-sm font-medium text-foreground">{clienteData.ultimoEvento}</p>
                 <Copy className="h-3.5 w-3.5 cursor-pointer text-muted-foreground hover:text-foreground" />
               </div>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Causa do Evento</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.eventCause')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.causaEvento}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Nó/OLT</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.nodeOlt')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.noOlt}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">OLT/Name</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.oltName')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.oltName}</p>
             </div>
           </div>
 
           <div className="mt-5 grid grid-cols-2 gap-y-5 sm:grid-cols-4 lg:grid-cols-8">
             <div>
-              <p className="text-xs text-muted-foreground">MAC</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.mac')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.mac}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Contrato</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.contract')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.contrato}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Up Time</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.uptime')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.upTime}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Nome da Cidade</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.cityName')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.nomeCidade}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Modelo</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.model')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.modelo}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Serial</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.serial')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.serial}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">CPU</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.cpu')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.cpu}</p>
             </div>
             <div>
-              <p className="text-xs text-muted-foreground">Memória</p>
+              <p className="text-xs text-muted-foreground">{t('clienteDetalhe.memory')}</p>
               <p className="mt-1 text-sm font-medium text-foreground">{clienteData.memoria}</p>
             </div>
           </div>
 
           <div className="mt-5">
-            <p className="text-xs text-muted-foreground">Versão do Software</p>
+            <p className="text-xs text-muted-foreground">{t('clienteDetalhe.softwareVersion')}</p>
             <p className="mt-1 text-sm font-medium text-foreground">{clienteData.versaoSoftware}</p>
           </div>
         </CardContent>
@@ -324,36 +326,36 @@ const ClienteDetalhe = () => {
       <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
         <Card className="col-span-1 rounded-xl shadow-sm">
           <CardContent className="p-4">
-            <QoSValue value={clienteData.qosGeral} label="QoS geral" />
+            <QoSValue value={clienteData.qosGeral} label={t('clienteDetalhe.qosGeral')} />
           </CardContent>
         </Card>
         <Card className="col-span-1 rounded-xl shadow-sm">
           <CardContent className="p-4">
-            <QoSValue value={clienteData.qosWifi} label="QoS de Wi-Fi" />
+            <QoSValue value={clienteData.qosWifi} label={t('clienteDetalhe.qosWifi')} />
           </CardContent>
         </Card>
         <Card className="col-span-1 rounded-xl shadow-sm">
           <CardContent className="p-4">
-            <QoSValue value={clienteData.qosAcesso} label="QoS de acesso" />
+            <QoSValue value={clienteData.qosAcesso} label={t('clienteDetalhe.qosAccess')} />
           </CardContent>
         </Card>
         <Card className="col-span-1 rounded-xl shadow-sm">
           <CardContent className="p-4">
-            <QoSValue value={clienteData.qosDisponibilidade} label="QoS de disponibilidade" />
+            <QoSValue value={clienteData.qosDisponibilidade} label={t('clienteDetalhe.qosAvailability')} />
           </CardContent>
         </Card>
         <Card className="col-span-1 cursor-pointer rounded-xl bg-primary shadow-sm transition-opacity hover:opacity-90">
           <CardContent className="flex flex-col gap-2 p-4">
             <RotateCcw className="h-5 w-5 text-primary-foreground" />
-            <p className="text-sm font-semibold text-primary-foreground">Realizar teste de velocidade</p>
-            <p className="text-xs text-primary-foreground/80">Clique aqui para realizar um teste de velocidade</p>
+            <p className="text-sm font-semibold text-primary-foreground">{t('clienteDetalhe.runSpeedTest')}</p>
+            <p className="text-xs text-primary-foreground/80">{t('clienteDetalhe.speedTestHint')}</p>
           </CardContent>
         </Card>
         <Card className="col-span-1 cursor-pointer rounded-xl border-2 border-primary shadow-sm transition-opacity hover:opacity-90">
           <CardContent className="flex flex-col gap-2 p-4">
             <RotateCcw className="h-5 w-5 text-primary" />
-            <p className="text-sm font-semibold text-primary">Histórico de teste</p>
-            <p className="text-xs text-muted-foreground">Veja um resumo dos testes de velocidade realizados</p>
+            <p className="text-sm font-semibold text-primary">{t('clienteDetalhe.testHistory')}</p>
+            <p className="text-xs text-muted-foreground">{t('clienteDetalhe.testHistoryHint')}</p>
           </CardContent>
         </Card>
       </div>
@@ -363,7 +365,7 @@ const ClienteDetalhe = () => {
         {/* Velocidades */}
         <Card className="rounded-xl shadow-sm">
           <CardContent className="p-6">
-            <h3 className="mb-6 text-center text-sm font-semibold text-foreground">Velocidades contratuais e medidas</h3>
+            <h3 className="mb-6 text-center text-sm font-semibold text-foreground">{t('clienteDetalhe.speedsTitle')}</h3>
             <div className="flex flex-col gap-6">
               <SpeedGauge
                 value={clienteData.downloadMedido}
@@ -385,36 +387,36 @@ const ClienteDetalhe = () => {
         <Card className="rounded-xl bg-[hsl(142,30%,97%)] shadow-sm">
           <CardContent className="p-6">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-base font-bold text-[hsl(142,60%,35%)]">Rede: 2.4 GHz</h3>
+              <h3 className="text-base font-bold text-[hsl(142,60%,35%)]">{t('clienteDetalhe.network24')}</h3>
               <span className="flex items-center gap-1 rounded-full bg-[hsl(142,60%,35%)] px-2 py-0.5 text-xs font-medium text-white">
-                Ativa ✓
+                {t('clienteDetalhe.active')} ✓
               </span>
             </div>
             <div className="flex items-start justify-between">
               <div className="space-y-2 text-sm">
                 <div>
-                  <p className="text-muted-foreground">Nome da rede:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.networkName')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede24.nome}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Canal atual:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.currentChannel')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede24.canal}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Segurança:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.security')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede24.seguranca}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Largura do canal:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.channelWidth')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede24.largura}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Protocolo:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.protocol')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede24.protocolo}</p>
                 </div>
               </div>
               <button className="text-sm font-medium text-foreground underline underline-offset-2 hover:opacity-70">
-                Editar
+                {t('clienteDetalhe.edit')}
               </button>
             </div>
           </CardContent>
@@ -424,36 +426,36 @@ const ClienteDetalhe = () => {
         <Card className="rounded-xl bg-[hsl(218,30%,97%)] shadow-sm">
           <CardContent className="p-6">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-base font-bold text-[hsl(218,80%,50%)]">Rede: 5.0 GHz</h3>
+              <h3 className="text-base font-bold text-[hsl(218,80%,50%)]">{t('clienteDetalhe.network50')}</h3>
               <span className="flex items-center gap-1 rounded-full bg-[hsl(142,60%,35%)] px-2 py-0.5 text-xs font-medium text-white">
-                Ativa ✓
+                {t('clienteDetalhe.active')} ✓
               </span>
             </div>
             <div className="flex items-start justify-between">
               <div className="space-y-2 text-sm">
                 <div>
-                  <p className="text-muted-foreground">Nome da rede:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.networkName')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede50.nome}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Canal atual:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.currentChannel')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede50.canal}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Segurança:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.security')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede50.seguranca}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Largura do canal:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.channelWidth')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede50.largura}</p>
                 </div>
                 <div>
-                  <p className="text-muted-foreground">Protocolo:</p>
+                  <p className="text-muted-foreground">{t('clienteDetalhe.protocol')}:</p>
                   <p className="font-bold text-foreground">{clienteData.rede50.protocolo}</p>
                 </div>
               </div>
               <button className="text-sm font-medium text-foreground underline underline-offset-2 hover:opacity-70">
-                Editar
+                {t('clienteDetalhe.edit')}
               </button>
             </div>
           </CardContent>
@@ -463,50 +465,50 @@ const ClienteDetalhe = () => {
       {/* Equipamentos */}
       <Card className="rounded-xl shadow-sm">
         <CardContent className="p-6">
-          <h2 className="mb-4 text-base font-bold text-foreground">Equipamentos</h2>
+          <h2 className="mb-4 text-base font-bold text-foreground">{t('clienteDetalhe.equipments')}</h2>
           <div className="divide-y divide-border">
             <div className="flex items-center justify-between py-3">
               <div className="flex items-center gap-3">
                 <Monitor className="h-5 w-5 text-muted-foreground" />
                 <div>
-                  <p className="text-xs text-muted-foreground">Quantidade encontrada:</p>
-                  <p className="text-sm font-bold text-foreground">2 equipamentos</p>
+                  <p className="text-xs text-muted-foreground">{t('clienteDetalhe.quantityFound')}:</p>
+                  <p className="text-sm font-bold text-foreground">{t('clienteDetalhe.equipmentsCount', { count: 2 })}</p>
                 </div>
               </div>
               <button
             onClick={() => { setModalOpen(true); setModalView("table"); }}
                 className="text-sm font-medium text-primary underline underline-offset-2 hover:opacity-80"
               >
-                Acessar
+                {t('clienteDetalhe.access')}
               </button>
             </div>
             <div className="flex items-center justify-between py-3">
               <div className="flex items-center gap-3">
                 <Network className="h-5 w-5 text-muted-foreground" />
-                <p className="text-sm text-foreground">Acessar topologia da rede do cliente</p>
+                <p className="text-sm text-foreground">{t('clienteDetalhe.accessTopology')}</p>
               </div>
               <button className="text-sm font-medium text-primary underline underline-offset-2 hover:opacity-80">
-                Acessar
+                {t('clienteDetalhe.access')}
               </button>
             </div>
             <div className="flex items-center justify-between py-3">
               <div className="flex items-center gap-3">
                 <AlertCircle className="h-5 w-5 text-destructive" />
                 <div>
-                  <p className="text-sm text-foreground">Equipamentos distantes</p>
-                  <p className="text-sm font-bold text-foreground">0 equipamentos</p>
+                  <p className="text-sm text-foreground">{t('clienteDetalhe.distantEquipments')}</p>
+                  <p className="text-sm font-bold text-foreground">{t('clienteDetalhe.equipmentsCount', { count: 0 })}</p>
                 </div>
               </div>
               <button className="text-sm font-medium text-primary underline underline-offset-2 hover:opacity-80">
-                Acessar
+                {t('clienteDetalhe.access')}
               </button>
             </div>
             <div className="flex items-center justify-between py-3">
               <div className="flex items-center gap-2">
                 <RotateCcw className="h-5 w-5 text-muted-foreground/50" />
-                <p className="text-sm text-muted-foreground">Histórico de sinal de equipamentos</p>
+                <p className="text-sm text-muted-foreground">{t('clienteDetalhe.signalHistory')}</p>
               </div>
-              <span className="text-sm text-muted-foreground">Desabilitado</span>
+              <span className="text-sm text-muted-foreground">{t('clienteDetalhe.disabled')}</span>
             </div>
           </div>
         </CardContent>
@@ -517,12 +519,12 @@ const ClienteDetalhe = () => {
         <DialogContent className="max-w-5xl rounded-2xl">
           <DialogHeader>
             <DialogTitle className="text-lg font-bold text-foreground">
-              {modalView === "table" ? "Dispositivos Conectados" : "Topologia de Rede"}
+              {modalView === "table" ? t('clienteDetalhe.connectedDevices') : t('clienteDetalhe.networkTopology')}
             </DialogTitle>
             <DialogDescription className="text-sm text-muted-foreground">
               {modalView === "table"
-                ? "Visualize a lista completa dos dispositivos da rede"
-                : "Verifique os dados da rede sendo analisada"}
+                ? t('clienteDetalhe.modalTableDesc')
+                : t('clienteDetalhe.modalTopologyDesc')}
             </DialogDescription>
           </DialogHeader>
 
@@ -531,7 +533,7 @@ const ClienteDetalhe = () => {
             onClick={() => setModalView(modalView === "table" ? "topology" : "table")}
             className="mb-3 text-sm font-medium text-[hsl(0,72%,51%)] underline underline-offset-2 hover:opacity-80 text-left w-fit"
           >
-            {modalView === "table" ? "Visualizar topologia do cliente" : "Visualizar tabela do cliente"}
+            {modalView === "table" ? t('clienteDetalhe.viewTopology') : t('clienteDetalhe.viewTable')}
           </button>
 
           {modalView === "table" ? (
@@ -539,11 +541,11 @@ const ClienteDetalhe = () => {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-primary text-primary-foreground">
-                    <th className="px-4 py-2.5 text-left font-semibold">Nome do Aparelho</th>
+                    <th className="px-4 py-2.5 text-left font-semibold">{t('clienteDetalhe.deviceName')}</th>
                     <th className="px-4 py-2.5 text-left font-semibold">Tipo</th>
                     <th className="px-4 py-2.5 text-left font-semibold">MAC</th>
                     <th className="px-4 py-2.5 text-left font-semibold">IP</th>
-                    <th className="px-4 py-2.5 text-left font-semibold">Tipo de Conexão</th>
+                    <th className="px-4 py-2.5 text-left font-semibold">{t('clienteDetalhe.connectionType')}</th>
                     <th className="px-4 py-2.5 text-left font-semibold">Tecnologia</th>
                     <th className="px-4 py-2.5 text-center font-semibold">Sinal</th>
                   </tr>

@@ -14,18 +14,20 @@ import dashboardTesteVelocidade from "@/assets/dashboard-teste-velocidade.png.as
 import dashboardWifi from "@/assets/dashboard-wifi.png.asset.json";
 import dashboardEquipamentosTopologia from "@/assets/dashboard-equipamentos-topologia.png.asset.json";
 import GponDocPage from "./GponDocPage";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function DashboardsGpon() {
+  const { t } = useTranslation();
   return (
     <GponDocPage
-      title="Dashboards"
-      subtitle="Visão completa do cliente: modem, qualidade, velocidade, Wi-Fi e topologia."
+      title={t("gpon360.dashboards")}
+      subtitle={t("gpon360.dashboardsDescription")}
       icon={LayoutDashboard}
     >
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Search className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Como chegar até o dashboard de um cliente</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.howSearchWorks')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>
@@ -55,7 +57,7 @@ export default function DashboardsGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Router className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Informações sobre o modem</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.modemInfo')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>
@@ -100,7 +102,7 @@ export default function DashboardsGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Activity className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Indicadores de qualidade (QoS)</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.qosIndicators')}</h2>
         </div>
         <div className="space-y-4 text-muted-foreground">
           <p>
@@ -141,7 +143,7 @@ export default function DashboardsGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Gauge className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Teste de velocidade</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.speedTest')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>
@@ -177,7 +179,7 @@ export default function DashboardsGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Wifi className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Redes Wi-Fi (2.4 GHz e 5.0 GHz)</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.wifiNetworks')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>
@@ -206,7 +208,7 @@ export default function DashboardsGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Network className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Equipamentos conectados e topologia</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.connectedDevices')}</h2>
         </div>
         <div className="space-y-4 text-muted-foreground">
           <p>

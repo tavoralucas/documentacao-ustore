@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight, Search, X } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,6 +12,7 @@ import { clientes, totalItens, totalPaginas } from "@/data/mockClientes";
 const ITEMS_OPTIONS = [10, 25, 50];
 
 const Clientes = () => {
+  const { t } = useTranslation();
   const [codigoOperadora, setCodigoOperadora] = useState("");
   const [enderecoMac, setEnderecoMac] = useState("");
   const [contrato, setContrato] = useState("");
@@ -54,14 +56,14 @@ const Clientes = () => {
   return (
     <div className="mx-auto max-w-[1400px] px-6 py-8">
       {/* Header */}
-      <h1 className="mb-6 text-3xl font-bold text-foreground">Clientes</h1>
+      <h1 className="mb-6 text-3xl font-bold text-foreground">{t("clientes.title")}</h1>
 
       {/* Filtros */}
       <Card className="mb-6">
         <CardHeader className="pb-2">
-          <CardTitle className="text-base font-bold">Filtros</CardTitle>
+          <CardTitle className="text-base font-bold">{t("clientes.filters")}</CardTitle>
           <p className="text-sm text-muted-foreground">
-            Você pode realizar uma busca selecionando apenas alguns critérios; no entanto, é necessário preencher ao menos um campo para que o filtro seja aplicado.
+            {t('clientes.filterDescription')}
           </p>
         </CardHeader>
         <CardContent>
@@ -141,12 +143,12 @@ const Clientes = () => {
               <Label className="text-sm text-foreground">Status</Label>
               <Select value={status} onValueChange={setStatus}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Selecione" />
+                  <SelectValue placeholder={t("clientes.select")} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Todos">Todos</SelectItem>
-                  <SelectItem value="Ativo">Ativo</SelectItem>
-                  <SelectItem value="Inativo">Inativo</SelectItem>
+                  <SelectItem value="Todos">{t("clientes.all")}</SelectItem>
+                  <SelectItem value="Ativo">{t("clientes.active")}</SelectItem>
+                  <SelectItem value="Inativo">{t("clientes.inactive")}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -156,7 +158,7 @@ const Clientes = () => {
           <div className="mt-6 flex gap-3">
             <Button className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
               <Search className="h-4 w-4" />
-              Buscar
+              {t('clientes.search')}
             </Button>
             <Button
               variant="outline"
@@ -164,7 +166,7 @@ const Clientes = () => {
               className="gap-2 border-primary text-primary hover:bg-primary/5"
             >
               <X className="h-4 w-4" />
-              Limpar
+              {t('clientes.clear')}
             </Button>
           </div>
         </CardContent>
@@ -201,7 +203,7 @@ const Clientes = () => {
                         variant="outline"
                         className="border-primary text-primary hover:bg-primary/5 font-medium px-4"
                       >
-                        Conectar
+                        {t('clientes.connect')}
                       </Button>
                     </TableCell>
                     <TableCell className="whitespace-nowrap">{cliente.contrato}</TableCell>
@@ -248,10 +250,10 @@ const Clientes = () => {
             {/* Info */}
             <div className="flex flex-col items-center gap-1 text-sm text-muted-foreground">
               <span>
-                Página {page} de {totalPaginas.toLocaleString("pt-BR")}
+                {t('clientes.pageOf', { page: page, total: totalPaginas.toLocaleString('pt-BR') })}
               </span>
               <span className="flex items-center gap-2">
-                Itens por página:
+                {t('clientes.itemsPerPage')}
                 <select
                   value={itemsPerPage}
                   onChange={(e) => { setItemsPerPage(Number(e.target.value)); setPage(1); }}
@@ -262,7 +264,7 @@ const Clientes = () => {
                   ))}
                 </select>
               </span>
-              <span>Total de itens: {totalItens.toLocaleString("pt-BR")}</span>
+              <span>{t('clientes.totalItems', { total: totalItens.toLocaleString('pt-BR') })}</span>
             </div>
 
             {/* Next */}

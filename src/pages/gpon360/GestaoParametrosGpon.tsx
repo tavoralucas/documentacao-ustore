@@ -12,6 +12,7 @@ import {
   Network,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import { useTranslation } from "@/hooks/useTranslation";
 import gestaoParametrosDisponiveis from "@/assets/gestao-parametros-disponiveis.png.asset.json";
 import gestaoParametrosEditar from "@/assets/gestao-parametros-editar-qos-wifi.png.asset.json";
 
@@ -65,16 +66,17 @@ const fluxoEdicao = [
 ];
 
 export default function GestaoParametrosGpon() {
+  const { t } = useTranslation();
   return (
     <GponDocPage
-      title="Gestão de Parâmetros"
-      subtitle="Configuração dos limites e faixas dos indicadores técnicos monitorados na rede GPON."
+      title={t("gpon360.parameterManagement")}
+      subtitle={t("gpon360.parameterManagementDescription")}
       icon={SlidersHorizontal}
     >
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Target className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">O que é essa tela?</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t("common.whatIs")}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>

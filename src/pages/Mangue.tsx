@@ -13,23 +13,25 @@ import {
   Layers,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-const docTopics = [
-  { title: "Visão Geral", icon: Globe, description: "Visão geral consolidada do ambiente Mangue e seus recursos de orquestração de containers.", route: "/mangue/visao-geral" },
-  { title: "Workloads", icon: Boxes, description: "Gerenciamento de workloads, deployments, pods e serviços no cluster Kubernetes.", route: "/mangue/workloads" },
-  { title: "Catálogo", icon: BookOpen, description: "Catálogo de aplicações e serviços disponíveis para implantação no ambiente.", route: "/mangue/catalogo" },
-  { title: "Faturamento", icon: Receipt, description: "Acompanhamento e análise de custos e faturamento dos recursos consumidos.", route: "/mangue/faturamento" },
-  { title: "Recomendações", icon: Lightbulb, description: "Sugestões inteligentes para otimização de recursos, performance e redução de custos.", route: "/mangue/recomendacoes" },
-  { title: "Permissões e Integrações", icon: ShieldCheck, description: "Gerenciamento de permissões de acesso e integrações com sistemas externos.", route: "/mangue/permissoes-integracoes" },
-  { title: "Nodes e Namespaces", icon: Server, description: "Administração de nodes do cluster e organização por namespaces.", route: "/mangue/nodes-namespaces" },
-  { title: "Migração de Cluster", icon: GitBranch, description: "Guia e ferramentas para migração de workloads entre clusters Kubernetes.", route: "/mangue/migracao-cluster" },
-  { title: "Storage", icon: HardDrive, description: "Configuração e gerenciamento de volumes de armazenamento persistente no cluster.", route: "/mangue/storage" },
-  { title: "Tarefas", icon: CheckSquare, description: "Monitoramento e acompanhamento de tarefas agendadas e jobs em execução.", route: "/mangue/tarefas" },
-  { title: "Clusters", icon: Layers, description: "Criação, configuração e administração de clusters Kubernetes no ambiente.", route: "/mangue/clusters" },
-];
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function Mangue() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const docTopics = [
+    { title: t("mangue.overview"), icon: Globe, description: t("mangue.overviewDescription"), route: "/mangue/visao-geral" },
+    { title: t("mangue.workloads"), icon: Boxes, description: t("mangue.workloadsDescription"), route: "/mangue/workloads" },
+    { title: t("mangue.catalog"), icon: BookOpen, description: t("mangue.catalogDescription"), route: "/mangue/catalogo" },
+    { title: t("mangue.billing"), icon: Receipt, description: t("mangue.billingDescription"), route: "/mangue/faturamento" },
+    { title: t("mangue.recommendations"), icon: Lightbulb, description: t("mangue.recommendationsDescription"), route: "/mangue/recomendacoes" },
+    { title: t("mangue.permissionsIntegrations"), icon: ShieldCheck, description: t("mangue.permissionsIntegrationsDescription"), route: "/mangue/permissoes-integracoes" },
+    { title: t("mangue.nodesNamespaces"), icon: Server, description: t("mangue.nodesNamespacesDescription"), route: "/mangue/nodes-namespaces" },
+    { title: t("mangue.clusterMigration"), icon: GitBranch, description: t("mangue.clusterMigrationDescription"), route: "/mangue/migracao-cluster" },
+    { title: t("mangue.storage"), icon: HardDrive, description: t("mangue.storageDescription"), route: "/mangue/storage" },
+    { title: t("mangue.tasks"), icon: CheckSquare, description: t("mangue.tasksDescription"), route: "/mangue/tarefas" },
+    { title: t("mangue.clusters"), icon: Layers, description: t("mangue.clustersDescription"), route: "/mangue/clusters" },
+  ];
 
   return (
     <div className="flex flex-col gap-6 p-6">
@@ -38,8 +40,8 @@ export default function Mangue() {
           <Leaf className="h-5 w-5 text-primary" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Mangue</h1>
-          <p className="text-sm text-muted-foreground">Documentação do produto</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("mangue.title")}</h1>
+          <p className="text-sm text-muted-foreground">{t("mangue.subtitle")}</p>
         </div>
       </div>
 

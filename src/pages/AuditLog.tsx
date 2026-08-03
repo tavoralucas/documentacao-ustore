@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface LogEntry {
   usuario: string;
@@ -48,6 +49,7 @@ const ITEMS_OPTIONS = [10, 25, 50];
 
 const AuditLog = () => {
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [nomeUsuario, setNomeUsuario] = useState("");
   const [email, setEmail] = useState("");
   const [operacao, setOperacao] = useState("");
@@ -64,7 +66,7 @@ const AuditLog = () => {
     const temAte = ate.trim() !== "";
     if (temPeriodo !== temAte) {
       toast({
-        title: "Ambas as datas devem ser preenchidas.",
+        title: t('auditLog.dateValidationError'),
         variant: "destructive",
       });
       return;
@@ -120,38 +122,38 @@ const AuditLog = () => {
 
   return (
     <div className="mx-auto max-w-[1300px] px-6 py-8">
-      <h1 className="mb-6 text-3xl font-bold text-foreground">Audit Log</h1>
+      <h1 className="mb-6 text-3xl font-bold text-foreground">{t('pages.auditLog')}</h1>
 
       {/* Filtros */}
       <Card className="mb-6">
         <CardHeader className="pb-2">
-          <CardTitle className="text-base font-bold">Filtros</CardTitle>
+          <CardTitle className="text-base font-bold">{t('auditLog.title')}</CardTitle>
         </CardHeader>
         <CardContent>
           {/* Row 1 */}
           <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div className="flex flex-col gap-1.5">
-              <Label className="text-sm">Nome do usuário</Label>
+              <Label className="text-sm">{t('auditLog.userName')}</Label>
               <Input
-                placeholder="Digite um nome de usuário"
+                placeholder={t('auditLog.userNamePlaceholder')}
                 value={nomeUsuario}
                 onChange={(e) => setNomeUsuario(e.target.value)}
                 className="rounded-xl"
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <Label className="text-sm">Email</Label>
+              <Label className="text-sm">{t('auditLog.email')}</Label>
               <Input
-                placeholder="Digite um email"
+                placeholder={t('auditLog.emailPlaceholder')}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="rounded-xl"
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <Label className="text-sm">Operação</Label>
+              <Label className="text-sm">{t('auditLog.operation')}</Label>
               <Input
-                placeholder="Digite uma operação"
+                placeholder={t('auditLog.operationPlaceholder')}
                 value={operacao}
                 onChange={(e) => setOperacao(e.target.value)}
                 className="rounded-xl"
@@ -162,7 +164,7 @@ const AuditLog = () => {
           {/* Row 2 */}
           <div className="flex flex-wrap items-end gap-4">
             <div className="flex flex-col gap-1.5">
-              <Label className="text-sm">Período:</Label>
+              <Label className="text-sm">{t('auditLog.period')}</Label>
               <input
                 type="datetime-local"
                 value={periodo}
@@ -171,7 +173,7 @@ const AuditLog = () => {
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <Label className="text-sm">Até:</Label>
+              <Label className="text-sm">{t('auditLog.until')}</Label>
               <input
                 type="datetime-local"
                 value={ate}
@@ -186,7 +188,7 @@ const AuditLog = () => {
                 onCheckedChange={(v) => setFiltrarRecente(!!v)}
               />
               <Label htmlFor="filtrarRecente" className="cursor-pointer text-sm">
-                Filtrar log mais recente por usuário
+                {t('auditLog.filterRecent')}
               </Label>
             </div>
             <div className="flex gap-3 pb-1">
@@ -194,14 +196,14 @@ const AuditLog = () => {
                 onClick={handleBuscar}
                 className="rounded-xl bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                Buscar
+                {t('auditLog.search')}
               </Button>
               <Button
                 variant="outline"
                 onClick={handleLimpar}
                 className="rounded-xl border-primary text-primary hover:bg-primary/5"
               >
-                Limpar
+                {t('auditLog.clear')}
               </Button>
             </div>
           </div>
@@ -219,7 +221,7 @@ const AuditLog = () => {
                 className="gap-2 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 <Download className="h-4 w-4" />
-                Exportar CSV
+                {t('auditLog.exportCsv')}
               </Button>
             </div>
 
@@ -227,17 +229,17 @@ const AuditLog = () => {
               <Table>
                 <TableHeader>
                   <TableRow className="border-b border-border hover:bg-transparent">
-                    <TableHead className="pl-6 font-semibold text-foreground whitespace-nowrap">Usuário</TableHead>
-                    <TableHead className="font-semibold text-foreground whitespace-nowrap">Email</TableHead>
-                    <TableHead className="font-semibold text-foreground">Operação</TableHead>
-                    <TableHead className="pr-6 font-semibold text-foreground whitespace-nowrap">Data</TableHead>
+                    <TableHead className="pl-6 font-semibold text-foreground whitespace-nowrap">{t('auditLog.tableUser')}</TableHead>
+                    <TableHead className="font-semibold text-foreground whitespace-nowrap">{t('auditLog.tableEmail')}</TableHead>
+                    <TableHead className="font-semibold text-foreground">{t('auditLog.tableOperation')}</TableHead>
+                    <TableHead className="pr-6 font-semibold text-foreground whitespace-nowrap">{t('auditLog.tableDate')}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {paged.length === 0 ? (
                     <TableRow>
                       <TableCell colSpan={4} className="py-8 text-center text-sm text-muted-foreground">
-                        Nenhum registro encontrado.
+                        {t('auditLog.noResults')}
                       </TableCell>
                     </TableRow>
                   ) : (
@@ -267,9 +269,9 @@ const AuditLog = () => {
               </Button>
 
               <div className="flex flex-col items-center gap-1 text-sm text-muted-foreground">
-                <span>Página {page} de {totalPags.toLocaleString("pt-BR")}</span>
+                <span>{t('auditLog.pageInfo', { page, total: totalPags.toLocaleString("pt-BR") })}</span>
                 <span className="flex items-center gap-2">
-                  Itens por página:
+                  {t('auditLog.itemsPerPage')}
                   <select
                     value={itemsPerPage}
                     onChange={(e) => { setItemsPerPage(Number(e.target.value)); setPage(1); }}
@@ -278,7 +280,7 @@ const AuditLog = () => {
                     {ITEMS_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
                   </select>
                 </span>
-                <span>Total de itens: {totalItens.toLocaleString("pt-BR")}</span>
+                <span>{t('auditLog.totalItems', { total: totalItens.toLocaleString("pt-BR") })}</span>
               </div>
 
               <Button

@@ -8,18 +8,20 @@ import {
   Users,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-const docTopics = [
-  { title: "Visão Geral", icon: Globe, description: "Visão geral do Data Center Interconnect, apresentação e acesso à plataforma.", route: "/dci/visao-geral" },
-  { title: "Administração", icon: Users, description: "Gerenciamento de usuários, grupos e contratos no DCI.", route: "/dci/administracao" },
-  { title: "Portas", icon: PlugZap, description: "Gerenciamento e configuração das portas físicas e lógicas de interconexão.", route: "/dci/portas" },
-  { title: "Circuitos", icon: GitBranch, description: "Criação e administração de circuitos de interconexão entre data centers.", route: "/dci/circuitos" },
-  { title: "Excursionamentos", icon: ArrowLeftRight, description: "Monitoramento e gestão de excursionamentos de tráfego entre os pontos de interconexão.", route: "/dci/excursionamentos" },
-  { title: "Tarefas", icon: CheckSquare, description: "Acompanhamento e controle de tarefas agendadas e operações em execução no DCI.", route: "/dci/tarefas" },
-];
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function DCI() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const docTopics = [
+    { title: t("dci.overview"), icon: Globe, description: t("dci.overviewDescription"), route: "/dci/visao-geral" },
+    { title: t("dci.administration"), icon: Users, description: t("dci.administrationDescription"), route: "/dci/administracao" },
+    { title: t("dci.ports"), icon: PlugZap, description: t("dci.portsDescription"), route: "/dci/portas" },
+    { title: t("dci.circuits"), icon: GitBranch, description: t("dci.circuitsDescription"), route: "/dci/circuitos" },
+    { title: t("dci.excursions"), icon: ArrowLeftRight, description: t("dci.excursionsDescription"), route: "/dci/excursionamentos" },
+    { title: t("dci.tasks"), icon: CheckSquare, description: t("dci.tasksDescription"), route: "/dci/tarefas" },
+  ];
 
   return (
     <div className="flex flex-col gap-6 p-6">
@@ -28,8 +30,8 @@ export default function DCI() {
           <Network className="h-5 w-5 text-primary" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">DCI</h1>
-          <p className="text-sm text-muted-foreground">Data Center Interconnect - Documentação do produto</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("dci.title")}</h1>
+          <p className="text-sm text-muted-foreground">{t("dci.subtitle")}</p>
         </div>
       </div>
 

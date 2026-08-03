@@ -3,6 +3,7 @@ import claroLogo from "@/assets/claro-cloud-logo.png.asset.json";
 import { Outlet, useLocation } from "react-router-dom";
 import { AIChatPanel } from "@/components/AIChatPanel";
 import DocPager from "@/components/DocPager";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import {
   Globe,
   Cloud,
@@ -15,6 +16,7 @@ import {
 "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 interface MenuItem {
   title: string;
@@ -36,6 +38,7 @@ const menuItems: MenuItem[] = [
 
 export default function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const { t } = useTranslation();
 
   return (
     <div className="flex min-h-screen w-full flex-col">
@@ -46,12 +49,13 @@ export default function AppLayout() {
           <img src={claroLogo.url} alt="Claro Cloud" className="h-9 w-auto" />
         </div>
 
-        {/* Right: Documentação badge */}
+        {/* Right: Documentação badge + Language Switcher */}
         <div className="ml-auto flex items-center gap-4">
           <div className="flex items-center gap-1.5 text-sm font-medium text-foreground">
             <BookOpen className="h-4 w-4" />
-            Documentação
+            {t('common.documentation')}
           </div>
+          <LanguageSwitcher />
         </div>
       </header>
 
@@ -65,7 +69,7 @@ export default function AppLayout() {
 
           <div className="px-3 pb-2 pt-4">
             <p className="mb-2 text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
-              Documentação
+              {t('sidebar.documentation')}
             </p>
           </div>
 

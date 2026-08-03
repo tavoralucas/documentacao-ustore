@@ -1,5 +1,6 @@
 import { ArrowLeft, PieChart, CheckCircle2, Target, TrendingDown, Server, Clock, DollarSign, Globe, Key, Info } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const features = [
   {
@@ -34,6 +35,7 @@ const benefits = [
 
 export default function VisaoGeralFinops() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -43,7 +45,7 @@ export default function VisaoGeralFinops() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para Finops 360
+        {t('common.backTo', { module: t('finops360.title') })}
       </button>
 
       {/* Header */}
@@ -53,9 +55,9 @@ export default function VisaoGeralFinops() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            Finops 360 · Documentação
+            {t('common.productDoc', { module: t('finops360.title') })}
           </p>
-          <h1 className="text-3xl font-bold text-foreground">Visão Geral</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t("common.overview")}</h1>
           <p className="mt-1 text-muted-foreground">
             Introdução ao uSavings e visão consolidada das funcionalidades de economia em nuvem.
           </p>
@@ -83,7 +85,7 @@ export default function VisaoGeralFinops() {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 shrink-0">
             <Target className="h-5 w-5 text-primary" />
           </div>
-          <h2 className="text-xl font-semibold text-foreground">O que é uSavings?</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('common.whatIs')}</h2>
         </div>
         <p className="text-muted-foreground leading-relaxed mb-4">
           O uSavings é uma ferramenta que analisa em tempo real o consumo da infraestrutura dos recursos computacionais 
@@ -183,7 +185,7 @@ export default function VisaoGeralFinops() {
 
       {/* Benefícios */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">Benefícios da Plataforma</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t('common.benefits')}</h2>
         <ul className="space-y-3">
           {benefits.map((benefit, index) => (
             <li key={index} className="flex items-start gap-2">

@@ -9,6 +9,7 @@ import {
   Route,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import { useTranslation } from "@/hooks/useTranslation";
 import monitoramentoQuedasFiltros from "@/assets/monitoramento-quedas-filtros.png.asset.json";
 import monitoramentoQuedasKpis from "@/assets/monitoramento-quedas-kpis.png.asset.json";
 import monitoramentoQuedasGraficos from "@/assets/monitoramento-quedas-graficos.png.asset.json";
@@ -74,16 +75,17 @@ const fluxo = [
 ];
 
 export default function MonitoramentoQuedasGpon() {
+  const { t } = useTranslation();
   return (
     <GponDocPage
-      title="Monitoramento de Quedas"
-      subtitle="Identificação de quedas, instabilidades e reincidências na rede."
+      title={t("gpon360.fallMonitoring")}
+      subtitle={t("gpon360.fallMonitoringDescription")}
       icon={Activity}
     >
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Target className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Objetivo</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t("common.overview")}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>

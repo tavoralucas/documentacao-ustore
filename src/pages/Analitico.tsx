@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { ChevronFirst, ChevronLast, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -40,6 +41,7 @@ const TODOS_RELATORIOS = gerarRelatorios();
 const ITEMS_PER_PAGE = 15;
 
 const Analitico = () => {
+  const { t } = useTranslation();
   const [periodo, setPeriodo] = useState("");
   const [ate, setAte] = useState("");
   const [filtrado, setFiltrado] = useState<Relatorio[]>(TODOS_RELATORIOS);
@@ -70,19 +72,19 @@ const Analitico = () => {
     <div className="mx-auto max-w-[1200px] px-6 py-8">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-3xl font-bold text-foreground">Relatórios Analíticos</h1>
-        <p className="text-sm text-muted-foreground">Faça o download de relatórios de informações</p>
+        <h1 className="text-3xl font-bold text-foreground">{t("analitico.title")}</h1>
+        <p className="text-sm text-muted-foreground">{t("analitico.downloadDescription")}</p>
       </div>
 
       {/* Filtros */}
       <Card className="mb-6">
         <CardHeader className="pb-2">
-          <CardTitle className="text-base font-bold">Filtrar novo relatório analítico</CardTitle>
+          <CardTitle className="text-base font-bold">{t("analitico.filterTitle")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap items-end gap-3">
             <div className="flex flex-col gap-1">
-              <Label className="text-sm">Período:</Label>
+              <Label className="text-sm">{t("analitico.period")}</Label>
               <div className="flex items-center gap-2">
                 <input
                   type="date"
@@ -90,7 +92,7 @@ const Analitico = () => {
                   onChange={(e) => setPeriodo(e.target.value)}
                   className="rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm focus:outline-none focus:ring-1 focus:ring-ring"
                 />
-                <span className="text-sm text-muted-foreground">Até</span>
+                <span className="text-sm text-muted-foreground">{t("analitico.until")}</span>
                 <input
                   type="date"
                   value={ate}
@@ -103,14 +105,14 @@ const Analitico = () => {
               onClick={handleBuscar}
               className="rounded-xl bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              Buscar
+              {t('analitico.search')}
             </Button>
             <Button
               variant="outline"
               onClick={handleLimpar}
               className="rounded-xl border-primary text-primary hover:bg-primary/5"
             >
-              Limpar
+              {t('analitico.clear')}
             </Button>
           </div>
         </CardContent>
@@ -123,17 +125,17 @@ const Analitico = () => {
             <Table>
               <TableHeader>
                 <TableRow className="bg-primary hover:bg-primary">
-                  <TableHead className="text-center font-bold text-primary-foreground">Tipo do Relatório</TableHead>
-                  <TableHead className="text-center font-bold text-primary-foreground">Data</TableHead>
-                  <TableHead className="text-center font-bold text-primary-foreground">Tamanho do arquivo</TableHead>
-                  <TableHead className="text-center font-bold text-primary-foreground">Ações</TableHead>
+                  <TableHead className="text-center font-bold text-primary-foreground">{t("analitico.reportType")}</TableHead>
+                  <TableHead className="text-center font-bold text-primary-foreground">{t("analitico.date")}</TableHead>
+                  <TableHead className="text-center font-bold text-primary-foreground">{t("analitico.fileSize")}</TableHead>
+                  <TableHead className="text-center font-bold text-primary-foreground">{t("analitico.actions")}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {paged.length === 0 ? (
                   <TableRow>
                     <TableCell colSpan={4} className="py-10 text-center text-sm text-muted-foreground">
-                      Nenhum relatório encontrado.
+                      {t('analitico.noReportsFound')}
                     </TableCell>
                   </TableRow>
                 ) : (
@@ -144,7 +146,7 @@ const Analitico = () => {
                       <TableCell className="text-center text-sm">{r.tamanho}</TableCell>
                       <TableCell className="text-center">
                         <button className="text-sm font-bold text-primary hover:text-primary/80 hover:underline">
-                          Download
+                          {t('analitico.download')}
                         </button>
                       </TableCell>
                     </TableRow>
@@ -158,7 +160,7 @@ const Analitico = () => {
           {filtrado.length > 0 && (
             <div className="flex items-center justify-end gap-2 px-6 py-4">
               <span className="mr-4 text-sm text-muted-foreground">
-                Mostrando {start} - {end} de {filtrado.length} resultados
+                {t('analitico.showingResults', { start: start, end: end, total: filtrado.length })}
               </span>
               <button
                 onClick={() => setPage(1)}

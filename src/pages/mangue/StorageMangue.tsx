@@ -1,5 +1,6 @@
 import { ArrowLeft, HardDrive, CheckCircle2, Database, FolderOpen, Key, Info, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const storageTypes = [
   {
@@ -32,6 +33,7 @@ const accessModes = [
 
 export default function StorageMangue() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -41,7 +43,7 @@ export default function StorageMangue() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para Mangue
+        {t('common.backTo', { module: t('mangue.title') })}
       </button>
 
       {/* Header */}
@@ -51,11 +53,11 @@ export default function StorageMangue() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            Mangue · Documentação
+            {t('common.productDoc', { module: t('mangue.title') })}
           </p>
-          <h1 className="text-3xl font-bold text-foreground">Storage</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('mangue.storage')}</h1>
           <p className="mt-1 text-muted-foreground">
-            Configuração e gerenciamento de volumes de armazenamento no cluster.
+            {t('mangue.storage')}
           </p>
         </div>
       </div>

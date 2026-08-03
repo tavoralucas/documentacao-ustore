@@ -7,18 +7,20 @@ import {
   Lightbulb,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-const docTopics = [
-  { title: "Visão Geral", icon: PieChart, description: "Introdução ao Finops 360 e visão consolidada das funcionalidades de economia e savings em nuvem.", route: "/finops-360/visao-geral" },
-  { title: "Dashboard", icon: LayoutDashboard, description: "Painel central com métricas de custos, economias realizadas e oportunidades de otimização.", route: "/finops-360/dashboard" },
-  { title: "Rightsizing", icon: Sliders, description: "Recomendações inteligentes para ajuste de tamanho de instâncias, eliminando desperdício de recursos.", route: "/finops-360/rightsizing" },
-  { title: "Compare Cloud", icon: GitCompare, description: "Compare preços e configurações entre diferentes provedores de nuvem para tomar decisões mais econômicas.", route: "/finops-360/compare-cloud" },
-  { title: "Imaginary Cloud", icon: Cloud, description: "Simulação e estimativa de custos em ambientes de nuvem hipotéticos para planejamento financeiro.", route: "/finops-360/imaginary-cloud" },
-  { title: "Provider Hint", icon: Lightbulb, description: "Dicas e sugestões automáticas de provedores com melhor custo-benefício para cada workload.", route: "/finops-360/provider-hint" },
-];
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function Finops360() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const docTopics = [
+    { title: t("finops360.overview"), icon: PieChart, description: t("finops360.overviewDescription"), route: "/finops-360/visao-geral" },
+    { title: t("finops360.dashboard"), icon: LayoutDashboard, description: t("finops360.dashboardDescription"), route: "/finops-360/dashboard" },
+    { title: t("finops360.rightsizing"), icon: Sliders, description: t("finops360.rightsizingDescription"), route: "/finops-360/rightsizing" },
+    { title: t("finops360.compareCloud"), icon: GitCompare, description: t("finops360.compareCloudDescription"), route: "/finops-360/compare-cloud" },
+    { title: t("finops360.imaginaryCloud"), icon: Cloud, description: t("finops360.imaginaryCloudDescription"), route: "/finops-360/imaginary-cloud" },
+    { title: t("finops360.providerHint"), icon: Lightbulb, description: t("finops360.providerHintDescription"), route: "/finops-360/provider-hint" },
+  ];
 
   return (
     <div className="flex flex-col gap-6 p-6">
@@ -27,8 +29,8 @@ export default function Finops360() {
           <PieChart className="h-5 w-5 text-primary" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Finops 360</h1>
-          <p className="text-sm text-muted-foreground">Documentação do produto</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("finops360.title")}</h1>
+          <p className="text-sm text-muted-foreground">{t("finops360.subtitle")}</p>
         </div>
       </div>
 

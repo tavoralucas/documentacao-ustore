@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
+import { useTranslation } from "@/hooks/useTranslation";
 import {
   kpisWifi,
   distribuicaoQos,
@@ -42,6 +43,7 @@ type SortDir = "asc" | "desc";
 
 const ExperienciaWifi = () => {
   const [dataInicial, setDataInicial] = useState<Date>();
+  const { t } = useTranslation();
   const [dataFinal, setDataFinal] = useState<Date>();
   const [uf, setUf] = useState("");
   const [cidade, setCidade] = useState("");
@@ -118,8 +120,8 @@ const ExperienciaWifi = () => {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground">Relatório de Experiência Wi-Fi</h1>
-        <p className="mt-1 text-muted-foreground">Análise de cobertura, qualidade de sinal e comportamento de dispositivos conectados.</p>
+        <h1 className="text-3xl font-bold text-foreground">{t('pages.experienciaWifi')}</h1>
+        <p className="mt-1 text-muted-foreground">{t('experienciaWifi.subtitle')}</p>
       </div>
 
       {/* Filtros */}
@@ -129,7 +131,7 @@ const ExperienciaWifi = () => {
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" className={cn("justify-start text-left font-normal", !dataInicial && "text-muted-foreground")}>
-                  <CalendarIcon className="mr-2 h-4 w-4" />{dataInicial ? format(dataInicial, "dd/MM/yyyy") : "Data Inicial"}
+                  <CalendarIcon className="mr-2 h-4 w-4" />{dataInicial ? format(dataInicial, "dd/MM/yyyy") : t('experienciaWifi.startDate')}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start"><Calendar mode="single" selected={dataInicial} onSelect={setDataInicial} className="p-3 pointer-events-auto" /></PopoverContent>
@@ -137,7 +139,7 @@ const ExperienciaWifi = () => {
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" className={cn("justify-start text-left font-normal", !dataFinal && "text-muted-foreground")}>
-                  <CalendarIcon className="mr-2 h-4 w-4" />{dataFinal ? format(dataFinal, "dd/MM/yyyy") : "Data Final"}
+                  <CalendarIcon className="mr-2 h-4 w-4" />{dataFinal ? format(dataFinal, "dd/MM/yyyy") : t('experienciaWifi.endDate')}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start"><Calendar mode="single" selected={dataFinal} onSelect={setDataFinal} className="p-3 pointer-events-auto" /></PopoverContent>
@@ -147,10 +149,10 @@ const ExperienciaWifi = () => {
             <Select value={nodeOlt} onValueChange={setNodeOlt}><SelectTrigger><SelectValue placeholder="Node/OLT" /></SelectTrigger><SelectContent>{oltsWifi.map(o => <SelectItem key={o} value={o}>{o}</SelectItem>)}</SelectContent></Select>
           </div>
           <div className="mt-4 flex items-center gap-3">
-            <Select value={modelo} onValueChange={setModelo}><SelectTrigger className="w-52"><SelectValue placeholder="Modelo Equipamento" /></SelectTrigger><SelectContent>{modelosWifi.map(m => <SelectItem key={m} value={m}>{m}</SelectItem>)}</SelectContent></Select>
-            <Select value={protocolo} onValueChange={setProtocolo}><SelectTrigger className="w-40"><SelectValue placeholder="Protocolo Wi-Fi" /></SelectTrigger><SelectContent>{protocolosWifi.map(p => <SelectItem key={p} value={p}>{p}</SelectItem>)}</SelectContent></Select>
-            <Button className="gap-2"><Search className="h-4 w-4" />Buscar</Button>
-            <Button variant="outline" onClick={handleLimpar} className="gap-2 border-primary text-primary hover:bg-primary/5"><X className="h-4 w-4" />Limpar</Button>
+            <Select value={modelo} onValueChange={setModelo}><SelectTrigger className="w-52"><SelectValue placeholder={t('experienciaWifi.equipmentModel')} /></SelectTrigger><SelectContent>{modelosWifi.map(m => <SelectItem key={m} value={m}>{m}</SelectItem>)}</SelectContent></Select>
+            <Select value={protocolo} onValueChange={setProtocolo}><SelectTrigger className="w-40"><SelectValue placeholder={t('experienciaWifi.protocol')} /></SelectTrigger><SelectContent>{protocolosWifi.map(p => <SelectItem key={p} value={p}>{p}</SelectItem>)}</SelectContent></Select>
+            <Button className="gap-2"><Search className="h-4 w-4" />{t('experienciaWifi.search')}</Button>
+            <Button variant="outline" onClick={handleLimpar} className="gap-2 border-primary text-primary hover:bg-primary/5"><X className="h-4 w-4" />{t('experienciaWifi.clear')}</Button>
           </div>
         </CardContent>
       </Card>
@@ -173,7 +175,7 @@ const ExperienciaWifi = () => {
                   <p className="text-foreground font-medium leading-tight text-xs">{kpi.label}</p>
                   <p className={cn("font-bold leading-none tracking-tight text-2xl", valueColor)}>{kpi.value}</p>
                   <button className={cn("text-sm font-medium underline underline-offset-2 text-left w-fit", linkColor)}>
-                    Mais informações
+                    {t('experienciaWifi.moreInfo')}
                   </button>
                 </div>
               );
@@ -186,7 +188,7 @@ const ExperienciaWifi = () => {
       <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Distribuição QoS */}
         <Card className="border border-border/60">
-          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">Distribuição de QoS Wi-Fi</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">{t('experienciaWifi.chartQosDistribution')}</CardTitle></CardHeader>
           <CardContent>
             <ChartContainer config={{ percentual: { label: "% Clientes", color: "hsl(0, 72%, 51%)" } }} className="h-[300px] w-full">
               <BarChart data={distribuicaoQos}>
@@ -202,7 +204,7 @@ const ExperienciaWifi = () => {
 
         {/* Distribuição Sinal */}
         <Card className="border border-border/60">
-          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">Distribuição de Sinal Médio (2.4GHz vs 5GHz)</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">{t('experienciaWifi.chartSignalDistribution')}</CardTitle></CardHeader>
           <CardContent>
             <ChartContainer config={{ sinal24g: { label: "2.4GHz", color: "hsl(210, 70%, 50%)" }, sinal5g: { label: "5GHz", color: "hsl(38, 92%, 50%)" } }} className="h-[300px] w-full">
               <BarChart data={distribuicaoSinal}>
@@ -219,7 +221,7 @@ const ExperienciaWifi = () => {
 
         {/* Devices Conectados por Faixa */}
         <Card className="border border-border/60">
-          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">Devices Conectados por Faixa</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">{t('experienciaWifi.chartDevicesByBand')}</CardTitle></CardHeader>
           <CardContent>
             <ChartContainer config={{ percentual: { label: "% Clientes", color: "hsl(142, 71%, 45%)" } }} className="h-[260px] w-full">
               <BarChart data={devicesConectadosFaixa}>
@@ -235,7 +237,7 @@ const ExperienciaWifi = () => {
 
         {/* Devices Distantes por Banda */}
         <Card className="border border-border/60">
-          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">% Devices Distantes por Banda</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">{t('experienciaWifi.chartDistantDevices')}</CardTitle></CardHeader>
           <CardContent>
             <ChartContainer config={{ percentual: { label: "% Distantes", color: "hsl(270, 60%, 55%)" } }} className="h-[260px] w-full">
               <BarChart data={devicesDistantesBanda}>
@@ -253,8 +255,8 @@ const ExperienciaWifi = () => {
       {/* Tabela Modelos */}
       <Card className="mb-8 border border-border/60">
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-sm font-bold">Análise por Modelo de Equipamento</CardTitle>
-          <Button variant="outline" size="sm" onClick={() => handleExportCSV(modelosEquipamento as unknown as Record<string, unknown>[], "modelos-wifi.csv")} className="gap-2 border-primary text-primary hover:bg-primary/5"><Download className="h-4 w-4" />CSV</Button>
+          <CardTitle className="text-sm font-bold">{t('experienciaWifi.tableModelTitle')}</CardTitle>
+          <Button variant="outline" size="sm" onClick={() => handleExportCSV(modelosEquipamento as unknown as Record<string, unknown>[], "modelos-wifi.csv")} className="gap-2 border-primary text-primary hover:bg-primary/5"><Download className="h-4 w-4" />{t('experienciaWifi.csv')}</Button>
         </CardHeader>
         <CardContent>
           <div className="overflow-auto">
@@ -286,10 +288,10 @@ const ExperienciaWifi = () => {
             </Table>
           </div>
           <div className="mt-4 flex items-center justify-between">
-            <p className="text-sm text-muted-foreground">Página {modPage} de {modTotalPages}</p>
+            <p className="text-sm text-muted-foreground">{t('experienciaWifi.pageInfo', { page: modPage, total: modTotalPages })}</p>
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" disabled={modPage === 1} onClick={() => setModPage(modPage - 1)}>Anterior</Button>
-              <Button variant="outline" size="sm" disabled={modPage === modTotalPages} onClick={() => setModPage(modPage + 1)}>Próxima</Button>
+              <Button variant="outline" size="sm" disabled={modPage === 1} onClick={() => setModPage(modPage - 1)}>{t('experienciaWifi.previous')}</Button>
+              <Button variant="outline" size="sm" disabled={modPage === modTotalPages} onClick={() => setModPage(modPage + 1)}>{t('experienciaWifi.next')}</Button>
             </div>
           </div>
         </CardContent>
@@ -298,8 +300,8 @@ const ExperienciaWifi = () => {
       {/* Tabela Regional */}
       <Card className="mb-8 border border-border/60">
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-sm font-bold">Análise Regional</CardTitle>
-          <Button variant="outline" size="sm" onClick={() => handleExportCSV(analiseRegional as unknown as Record<string, unknown>[], "analise-regional-wifi.csv")} className="gap-2 border-primary text-primary hover:bg-primary/5"><Download className="h-4 w-4" />CSV</Button>
+          <CardTitle className="text-sm font-bold">{t('experienciaWifi.tableRegionalTitle')}</CardTitle>
+          <Button variant="outline" size="sm" onClick={() => handleExportCSV(analiseRegional as unknown as Record<string, unknown>[], "analise-regional-wifi.csv")} className="gap-2 border-primary text-primary hover:bg-primary/5"><Download className="h-4 w-4" />{t('experienciaWifi.csv')}</Button>
         </CardHeader>
         <CardContent>
           <div className="overflow-auto">
@@ -329,10 +331,10 @@ const ExperienciaWifi = () => {
             </Table>
           </div>
           <div className="mt-4 flex items-center justify-between">
-            <p className="text-sm text-muted-foreground">Página {regPage} de {regTotalPages}</p>
+            <p className="text-sm text-muted-foreground">{t('experienciaWifi.pageInfo', { page: regPage, total: regTotalPages })}</p>
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" disabled={regPage === 1} onClick={() => setRegPage(regPage - 1)}>Anterior</Button>
-              <Button variant="outline" size="sm" disabled={regPage === regTotalPages} onClick={() => setRegPage(regPage + 1)}>Próxima</Button>
+              <Button variant="outline" size="sm" disabled={regPage === 1} onClick={() => setRegPage(regPage - 1)}>{t('experienciaWifi.previous')}</Button>
+              <Button variant="outline" size="sm" disabled={regPage === regTotalPages} onClick={() => setRegPage(regPage + 1)}>{t('experienciaWifi.next')}</Button>
             </div>
           </div>
         </CardContent>
@@ -342,7 +344,7 @@ const ExperienciaWifi = () => {
       <Card className="border border-border/60">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-sm font-bold">
-            <Lightbulb className="h-4 w-4 text-primary" />Insights com AI
+            <Lightbulb className="h-4 w-4 text-primary" />{t('experienciaWifi.insightsTitle')}
           </CardTitle>
         </CardHeader>
         <CardContent>

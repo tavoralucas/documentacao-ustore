@@ -1,5 +1,6 @@
 import { ArrowLeft, Globe, CheckCircle2, Settings, BarChart3, Cpu, HardDrive, Info, Leaf } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const features = [
   {
@@ -39,6 +40,7 @@ const menuItems = [
 
 export default function VisaoGeralMangue() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -48,7 +50,7 @@ export default function VisaoGeralMangue() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para Mangue
+        {t('common.backTo', { module: t('mangue.title') })}
       </button>
 
       {/* Header */}
@@ -58,9 +60,9 @@ export default function VisaoGeralMangue() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            Mangue · Documentação
+            {t('common.productDoc', { module: t('mangue.title') })}
           </p>
-          <h1 className="text-3xl font-bold text-foreground">Visão Geral</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t("common.overview")}</h1>
           <p className="mt-1 text-muted-foreground">
             Plataforma de gestão de ambientes de múltiplos orquestradores de container.
           </p>

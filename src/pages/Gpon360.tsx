@@ -11,20 +11,23 @@ import {
   SlidersHorizontal,
   ScrollText,
 } from "lucide-react";
-
-const docTopics = [
-  { title: "Clientes", icon: Users, route: "/gpon-360/clientes", description: "Consulta e gestão da base de clientes conectados à rede GPON." },
-  { title: "Dashboards", icon: LayoutDashboard, route: "/gpon-360/dashboards", description: "Painéis consolidados com os principais indicadores da rede." },
-  { title: "Monitoramento de Sinal", icon: SignalHigh, route: "/gpon-360/monitoramento-sinal", description: "Acompanhamento de níveis de sinal óptico (RX/TX) dos terminais." },
-  { title: "Trap Massivo", icon: Siren, route: "/gpon-360/trap-massivo", description: "Detecção e tratamento de eventos massivos recebidos via trap SNMP." },
-  { title: "Monitoramento de Quedas", icon: Activity, route: "/gpon-360/monitoramento-quedas", description: "Identificação de quedas, instabilidades e reincidências na rede." },
-  { title: "Performance", icon: Gauge, route: "/gpon-360/performance", description: "Métricas de desempenho como latência, jitter, perda e throughput." },
-  { title: "Relatórios", icon: FileBarChart, route: "/gpon-360/relatorios", description: "Geração e exportação de relatórios operacionais e gerenciais." },
-  { title: "Gestão de Parâmetros", icon: SlidersHorizontal, route: "/gpon-360/gestao-parametros", description: "Configuração dos parâmetros e limiares utilizados nas análises." },
-  { title: "Auditoria", icon: ScrollText, route: "/gpon-360/auditoria", description: "Registro e rastreabilidade das ações realizadas na plataforma." },
-];
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function Gpon360() {
+  const { t } = useTranslation();
+
+  const docTopics = [
+    { title: t('gpon360.clients'), icon: Users, route: "/gpon-360/clientes", description: t('gpon360.clientsDescription') },
+    { title: t('gpon360.dashboards'), icon: LayoutDashboard, route: "/gpon-360/dashboards", description: t('gpon360.dashboardsDescription') },
+    { title: t('gpon360.signalMonitoring'), icon: SignalHigh, route: "/gpon-360/monitoramento-sinal", description: t('gpon360.signalMonitoringDescription') },
+    { title: t('gpon360.massiveTrap'), icon: Siren, route: "/gpon-360/trap-massivo", description: t('gpon360.massiveTrapDescription') },
+    { title: t('gpon360.fallMonitoring'), icon: Activity, route: "/gpon-360/monitoramento-quedas", description: t('gpon360.fallMonitoringDescription') },
+    { title: t('gpon360.performance'), icon: Gauge, route: "/gpon-360/performance", description: t('gpon360.performanceDescription') },
+    { title: t('gpon360.reports'), icon: FileBarChart, route: "/gpon-360/relatorios", description: t('gpon360.reportsDescription') },
+    { title: t('gpon360.parameterManagement'), icon: SlidersHorizontal, route: "/gpon-360/gestao-parametros", description: t('gpon360.parameterManagementDescription') },
+    { title: t('gpon360.audit'), icon: ScrollText, route: "/gpon-360/auditoria", description: t('gpon360.auditDescription') },
+  ];
+
   return (
     <div className="flex flex-col gap-6 p-6">
       <div className="flex items-center gap-3">
@@ -32,8 +35,8 @@ export default function Gpon360() {
           <Radar className="h-5 w-5 text-primary" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Incognito - GPON 360</h1>
-          <p className="text-sm text-muted-foreground">Documentação do produto</p>
+          <h1 className="text-2xl font-bold text-foreground">{t('gpon360.title')}</h1>
+          <p className="text-sm text-muted-foreground">{t('gpon360.subtitle')}</p>
         </div>
       </div>
 

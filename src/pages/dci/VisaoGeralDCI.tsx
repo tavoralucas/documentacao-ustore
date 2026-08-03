@@ -1,5 +1,6 @@
 import { ArrowLeft, Network, CheckCircle2, Info, LogIn, Settings, Bell, User, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const menuItems = [
   { icon: User, title: "Nome", description: "Exibe o nome do usuário logado e seu endereço de e-mail." },
@@ -10,6 +11,7 @@ const menuItems = [
 
 export default function VisaoGeralDCI() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -19,7 +21,7 @@ export default function VisaoGeralDCI() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para DCI
+        {t('common.backTo', { module: t('dci.title') })}
       </button>
 
       {/* Header */}
@@ -29,9 +31,9 @@ export default function VisaoGeralDCI() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            DCI · Documentação
+            {t('common.productDoc', { module: t('dci.title') })}
           </p>
-          <h1 className="text-3xl font-bold text-foreground">Visão Geral</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t("common.overview")}</h1>
           <p className="mt-1 text-muted-foreground">
             Introdução ao Data Center Interconnect e acesso à plataforma.
           </p>

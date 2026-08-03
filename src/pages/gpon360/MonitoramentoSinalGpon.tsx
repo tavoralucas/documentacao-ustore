@@ -9,6 +9,7 @@ import {
   Route,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import { useTranslation } from "@/hooks/useTranslation";
 import monitoramentoSinalObjetivo from "@/assets/monitoramento-sinal-objetivo.png.asset.json";
 import monitoramentoSinalCidadesGpon from "@/assets/monitoramento-sinal-cidades-gpon.png.asset.json";
 import monitoramentoSinalRanking from "@/assets/monitoramento-sinal-ranking.png.asset.json";
@@ -66,16 +67,17 @@ const fluxo = [
 ];
 
 export default function MonitoramentoSinalGpon() {
+  const { t } = useTranslation();
   return (
     <GponDocPage
-      title="Monitoramento de Sinal"
-      subtitle="Acompanhamento de níveis de sinal óptico (RX/TX) dos terminais."
+      title={t("gpon360.signalMonitoring")}
+      subtitle={t("gpon360.signalMonitoringDescription")}
       icon={SignalHigh}
     >
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Target className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Objetivo</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t("common.overview")}</h2>
         </div>
         <p className="text-muted-foreground">
           A tela de Monitoramento de Sinal é o painel de controle para acompanhar, em tempo quase real, a qualidade do
@@ -97,7 +99,7 @@ export default function MonitoramentoSinalGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <LayoutGrid className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Os cartões de resumo (KPIs) no topo</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.kpiCards')}</h2>
         </div>
         <p className="text-muted-foreground mb-4">
           Assim que a tela carrega, você vê cinco cartões com números totais:
@@ -119,7 +121,7 @@ export default function MonitoramentoSinalGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <CalendarRange className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Filtro de período</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.periodFilter')}</h2>
         </div>
         <p className="text-muted-foreground">
           No canto superior direito você escolhe a janela de tempo da análise: <strong>3d</strong>, <strong>7d</strong>,
@@ -132,7 +134,7 @@ export default function MonitoramentoSinalGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <MapPin className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Bloco "Cidades GPON" — sua ferramenta de navegação</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.citiesGpon')}</h2>
         </div>
         <p className="text-muted-foreground mb-4">
           Esse é o coração da tela, no lado esquerdo. Aqui você tem dois filtros e uma tabela:
@@ -186,7 +188,7 @@ export default function MonitoramentoSinalGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Trophy className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Bloco de Ranking</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.rankingBlock')}</h2>
         </div>
         <p className="text-muted-foreground mb-4">
           No lado direito, esse painel mostra rankings comparativos divididos em três abas:
@@ -219,7 +221,7 @@ export default function MonitoramentoSinalGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <LineChart className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Gráficos de Nível RX e TX</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.rxTxGraphs')}</h2>
         </div>
         <p className="text-muted-foreground mb-4">
           Quando você filtra por um estado, cidade ou rua específica, aparecem dois gráficos de linha na parte de baixo
@@ -247,7 +249,7 @@ export default function MonitoramentoSinalGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Route className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Resumo do fluxo de uso recomendado</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.usageFlowSummary')}</h2>
         </div>
         <ol className="space-y-3">
           {fluxo.map((passo, i) => (

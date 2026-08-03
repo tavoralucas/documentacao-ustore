@@ -1,5 +1,6 @@
 import { ArrowLeft, CheckSquare, CheckCircle2, Info, Search, RefreshCw, AlertCircle, Clock, XCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const taskColumns = [
   { name: "Operação", description: "Tipo de operação realizada" },
@@ -47,6 +48,7 @@ const taskTabs = [
 
 export default function TarefasDCI() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -56,7 +58,7 @@ export default function TarefasDCI() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para DCI
+        {t('common.backTo', { module: t('dci.title') })}
       </button>
 
       {/* Header */}
@@ -66,9 +68,9 @@ export default function TarefasDCI() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            DCI · Documentação
+            {t('common.productDoc', { module: t('dci.title') })}
           </p>
-          <h1 className="text-3xl font-bold text-foreground">Tarefas</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('dci.tasks')}</h1>
           <p className="mt-1 text-muted-foreground">
             Acompanhamento de operações e tarefas realizadas na plataforma.
           </p>

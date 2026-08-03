@@ -1,5 +1,6 @@
 import { ArrowLeft, PlugZap, CheckCircle2, Info, Download, RefreshCw, Search, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const portColumns = [
   { name: "Designação", description: "Identificador único da porta" },
@@ -18,6 +19,7 @@ const cardGeralInfo = [
 
 export default function PortasDCI() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -27,7 +29,7 @@ export default function PortasDCI() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para DCI
+        {t('common.backTo', { module: t('dci.title') })}
       </button>
 
       {/* Header */}
@@ -37,11 +39,11 @@ export default function PortasDCI() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            DCI · Documentação
+            {t('common.productDoc', { module: t('dci.title') })}
           </p>
-          <h1 className="text-3xl font-bold text-foreground">Portas</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('dci.ports')}</h1>
           <p className="mt-1 text-muted-foreground">
-            Gerenciamento e visualização de portas do DCI.
+            {t('dci.ports')}
           </p>
         </div>
       </div>

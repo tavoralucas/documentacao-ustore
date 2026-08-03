@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Search, X } from "lucide-react";
+import { useTranslation } from "@/hooks/useTranslation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -47,6 +48,7 @@ const chartConfigRx = { valor: { label: "RX (dBm)", color: "hsl(var(--foreground
 const chartConfigTx = { valor: { label: "TX (dBm)", color: "hsl(var(--foreground))" } };
 
 const Diagnostico = () => {
+  const { t } = useTranslation();
   const [estado, setEstado] = useState("");
   const [cidade, setCidade] = useState("");
   const [resultado, setResultado] = useState<{ uf: string; rxData: ReturnType<typeof generateRxData>; txData: ReturnType<typeof generateTxData> } | null>(null);
@@ -78,24 +80,24 @@ const Diagnostico = () => {
 
   return (
     <div className="mx-auto max-w-[1200px] px-6 py-8">
-      <h1 className="mb-6 text-3xl font-bold text-foreground">Diagnóstico Acesso</h1>
+      <h1 className="mb-6 text-3xl font-bold text-foreground">{t("diagnostico.title")}</h1>
 
       {/* Filtros */}
       <Card className="mb-6">
         <CardHeader className="pb-2">
-          <CardTitle className="text-base font-bold">Filtros</CardTitle>
+          <CardTitle className="text-base font-bold">{t("diagnostico.filters")}</CardTitle>
           <p className="text-sm text-muted-foreground">
-            Utilize os filtros abaixo para redefinir a visualização.
+            {t('diagnostico.filterDescription')}
           </p>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {/* Estado */}
             <div className="flex flex-col gap-1.5">
-              <Label className="text-sm text-foreground">Selecione um estado</Label>
+              <Label className="text-sm text-foreground">{t("diagnostico.selectState")}</Label>
               <div className="relative">
                 <Input
-                  placeholder="Digite um UF"
+                  placeholder={t("diagnostico.enterUf")}
                   value={estado}
                   onChange={(e) => {
                     setEstado(e.target.value.toUpperCase().slice(0, 2));
@@ -114,15 +116,15 @@ const Diagnostico = () => {
                 )}
               </div>
               {estado && !ufValida && (
-                <p className="text-xs text-destructive">UF inválida. Use a sigla de um estado brasileiro.</p>
+                <p className="text-xs text-destructive">{t('diagnostico.invalidUf')}</p>
               )}
             </div>
 
             {/* Cidade */}
             <div className="flex flex-col gap-1.5">
-              <Label className="text-sm text-foreground">Selecione uma cidade</Label>
+              <Label className="text-sm text-foreground">{t("diagnostico.selectCity")}</Label>
               <Input
-                placeholder="Digite uma Cidade"
+                placeholder={t("diagnostico.enterCity")}
                 value={cidade}
                 onChange={(e) => setCidade(e.target.value)}
               />
@@ -140,14 +142,14 @@ const Diagnostico = () => {
               }
             >
               <Search className="mr-2 h-4 w-4" />
-              Buscar
+              {t('diagnostico.search')}
             </Button>
             <Button
               variant="outline"
               onClick={handleLimpar}
               className="rounded-xl border-primary text-primary hover:bg-primary/5"
             >
-              Limpar
+              {t('diagnostico.clear')}
             </Button>
           </div>
         </CardContent>
@@ -157,11 +159,11 @@ const Diagnostico = () => {
       {resultado && (
         <Card>
           <CardContent className="px-6 py-6">
-            <h2 className="mb-6 text-xl font-bold text-foreground">Diagnóstico de acesso</h2>
+            <h2 className="mb-6 text-xl font-bold text-foreground">{t("diagnostico.diagnosticAccess")}</h2>
 
             {/* Nível RX */}
             <div className="mb-8">
-              <p className="mb-3 text-sm font-bold text-foreground">Nível RX - Recepção</p>
+              <p className="mb-3 text-sm font-bold text-foreground">{t('diagnostico.rxLevel')}</p>
               <ChartContainer config={chartConfigRx} className="h-[220px] w-full">
                 <LineChart data={resultado.rxData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
@@ -193,7 +195,7 @@ const Diagnostico = () => {
 
             {/* Nível TX */}
             <div>
-              <p className="mb-3 text-sm font-bold text-foreground">Nível TX - Transmissão</p>
+              <p className="mb-3 text-sm font-bold text-foreground">{t('diagnostico.txLevel')}</p>
               <ChartContainer config={chartConfigTx} className="h-[220px] w-full">
                 <LineChart data={resultado.txData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />

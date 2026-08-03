@@ -1,3 +1,4 @@
+import { useTranslation } from "@/hooks/useTranslation";
 import { ArrowLeft, Boxes, CheckCircle2, Server, Layers, RefreshCw, PlayCircle, AlertTriangle, Settings, BarChart3, Info, Trash2, Edit, Scale } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -36,6 +37,7 @@ const workloadTypes = [
 
 export default function WorkloadsMangue() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -45,7 +47,7 @@ export default function WorkloadsMangue() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para Mangue
+        {t('common.backTo', { module: t('mangue.title') })}
       </button>
 
       {/* Header */}
@@ -55,7 +57,7 @@ export default function WorkloadsMangue() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            Mangue · Documentação
+            {t('common.productDoc', { module: t('mangue.title') })}
           </p>
           <h1 className="text-3xl font-bold text-foreground">Workloads</h1>
           <p className="mt-1 text-muted-foreground">
@@ -135,7 +137,7 @@ export default function WorkloadsMangue() {
               alt="Detalhes do Deployment" 
               className="w-full h-auto"
             />
-            <p className="text-xs text-center text-muted-foreground p-2 bg-muted/50">Visão Geral</p>
+            <p className="text-xs text-center text-muted-foreground p-2 bg-muted/50">{t('common.overview')}</p>
           </div>
           <div className="border border-border rounded-lg overflow-hidden">
             <img 
@@ -372,3 +374,4 @@ export default function WorkloadsMangue() {
     </div>
   );
 }
+

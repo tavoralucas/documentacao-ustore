@@ -1,5 +1,6 @@
 import { ArrowLeft, Users, CheckCircle2, Info, UserCog, UsersRound, FileText } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const adminSubmenus = [
   {
@@ -21,6 +22,7 @@ const adminSubmenus = [
 
 export default function AdministracaoDCI() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -30,7 +32,7 @@ export default function AdministracaoDCI() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para DCI
+        {t('common.backTo', { module: t('dci.title') })}
       </button>
 
       {/* Header */}
@@ -40,11 +42,11 @@ export default function AdministracaoDCI() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            DCI · Documentação
+            {t('common.productDoc', { module: t('dci.title') })}
           </p>
-          <h1 className="text-3xl font-bold text-foreground">Administração</h1>
+          <h1 className="text-3xl font-bold text-foreground">{t('dci.administration')}</h1>
           <p className="mt-1 text-muted-foreground">
-            Gerenciamento de usuários, grupos e contratos no DCI.
+            {t('dci.administration')}
           </p>
         </div>
       </div>

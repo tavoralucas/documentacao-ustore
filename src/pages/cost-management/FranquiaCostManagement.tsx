@@ -1,8 +1,10 @@
 import { ArrowLeft, Package, Users, Settings, AlertCircle, TrendingDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function FranquiaCostManagement() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -12,7 +14,7 @@ export default function FranquiaCostManagement() {
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
       >
         <ArrowLeft className="h-4 w-4" />
-        Voltar para Cost Management
+        {t('common.backTo', { module: t('costManagement.title') })}
       </button>
 
       {/* Header */}
@@ -22,7 +24,7 @@ export default function FranquiaCostManagement() {
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
-            Cost Management · Documentação
+            {t('common.productDoc', { module: t('costManagement.title') })}
           </p>
           <h1 className="text-3xl font-bold text-foreground">Franquia</h1>
           <p className="mt-1 text-muted-foreground">
@@ -33,7 +35,7 @@ export default function FranquiaCostManagement() {
 
       {/* Introdução */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">O que é Franquia?</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t('common.whatIs')}</h2>
         
         <div className="space-y-4 text-muted-foreground">
           <p>

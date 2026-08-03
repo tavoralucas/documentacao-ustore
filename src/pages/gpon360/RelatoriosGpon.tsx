@@ -8,6 +8,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import GponDocPage from "./GponDocPage";
+import { useTranslation } from "@/hooks/useTranslation";
 import relatoriosTela from "@/assets/relatorios-analiticos-tela.png.asset.json";
 
 const relatorioColunas = [
@@ -37,16 +38,17 @@ const praticas = [
 ];
 
 export default function RelatoriosGpon() {
+  const { t } = useTranslation();
   return (
     <GponDocPage
-      title="Relatórios Analíticos"
-      subtitle="Download de relatórios diários completos gerados pelo sistema GPON."
+      title={t("gpon360.reports")}
+      subtitle={t("gpon360.reportsDescription")}
       icon={FileBarChart}
     >
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Target className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">O que é essa tela?</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t("common.whatIs")}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
           <p>

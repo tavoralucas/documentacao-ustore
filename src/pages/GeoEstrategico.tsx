@@ -11,6 +11,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import BrazilMap from "@/components/BrazilMap";
+import { useTranslation } from "@/hooks/useTranslation";
 import {
   kpisGeo,
   dadosUF,
@@ -49,6 +50,7 @@ const metricOptions: { value: MetricKey; label: string }[] = [
 
 const GeoEstrategico = () => {
   const [dataInicial, setDataInicial] = useState<Date>();
+  const { t } = useTranslation();
   const [dataFinal, setDataFinal] = useState<Date>();
   const [uf, setUf] = useState("");
   const [cidade, setCidade] = useState("");
@@ -116,8 +118,8 @@ const GeoEstrategico = () => {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground">Relatório Geoestratégico</h1>
-        <p className="mt-1 text-muted-foreground">Análise territorial de qualidade, estabilidade e performance da rede.</p>
+        <h1 className="text-3xl font-bold text-foreground">{t('pages.geoEstrategico')}</h1>
+        <p className="mt-1 text-muted-foreground">{t('geoEstrategico.subtitle')}</p>
       </div>
 
       {/* Filtros */}
@@ -127,7 +129,7 @@ const GeoEstrategico = () => {
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" className={cn("justify-start text-left font-normal", !dataInicial && "text-muted-foreground")}>
-                  <CalendarIcon className="mr-2 h-4 w-4" />{dataInicial ? format(dataInicial, "dd/MM/yyyy") : "Data Inicial"}
+                  <CalendarIcon className="mr-2 h-4 w-4" />{dataInicial ? format(dataInicial, "dd/MM/yyyy") : t('geoEstrategico.startDate')}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start"><Calendar mode="single" selected={dataInicial} onSelect={setDataInicial} className="p-3 pointer-events-auto" /></PopoverContent>
@@ -135,20 +137,20 @@ const GeoEstrategico = () => {
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" className={cn("justify-start text-left font-normal", !dataFinal && "text-muted-foreground")}>
-                  <CalendarIcon className="mr-2 h-4 w-4" />{dataFinal ? format(dataFinal, "dd/MM/yyyy") : "Data Final"}
+                  <CalendarIcon className="mr-2 h-4 w-4" />{dataFinal ? format(dataFinal, "dd/MM/yyyy") : t('geoEstrategico.endDate')}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start"><Calendar mode="single" selected={dataFinal} onSelect={setDataFinal} className="p-3 pointer-events-auto" /></PopoverContent>
             </Popover>
             <Select value={uf} onValueChange={setUf}><SelectTrigger><SelectValue placeholder="UF" /></SelectTrigger><SelectContent>{ufsGeo.map(u => <SelectItem key={u} value={u}>{u}</SelectItem>)}</SelectContent></Select>
             <Select value={cidade} onValueChange={setCidade}><SelectTrigger><SelectValue placeholder="Cidade" /></SelectTrigger><SelectContent>{cidadesGeo.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent></Select>
-            <Select value={citycode} onValueChange={setCitycode}><SelectTrigger><SelectValue placeholder="Citycode" /></SelectTrigger><SelectContent>{citycodesGeo.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent></Select>
-            <Select value={nodeOlt} onValueChange={setNodeOlt}><SelectTrigger><SelectValue placeholder="Node/OLT" /></SelectTrigger><SelectContent>{oltsGeo.map(o => <SelectItem key={o} value={o}>{o}</SelectItem>)}</SelectContent></Select>
+            <Select value={citycode} onValueChange={setCitycode}><SelectTrigger><SelectValue placeholder={t('geoEstrategico.citycode')} /></SelectTrigger><SelectContent>{citycodesGeo.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent></Select>
+            <Select value={nodeOlt} onValueChange={setNodeOlt}><SelectTrigger><SelectValue placeholder={t('geoEstrategico.nodeOlt')} /></SelectTrigger><SelectContent>{oltsGeo.map(o => <SelectItem key={o} value={o}>{o}</SelectItem>)}</SelectContent></Select>
           </div>
           <div className="mt-4 flex items-center gap-3">
-            <Select value={modelo} onValueChange={setModelo}><SelectTrigger className="w-52"><SelectValue placeholder="Modelo Equipamento" /></SelectTrigger><SelectContent>{modelosGeo.map(m => <SelectItem key={m} value={m}>{m}</SelectItem>)}</SelectContent></Select>
-            <Button className="gap-2"><Search className="h-4 w-4" />Buscar</Button>
-            <Button variant="outline" onClick={handleLimpar} className="gap-2 border-primary text-primary hover:bg-primary/5"><X className="h-4 w-4" />Limpar</Button>
+            <Select value={modelo} onValueChange={setModelo}><SelectTrigger className="w-52"><SelectValue placeholder={t('geoEstrategico.equipmentModel')} /></SelectTrigger><SelectContent>{modelosGeo.map(m => <SelectItem key={m} value={m}>{m}</SelectItem>)}</SelectContent></Select>
+            <Button className="gap-2"><Search className="h-4 w-4" />{t('geoEstrategico.search')}</Button>
+            <Button variant="outline" onClick={handleLimpar} className="gap-2 border-primary text-primary hover:bg-primary/5"><X className="h-4 w-4" />{t('geoEstrategico.clear')}</Button>
           </div>
         </CardContent>
       </Card>
@@ -171,7 +173,7 @@ const GeoEstrategico = () => {
                   <p className="text-foreground font-medium leading-tight text-xs">{kpi.label}</p>
                   <p className={cn("font-bold leading-none tracking-tight text-2xl", valueColor)}>{kpi.value}</p>
                   <button className={cn("text-sm font-medium underline underline-offset-2 text-left w-fit", linkColor)}>
-                    Mais informações
+                    {t('geoEstrategico.moreInfo')}
                   </button>
                 </div>
               );
@@ -183,7 +185,7 @@ const GeoEstrategico = () => {
       {/* Mapa do Brasil */}
       <Card className="mb-8 border border-border/60">
         <CardHeader className="flex flex-row items-center justify-between pb-2">
-          <CardTitle className="text-sm font-bold">Mapa do Brasil — Visão por UF</CardTitle>
+          <CardTitle className="text-sm font-bold">{t('geoEstrategico.mapTitle')}</CardTitle>
           <Select value={mapMetric} onValueChange={(v) => setMapMetric(v as MetricKey)}>
             <SelectTrigger className="w-56">
               <SelectValue />
@@ -198,8 +200,8 @@ const GeoEstrategico = () => {
         <CardContent>
           {selectedUF && (
             <div className="mb-2 flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">Filtrando por: <strong className="text-foreground">{selectedUF}</strong></span>
-              <Button variant="outline" size="sm" onClick={() => { setSelectedUF(""); setPage(1); }} className="h-6 px-2 text-xs border-primary text-primary">Limpar</Button>
+              <span className="text-sm text-muted-foreground">{t('geoEstrategico.filteringBy')} <strong className="text-foreground">{selectedUF}</strong></span>
+              <Button variant="outline" size="sm" onClick={() => { setSelectedUF(""); setPage(1); }} className="h-6 px-2 text-xs border-primary text-primary">{t('geoEstrategico.clear')}</Button>
             </div>
           )}
           <BrazilMap
@@ -215,7 +217,7 @@ const GeoEstrategico = () => {
       <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* QoS Médio por UF */}
         <Card className="border border-border/60">
-          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">QoS Médio por UF (Top 10 piores)</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">{t('geoEstrategico.chartQosUf')}</CardTitle></CardHeader>
           <CardContent>
             <ChartContainer config={{ qosMedio: { label: "QoS Médio", color: "hsl(0, 72%, 51%)" } }} className="h-[300px] w-full">
               <BarChart data={qosPorUf} layout="vertical">
@@ -231,7 +233,7 @@ const GeoEstrategico = () => {
 
         {/* Quedas por Cidade */}
         <Card className="border border-border/60">
-          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">Quedas por Cidade (Top 10)</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">{t('geoEstrategico.chartQuedasCidade')}</CardTitle></CardHeader>
           <CardContent>
             <ChartContainer config={{ mediaQuedas: { label: "Média Quedas", color: "hsl(38, 92%, 50%)" } }} className="h-[300px] w-full">
               <BarChart data={quedasPorCidade} layout="vertical">
@@ -247,7 +249,7 @@ const GeoEstrategico = () => {
 
         {/* Baixa Cobertura por Região */}
         <Card className="border border-border/60">
-          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">% Baixa Cobertura por Região</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">{t('geoEstrategico.chartBaixaCobertura')}</CardTitle></CardHeader>
           <CardContent>
             <ChartContainer config={{ percentual: { label: "% Baixa Cobertura", color: "hsl(210, 70%, 50%)" } }} className="h-[260px] w-full">
               <BarChart data={baixaCoberturaPorRegiao}>
@@ -263,7 +265,7 @@ const GeoEstrategico = () => {
 
         {/* Performance por Citycode */}
         <Card className="border border-border/60">
-          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">Performance Média (%) por Citycode</CardTitle></CardHeader>
+          <CardHeader className="pb-2"><CardTitle className="text-sm font-bold">{t('geoEstrategico.chartPerformance')}</CardTitle></CardHeader>
           <CardContent>
             <ChartContainer config={{ performance: { label: "Performance %", color: "hsl(142, 71%, 45%)" } }} className="h-[260px] w-full">
               <BarChart data={performancePorCitycode} layout="vertical">
@@ -281,8 +283,8 @@ const GeoEstrategico = () => {
       {/* Tabela Territorial */}
       <Card className="mb-8 border border-border/60">
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-sm font-bold">Análise Territorial Detalhada{selectedUF ? ` — ${selectedUF}` : ""}</CardTitle>
-          <Button variant="outline" size="sm" onClick={() => handleExportCSV(filteredData as unknown as Record<string, unknown>[], "geo-estrategico.csv")} className="gap-2 border-primary text-primary hover:bg-primary/5"><Download className="h-4 w-4" />CSV</Button>
+          <CardTitle className="text-sm font-bold">{t('geoEstrategico.tableTitle')}{selectedUF ? ` — ${selectedUF}` : ""}</CardTitle>
+          <Button variant="outline" size="sm" onClick={() => handleExportCSV(filteredData as unknown as Record<string, unknown>[], "geo-estrategico.csv")} className="gap-2 border-primary text-primary hover:bg-primary/5"><Download className="h-4 w-4" />{t('geoEstrategico.csv')}</Button>
         </CardHeader>
         <CardContent>
           <div className="overflow-auto">
@@ -318,10 +320,10 @@ const GeoEstrategico = () => {
             </Table>
           </div>
           <div className="mt-4 flex items-center justify-between">
-            <p className="text-sm text-muted-foreground">Página {page} de {totalPages}</p>
+            <p className="text-sm text-muted-foreground">{t('geoEstrategico.pageInfo', { page, total: totalPages })}</p>
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" disabled={page === 1} onClick={() => setPage(page - 1)}>Anterior</Button>
-              <Button variant="outline" size="sm" disabled={page === totalPages} onClick={() => setPage(page + 1)}>Próxima</Button>
+              <Button variant="outline" size="sm" disabled={page === 1} onClick={() => setPage(page - 1)}>{t('geoEstrategico.previous')}</Button>
+              <Button variant="outline" size="sm" disabled={page === totalPages} onClick={() => setPage(page + 1)}>{t('geoEstrategico.next')}</Button>
             </div>
           </div>
         </CardContent>
@@ -331,7 +333,7 @@ const GeoEstrategico = () => {
       <Card className="border border-border/60">
         <CardHeader className="pb-2">
           <CardTitle className="flex items-center gap-2 text-sm font-bold">
-            <Lightbulb className="h-4 w-4 text-primary" />Insights com AI
+            <Lightbulb className="h-4 w-4 text-primary" />{t('geoEstrategico.insightsTitle')}
           </CardTitle>
         </CardHeader>
         <CardContent>

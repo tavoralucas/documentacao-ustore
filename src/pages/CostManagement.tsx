@@ -13,20 +13,23 @@ import {
   Sparkles,
   ArrowRight,
 } from "lucide-react";
-
-const docTopics = [
-  // { title: "Visão Geral", icon: Globe, route: "/cost-management/visao-geral", description: "Visão geral consolidada de custos e economia na plataforma Cost Management." },
-  { title: "Histórico de Serviço", icon: History, route: "/cost-management/historico-servico", description: "Histórico detalhado de consumo por serviço ao longo do tempo." },
-  { title: "Tendência de Faturamento", icon: TrendingUp, route: "/cost-management/tendencia-faturamento", description: "Análise de tendências e projeções de faturamento por período." },
-  { title: "Exportar Relatórios", icon: Download, route: "/cost-management/exportar-relatorios", description: "Exportação de relatórios financeiros em diferentes formatos." },
-  { title: "Consolidado de Faturamento", icon: BarChart2, route: "/cost-management/consolidado-faturamento", description: "Visão consolidada do faturamento agrupado por contrato ou provedor." },
-  { title: "Custo de Budget", icon: Wallet, route: "/cost-management/custo-budget", description: "Acompanhamento e controle de orçamentos definidos por projeto ou serviço." },
-  { title: "Conta Master", icon: Building2, route: "/cost-management/conta-master", description: "Gerenciamento e visualização de custos da conta master e suas sub-contas." },
-  { title: "Custo Relacional de Produto", icon: Network, route: "/cost-management/custo-relacional-produto", description: "Relatório detalhado de custos por produto, família e contas vinculadas." },
-  { title: "Financeiro", icon: DollarSign, route: "/cost-management/financeiro", description: "Painel financeiro completo com governança e controle de custos em nuvem." },
-];
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function CostManagement() {
+  const { t } = useTranslation();
+
+  const docTopics = [
+    // { title: t("costManagement.overview"), icon: Globe, route: "/cost-management/visao-geral", description: t("costManagement.overviewDescription") },
+    { title: t("costManagement.serviceHistory"), icon: History, route: "/cost-management/historico-servico", description: t("costManagement.serviceHistoryDescription") },
+    { title: t("costManagement.billingTrend"), icon: TrendingUp, route: "/cost-management/tendencia-faturamento", description: t("costManagement.billingTrendDescription") },
+    { title: t("costManagement.exportReports"), icon: Download, route: "/cost-management/exportar-relatorios", description: t("costManagement.exportReportsDescription") },
+    { title: t("costManagement.consolidatedBilling"), icon: BarChart2, route: "/cost-management/consolidado-faturamento", description: t("costManagement.consolidatedBillingDescription") },
+    { title: t("costManagement.costBudget"), icon: Wallet, route: "/cost-management/custo-budget", description: t("costManagement.costBudgetDescription") },
+    { title: t("costManagement.masterAccount"), icon: Building2, route: "/cost-management/conta-master", description: t("costManagement.masterAccountDescription") },
+    { title: t("costManagement.productRelationalCost"), icon: Network, route: "/cost-management/custo-relacional-produto", description: t("costManagement.productRelationalCostDescription") },
+    { title: t("costManagement.finance"), icon: DollarSign, route: "/cost-management/financeiro", description: t("costManagement.financeDescription") },
+  ];
+
   return (
     <div className="flex flex-col gap-6 p-6">
       <div className="flex items-center gap-3">
@@ -34,8 +37,8 @@ export default function CostManagement() {
           <TrendingDown className="h-5 w-5 text-primary" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Cost Management</h1>
-          <p className="text-sm text-muted-foreground">Documentação do produto</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("costManagement.title")}</h1>
+          <p className="text-sm text-muted-foreground">{t("costManagement.subtitle")}</p>
         </div>
       </div>
 
@@ -47,9 +50,9 @@ export default function CostManagement() {
           <Sparkles className="h-5 w-5" />
         </div>
         <div className="flex-1">
-          <h3 className="font-semibold text-foreground">Novidades</h3>
+          <h3 className="font-semibold text-foreground">{t("common.novidades")}</h3>
           <p className="text-sm text-muted-foreground">
-            Acompanhe as últimas atualizações e melhorias da plataforma.
+            {t("common.novidadesBanner")}
           </p>
         </div>
         <ArrowRight className="h-5 w-5 text-primary transition-transform group-hover:translate-x-1" />

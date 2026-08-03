@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { novidadesPorMes } from "@/data/novidades";
+import { novidadesPorMes, getNovidadesPorSlug } from "@/data/novidades";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export default function Novidades() {
+  const { t } = useTranslation();
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-8">
       <header className="mb-8">
         <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
           <Sparkles className="h-4 w-4" />
-          <span>Atualizações da plataforma</span>
+          <span>{t('novidades.title')}</span>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight text-foreground">Novidades</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">{t('novidades.title')}</h1>
         <p className="mt-2 text-muted-foreground">
           Acompanhe as novas implementações organizadas por mês.
         </p>
@@ -29,7 +32,7 @@ export default function Novidades() {
                   {m.mes} de {m.ano}
                 </CardTitle>
                 <CardDescription>
-                  Veja as novas implementações deste mês
+                  {t('novidades.description')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -38,7 +41,7 @@ export default function Novidades() {
                     {m.itens.length} {m.itens.length === 1 ? "novidade" : "novidades"}
                   </span>
                   <span className="flex items-center gap-1 font-medium text-primary transition-transform group-hover:translate-x-0.5">
-                    Ver timeline
+                    {t('novidades.readMore')}
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
