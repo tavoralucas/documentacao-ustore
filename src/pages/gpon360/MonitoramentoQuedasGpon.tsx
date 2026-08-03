@@ -16,66 +16,51 @@ import monitoramentoQuedasGraficos from "@/assets/monitoramento-quedas-graficos.
 import monitoramentoQuedasTabela from "@/assets/monitoramento-quedas-tabela.png.asset.json";
 import monitoramentoQuedasVer from "@/assets/monitoramento-quedas-ver.png.asset.json";
 
-const filtros = [
-  { n: 1, title: "UF", desc: "Seleção múltipla de estados, com campo de busca interna e opção \"Selecionar todos\"." },
-  { n: 2, title: "Cidade", desc: "Busca livre por texto: digite o nome da cidade desejada." },
-  { n: 3, title: "Tipo de Queda", desc: "Filtra por categoria de causa: Todos, Energia, Sinal ou Outro." },
-  { n: 4, title: "OLT", desc: "Seleção da central óptica específica, também com busca por texto entre centenas de equipamentos." },
-  { n: 5, title: "Período", desc: "No lado direito, atalhos rápidos para os últimos 3, 7, 15 ou 30 dias." },
-];
-
-const kpis = [
-  { label: "Clientes Afetados", desc: "Clientes impactados por quedas consideradas massivas. Ao passar o mouse no ícone de informação, o sistema explica que só entram nessa conta ocorrências que afetaram 3 ou mais clientes na mesma combinação de estado, cidade, OLT e rua." },
-  { label: "Total de Quedas", desc: "Número de eventos de queda massiva registrados, seguindo o mesmo critério acima." },
-  { label: "Quedas por Sinal", desc: "Quantas dessas quedas foram causadas por problema de sinal óptico." },
-  { label: "Quedas por Energia", desc: "Quantas foram causadas por falta de energia no equipamento do cliente." },
-  { label: "Cidades Afetadas", desc: "Abrangência geográfica do problema em número de cidades." },
-  { label: "Ruas Afetadas", desc: "Abrangência geográfica do problema em número de ruas." },
-];
-
-const graficos = [
-  {
-    title: "Quedas por Estado",
-    desc: "Gráfico de barras comparando o volume de quedas entre todos os estados. Importante: esse gráfico sempre mostra o total geral, ignorando os filtros aplicados — funciona como uma \"foto\" de contexto nacional.",
-  },
-  {
-    title: "Linha do Tempo",
-    desc: "Gráfico de linha com a quantidade de quedas agregadas por hora, permitindo enxergar picos e padrões ao longo do período selecionado.",
-  },
-];
-
-const colunas = [
-  "Clientes afetados",
-  "Data/hora",
-  "UF",
-  "Cidade",
-  "OLT",
-  "Rua",
-  "NAP",
-  "Código do imóvel",
-  "Tipo de queda (código e descrição técnica da causa)",
-  "Ação \"Ver\"",
-];
-
-const recursosTabela = [
-  { title: "Busca independente", desc: "Pesquise por Rua ou por NAP (identificador da caixa de distribuição óptica)." },
-  { title: "Ordenação por coluna", desc: "Clique nas setinhas ao lado de \"Clientes Afetados\" e \"Quando\" para reordenar." },
-  { title: "Paginação configurável", desc: "Escolha 5, 10, 20, 50, 100 ou 200 linhas por página e navegue entre as páginas." },
-  { title: "Botão Download", desc: "Exporta os dados filtrados da tabela para um arquivo, útil para relatórios externos." },
-];
-
-const fluxo = [
-  "Escolha o período de análise (3, 7, 15 ou 30 dias).",
-  "Combine os filtros de UF, Cidade, Tipo de Queda e OLT conforme a investigação.",
-  "Leia os seis indicadores e o destaque do \"Pico do Período\" para priorizar o incidente mais crítico.",
-  "Use os gráficos para entender a distribuição por estado e os picos por hora.",
-  "Localize o evento na tabela usando a busca por Rua ou NAP e a ordenação.",
-  "Clique em \"Ver\" para abrir o detalhe do evento e a lista de clientes impactados.",
-  "Use \"Conectar\" para abrir o Dashboard do cliente e iniciar o diagnóstico remoto.",
-];
-
 export default function MonitoramentoQuedasGpon() {
   const { t } = useTranslation();
+
+  const filtros = [
+    { n: 1, title: t('gpon360.filter1Title'), desc: t('gpon360.filter1Desc') },
+    { n: 2, title: t('gpon360.filter2Title'), desc: t('gpon360.filter2Desc') },
+    { n: 3, title: t('gpon360.filter3Title'), desc: t('gpon360.filter3Desc') },
+    { n: 4, title: t('gpon360.filter4Title'), desc: t('gpon360.filter4Desc') },
+    { n: 5, title: t('gpon360.filter5Title'), desc: t('gpon360.filter5Desc') },
+  ];
+
+  const kpis = [
+    { label: t('gpon360.kpiAffectedClients'), desc: t('gpon360.kpiAffectedClientsDesc') },
+    { label: t('gpon360.kpiTotalFalls'), desc: t('gpon360.kpiTotalFallsDesc') },
+    { label: t('gpon360.kpiSignalFalls'), desc: t('gpon360.kpiSignalFallsDesc') },
+    { label: t('gpon360.kpiPowerFalls'), desc: t('gpon360.kpiPowerFallsDesc') },
+    { label: t('gpon360.kpiAffectedCities'), desc: t('gpon360.kpiAffectedCitiesDesc') },
+    { label: t('gpon360.kpiAffectedStreets'), desc: t('gpon360.kpiAffectedStreetsDesc') },
+  ];
+
+  const graficos = [
+    { title: t('gpon360.chart1Title'), desc: t('gpon360.chart1Desc') },
+    { title: t('gpon360.chart2Title'), desc: t('gpon360.chart2Desc') },
+  ];
+
+  const colunas = [
+    t('gpon360.fallsTableCol1'),
+    t('gpon360.fallsTableCol2'),
+    t('gpon360.fallsTableCol3'),
+    t('gpon360.fallsTableCol4'),
+    t('gpon360.fallsTableCol5'),
+    t('gpon360.fallsTableCol6'),
+    t('gpon360.fallsTableCol7'),
+    t('gpon360.fallsTableCol8'),
+    t('gpon360.fallsTableCol9'),
+    t('gpon360.fallsTableCol10'),
+  ];
+
+  const recursosTabela = [
+    { title: t('gpon360.fallsRes1Title'), desc: t('gpon360.fallsRes1Desc') },
+    { title: t('gpon360.fallsRes2Title'), desc: t('gpon360.fallsRes2Desc') },
+    { title: t('gpon360.fallsRes3Title'), desc: t('gpon360.fallsRes3Desc') },
+    { title: t('gpon360.fallsRes4Title'), desc: t('gpon360.fallsRes4Desc') },
+  ];
+
   return (
     <GponDocPage
       title={t("gpon360.fallMonitoring")}
@@ -88,30 +73,19 @@ export default function MonitoramentoQuedasGpon() {
           <h2 className="text-xl font-semibold text-foreground">{t("common.overview")}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            A tela <strong>Monitoramento de Quedas</strong> é o painel de controle onde você acompanha, em tempo quase
-            real, todas as quedas de conexão que estão acontecendo na rede GPON da Claro. Ela mostra o cenário atual de
-            forma visual (números e gráficos) e também permite investigar cada queda em detalhes, chegando até o cliente
-            afetado.
-          </p>
-          <p>
-            É a ferramenta ideal para responder rapidamente perguntas como "onde estão os problemas agora?", "qual
-            bairro/rua está mais afetado?" e "quais clientes específicos foram impactados?".
-          </p>
-          <p>
-            Você a encontra no menu lateral esquerdo, na opção <strong>Monitoramento de Quedas</strong> (ícone de
-            tomada/energia desligada).
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.fallOverview1') }} />
+          <p>{t('gpon360.fallOverview2')}</p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.fallOverview3') }} />
         </div>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Filter className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Filtros de busca</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.searchFilters')}</h2>
         </div>
         <p className="text-muted-foreground mb-4">
-          No topo da tela você encontra quatro filtros que podem ser combinados livremente, além do seletor de período:
+          {t('gpon360.searchFiltersIntro')}
         </p>
         <div className="space-y-3">
           {filtros.map((item) => (
@@ -127,19 +101,16 @@ export default function MonitoramentoQuedasGpon() {
           ))}
         </div>
         <div className="mt-4 bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
-          <p className="text-sm text-amber-800 dark:text-amber-200">
-            <strong>Atenção:</strong> sempre que você muda um filtro ou o período, todos os números e gráficos da tela
-            são recalculados automaticamente. Isso pode levar alguns segundos, já que envolve uma base grande de dados.
-          </p>
+          <p className="text-sm text-amber-800 dark:text-amber-200" dangerouslySetInnerHTML={{ __html: t('gpon360.filterWarning') }} />
         </div>
         <figure className="mt-6">
           <img
             src={monitoramentoQuedasFiltros.url}
-            alt="Interface de filtros do Monitoramento de Quedas mostrando UF, Cidade, Tipo de Queda, OLT e período"
+            alt={t('gpon360.filterImageAlt')}
             className="w-full rounded-lg border border-border"
           />
           <figcaption className="mt-2 text-center text-xs text-muted-foreground">
-            Filtros disponíveis no topo da tela de Monitoramento de Quedas.
+            {t('gpon360.filterImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -147,10 +118,10 @@ export default function MonitoramentoQuedasGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <LayoutGrid className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Indicadores principais (cards)</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.kpiCardsTitle')}</h2>
         </div>
         <p className="text-muted-foreground mb-4">
-          Logo abaixo dos filtros, seis cartões resumem a situação do período/filtro selecionado:
+          {t('gpon360.kpiIntro2')}
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {kpis.map((kpi) => (
@@ -162,19 +133,17 @@ export default function MonitoramentoQuedasGpon() {
         </div>
         <div className="mt-4 rounded-lg border border-destructive/30 bg-destructive/10 p-4">
           <p className="text-sm text-foreground">
-            <strong>Pico do Período:</strong> logo abaixo dos cards, um destaque em vermelho mostra a maior ocorrência
-            isolada — com localização, data/hora e quantidade de clientes atingidos — ajudando a identificar rapidamente
-            o incidente mais crítico.
+            <strong>{t('gpon360.kpiPeakTitle')}:</strong> {t('gpon360.kpiPeakDesc')}
           </p>
         </div>
         <figure className="mt-6">
           <img
             src={monitoramentoQuedasKpis.url}
-            alt="Cards de indicadores do Monitoramento de Quedas com clientes afetados, total de quedas, quedas por sinal, energia, cidades e ruas afetadas"
+            alt={t('gpon360.kpiImageAlt')}
             className="w-full rounded-lg border border-border"
           />
           <figcaption className="mt-2 text-center text-xs text-muted-foreground">
-            Indicadores principais e destaque do pico do período.
+            {t('gpon360.kpiImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -182,7 +151,7 @@ export default function MonitoramentoQuedasGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <BarChart3 className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Gráficos</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.chartsTitle')}</h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {graficos.map((g) => (
@@ -195,11 +164,11 @@ export default function MonitoramentoQuedasGpon() {
         <figure className="mt-6">
           <img
             src={monitoramentoQuedasGraficos.url}
-            alt="Gráficos de Quedas por Estado e Linha do Tempo do Monitoramento de Quedas"
+            alt={t('gpon360.chartImageAlt')}
             className="w-full rounded-lg border border-border"
           />
           <figcaption className="mt-2 text-center text-xs text-muted-foreground">
-            Comparativo por estado e evolução temporal das quedas.
+            {t('gpon360.chartImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -207,10 +176,10 @@ export default function MonitoramentoQuedasGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Table2 className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Tabela "Quedas de Conexão GPON"</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.fallsTableTitle')}</h2>
         </div>
         <p className="text-muted-foreground mb-4">
-          Esta é a lista detalhada, evento a evento, com as seguintes colunas:
+          {t('gpon360.fallsTableIntro')}
         </p>
         <ul className="mb-6 grid gap-2 sm:grid-cols-2">
           {colunas.map((c) => (
@@ -220,7 +189,7 @@ export default function MonitoramentoQuedasGpon() {
             </li>
           ))}
         </ul>
-        <h3 className="mb-3 font-semibold text-foreground">Recursos disponíveis na tabela</h3>
+        <h3 className="mb-3 font-semibold text-foreground">{t('gpon360.fallsTableResources')}</h3>
         <div className="grid gap-4 md:grid-cols-2">
           {recursosTabela.map((r) => (
             <div key={r.title} className="p-4 rounded-lg border border-border bg-muted/50">
@@ -232,11 +201,11 @@ export default function MonitoramentoQuedasGpon() {
         <figure className="mt-6">
           <img
             src={monitoramentoQuedasTabela.url}
-            alt="Tabela de Quedas de Conexão GPON com filtros por Rua e NAP"
+            alt={t('gpon360.fallsTableImageAlt')}
             className="w-full rounded-lg border border-border"
           />
           <figcaption className="mt-2 text-center text-xs text-muted-foreground">
-            Visualização detalhada da tabela de quedas de conexão GPON.
+            {t('gpon360.fallsTableImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -244,30 +213,20 @@ export default function MonitoramentoQuedasGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Eye className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Ação "Ver" — investigação detalhada</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.fallDetailTitle')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            Ao clicar em <strong>Ver</strong> em qualquer linha da tabela, a tela se transforma em uma visão focada
-            naquele evento específico (rua, cidade e horário), mostrando um resumo — clientes afetados, total de quedas,
-            quedas por sinal e por energia — e uma lista com cada cliente individualmente impactado: contrato, endereço
-            MAC do equipamento, endereço, modelo do terminal (ONU/roteador) e quantas quedas aquele cliente específico
-            teve.
-          </p>
-          <p>
-            Nessa lista existe ainda o botão <strong>Conectar</strong>, que abre em uma nova aba o Dashboard daquele
-            cliente, permitindo iniciar um diagnóstico remoto direto no equipamento dele — uma ponte entre o
-            monitoramento macro e o atendimento individual.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.fallDetailDesc1') }} />
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.fallDetailDesc2') }} />
         </div>
         <figure className="mt-6">
           <img
             src={monitoramentoQuedasVer.url}
-            alt="Tela de detalhe da ação Ver com resumo e clientes afetados"
+            alt={t('gpon360.fallDetailImageAlt')}
             className="w-full rounded-lg border border-border"
           />
           <figcaption className="mt-2 text-center text-xs text-muted-foreground">
-            Visualização detalhada após clicar em Ver em um evento de queda.
+            {t('gpon360.fallDetailImageCaption')}
           </figcaption>
         </figure>
       </section>
@@ -275,10 +234,18 @@ export default function MonitoramentoQuedasGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Route className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Resumo do fluxo de uso recomendado</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.fallFlowTitle')}</h2>
         </div>
         <ol className="space-y-3">
-          {fluxo.map((passo, i) => (
+          {[
+            t('gpon360.fallFluxoStep1'),
+            t('gpon360.fallFluxoStep2'),
+            t('gpon360.fallFluxoStep3'),
+            t('gpon360.fallFluxoStep4'),
+            t('gpon360.fallFluxoStep5'),
+            t('gpon360.fallFluxoStep6'),
+            t('gpon360.fallFluxoStep7'),
+          ].map((passo, i) => (
             <li key={passo} className="flex items-start gap-3">
               <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
                 {i + 1}
@@ -288,9 +255,7 @@ export default function MonitoramentoQuedasGpon() {
           ))}
         </ol>
         <p className="mt-4 text-sm text-muted-foreground">
-          Na prática, essa tela ajuda equipes de operação e suporte a identificar rapidamente regiões com problemas de
-          rede, entender se a causa predominante é energia ou sinal óptico, priorizar atendimento em cima do "pico do
-          período" e navegar do problema geral até o cliente específico afetado sem precisar trocar de sistema.
+          {t('gpon360.fallOutro')}
         </p>
       </section>
     </GponDocPage>
