@@ -1,11 +1,12 @@
 import {
-  ScrollText,
+  SlidersHorizontal,
   Target,
+  ScrollText,
+  ShieldCheck,
+  History,
   Filter,
   Table2,
   Download,
-  ShieldCheck,
-  History,
   UserSearch,
   AlertCircle,
   Lightbulb,
@@ -17,42 +18,31 @@ import auditoriaTabelaResultadosImg from "@/assets/auditoria-tabela-resultados.p
 
 
 
-const operacoesExemplo = [
-  "Buscar por Clientes",
-  "Conectar Cliente",
-  "Pesquisar Cliente por Mac",
-  "Ver Histórico de QoS de Acesso",
-];
-
-const colunasTabela = [
-  {
-    title: "Usuário",
-    desc: "Nome da pessoa que realizou a ação dentro da plataforma.",
-  },
-  {
-    title: "Email",
-    desc: "Endereço de e-mail vinculado ao usuário que executou a operação.",
-  },
-  {
-    title: "Operação",
-    desc: "Nome da ação executada (por exemplo, busca por clientes ou conexão) junto com os parâmetros técnicos utilizados, como código da cidade, número de contrato, endereço MAC ou datas pesquisadas.",
-  },
-  {
-    title: "Data",
-    desc: "Data e hora exatas em que a ação foi registrada.",
-  },
-];
-
-const passoAPasso = [
-  "Certifique-se de que os campos Período e Até estejam preenchidos (ambos são obrigatórios).",
-  "Digite o nome do usuário em Nome do usuário para investigar as ações de uma pessoa específica.",
-  "Use o campo Operação para filtrar por um tipo de ação, como Conectar Cliente.",
-  "Combine filtros (e-mail, tipo de operação e datas) para resultados mais precisos.",
-  "Clique em Buscar para executar a consulta. Use Limpar para resetar os filtros.",
-];
-
 export default function AuditoriaGpon() {
   const { t } = useTranslation();
+
+  const operacoesExemplo = [
+    t('gpon360.auditOp1'),
+    t('gpon360.auditOp2'),
+    t('gpon360.auditOp3'),
+    t('gpon360.auditOp4'),
+  ];
+
+  const colunasTabela = [
+    { title: t('gpon360.auditColUser'), desc: t('gpon360.auditColUserDesc') },
+    { title: t('gpon360.auditColEmail'), desc: t('gpon360.auditColEmailDesc') },
+    { title: t('gpon360.auditColOperation'), desc: t('gpon360.auditColOperationDesc') },
+    { title: t('gpon360.auditColDate'), desc: t('gpon360.auditColDateDesc') },
+  ];
+
+  const passoAPasso = [
+    t('gpon360.auditStep1'),
+    t('gpon360.auditStep2'),
+    t('gpon360.auditStep3'),
+    t('gpon360.auditStep4'),
+    t('gpon360.auditStep5'),
+  ];
+
   return (
     <GponDocPage
       title={t("gpon360.audit")}
@@ -65,80 +55,55 @@ export default function AuditoriaGpon() {
           <h2 className="text-xl font-semibold text-foreground">{t("common.whatIs")}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            A tela <strong>Audit Log</strong>, acessível pelo menu lateral do sistema GPON (ícone de documento/retrato),
-            funciona como o registro histórico de todas as ações realizadas pelos usuários dentro da plataforma. É uma
-            espécie de "diário de bordo" do sistema: cada consulta, busca ou operação feita por qualquer pessoa do time fica
-            registrada aqui, com data, hora, autor e detalhes da ação executada.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.auditWhatIs') }} />
         </div>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <ShieldCheck className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Para que ela serve</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.auditPurposeTitle')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            Essa tela existe para dar <strong>transparência e rastreabilidade</strong> às operações do sistema. Ela permite
-            que a equipe (geralmente supervisores, segurança ou suporte) consiga responder perguntas como:
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.auditPurposeDesc') }} />
           <ul className="list-disc space-y-1 pl-5">
-            <li>"Quem fez essa consulta?"</li>
-            <li>"Quando esse cliente foi pesquisado?"</li>
-            <li>"Quais operações um determinado usuário realizou hoje?"</li>
+            <li>{t('gpon360.auditPurposeQ1')}</li>
+            <li>{t('gpon360.auditPurposeQ2')}</li>
+            <li>{t('gpon360.auditPurposeQ3')}</li>
           </ul>
-          <p>
-            É uma ferramenta essencial de auditoria e conformidade, muito comum em sistemas que lidam com dados sensíveis de
-            clientes.
-          </p>
+          <p>{t('gpon360.auditPurposeOutro')}</p>
         </div>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <History className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Como a tela está organizada</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.auditScreenTitle')}</h2>
         </div>
         <div className="space-y-6 text-muted-foreground">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Filter className="h-4 w-4 text-primary" />
-              <h3 className="font-semibold text-foreground">1. Cartão Filtros</h3>
+              <h3 className="font-semibold text-foreground">{t('gpon360.auditFilterTitle')}</h3>
             </div>
-            <p>
-              No topo da página fica o cartão de filtros, onde é possível refinar a pesquisa por{" "}
-              <strong>nome do usuário</strong>, <strong>e-mail</strong>, <strong>tipo de operação</strong> e um intervalo de
-              datas (campos <strong>Período</strong> e <strong>Até</strong>). Há ainda a opção{" "}
-              <strong>"Filtrar log mais recente por usuário"</strong>, que, quando marcada, provavelmente traz apenas o
-              registro mais recente de cada usuário, em vez de todo o histórico. Ao lado dos filtros ficam os botões{" "}
-              <strong>Buscar</strong>, que executa a consulta, e <strong>Limpar</strong>, que reseta todos os campos
-              preenchidos.
-            </p>
-            <p className="mt-2">
-              <strong>Importante:</strong> o preenchimento das duas datas (início e fim do período) é obrigatório para
-              realizar qualquer busca. Se algum dos campos ficar vazio, o sistema exibe o aviso{" "}
-              <em>"Ambas as datas devem ser preenchidas."</em> e a consulta não é executada.
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: t('gpon360.auditFilterDesc') }} />
+            <p className="mt-2" dangerouslySetInnerHTML={{ __html: t('gpon360.auditFilterImportant') }} />
           </div>
 
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Table2 className="h-4 w-4 text-primary" />
-              <h3 className="font-semibold text-foreground">2. Tabela de resultados</h3>
+              <h3 className="font-semibold text-foreground">{t('gpon360.auditTableTitle')}</h3>
             </div>
             <p>
-              O segundo bloco exibe a tabela de resultados com as colunas principais. A coluna{" "}
-              <strong>Operação</strong> é especialmente detalhada: além do nome da ação (como{" "}
+              {t('gpon360.auditTableDesc')}{" "}
               {operacoesExemplo.map((op, i) => (
                 <span key={op}>
                   <em>{op}</em>
                   {i < operacoesExemplo.length - 1 ? ", " : ""}
                 </span>
               ))}
-              ), ela também mostra os parâmetros técnicos usados naquela consulta, como código da cidade, número de
-              contrato, endereço MAC ou datas pesquisadas.
+              {t('gpon360.auditTableDescEnd')}
             </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {colunasTabela.map((col) => (
@@ -152,12 +117,12 @@ export default function AuditoriaGpon() {
             <figure className="mt-6 overflow-hidden rounded-lg border border-border">
               <img
                 src={auditoriaFiltrosImg.url}
-                alt="Cartão de filtros da tela Audit Log com campos de nome do usuário, e-mail, operação e intervalo de datas"
+                alt={t('gpon360.auditFilterImageAlt')}
                 className="w-full"
                 loading="lazy"
               />
               <figcaption className="border-t border-border bg-background px-4 py-2 text-center text-sm text-muted-foreground">
-                Cartão de filtros da tela Audit Log
+                {t('gpon360.auditFilterImageCaption')}
               </figcaption>
             </figure>
 
@@ -168,29 +133,21 @@ export default function AuditoriaGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Download className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Recursos disponíveis</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.auditResourcesTitle')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            Logo acima da tabela fica o botão <strong>Exportar CSV</strong>, que permite baixar os registros filtrados em
-            uma planilha. A tabela também conta com <strong>paginação</strong> na parte inferior, com setas para avançar ou
-            voltar páginas e um seletor de "Itens por página", com opções de 5, 10, 20 ou 50 registros por vez — útil
-            dependendo de quantos dados você precisa visualizar de uma vez.
-          </p>
-          <p>
-            Por padrão, a tela carrega os registros das últimas 24 horas, mas o volume total de dados é grande (o sistema já
-            acumula milhares de registros), então os filtros são fundamentais para encontrar rapidamente o que você procura.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.auditResources1') }} />
+          <p>{t('gpon360.auditResources2')}</p>
 
           <figure className="mt-6 overflow-hidden rounded-lg border border-border">
             <img
               src={auditoriaTabelaResultadosImg.url}
-              alt="Tabela de resultados do Audit Log com botão Exportar CSV, colunas Usuário, Email, Operação e Data, e paginação"
+              alt={t('gpon360.auditResourceImageAlt')}
               className="w-full"
               loading="lazy"
             />
             <figcaption className="border-t border-border bg-background px-4 py-2 text-center text-sm text-muted-foreground">
-              Tabela de resultados do Audit Log com exportação e paginação
+              {t('gpon360.auditResourceImageCaption')}
             </figcaption>
           </figure>
 
@@ -200,7 +157,7 @@ export default function AuditoriaGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <UserSearch className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Como usar — passo a passo</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.auditHowToTitle')}</h2>
         </div>
         <ol className="space-y-2 text-muted-foreground">
           {passoAPasso.map((passo, i) => (
@@ -217,31 +174,20 @@ export default function AuditoriaGpon() {
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <AlertCircle className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">{t('common.whatIs')}</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.auditInferredTitle')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            Pela riqueza de detalhes técnicos registrados (endereços MAC, números de contrato, códigos de cidade, seriais de
-            equipamentos), essa tela parece capturar automaticamente cada chamada relevante feita nas demais áreas do sistema
-            GPON, como Clientes, Monitoramento de Sinal e Performance. Ou seja, o Audit Log não é uma tela onde se cadastra
-            nada manualmente — ela é alimentada de forma automática pelo próprio sistema, servindo puramente como um painel
-            de consulta e exportação de histórico.
-          </p>
+          <p>{t('gpon360.auditInferredDesc')}</p>
         </div>
       </section>
 
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <div className="flex items-center gap-3 mb-4">
           <Lightbulb className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">Dica rápida para o time</h2>
+          <h2 className="text-xl font-semibold text-foreground">{t('gpon360.auditTipTitle')}</h2>
         </div>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            Se você já sabe o nome ou e-mail da pessoa que deseja investigar, vale usar a opção{" "}
-            <strong>"Filtrar log mais recente por usuário"</strong> para ir direto à última ação registrada, economizando tempo
-            em vez de navegar por várias páginas de resultados. E lembre-se sempre de ajustar o período de datas antes de
-            buscar, já que ele é obrigatório e vem limitado às últimas 24 horas por padrão.
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('gpon360.auditTipDesc') }} />
         </div>
       </section>
     </GponDocPage>
