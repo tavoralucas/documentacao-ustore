@@ -96,7 +96,7 @@ export default function AuditoriaGpon() {
               <h3 className="font-semibold text-foreground">{t('gpon360.auditTableTitle')}</h3>
             </div>
             <p>
-              {t('gpon360.auditTableDesc')}{" "}
+              <span dangerouslySetInnerHTML={{ __html: t('gpon360.auditTableDesc') }} />{" "}
               {operacoesExemplo.map((op, i) => (
                 <span key={op}>
                   <em>{op}</em>
