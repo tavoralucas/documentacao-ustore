@@ -10,6 +10,8 @@ import {
   FileBarChart,
   SlidersHorizontal,
   ScrollText,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
 
