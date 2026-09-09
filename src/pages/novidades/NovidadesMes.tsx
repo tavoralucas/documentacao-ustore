@@ -51,7 +51,7 @@ export default function NovidadesMes() {
           {mes.mes} de {mes.ano}
         </h1>
         <p className="mt-2 text-muted-foreground">
-          {t('novidades.description')}
+          {mes.release ? [mes.release, mes.periodo].filter(Boolean).join(" · ") : t('novidades.description')}
         </p>
       </header>
 
@@ -73,12 +73,20 @@ export default function NovidadesMes() {
             <li key={item.id} className="relative">
               <span className="absolute -left-[37px] flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-background" />
               <div className="rounded-lg border bg-card p-5 shadow-sm">
-                <div className="mb-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  {formatarData(item.data)}
+                <div className="mb-1 flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  {!mes.periodo && <span>{formatarData(item.data)}</span>}
+                  {item.categoria && (
+                    <Badge variant={item.categoria === "Nova funcionalidade" ? "default" : "secondary"}>
+                      {item.categoria}
+                    </Badge>
+                  )}
                 </div>
-                <h3 className="mb-3 text-lg font-semibold text-foreground">
+                <h3 className="mb-1 text-lg font-semibold text-foreground">
                   {item.titulo}
                 </h3>
+                {item.resumo && (
+                  <p className="mb-3 text-sm font-medium text-foreground">{item.resumo}</p>
+                )}
                 <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
                   {item.descricao.split("\n\n").map((p, i) => (
                     <p key={i}>{p}</p>
