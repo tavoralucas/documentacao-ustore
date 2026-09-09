@@ -42,7 +42,22 @@ export default function Gpon360() {
         </div>
       </div>
 
+      <Link
+        to="/gpon-360/novidades"
+        className="group flex items-center gap-4 rounded-xl border-2 border-dashed border-primary/40 bg-primary/5 p-5 transition-colors hover:bg-primary/10"
+      >
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <Sparkles className="h-5 w-5" />
+        </div>
+        <div className="flex-1">
+          <h3 className="font-semibold text-foreground">{t("common.novidades")}</h3>
+          <p className="text-sm text-muted-foreground">{t("common.novidadesBanner")}</p>
+        </div>
+        <ArrowRight className="h-5 w-5 text-primary transition-transform group-hover:translate-x-1" />
+      </Link>
+
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
         {docTopics.map(({ title, icon: Icon, route, description }) => (
           <Link
             key={title}
