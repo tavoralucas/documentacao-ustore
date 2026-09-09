@@ -32,7 +32,7 @@ export default function Novidades() {
                   {m.mes} de {m.ano}
                 </CardTitle>
                 <CardDescription>
-                  {t('novidades.description')}
+                  {m.release ? [m.release, m.periodo].filter(Boolean).join(" · ") : t('novidades.description')}
                 </CardDescription>
               </CardHeader>
               <CardContent>

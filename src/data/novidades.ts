@@ -5,6 +5,8 @@ export type Novidade = {
   id: string;
   data: string; // ISO date YYYY-MM-DD
   titulo: string;
+  resumo?: string;
+  categoria?: string;
   descricao: string;
   beneficios?: string[];
   imagem?: string;
@@ -17,6 +19,8 @@ export type NovidadesMes = {
   mes: string;
   ano: number;
   slug: string;
+  release?: string;
+  periodo?: string;
   itens: Novidade[];
 };
 
@@ -54,6 +58,55 @@ export const novidadesPorMes: NovidadesMes[] = [
         imagemAlt: "Tela de configuração do Custo Relacional de Produto",
         tags: ["Cost Management", "Financeiro", "Configuração"],
         link: { href: "/cost-management/custo-relacional-produto", label: "Ver documentação de Custo Relacional de Produto" },
+      },
+    ],
+  },
+  {
+    mes: "Julho",
+    ano: 2026,
+    slug: "2026-07",
+    release: "Billing — Novidades",
+    periodo: "16 a 31 de julho de 2026",
+    itens: [
+      {
+        id: "loaders-cards-tela-financeira",
+        data: "2026-07-16",
+        titulo: "Loaders nos cards da tela financeira",
+        categoria: "Melhoria",
+        resumo: "Indicadores de carregamento nos cards da tela financeira",
+        descricao:
+          "Agora, ao acessar a tela financeira, você vê um indicador visual de carregamento enquanto os dados são processados. Isso deixa claro que o sistema está trabalhando, evitando a sensação de que a tela travou.",
+        tags: ["Billing", "Financeiro", "UX"],
+      },
+      {
+        id: "tooltips-mobile-billing",
+        data: "2026-07-16",
+        titulo: "Tooltips ajustados na visualização mobile",
+        categoria: "Melhoria",
+        resumo: "Dicas de ícones (tooltips) agora aparecem corretamente no celular",
+        descricao:
+          "Ajustamos a exibição das dicas (tooltips) dos ícones ao acessar o billing pelo celular. As informações passam a aparecer completas e no lugar certo em telas como Histórico de Serviço, Tendência de Faturamento, Exportação de Relatórios, Custos de Budget e Conta Master.",
+        tags: ["Billing", "Mobile", "UX"],
+      },
+      {
+        id: "atualizacao-automatica-contrato",
+        data: "2026-07-16",
+        titulo: "Atualização automática ao selecionar contrato",
+        categoria: "Melhoria",
+        resumo: "Dados carregam automaticamente ao trocar de contrato",
+        descricao:
+          "Ao selecionar um contrato na barra lateral, os dados relacionados já são carregados automaticamente — sem precisar clicar em \"Filtrar\". A navegação fica mais rápida e fluida, principalmente para quem consulta vários contratos em sequência.",
+        tags: ["Billing", "Contratos", "Performance"],
+      },
+      {
+        id: "notificacao-bilhetagem-administradores",
+        data: "2026-07-16",
+        titulo: "Notificação de sucesso da bilhetagem para administradores",
+        categoria: "Nova funcionalidade",
+        resumo: "Administradores serão avisados quando a bilhetagem for concluída",
+        descricao:
+          "Administradores do contrato passarão a receber uma notificação automática sempre que a bilhetagem for concluída com sucesso. Isso reduz a necessidade de checar manualmente o sistema ou acionar o suporte para confirmar que o processo terminou.",
+        tags: ["Billing", "Bilhetagem", "Notificações"],
       },
     ],
   },
