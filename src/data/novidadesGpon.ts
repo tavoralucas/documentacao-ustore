@@ -34,6 +34,8 @@ export const novidadesGponPorMes: NovidadesMes[] = [
           "Ranking das operações mais executadas",
           "Top usuários da plataforma",
         ],
+        imagem: "/__l5e/assets-v1/9e97f384-39e6-46e6-bd67-7cb373ad8b4e/audit-log-indicadores-gpon.png",
+        imagemAlt: "Tela de Auditoria do GPON 360 com os indicadores e insights de uso no topo",
         tags: ["GPON 360", "Auditoria", "Analytics"],
       },
       {
