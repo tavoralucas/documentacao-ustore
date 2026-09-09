@@ -114,7 +114,7 @@ export const novidadesPorMes: NovidadesMes[] = [
     mes: "Agosto",
     ano: 2026,
     slug: "2026-08",
-    release: "Billing — Novidades",
+    release: "Novidades",
     periodo: "01 a 31 de agosto de 2026",
     itens: [
       {
