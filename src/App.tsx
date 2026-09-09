@@ -73,6 +73,8 @@ import {
 } from "./pages/gpon360/modulos";
 import Novidades from "./pages/Novidades";
 import NovidadesMes from "./pages/novidades/NovidadesMes";
+import NovidadesGpon from "./pages/gpon360/NovidadesGpon";
+import NovidadesGponMes from "./pages/gpon360/NovidadesGponMes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
