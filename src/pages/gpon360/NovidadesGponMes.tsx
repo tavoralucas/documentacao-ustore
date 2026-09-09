@@ -90,6 +90,14 @@ export default function NovidadesGponMes() {
                   ))}
                 </div>
               )}
+              {item.imagem && (
+                <img
+                  src={item.imagem}
+                  alt={item.imagemAlt ?? item.titulo}
+                  loading="lazy"
+                  className="mt-4 h-auto w-full rounded-md border"
+                />
+              )}
             </div>
           </li>
         ))}
