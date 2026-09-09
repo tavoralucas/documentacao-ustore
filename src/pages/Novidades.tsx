@@ -36,14 +36,12 @@ export default function Novidades() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">
-                    {m.itens.length} {m.itens.length === 1 ? "novidade" : "novidades"}
-                  </span>
-                  <span className="flex items-center gap-1 font-medium text-primary transition-transform group-hover:translate-x-0.5">
-                    {t('novidades.readMore')}
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
+                <div className="text-sm text-muted-foreground">
+                  {m.itens.length} {m.itens.length === 1 ? "novidade" : "novidades"}
+                </div>
+                <div className="mt-2 flex items-center gap-1 text-sm font-medium text-primary transition-transform group-hover:translate-x-0.5">
+                  {t('novidades.readMore')}
+                  <ArrowRight className="h-4 w-4" />
                 </div>
               </CardContent>
             </Card>
