@@ -80,6 +80,8 @@ export const novidadesGponPorMes: NovidadesMes[] = [
         resumo: "Filtros de OLT e Rua na busca de clientes",
         descricao:
           "Para facilitar a busca, a tela de Clientes ganhou dois novos filtros: OLT e Rua.\n\nAgora fica mais fácil segmentar e localizar clientes durante o atendimento e as consultas operacionais do dia a dia.",
+        imagem: "/__l5e/assets-v1/6bf646b5-eede-4d58-b76c-215ab0cc0a43/filtros-clientes-gpon.png",
+        imagemAlt: "Tela de Clientes do GPON 360 com os novos filtros de OLT e Rua",
         tags: ["GPON 360", "Clientes", "Filtros"],
       },
     ],
