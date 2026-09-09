@@ -73,6 +73,8 @@ import {
 } from "./pages/gpon360/modulos";
 import Novidades from "./pages/Novidades";
 import NovidadesMes from "./pages/novidades/NovidadesMes";
+import NovidadesGpon from "./pages/gpon360/NovidadesGpon";
+import NovidadesGponMes from "./pages/gpon360/NovidadesGponMes";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -153,6 +155,8 @@ const App = () => (
             <Route path="/gpon-360/auditoria" element={<AuditoriaGpon />} />
             <Route path="/novidades" element={<Novidades />} />
             <Route path="/novidades/:slug" element={<NovidadesMes />} />
+            <Route path="/gpon-360/novidades" element={<NovidadesGpon />} />
+            <Route path="/gpon-360/novidades/:slug" element={<NovidadesGponMes />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
