@@ -124,7 +124,7 @@ export const novidadesPorMes: NovidadesMes[] = [
         categoria: "Nova funcionalidade",
         resumo: "Uma única tela reúne os principais relatórios de faturamento",
         descricao:
-          "Agora você acessa em um só lugar os principais relatórios de faturamento — Tendência de Faturamento, Histórico de Serviço, Custo Cadenciado, Consolidado de Faturamento e Financeiro — já filtrados pelo contrato e período selecionados. Menos telas para navegar, mais visão consolidada do seu faturamento.",
+          "Agora você acessa em um só lugar os principais relatórios de faturamento — Tendência de Faturamento, Histórico de Serviço, Custo Cadenciado, Consolidado de Faturamento e Financeiro — já filtrados pelo contrato e período selecionados. Menos telas para navegar, mais visão consolidada do seu faturamento. Atualmente essa funcionalidade está disponível em ambiente caso haja solicitação, mas está ativa apenas para a versão anterior da interface do produto.",
         tags: ["Billing", "Dashboard", "Relatórios"],
       },
       {
@@ -154,7 +154,7 @@ export const novidadesPorMes: NovidadesMes[] = [
         categoria: "Melhoria",
         resumo: "Mais controle sobre as informações exibidas na fatura",
         descricao:
-          "Agora é possível configurar a exibição da cotação do dólar na tela financeira e na fatura. Contratos que preferirem uma visualização mais simplificada podem ocultar essas informações, sem qualquer impacto nos valores calculados da fatura.",
+          "Agora é possível configurar a exibição da cotação do dólar na tela financeira e na fatura. Contratos que preferirem uma visualização mais simplificada podem ocultar essas informações, sem qualquer impacto nos valores calculados da fatura. Esse controle está disponivel apenas no menu de configuração do ambiente cuja a interface antiga está disponível. Essa implementação partiu da necessidade de uso para ocultar valores disponiveis em tela para o usuário final.",
         tags: ["Billing", "Financeiro", "Configuração"],
       },
     ],
