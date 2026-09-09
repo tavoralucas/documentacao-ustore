@@ -74,14 +74,6 @@ export default function NovidadesGponMes() {
                   ))}
                 </ul>
               )}
-              {item.imagem && (
-                <img
-                  src={item.imagem}
-                  alt={item.imagemAlt ?? item.titulo}
-                  loading="lazy"
-                  className="mt-4 h-auto w-full rounded-md border"
-                />
-              )}
               {item.link && (
                 <div className="mt-4">
                   <Link to={item.link.href} className="text-sm font-medium text-primary hover:underline">
