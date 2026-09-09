@@ -68,6 +68,8 @@ export const novidadesGponPorMes: NovidadesMes[] = [
         resumo: "Detalhe da ocorrência com mais contexto sobre a queda",
         descricao:
           "As ocorrências no Monitor de Quedas agora trazem muito mais contexto. Ao abrir o detalhe de uma queda, você passa a visualizar data de retorno da conexão, NAP, código do imóvel e OLT.\n\nMais informação na tela significa menos tempo navegando entre sistemas para entender e agir sobre cada ocorrência.",
+        imagem: "/__l5e/assets-v1/757c5287-f542-462f-9640-7e173a2cb665/monitoramento-quedas-gpon.png",
+        imagemAlt: "Detalhe de uma ocorrência no Monitor de Quedas do GPON 360 com data de retorno, NAP, código do imóvel e OLT",
         tags: ["GPON 360", "Monitoramento de Quedas", "Operação"],
       },
       {
