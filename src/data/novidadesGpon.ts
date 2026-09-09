@@ -56,6 +56,8 @@ export const novidadesGponPorMes: NovidadesMes[] = [
         resumo: "Registros de clientes offline deixam de poluir os gráficos de sinal",
         descricao:
           "Ajustamos a timeline de Nível RX (Recepção) e Nível TX (Transmissão) no Monitor de Sinal para ignorar registros com valor -100, que representam clientes offline.\n\nO resultado é um histórico de sinal muito mais coerente e fácil de interpretar, sem picos artificiais distorcendo a análise.",
+        imagem: "/__l5e/assets-v1/bd3defea-8894-4dde-baa2-7b0cee7b02ae/timeline-monitor-sinal-gpon.png",
+        imagemAlt: "Timeline de Nível RX e Nível TX no Monitor de Sinal do GPON 360",
         tags: ["GPON 360", "Monitoramento de Sinal", "UX"],
       },
       {
