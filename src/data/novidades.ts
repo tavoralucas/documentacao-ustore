@@ -110,6 +110,55 @@ export const novidadesPorMes: NovidadesMes[] = [
       },
     ],
   },
+  {
+    mes: "Agosto",
+    ano: 2026,
+    slug: "2026-08",
+    release: "Billing — Novidades",
+    periodo: "01 a 31 de agosto de 2026",
+    itens: [
+      {
+        id: "novo-dashboard-billing",
+        data: "2026-08-01",
+        titulo: "Novo Dashboard de Billing",
+        categoria: "Nova funcionalidade",
+        resumo: "Uma única tela reúne os principais relatórios de faturamento",
+        descricao:
+          "Agora você acessa em um só lugar os principais relatórios de faturamento — Tendência de Faturamento, Histórico de Serviço, Custo Cadenciado, Consolidado de Faturamento e Financeiro — já filtrados pelo contrato e período selecionados. Menos telas para navegar, mais visão consolidada do seu faturamento.",
+        tags: ["Billing", "Dashboard", "Relatórios"],
+      },
+      {
+        id: "suporte-moeda-sol-peruano",
+        data: "2026-08-01",
+        titulo: "Suporte à moeda Sol Peruano (PEN)",
+        categoria: "Nova funcionalidade",
+        resumo: "Cotação em tempo real para clientes do Peru",
+        descricao:
+          "Clientes do Peru agora contam com suporte nativo à moeda local, o Sol Peruano (PEN), com cotação atualizada direto da fonte oficial do Banco Central de Reserva del Perú. Isso permite visualizar valores e conversões de forma mais precisa para essa região.",
+        tags: ["Billing", "Moedas", "Peru"],
+      },
+      {
+        id: "suporte-moeda-peso-argentino",
+        data: "2026-08-01",
+        titulo: "Suporte à moeda Peso Argentino (ARS)",
+        categoria: "Nova funcionalidade",
+        resumo: "Cotação em tempo real para clientes da Argentina",
+        descricao:
+          "Clientes da Argentina agora contam com suporte nativo à moeda local, o Peso Argentino (ARS), com cotação atualizada direto da fonte oficial do Banco Central da República Argentina. Isso permite visualizar valores e conversões de forma mais precisa para essa região.",
+        tags: ["Billing", "Moedas", "Argentina"],
+      },
+      {
+        id: "controle-exibicao-cotacao-dolar",
+        data: "2026-08-01",
+        titulo: "Controle de exibição da cotação do dólar",
+        categoria: "Melhoria",
+        resumo: "Mais controle sobre as informações exibidas na fatura",
+        descricao:
+          "Agora é possível configurar a exibição da cotação do dólar na tela financeira e na fatura. Contratos que preferirem uma visualização mais simplificada podem ocultar essas informações, sem qualquer impacto nos valores calculados da fatura.",
+        tags: ["Billing", "Financeiro", "Configuração"],
+      },
+    ],
+  },
 ];
 
 export function getNovidadesPorSlug(slug: string): NovidadesMes | undefined {
