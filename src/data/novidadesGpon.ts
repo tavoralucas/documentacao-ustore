@@ -17,7 +17,6 @@ export const novidadesGponPorMes: NovidadesMes[] = [
         descricao:
           "A tela de Report ganhou reforço: agora é possível baixar os arquivos com os clientes que tiveram o nome da rede alterado após uma queda de conexão, junto com os arquivos de traps correspondentes.\n\nIsso facilita a integração com outras ferramentas e o acompanhamento do que aconteceu com o cliente logo após a instabilidade, tudo em um só lugar.",
         tags: ["GPON 360", "Relatórios", "Integração"],
-        link: { href: "/gpon-360/relatorios", label: "Ver documentação de Relatórios" },
       },
       {
         id: "audit-log-indicadores-insights",
@@ -36,7 +35,6 @@ export const novidadesGponPorMes: NovidadesMes[] = [
           "Top usuários da plataforma",
         ],
         tags: ["GPON 360", "Auditoria", "Analytics"],
-        link: { href: "/gpon-360/auditoria", label: "Ver documentação de Auditoria" },
       },
       {
         id: "analise-tecnica-incidente-infraestrutura",
@@ -57,7 +55,6 @@ export const novidadesGponPorMes: NovidadesMes[] = [
         descricao:
           "Ajustamos a timeline de Nível RX (Recepção) e Nível TX (Transmissão) no Monitor de Sinal para ignorar registros com valor -100, que representam clientes offline.\n\nO resultado é um histórico de sinal muito mais coerente e fácil de interpretar, sem picos artificiais distorcendo a análise.",
         tags: ["GPON 360", "Monitoramento de Sinal", "UX"],
-        link: { href: "/gpon-360/monitoramento-sinal", label: "Ver documentação de Monitoramento de Sinal" },
       },
       {
         id: "mais-detalhes-monitoramento-quedas",
@@ -68,7 +65,6 @@ export const novidadesGponPorMes: NovidadesMes[] = [
         descricao:
           "As ocorrências no Monitor de Quedas agora trazem muito mais contexto. Ao abrir o detalhe de uma queda, você passa a visualizar data de retorno da conexão, NAP, código do imóvel e OLT.\n\nMais informação na tela significa menos tempo navegando entre sistemas para entender e agir sobre cada ocorrência.",
         tags: ["GPON 360", "Monitoramento de Quedas", "Operação"],
-        link: { href: "/gpon-360/monitoramento-quedas", label: "Ver documentação de Monitoramento de Quedas" },
       },
       {
         id: "novos-filtros-tela-clientes",
@@ -79,7 +75,6 @@ export const novidadesGponPorMes: NovidadesMes[] = [
         descricao:
           "Para facilitar a busca, a tela de Clientes ganhou dois novos filtros: OLT e Rua.\n\nAgora fica mais fácil segmentar e localizar clientes durante o atendimento e as consultas operacionais do dia a dia.",
         tags: ["GPON 360", "Clientes", "Filtros"],
-        link: { href: "/gpon-360/clientes", label: "Ver documentação de Clientes" },
       },
     ],
   },
