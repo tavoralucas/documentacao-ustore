@@ -65,8 +65,8 @@ export const novidadesPorMes: NovidadesMes[] = [
     mes: "Julho",
     ano: 2026,
     slug: "2026-07",
-    release: "Billing — Novidades",
-    periodo: "16 a 31 de julho de 2026",
+    release: "Novidades",
+    periodo: "01 a 31 de julho de 2026",
     itens: [
       {
         id: "loaders-cards-tela-financeira",
