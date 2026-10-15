@@ -1,16 +1,10 @@
-import { ArrowLeft, TrendingUp, AlertTriangle, BarChart3, Filter } from "lucide-react";
+import { ArrowLeft, TrendingUp, CalendarDays, BarChart3, LineChart, TrendingDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "@/hooks/useTranslation";
-import tendenciaFaturamentoFiltros from "@/assets/tendencia-faturamento-filtros.png";
-import tendenciaFaturamentoContrato from "@/assets/tendencia-faturamento-contrato.png";
-import tendenciaFaturamentoGrafico from "@/assets/tendencia-faturamento-grafico.png";
-import tendenciaFaturamentoProjecao from "@/assets/tendencia-faturamento-projecao.png";
-import tendenciaFaturamentoRecursoGrade from "@/assets/tendencia-faturamento-recurso-grade.png";
-import tendenciaFaturamentoRecursoLista from "@/assets/tendencia-faturamento-recurso-lista.png";
 
 export default function TendenciaFaturamentoCostManagement() {
-  const { t } = useTranslation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -24,7 +18,7 @@ export default function TendenciaFaturamentoCostManagement() {
 
       <div className="flex items-start gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 shrink-0">
-          <TrendingUp className="h-6 w-6 text-primary" />
+          <TrendingDown className="h-6 w-6 text-primary" />
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
@@ -37,146 +31,73 @@ export default function TendenciaFaturamentoCostManagement() {
         </div>
       </div>
 
-      {/* Visão Geral */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t('common.overview')}</h2>
-        <p className="text-muted-foreground mb-3">
-          {t('costManagement.tendenciaFaturamento.overviewText')}
-        </p>
-        <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800 text-sm">
-          <p className="text-blue-800 dark:text-blue-200">
-            {t('costManagement.tendenciaFaturamento.overviewGoal')}
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.tendenciaFaturamento.overviewSection")}</h2>
+        <div className="space-y-3 text-muted-foreground">
+          <p dangerouslySetInnerHTML={{ __html: t('costManagement.tendenciaFaturamento.overviewText') }} />
+          <p>
+            {t('costManagement.tendenciaFaturamento.overviewText2')}
           </p>
         </div>
       </section>
 
-      {/* Filtros */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <div className="flex items-center gap-3 mb-4">
-          <Filter className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">{t("costManagement.tendenciaFaturamento.filters")}</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <CalendarDays className="h-5 w-5 text-primary" />
+          {t('costManagement.tendenciaFaturamento.projectionsSection')}
+        </h2>
+        <div className="space-y-4">
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-2">{t("costManagement.tendenciaFaturamento.projectionShort")}</h3>
+            <p className="text-sm text-muted-foreground">
+              {t('costManagement.tendenciaFaturamento.projectionShortDesc')}
+            </p>
+          </div>
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-2">{t("costManagement.tendenciaFaturamento.projectionMedium")}</h3>
+            <p className="text-sm text-muted-foreground">
+              {t('costManagement.tendenciaFaturamento.projectionMediumDesc')}
+            </p>
+          </div>
+          <div className="p-4 rounded-lg border border-border bg-muted/50">
+            <h3 className="font-semibold text-foreground mb-2">{t("costManagement.tendenciaFaturamento.projectionLong")}</h3>
+            <p className="text-sm text-muted-foreground">
+              {t('costManagement.tendenciaFaturamento.projectionLongDesc')}
+            </p>
+          </div>
         </div>
-        <p className="text-muted-foreground">
-          {t('costManagement.tendenciaFaturamento.filtersDesc')}
-        </p>
-        <figure className="mt-4">
-          <img
-            src={tendenciaFaturamentoFiltros}
-            alt={t("costManagement.tendenciaFaturamento.filtrosAlt")}
-            className="w-full rounded-lg border border-border"
-          />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-            {t('costManagement.tendenciaFaturamento.filtrosAlt')}
-          </figcaption>
-        </figure>
       </section>
 
-      {/* Visão por Contrato */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.tendenciaFaturamento.contractView")}</h2>
-        <p className="text-muted-foreground mb-3">
-          {t('costManagement.tendenciaFaturamento.contractViewDesc')}
+        <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <LineChart className="h-5 w-5 text-primary" />
+          {t('costManagement.tendenciaFaturamento.chartSection')}
+        </h2>
+        <p className="text-muted-foreground mb-4">
+          {t('costManagement.tendenciaFaturamento.chartDesc')}
         </p>
-        <figure>
-          <img
-            src={tendenciaFaturamentoContrato}
-            alt={t("costManagement.tendenciaFaturamento.contratoAlt")}
-            className="w-full rounded-lg border border-border"
-          />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-            {t('costManagement.tendenciaFaturamento.contratoAlt')}
-          </figcaption>
-        </figure>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li>{t('costManagement.tendenciaFaturamento.chartHistorical')}</li>
+          <li>{t('costManagement.tendenciaFaturamento.chartProjected')}</li>
+          <li>{t('costManagement.tendenciaFaturamento.chartConfidence')}</li>
+          <li>{t('costManagement.tendenciaFaturamento.chartAnomalies')}</li>
+          <li>{t('costManagement.tendenciaFaturamento.chartTarget')}</li>
+        </ul>
       </section>
 
-      {/* Gráfico */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.tendenciaFaturamento.mainChart")}</h2>
-        <p className="text-muted-foreground mb-3">
-          {t('costManagement.tendenciaFaturamento.mainChartDesc')}
-        </p>
-        <figure>
-          <img
-            src={tendenciaFaturamentoGrafico}
-            alt={t("costManagement.tendenciaFaturamento.graficoAlt")}
-            className="w-full rounded-lg border border-border"
-          />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-            {t('costManagement.tendenciaFaturamento.graficoAlt')}
-          </figcaption>
-        </figure>
-      </section>
-
-      {/* Projeção */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.tendenciaFaturamento.costProjection")}</h2>
-        <p className="text-muted-foreground mb-3">
-          {t('costManagement.tendenciaFaturamento.costProjectionDesc')}
-        </p>
-        <figure>
-          <img
-            src={tendenciaFaturamentoProjecao}
-            alt={t("costManagement.tendenciaFaturamento.projecaoAlt")}
-            className="w-full rounded-lg border border-border"
-          />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-            {t('costManagement.tendenciaFaturamento.projecaoAlt')}
-          </figcaption>
-        </figure>
-      </section>
-
-      {/* Cards */}
-      <div className="grid gap-4 md:grid-cols-2">
-        <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-          <div className="flex items-center gap-3 mb-3">
-            <AlertTriangle className="h-5 w-5 text-primary" />
-            <h2 className="text-xl font-semibold text-foreground">{t("costManagement.tendenciaFaturamento.anomalyDetection")}</h2>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            {t('costManagement.tendenciaFaturamento.anomalyDetectionDesc')}
-          </p>
-        </section>
-        <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-          <div className="flex items-center gap-3 mb-3">
-            <BarChart3 className="h-5 w-5 text-primary" />
-            <h2 className="text-xl font-semibold text-foreground">{t("costManagement.tendenciaFaturamento.resourceReport")}</h2>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            {t('costManagement.tendenciaFaturamento.resourceReportDesc')}
-          </p>
-        </section>
-      </div>
-
-      {/* Imagens Grade e Lista */}
-      <div className="grid gap-4 md:grid-cols-2">
-        <figure className="rounded-xl border border-border bg-card p-3 shadow-sm">
-          <img
-            src={tendenciaFaturamentoRecursoGrade}
-            alt={t("costManagement.tendenciaFaturamento.gradeAlt")}
-            className="w-full rounded-lg border border-border"
-          />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-            {t('costManagement.tendenciaFaturamento.gradeAlt')}
-          </figcaption>
-        </figure>
-        <figure className="rounded-xl border border-border bg-card p-3 shadow-sm">
-          <img
-            src={tendenciaFaturamentoRecursoLista}
-            alt={t("costManagement.tendenciaFaturamento.listaAlt")}
-            className="w-full rounded-lg border border-border"
-          />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-            {t('costManagement.tendenciaFaturamento.listaAlt')}
-          </figcaption>
-        </figure>
-      </div>
-
-      {/* Fluxo */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.tendenciaFaturamento.usageFlow")}</h2>
-        <p className="text-muted-foreground">
-          {t('costManagement.tendenciaFaturamento.usageFlowSteps')}
-        </p>
+        <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <BarChart3 className="h-5 w-5 text-primary" />
+          {t('costManagement.tendenciaFaturamento.analysisFactors')}
+        </h2>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li>{t('costManagement.tendenciaFaturamento.factorHistorical')}</li>
+          <li>{t('costManagement.tendenciaFaturamento.factorSeasonality')}</li>
+          <li>{t('costManagement.tendenciaFaturamento.factorGrowth')}</li>
+          <li>{t('costManagement.tendenciaFaturamento.factorResources')}</li>
+          <li>{t('costManagement.tendenciaFaturamento.factorPricing')}</li>
+          <li>{t('costManagement.tendenciaFaturamento.factorContracts')}</li>
+        </ul>
       </section>
     </div>
   );

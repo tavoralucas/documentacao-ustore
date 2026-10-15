@@ -1,15 +1,10 @@
-import { ArrowLeft, History, DollarSign, AlertTriangle, Filter, BarChart3, Table } from "lucide-react";
-import historicoServicoFiltros from "@/assets/historico-servico-filtros.png";
-import historicoServicoIndicadores from "@/assets/historico-servico-indicadores.png";
-import historicoServicoGrafico from "@/assets/historico-servico-grafico.png";
-import historicoServicoTabela from "@/assets/historico-servico-tabela.png";
+import { ArrowLeft, History, Table2, BarChart3, Download, TrendingDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "@/hooks/useTranslation";
 
-
 export default function HistoricoServicoCostManagement() {
-  const { t } = useTranslation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
@@ -23,7 +18,7 @@ export default function HistoricoServicoCostManagement() {
 
       <div className="flex items-start gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 shrink-0">
-          <History className="h-6 w-6 text-primary" />
+          <TrendingDown className="h-6 w-6 text-primary" />
         </div>
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">
@@ -36,109 +31,60 @@ export default function HistoricoServicoCostManagement() {
         </div>
       </div>
 
-      {/* Visão Geral */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t('common.overview')}</h2>
-        <p className="text-muted-foreground mb-3">
-          {t('costManagement.historicoServico.overviewText')}
-        </p>
-        <div className="bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-200 dark:border-blue-800 text-sm">
-          <p className="text-blue-800 dark:text-blue-200">
-            {t('costManagement.historicoServico.overviewNote')}
+        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.historicoServico.overview")}</h2>
+        <div className="space-y-3 text-muted-foreground">
+          <p dangerouslySetInnerHTML={{ __html: t('costManagement.historicoServico.overviewText') }} />
+          <p>
+            {t('costManagement.historicoServico.overviewText2')}
           </p>
         </div>
       </section>
 
-      {/* Objetivo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.historicoServico.objective")}</h2>
-        <p className="text-muted-foreground">
-          {t('costManagement.historicoServico.personas')}
+        <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <Table2 className="h-5 w-5 text-primary" />
+          {t('costManagement.historicoServico.tableColumns')}
+        </h2>
+        <p className="text-muted-foreground mb-4">
+          {t('costManagement.historicoServico.tableColumnsDesc')}
         </p>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li>{t('costManagement.historicoServico.colRecurso')}</li>
+          <li>{t('costManagement.historicoServico.colProvider')}</li>
+          <li>{t('costManagement.historicoServico.colFamilia')}</li>
+          <li>{t('costManagement.historicoServico.colProduto')}</li>
+          <li>{t('costManagement.historicoServico.colVDC')}</li>
+          <li>{t('costManagement.historicoServico.colRegiao')}</li>
+          <li>{t('costManagement.historicoServico.colCredito')}</li>
+          <li>{t('costManagement.historicoServico.colCusto')}</li>
+          <li>{t('costManagement.historicoServico.colValor')}</li>
+        </ul>
       </section>
 
-      {/* Seletor de Contrato */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <div className="flex items-center gap-3 mb-3">
-          <Filter className="h-5 w-5 text-primary" />
-          <h2 className="text-xl font-semibold text-foreground">{t("costManagement.historicoServico.contractSelector")}</h2>
-        </div>
-        <p className="text-muted-foreground">
-          {t('costManagement.historicoServico.filterPanel')}
-        </p>
+        <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <BarChart3 className="h-5 w-5 text-primary" />
+          {t('costManagement.historicoServico.summaryPanel')}
+        </h2>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li>{t('costManagement.historicoServico.summaryTotalCost')}</li>
+          <li>{t('costManagement.historicoServico.summaryTotalCredits')}</li>
+          <li>{t('costManagement.historicoServico.summaryFinalValue')}</li>
+          <li>{t('costManagement.historicoServico.summaryPeriod')}</li>
+        </ul>
       </section>
 
-      <figure className="rounded-xl border border-border bg-card p-3 shadow-sm">
-        <img
-          src={historicoServicoFiltros}
-          alt={t("costManagement.historicoServico.filtrosAlt")}
-          className="w-full rounded-lg border border-border"
-        />
-        <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-          {t('costManagement.historicoServico.filtrosAlt')}
-        </figcaption>
-      </figure>
-
-      {/* Indicadores */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.historicoServico.indicators")}</h2>
-        <p className="text-muted-foreground mb-3">
-          {t('costManagement.historicoServico.indicatorsDesc')}
-        </p>
-        <figure>
-          <img
-            src={historicoServicoIndicadores}
-            alt={t("costManagement.historicoServico.indicadoresAlt")}
-            className="w-full rounded-lg border border-border"
-          />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-            {t('costManagement.historicoServico.indicadoresAlt')}
-          </figcaption>
-        </figure>
-      </section>
-
-      {/* Gráfico */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.historicoServico.chart")}</h2>
-        <p className="text-muted-foreground mb-3">
-          {t('costManagement.historicoServico.chartDesc')}
-        </p>
-        <figure>
-          <img
-            src={historicoServicoGrafico}
-            alt={t("costManagement.historicoServico.graficoAlt")}
-            className="w-full rounded-lg border border-border"
-          />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-            {t('costManagement.historicoServico.graficoAlt')}
-          </figcaption>
-        </figure>
-      </section>
-
-      {/* Tabela */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.historicoServico.table")}</h2>
-        <p className="text-muted-foreground mb-3">
-          {t('costManagement.historicoServico.tableDesc')}
-        </p>
-        <figure>
-          <img
-            src={historicoServicoTabela}
-            alt={t("costManagement.historicoServico.tabelaAlt")}
-            className="w-full rounded-lg border border-border"
-          />
-          <figcaption className="text-xs text-muted-foreground mt-2 text-center">
-            {t('costManagement.historicoServico.tabelaAlt')}
-          </figcaption>
-        </figure>
-      </section>
-
-      {/* Fluxo */}
-      <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.historicoServico.flowSteps")}</h2>
-        <p className="text-muted-foreground">
-          {t('costManagement.historicoServico.flowSteps')}
-        </p>
+        <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <Download className="h-5 w-5 text-primary" />
+          {t('costManagement.historicoServico.actions')}
+        </h2>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li>{t('costManagement.historicoServico.actionFilter')}</li>
+          <li>{t('costManagement.historicoServico.actionExport')}</li>
+          <li>{t('costManagement.historicoServico.actionDetails')}</li>
+        </ul>
       </section>
     </div>
   );

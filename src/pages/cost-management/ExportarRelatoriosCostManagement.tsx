@@ -33,7 +33,6 @@ export default function ExportarRelatoriosCostManagement() {
         </div>
       </div>
 
-      {/* Visão Geral */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.exportarRelatorios.overview")}</h2>
         <p className="text-muted-foreground">
@@ -47,7 +46,6 @@ export default function ExportarRelatoriosCostManagement() {
         className="w-full rounded-xl border border-border shadow-sm"
       />
 
-      {/* Campos Comuns */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.exportarRelatorios.commonFields")}</h2>
         <p className="text-muted-foreground">
@@ -55,15 +53,11 @@ export default function ExportarRelatoriosCostManagement() {
         </p>
       </section>
 
-      {/* Tipos de Relatório */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.exportarRelatorios.reportTypes")}</h2>
-        <p className="text-muted-foreground">
-          {t('costManagement.exportarRelatorios.reportTypesDesc')}
-        </p>
+        <p className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('costManagement.exportarRelatorios.reportTypesList') }} />
       </section>
 
-      {/* Validações */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.exportarRelatorios.validations")}</h2>
         <p className="text-muted-foreground">
@@ -71,7 +65,6 @@ export default function ExportarRelatoriosCostManagement() {
         </p>
       </section>
 
-      {/* Processamento Assíncrono */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.exportarRelatorios.asyncProcessing")}</h2>
         <p className="text-muted-foreground">
@@ -79,7 +72,6 @@ export default function ExportarRelatoriosCostManagement() {
         </p>
       </section>
 
-      {/* Histórico */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.exportarRelatorios.exportHistory")}</h2>
         <p className="text-muted-foreground">
@@ -87,7 +79,6 @@ export default function ExportarRelatoriosCostManagement() {
         </p>
       </section>
 
-      {/* Fluxo */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.exportarRelatorios.mainFlow")}</h2>
         <p className="text-muted-foreground">

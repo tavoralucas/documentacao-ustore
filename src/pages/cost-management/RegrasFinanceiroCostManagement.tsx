@@ -8,7 +8,6 @@ export default function RegrasFinanceiroCostManagement() {
 
   return (
     <div className="flex flex-col gap-8 p-6 max-w-4xl mx-auto">
-      {/* Back button */}
       <button
         onClick={() => navigate("/cost-management")}
         className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors w-fit"
@@ -17,7 +16,6 @@ export default function RegrasFinanceiroCostManagement() {
         {t('common.backTo', { module: t('costManagement.title') })}
       </button>
 
-      {/* Header */}
       <div className="flex items-start gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 shrink-0">
           <TrendingDown className="h-6 w-6 text-primary" />
@@ -33,20 +31,16 @@ export default function RegrasFinanceiroCostManagement() {
         </div>
       </div>
 
-      {/* Acessando */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.regrasFinanceiro.accessSection")}</h2>
         <div className="space-y-3 text-muted-foreground">
-          <p>
-            {t('costManagement.regrasFinanceiro.accessText')}
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: t('costManagement.regrasFinanceiro.accessText') }} />
           <p>
             {t('costManagement.regrasFinanceiro.accessText2')}
           </p>
         </div>
       </section>
 
-      {/* Card Regras */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.regrasFinanceiro.cardRegras")}</h2>
         <p className="text-muted-foreground mb-3">
@@ -60,7 +54,6 @@ export default function RegrasFinanceiroCostManagement() {
         </ul>
       </section>
 
-      {/* Regra de Faturamento */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.regrasFinanceiro.billingRule")}</h2>
         <div className="space-y-3 text-muted-foreground">
@@ -75,7 +68,6 @@ export default function RegrasFinanceiroCostManagement() {
         </div>
       </section>
 
-      {/* Criando Regra */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.regrasFinanceiro.creatingBillingRule")}</h2>
         <p className="text-muted-foreground">
@@ -83,7 +75,6 @@ export default function RegrasFinanceiroCostManagement() {
         </p>
       </section>
 
-      {/* Regra por Tag */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.regrasFinanceiro.billingRuleByTag")}</h2>
         <div className="space-y-3 text-muted-foreground">
@@ -98,7 +89,6 @@ export default function RegrasFinanceiroCostManagement() {
         </div>
       </section>
 
-      {/* Atualização */}
       <section className="rounded-xl border border-border bg-card p-6 shadow-sm">
         <h2 className="text-xl font-semibold text-foreground mb-4">{t("costManagement.regrasFinanceiro.updateListing")}</h2>
         <p className="text-muted-foreground">
